@@ -151,11 +151,11 @@ const FormatoLine = () => {
 
 /* ── ANTES DE MARCARES (FAQ teaser) ── */
 const faqQuestions = [
-  "És médica?",
-  "Substitui o meu médico?",
-  "Tratas hipotiroidismo, endometriose ou SOP?",
-  "Como olhas para análises clínicas?",
-  "Quanto tempo até notar mudanças?",
+  "O que acontece na primeira consulta?",
+  "Como funciona o acompanhamento?",
+  "Em que casos é indicado este acompanhamento?",
+  "Como olhas para as análises clínicas?",
+  "O que posso esperar ao longo do tempo?",
 ];
 
 const FAQTeaser = () => {

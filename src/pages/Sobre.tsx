@@ -254,24 +254,24 @@ const TransparenciaSection = () => {
 /* ── VII  FAQ ── */
 const faqItems = [
   {
-    q: "És médica?",
-    a: "Não sou médica. Sou especialista em Medicina Tradicional Chinesa, com cédula provisória da ACSS ao abrigo da Lei n.º 71/2013, em validação de créditos. A componente médica do acompanhamento — prescrição, análises, diagnóstico — é da responsabilidade da Dra. Patrícia Salvador, médica inscrita na Ordem dos Médicos.",
+    q: "O que acontece na primeira consulta?",
+    a: "A primeira consulta dura entre 60 e 90 minutos, em videochamada. Recebes um questionário prévio por email para preparar. Em consulta, exploramos o teu histórico clínico, sintomas, ciclo, sono, digestão, energia e contexto emocional. Sais com um plano estruturado por escrito, com revisões previstas.",
   },
   {
-    q: "Substitui o meu médico?",
-    a: "Não. O meu trabalho complementa o acompanhamento médico convencional, não o substitui. Quando há necessidade de diagnóstico, prescrição ou exames, articulo com a Dra. Patrícia Salvador ou refiro para outras especialidades.",
+    q: "Como funciona o acompanhamento?",
+    a: "O acompanhamento estende-se ao longo do tempo. Após a primeira consulta, há revisões periódicas para ajustar o plano à evolução. A frequência depende do teu caso — pode ser mais próxima nas fases iniciais e espaçar-se à medida que o equilíbrio se estabiliza. Não é uma consulta isolada. É um processo.",
   },
   {
-    q: "Tratas hipotiroidismo, endometriose ou SOP?",
-    a: "Não trato patologias. O meu trabalho não substitui diagnóstico ou tratamento médico. Acompanho, dentro do âmbito da Medicina Tradicional Chinesa, em complemento ao acompanhamento médico das mulheres que vivem com estes diagnósticos.",
+    q: "Em que casos é indicado este acompanhamento?",
+    a: "Acompanho mulheres em transições hormonais — perimenopausa, alterações de ciclo, fadiga persistente, sono alterado, equilíbrio emocional, digestão sensível. Trabalho sobretudo com sintomas reais e exames maioritariamente normais. Para descompensações agudas ou necessidade de intervenção médica imediata, refiro para médicos e outras especialidades.",
   },
   {
-    q: "Como olhas para análises clínicas?",
-    a: "A leitura clínica oficial das análises é da Dra. Patrícia Salvador. Eu integro essa leitura no contexto mais amplo da Medicina Tradicional Chinesa e dos quatro anos que passei no Departamento de Microbioma da Regenerus Labs, onde trabalhei com análises funcionais todos os dias. Integro — não substituo — a interpretação médica.",
+    q: "Como olhas para as análises clínicas?",
+    a: "A leitura clínica oficial das análises é da Dra. Patrícia Salvador, médica inscrita na Ordem dos Médicos com quem colaboro. O que eu faço é integrar essa leitura no contexto mais amplo da Medicina Tradicional Chinesa e dos quatro anos que passei no Departamento de Microbioma da Regenerus Labs. Integro — não substituo — a interpretação médica.",
   },
   {
-    q: "Quanto tempo até notar mudanças?",
-    a: "Depende. As pacientes descrevem mudanças subjetivas em sono, energia e equilíbrio ao longo de semanas a meses. Não prometo prazos.",
+    q: "O que posso esperar ao longo do tempo?",
+    a: "A evolução depende de vários fatores — o teu corpo, a tua fase de vida, a consistência com o plano. As pacientes descrevem mudanças subjetivas em sono, energia e equilíbrio ao longo de semanas a meses. Não prometo prazos nem resultados.",
   },
 ];
 
