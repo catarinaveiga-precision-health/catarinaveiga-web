@@ -70,7 +70,7 @@ const metodoSteps = [
   },
   {
     title: "Leitura de padrões",
-    body: "Identificação de desequilíbrios funcionais dentro do sistema da Medicina Tradicional Chinesa.",
+    body: "Identificação de desequilíbrios funcionais dentro do sistema de leitura de padrões funcionais.",
   },
   {
     title: "Plano individualizado",
