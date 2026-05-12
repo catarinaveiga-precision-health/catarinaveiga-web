@@ -25,8 +25,7 @@ const Team = () => {
           <div className="fade-up border border-border p-8">
             <img src={patriciaTeam} alt="Dra. Patrícia Salvador" className="w-16 h-16 rounded-full object-cover mb-5" loading="lazy" />
             <h3 className="font-serif text-2xl text-foreground mb-1">Dra. Patrícia Salvador</h3>
-            <p className="label-uppercase text-amber text-xs mb-4">{t("team.patricia.role")}</p>
-            <p className="text-muted-foreground text-sm leading-relaxed">{t("team.patricia.desc")}</p>
+            <p className="label-uppercase text-amber text-xs">{t("team.patricia.role")}</p>
           </div>
           {/* Card 3 — Maya (AI) */}
           <div className="fade-up border border-border p-8">
