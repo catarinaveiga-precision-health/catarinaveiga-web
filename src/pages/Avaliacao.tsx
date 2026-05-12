@@ -12,12 +12,12 @@ import { LAB_UNIT_CONFIG, LabKey, getDefaultUnit, isImplausible } from "@/lib/la
 
 const OBJECTIVES = [
   "Fadiga persistente",
-  "Disfunção tiroideia",
+  "Energia e metabolismo",
   "Alterações hormonais",
-  "Patologia digestiva",
-  "Autoimunidade",
+  "Digestão e bem-estar intestinal",
+  "Imunidade e inflamação",
   "Perda de peso",
-  "Saúde mental",
+  "Equilíbrio emocional e sono",
   "Optimização geral",
 ];
 
@@ -133,7 +133,7 @@ function evaluateResults(labValues: LabValues, labUnits: LabUnits) {
     const implausible = flag("tsh", labValues.tsh, unit);
     if (tsh >= 0.5 && tsh <= 2.0) findings.push({ marker: "TSH", value: `${tsh}`, unit, status: "optimal", note: "Dentro do intervalo funcional óptimo.", implausible });
     else if (tsh > 2.0 && tsh <= 4.5) findings.push({ marker: "TSH", value: `${tsh}`, unit, status: "suboptimal", note: "Dentro do intervalo convencional, mas acima do óptimo funcional (0.5–2.0).", implausible });
-    else findings.push({ marker: "TSH", value: `${tsh}`, unit, status: "flag", note: "Fora do intervalo de referência. Requer avaliação clínica.", implausible });
+    else findings.push({ marker: "TSH", value: `${tsh}`, unit, status: "flag", note: "Fora do intervalo de referência. Vale a pena explorar com o teu médico.", implausible });
   }
 
   const ferritina = v("ferritina");
@@ -152,7 +152,7 @@ function evaluateResults(labValues: LabValues, labUnits: LabUnits) {
     const implausible = flag("pcr", labValues.pcr, unit);
     if (pcr < 1) findings.push({ marker: "PCR", value: `${pcr}`, unit, status: "optimal", note: "Sem inflamação sistémica detectável.", implausible });
     else if (pcr >= 1 && pcr <= 3) findings.push({ marker: "PCR", value: `${pcr}`, unit, status: "suboptimal", note: "Inflamação de baixo grau. Investigar causa.", implausible });
-    else findings.push({ marker: "PCR", value: `${pcr}`, unit, status: "flag", note: "Inflamação elevada. Requer avaliação clínica.", implausible });
+    else findings.push({ marker: "PCR", value: `${pcr}`, unit, status: "flag", note: "Inflamação elevada. Vale a pena explorar com o teu médico.", implausible });
   }
 
   const vitD = v("vitamina_d");
@@ -475,12 +475,12 @@ const Avaliacao = () => {
 
       {/* Hero */}
       <section className="pt-32 pb-12 px-6 text-center bg-background">
-        <p className="label-uppercase text-matcha mb-4 tracking-widest text-xs">Avaliação Funcional</p>
+        <p className="label-uppercase text-matcha mb-4 tracking-widest text-xs">Autoavaliação</p>
         <h1 className="font-serif text-4xl md:text-5xl text-foreground leading-tight max-w-3xl mx-auto">
           Os teus exames estão normais.<br />O teu corpo não.
         </h1>
-        <p className="mt-6 text-muted-custom max-w-xl mx-auto text-base font-sans leading-relaxed">
-          Insere os teus valores laboratoriais e descobre o que os intervalos de referência convencionais não te dizem.
+        <p className="mt-6 text-muted-custom max-w-2xl mx-auto text-base font-sans leading-relaxed">
+          Esta autoavaliação é educativa. Ajuda-te a chegar à consulta — comigo ou com o teu médico — com perguntas estruturadas. Não substitui avaliação clínica.
         </p>
         <p className="mt-2 text-muted-custom font-sans text-sm">
           Mais de 15 biomarcadores analisados em menos de 2 minutos.
@@ -757,7 +757,7 @@ const Avaliacao = () => {
                 <div className="w-14 h-14 rounded-full bg-amber/10 flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="w-7 h-7 text-amber" />
                 </div>
-                <h2 className="font-serif text-3xl text-foreground">O teu relatório funcional completo</h2>
+                <h2 className="font-serif text-3xl text-foreground">A tua leitura — para levares à consulta.</h2>
                 <p className="text-muted-custom font-sans mt-2">Análise baseada em intervalos funcionais — não apenas de referência.</p>
               </div>
 
@@ -847,11 +847,11 @@ const Avaliacao = () => {
 
               {/* Disclaimer */}
               <div className="bg-bone rounded-xl p-6 text-center space-y-4">
-                <p className="text-sm font-sans text-foreground italic">
-                  "Os intervalos de referência dizem-te que estás 'normal'. Os intervalos funcionais dizem-te se estás bem."
+                <p className="text-sm font-sans text-foreground/85 leading-relaxed max-w-[60ch] mx-auto">
+                  Para além dos intervalos de referência laboratoriais, vale a pena olhar para intervalos funcionais — uma leitura complementar usada por laboratórios portugueses (como o Joaquim Chaves) e pela literatura científica internacional. Não substitui a interpretação clínica do médico.
                 </p>
                 <p className="text-xs text-muted-custom font-sans">
-                  Esta avaliação é informativa e não substitui aconselhamento médico. Para uma análise completa, consulta um profissional.
+                  Esta autoavaliação é uma ferramenta educativa. Para diagnóstico, interpretação clínica de análises, prescrição ou tratamento médico, consulta o teu médico. Se quiseres acompanhamento de Medicina Tradicional Chinesa em complemento, podes marcar uma consulta comigo.
                 </p>
               </div>
 

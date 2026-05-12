@@ -1,12 +1,12 @@
 const items = [
-  "Omnos London",
-  "Regenerus Labs UK",
-  "Medicina Funcional",
-  "Nutrição Clínica",
-  "Eixo HPA",
-  "Microbioma",
-  "Tiroide",
+  "Instituto Van Nghi Portugal",
+  "Cédula ACSS · Lei 71/2013",
+  "Regenerus Labs (anteriormente Omnos.me)",
+  "Quatro anos no Departamento de Microbioma",
+  "Longevity Med Summit 2024",
+  "20 anos de prática clínica",
   "Perimenopausa",
+  "Telemedicina",
 ];
 
 const CredentialsBand = () => {

@@ -24,10 +24,10 @@ const translations: Record<string, Record<Language, string>> = {
   "nav.equipa": { pt: "Equipa", en: "Team" },
   "nav.blog": { pt: "Blog", en: "Blog" },
   "nav.contacto": { pt: "Contacto", en: "Contact" },
-  "nav.subtitle": { pt: "Medicina Funcional · Integrativa", en: "Functional · Integrative Medicine" },
+  "nav.subtitle": { pt: "Medicina Tradicional Chinesa · Saúde Hormonal Feminina", en: "Traditional Chinese Medicine · Women’s Hormonal Health" },
   "nav.cta": { pt: "Agendar Consulta", en: "Book Consultation" },
   "nav.home": { pt: "Início", en: "Home" },
-  "nav.funcional": { pt: "Medicina Funcional", en: "Functional Medicine" },
+  "nav.funcional": { pt: "Método", en: "Method" },
   "nav.programa": { pt: "Programa", en: "Program" },
   "nav.biblioteca": { pt: "Biblioteca", en: "Library" },
   "nav.sobre": { pt: "Sobre", en: "About" },
@@ -51,7 +51,7 @@ const translations: Record<string, Record<Language, string>> = {
   "trustband.desc": { pt: "Forma\u00e7\u00e3o cont\u00ednua e colabora\u00e7\u00e3o em Portugal e Reino Unido em sa\u00fade funcional e integrativa", en: "Continuous training and collaboration in Portugal and the UK in functional and integrative health" },
 
   // Marquee
-  "marquee.0": { pt: "Medicina Funcional", en: "Functional Medicine" },
+  "marquee.0": { pt: "Medicina Tradicional Chinesa", en: "Traditional Chinese Medicine" },
   "marquee.1": { pt: "Sa\u00fade Hormonal", en: "Hormonal Health" },
   "marquee.2": { pt: "Tir\u00f3ide", en: "Thyroid" },
   "marquee.3": { pt: "Perimenopausa", en: "Perimenopause" },
@@ -64,7 +64,7 @@ const translations: Record<string, Record<Language, string>> = {
   "manifesto.label": { pt: "A minha filosofia", en: "My philosophy" },
   "manifesto.quote1": { pt: "\u201COs teus exames s\u00e3o normais.\u201D", en: "\u201CYour tests are normal.\u201D" },
   "manifesto.quote2": { pt: "Mas tu sabes que n\u00e3o te sentes normal.", en: "But you know you don\u2019t feel normal." },
-  "manifesto.p1": { pt: "A medicina convencional usa intervalos de refer\u00eancia definidos para popula\u00e7\u00f5es gerais. A medicina funcional usa crit\u00e9rios funcionais avan\u00e7ados \u2014 mais exigentes, mais pr\u00f3ximos do que o teu corpo precisa para funcionar de forma \u00f3ptima.", en: "Conventional medicine uses reference ranges defined for general populations. Functional medicine uses advanced functional criteria \u2014 more demanding, closer to what your body needs to function optimally." },
+  "manifesto.p1": { pt: "A medicina convencional usa intervalos de refer\u00eancia definidos para popula\u00e7\u00f5es gerais. A leitura funcional acrescenta intervalos mais estreitos \u2014 mais pr\u00f3ximos do que o corpo precisa para funcionar de forma \u00f3ptima. \u00c9 uma camada complementar de leitura, n\u00e3o um substituto da interpreta\u00e7\u00e3o cl\u00ednica.", en: "Conventional medicine uses reference ranges defined for general populations. Functional reading adds narrower intervals \u2014 closer to what the body needs to function optimally. It is a complementary reading layer, not a substitute for clinical interpretation." },
   "manifesto.p2": { pt: "A diferença entre \u201Cnormal\u201D e \u201Córptimo\u201D pode ser a explicação para anos de sintomas sem resposta. O meu trabalho começa exactamente aí.", en: "The difference between \u201Cnormal\u201D and \u201Coptimal\u201D can explain years of unanswered symptoms. My work begins exactly there." },
 
   // Pillars
@@ -177,7 +177,7 @@ const translations: Record<string, Record<Language, string>> = {
   // Team
   "team.label": { pt: "Equipa", en: "Team" },
   "team.title": { pt: "As pessoas por trás do acompanhamento", en: "The people behind the follow-up" },
-  "team.catarina.role": { pt: "Medicina Funcional Integrativa · Saúde da Mulher", en: "Integrative Functional Medicine · Women's Health" },
+  "team.catarina.role": { pt: "Medicina Tradicional Chinesa · Saúde Hormonal Feminina", en: "Traditional Chinese Medicine · Women's Hormonal Health" },
   "team.catarina.desc": { pt: "Avaliação integrativa, interpretação funcional avançada e coordenação de todo o acompanhamento.\nMais de 20 anos de experiência clínica focada na saúde da mulher.", en: "Integrative assessment, advanced functional interpretation, and coordination of all follow-up.\nOver 20 years of clinical experience focused on women's health." },
   "team.patricia.role": { pt: "Médica de Clínica Geral · Abordagem Integrativa", en: "General Practitioner · Integrative Approach" },
   "team.patricia.desc": { pt: "Consulta médica convencional quando indicada — prescrição de medicação, pedidos de exames e referenciação. Integra a dimensão física, mental e emocional e privilegia decisões partilhadas. Complementa o acompanhamento integrativo com segurança clínica.", en: "Conventional medical consultation when indicated — prescribing medication, ordering tests, and referrals. Integrates the physical, mental, and emotional dimensions and favours shared decisions. Complements integrative follow-up with clinical safety." },
@@ -191,11 +191,11 @@ const translations: Record<string, Record<Language, string>> = {
 
   // About
   "about.label": { pt: "Sobre", en: "About" },
-  "about.role": { pt: "Especialista em Medicina Funcional Integrativa \u00b7 Sa\u00fade da Mulher", en: "Specialist in Integrative Functional Medicine \u00b7 Women\u2019s Health" },
-  "about.p1": { pt: "Com mais de 20 anos de experi\u00eancia cl\u00ednica, constru\u00ed a minha pr\u00e1tica em torno de uma convic\u00e7\u00e3o simples: os sintomas s\u00e3o mensagens, n\u00e3o o problema.", en: "With over 20 years of clinical experience, I built my practice around a simple conviction: symptoms are messages, not the problem." },
-  "about.p2": { pt: "A minha forma\u00e7\u00e3o inclui forma\u00e7\u00e3o em Psicologia (Universidade de Lisboa), forma\u00e7\u00e3o em Neurobiologia (Universidade de Chicago), forma\u00e7\u00e3o em Modula\u00e7\u00e3o Intestinal com o Prof. Murilo Pereira, e Interpreta\u00e7\u00e3o de An\u00e1lises Cl\u00ednicas e Nutri\u00e7\u00e3o Funcional com o Dr. Gabriel de Carvalho.", en: "My training includes Psychology (University of Lisbon), Neurobiology (University of Chicago), Intestinal Modulation with Prof. Murilo Pereira, and Clinical Analysis Interpretation and Functional Nutrition with Dr. Gabriel de Carvalho." },
-  "about.p3": { pt: "Durante quatro anos integrei a equipa da Omnos em Londres \u2014 uma das plataformas pioneiras de medicina funcional na Europa \u2014 onde assumi os pap\u00e9is de Chief Resident of Microbiome e Academy Manager. Nesse percurso participei na arquitectura cl\u00ednica da plataforma, liderei a integra\u00e7\u00e3o do protocolo de microbioma, publiquei na revista ICAN e colaborei com especialistas internacionais de sa\u00fade.", en: "For four years I was part of the Omnos team in London \u2014 one of the pioneering functional medicine platforms in Europe \u2014 where I served as Chief Resident of Microbiome and Academy Manager. During this time, I participated in the platform\u2019s clinical architecture, led the microbiome protocol integration, published in ICAN journal, and collaborated with international health specialists." },
-  "about.p4": { pt: "Hoje trabalho exclusivamente online com mulheres de Portugal e internacionalmente, em Português e Inglês, à procura das causas que ficaram por encontrar.", en: "Today I work exclusively online with women from Portugal and internationally, in Portuguese and English, searching for the causes that remain to be found." },
+  "about.role": { pt: "Especialista em Medicina Tradicional Chinesa \u00b7 Sa\u00fade Hormonal Feminina", en: "Specialist in Traditional Chinese Medicine \u00b7 Women\u2019s Hormonal Health" },
+  "about.p1": { pt: "Acompanho mulheres em perimenopausa com sintomas reais e exames maioritariamente normais. Vinte anos de pr\u00e1tica cl\u00ednica em MTC. C\u00e9dula provis\u00f3ria da ACSS ao abrigo da Lei n.\u00ba 71/2013, em valida\u00e7\u00e3o de cr\u00e9ditos.", en: "I work with women in perimenopause with real symptoms and largely normal lab results. Twenty years of clinical practice in TCM. Provisional ACSS license under Law 71/2013." },
+  "about.p2": { pt: "Entre 2020 e 2024 integrei a equipa da Omnos.me \u2014 hoje Regenerus Labs, um dos maiores laborat\u00f3rios europeus de testes funcionais. Quatro anos no Departamento de Microbioma e \u00e0 frente da Educa\u00e7\u00e3o para a Sa\u00fade.", en: "Between 2020 and 2024 I joined the team at Omnos.me \u2014 today Regenerus Labs, one of the largest European functional testing laboratories. Four years in the Microbiome Department and leading Health Education." },
+  "about.p3": { pt: "Em 2024 fui oradora no Longevity Med Summit, com a apresenta\u00e7\u00e3o \u201cOestrogen-Related Conditions and Gut Microbiota\u201d.", en: "In 2024 I was a speaker at the Longevity Med Summit, with the presentation \u201cOestrogen-Related Conditions and Gut Microbiota\u201d." },
+  "about.p4": { pt: "Colaboro com a Dra. Patrícia Salvador, médica inscrita na Ordem dos Médicos, responsável pela componente médica do acompanhamento. Trabalho em telemedicina, em Portugal e no estrangeiro.", en: "I collaborate with Dr. Patrícia Salvador, physician registered with the Portuguese Medical Council, responsible for the medical component of follow-up. I work in telemedicine, in Portugal and abroad." },
 
   // FAQ
   "faq.title": { pt: "Perguntas frequentes", en: "Frequently asked questions" },
@@ -205,8 +205,8 @@ const translations: Record<string, Record<Language, string>> = {
   "faq.2.a": { pt: "Sim. As consultas est\u00e3o dispon\u00edveis em Portugu\u00eas e Ingl\u00eas. Toda a documenta\u00e7\u00e3o pode ser fornecida no idioma da tua prefer\u00eancia.", en: "Yes. Consultations are available in Portuguese and English. All documentation can be provided in your preferred language." },
   "faq.3.q": { pt: "Porque é que o Programa Fundação dura 3 meses?", en: "Why does the Foundation Program last 3 months?" },
   "faq.3.a": { pt: "O corpo precisa de tempo para responder. O sistema hormonal demora 6 a 8 semanas a reagir a interven\u00e7\u00f5es. A neuroplasticidade exige repeti\u00e7\u00e3o consistente. Tr\u00eas meses \u00e9 o m\u00ednimo para resultados mensur\u00e1veis e sustent\u00e1veis. N\u00e3o \u00e9 um n\u00famero arbitr\u00e1rio. \u00c9 fisiologia.", en: "The body needs time to respond. The hormonal system takes 6 to 8 weeks to react to interventions. Neuroplasticity requires consistent repetition. Three months is the minimum for measurable and sustainable results. It\u2019s not an arbitrary number. It\u2019s physiology." },
-  "faq.4.q": { pt: "A medicina funcional substitui o m\u00e9dico convencional?", en: "Does functional medicine replace conventional doctors?" },
-  "faq.4.a": { pt: "N\u00e3o. \u00c9 complementar. Quando necess\u00e1rio, pode ser recomendada consulta m\u00e9dica com a Dra. Patr\u00edcia Salvador para avalia\u00e7\u00e3o convencional, medica\u00e7\u00e3o ou referencia\u00e7\u00e3o.", en: "No. It\u2019s complementary. When necessary, a medical consultation with Dr. Patr\u00edcia Salvador may be recommended for conventional assessment, medication, or referral." },
+  "faq.4.q": { pt: "A Medicina Tradicional Chinesa substitui o m\u00e9dico convencional?", en: "Does Traditional Chinese Medicine replace conventional doctors?" },
+  "faq.4.a": { pt: "N\u00e3o. \u00c9 complementar. Quando necess\u00e1rio, \u00e9 recomendada consulta m\u00e9dica com a Dra. Patr\u00edcia Salvador para avalia\u00e7\u00e3o convencional, medica\u00e7\u00e3o ou referencia\u00e7\u00e3o. A componente m\u00e9dica do acompanhamento \u00e9 da responsabilidade dela.", en: "No. It\u2019s complementary. When necessary, a medical consultation with Dr. Patr\u00edcia Salvador is recommended for conventional assessment, medication, or referral. The medical component of follow-up is her responsibility." },
   "faq.5.q": { pt: "A Maya substitui um profissional de sa\u00fade?", en: "Does Maya replace a health professional?" },
   "faq.5.a": { pt: "N\u00e3o. A Maya \u00e9 um sistema de apoio educativo entre consultas. N\u00e3o substitui avalia\u00e7\u00e3o cl\u00ednica, diagn\u00f3stico ou tratamento m\u00e9dico.", en: "No. Maya is an educational support system between consultations. It does not replace clinical assessment, diagnosis, or medical treatment." },
   "faq.6.q": { pt: "Os meus dados de sa\u00fade est\u00e3o protegidos?", en: "Is my health data protected?" },
@@ -247,7 +247,7 @@ const translations: Record<string, Record<Language, string>> = {
   "ctafinal.sublink": { pt: "Ou marcar consulta avulsa \u2014 \u20ac120", en: "Or book a single consultation \u2014 \u20ac120" },
 
   // Footer
-  "footer.desc": { pt: "Medicina Funcional Integrativa com foco na sa\u00fade da mulher. Acompanhamento exclusivamente online para Portugal e internacional.", en: "Integrative Functional Medicine focused on women\u2019s health. Online-only follow-up for Portugal and international clients." },
+  "footer.desc": { pt: "Medicina Tradicional Chinesa com leitura funcional integrada. Foco em sa\u00fade hormonal feminina e perimenopausa. Telemedicina em Portugal e estrangeiro.", en: "Traditional Chinese Medicine with integrated functional reading. Focus on women\u2019s hormonal health and perimenopause. Telemedicine in Portugal and abroad." },
   "footer.online": { pt: "Online \u00b7 Portugu\u00eas e Ingl\u00eas", en: "Online \u00b7 Portuguese and English" },
   "footer.nav": { pt: "Navega\u00e7\u00e3o", en: "Navigation" },
   "footer.contact": { pt: "Contacto", en: "Contact" },
