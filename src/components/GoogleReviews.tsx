@@ -2,81 +2,84 @@ import { useFadeUp } from "@/hooks/useFadeUp";
 import { Star } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+const GOOGLE_URL =
+  "https://www.google.com/maps/place/Catarina+Veiga+%E2%80%93+Medicina+Funcional+Integrativa+%7C+Parede,+Cascais/";
+
 const reviews = [
   {
-    quote: "A Dra. Catarina tem sido uma bênção na minha vida. De um conhecimento incrível e um ser humano extraordinário.",
-    name: "Vanessa L.",
+    quote:
+      "Estou a ser acompanhada pela Catarina vai fazer um ano e posso dizer que tem sido dos melhores investimentos que já fiz. A Catarina é super metódica e cuidadosa nas análises que faz e o acompanhamento é personalizado e ajustado de x em x tempo em função dos sintomas e evolução. Foi a primeira profissional de saúde a realmente olhar para o meu quadro em detalhe. A Catarina, para além de ser uma excelente profissional, também é uma pessoa super simpática, acessível, com a qual é possível estabelecer uma relação de confiança, proximidade e apoio. Nunca me sinto como sendo mais uma. Recomendo mesmo muito trabalharem com a Catarina, principalmente se não encontram respostas nos sistemas convencionais.",
+    name: "Cláudia Soeiros",
   },
   {
-    quote: "Experimentei melhorias significativas na minha saúde. Sinto-me verdadeiramente grata por ter encontrado alguém tão comprometida em ajudar a alcançar resultados reais e duradouros.",
-    name: "Mariana N.",
+    quote:
+      "Não podia estar mais satisfeita. Finalmente consegui que alguém me escutasse. A Catarina escutou, validou e analisou todos os meus sintomas com uma atenção que não tinha encontrado antes. Estamos em processo de acompanhamento, mas muitos aspetos já foram esclarecidos. Análises, hábitos, regime alimentar, sono, suplementação — tudo é abordado e trabalhado em consulta. Recomendo a todas que se sintam perdidas e cujos sintomas condicionem o dia a dia. Precisamos de mais Catarinas neste mundo.",
+    name: "Alexandra Fernandes",
   },
   {
-    quote: "Recomendo vivamente. Abordagem completamente diferente e muito mais eficaz do que tudo o que tinha experimentado antes.",
-    name: "Cliente verificado",
-  },
-];
-
-const reviewsEN = [
-  {
-    quote: "Dr. Catarina has been a blessing in my life. Incredible knowledge and an extraordinary human being.",
-    name: "Vanessa L.",
-  },
-  {
-    quote: "I experienced significant improvements in my health. I feel truly grateful for having found someone so committed to helping achieve real and lasting results.",
-    name: "Mariana N.",
-  },
-  {
-    quote: "Highly recommend. A completely different approach and much more effective than anything I had tried before.",
-    name: "Verified client",
+    quote:
+      "Durante muitos anos senti-me cansada, com o sono desregulado e sem perceber o que se passava no meu corpo. Foram anos exigentes de uma condição autoimune complexa. Com o apoio e o conhecimento da Catarina, comecei finalmente a olhar para as causas, não só para os sintomas. O maior ganho foi no sono. Hoje durmo melhor, acordo com mais energia e sinto mais equilíbrio no dia a dia. A Catarina está a ajudar-me a completar 'peças fundamentais do meu puzzle'. Obrigada, Catarina.",
+    name: "Ângela Lourenço",
   },
 ];
 
 const GoogleReviews = () => {
   const ref = useFadeUp();
   const { lang } = useLanguage();
-  const currentReviews = lang === "en" ? reviewsEN : reviews;
-  const badgeText = lang === "en" ? "4.7 · 13 REVIEWS ON GOOGLE" : "4.7 · 13 AVALIAÇÕES NO GOOGLE";
+  const badgeText =
+    lang === "en" ? "4.8 ★ · 20 reviews on Google" : "4,8 ★ · 20 avaliações no Google";
+  const seeAll = lang === "en" ? "See all 20 reviews on Google →" : "Ver as 20 avaliações no Google →";
+  const disclaimer =
+    lang === "en"
+      ? "Subjective experience. Does not represent a promise of results."
+      : "Experiência subjetiva. Não representa promessa de resultados.";
 
   return (
     <section ref={ref} className="bg-muted section-padding">
-      <div className="max-w-4xl mx-auto text-center">
+      <div className="max-w-4xl mx-auto text-center px-6">
         <a
-          href="https://www.google.com/search?ludocid=8339889103738038874"
+          href={GOOGLE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="fade-up inline-flex flex-col items-center gap-3 group"
+          className="fade-up inline-flex flex-col items-center gap-3 group mb-14"
         >
-          <svg width="32" height="32" viewBox="0 0 48 48" className="mb-1">
-            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
-            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-          </svg>
-
           <div className="flex gap-1">
             {[...Array(5)].map((_, i) => (
               <Star key={i} size={18} className="fill-amber text-amber" />
             ))}
           </div>
-
           <p className="label-uppercase text-muted-foreground text-[11px] group-hover:text-foreground transition-colors">
             {badgeText}
           </p>
         </a>
 
-        <div className="grid md:grid-cols-3 gap-8 mt-12">
-          {currentReviews.map((r, i) => (
-            <div key={i} className="fade-up">
-              <blockquote className="font-serif italic text-xl text-foreground leading-relaxed mb-4">
+        <div className="space-y-12 md:space-y-16 text-left max-w-3xl mx-auto">
+          {reviews.map((r) => (
+            <blockquote key={r.name} className="fade-up">
+              <p className="font-serif italic text-[clamp(1.0625rem,1.4vw,1.25rem)] leading-[1.7] text-foreground/90 mb-4">
                 &ldquo;{r.quote}&rdquo;
-              </blockquote>
-              <p className="label-uppercase text-muted-foreground text-xs">
-                &mdash; {r.name}
               </p>
-            </div>
+              <footer className="font-sans text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                — {r.name}
+              </footer>
+            </blockquote>
           ))}
         </div>
+
+        <div className="mt-14">
+          <a
+            href={GOOGLE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-sans text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors border-b border-amber pb-1"
+          >
+            {seeAll}
+          </a>
+        </div>
+
+        <p className="font-sans text-[12px] italic text-muted-foreground/70 mt-10 max-w-[50ch] mx-auto">
+          {disclaimer}
+        </p>
       </div>
     </section>
   );

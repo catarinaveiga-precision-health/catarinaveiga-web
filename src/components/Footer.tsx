@@ -78,16 +78,18 @@ const Footer = () => {
         </div>
       </div>
       <div className="border-t border-ivory/10 pt-6">
+        <p className="text-center text-[11px] text-ivory/40 mb-4">Cédula provisória ACSS</p>
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-ivory/40">
           <p>{t("footer.copyright")}</p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
             <Link to="/aviso-legal" className="hover:text-ivory/60 transition-colors">{t("footer.legal")}</Link>
             <Link to="/politica-privacidade" className="hover:text-ivory/60 transition-colors">{t("footer.privacy")}</Link>
             <Link to="/termos-utilizacao" className="hover:text-ivory/60 transition-colors">{t("footer.terms")}</Link>
+            <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" rel="noopener noreferrer" className="hover:text-ivory/60 transition-colors">Livro de Reclamações</a>
           </div>
         </div>
         <p className="text-center text-[11px] text-ivory/30 mt-4 max-w-2xl mx-auto leading-relaxed">
-          O conteúdo deste website é de natureza educativa e informativa. Não substitui consulta médica, diagnóstico ou tratamento.
+          Esta prática não substitui acompanhamento médico convencional nem inclui atos médicos reservados. Informação de carácter educativo. Não substitui avaliação médica, diagnóstico ou tratamento. Consulte sempre um profissional de saúde qualificado.
         </p>
       </div>
     </footer>

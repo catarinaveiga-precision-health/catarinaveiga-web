@@ -48,7 +48,7 @@ const translations: Record<string, Record<Language, string>> = {
   "hero.stat3label": { pt: "Portugal e internacional", en: "Portugal and international" },
 
   // TrustBand
-  "trustband.desc": { pt: "Forma\u00e7\u00e3o cont\u00ednua e colabora\u00e7\u00e3o em Portugal e Reino Unido em sa\u00fade funcional e integrativa", en: "Continuous training and collaboration in Portugal and the UK in functional and integrative health" },
+  "trustband.desc": { pt: "Forma\u00e7\u00e3o cont\u00ednua e colabora\u00e7\u00e3o em Portugal e Reino Unido em sa\u00fade da mulher e leitura funcional aplicada.", en: "Continuous training and collaboration in Portugal and the UK in women's health and applied functional reading." },
 
   // Marquee
   "marquee.0": { pt: "Medicina Tradicional Chinesa", en: "Traditional Chinese Medicine" },
@@ -263,7 +263,7 @@ const translations: Record<string, Record<Language, string>> = {
   "footer.international": { pt: "Online \u00b7 Portugal e internacional", en: "Online \u00b7 Portugal and international" },
 
   // LegalBand
-  "legal.text": { pt: "Informa\u00e7\u00e3o de car\u00e1cter educativo. N\u00e3o substitui avalia\u00e7\u00e3o m\u00e9dica, diagn\u00f3stico ou tratamento. Resultados variam conforme o caso e ades\u00e3o ao plano. A Maya \u00e9 um sistema de apoio educativo e n\u00e3o substitui acompanhamento cl\u00ednico profissional. Consulte sempre um profissional de sa\u00fade qualificado.", en: "Educational information. Does not replace medical assessment, diagnosis, or treatment. Results vary depending on the case and adherence to the plan. Maya is an educational support system and does not replace professional clinical follow-up. Always consult a qualified health professional." },
+  "legal.text": { pt: "Esta pr\u00e1tica n\u00e3o substitui acompanhamento m\u00e9dico convencional nem inclui atos m\u00e9dicos reservados. Informa\u00e7\u00e3o de car\u00e1cter educativo. N\u00e3o substitui avalia\u00e7\u00e3o m\u00e9dica, diagn\u00f3stico ou tratamento. Consulte sempre um profissional de sa\u00fade qualificado.", en: "This practice does not replace conventional medical care nor include reserved medical acts. Educational information. Does not replace medical assessment, diagnosis, or treatment. Always consult a qualified health professional." },
   "legal.complaints": { pt: "Livro de Reclama\u00e7\u00f5es", en: "Complaints Book" },
 
   // MobileCTA

@@ -1,30 +1,22 @@
 const items = [
   "Instituto Van Nghi Portugal",
-  "Cédula ACSS · Lei n.º 71/2013",
-  "Regenerus Labs (ex-Omnos.me)",
-  "Departamento de Microbioma",
+  "Cédula ACSS",
+  "Quatro anos no Departamento de Microbioma da Regenerus Labs",
   "Longevity Med Summit 2024",
   "20 anos de prática clínica",
-  "Saúde hormonal feminina",
 ];
 
 const CredentialsBand = () => {
-  const MarqueeContent = () => (
-    <>
-      {items.map((item, i) => (
-        <span key={i} className="mx-6 label-uppercase text-muted-foreground text-[13px] whitespace-nowrap">
-          {item} <span className="mx-4 text-amber">·</span>
-        </span>
-      ))}
-    </>
-  );
-
   return (
-    <section className="bg-muted py-5 overflow-hidden">
-      <div className="flex animate-marquee">
-        <MarqueeContent />
-        <MarqueeContent />
-      </div>
+    <section className="bg-muted py-5 px-6">
+      <p className="label-uppercase text-muted-foreground text-[13px] text-center max-w-5xl mx-auto leading-relaxed">
+        {items.map((item, i) => (
+          <span key={i} className="whitespace-nowrap inline-block">
+            {item}
+            {i < items.length - 1 && <span className="mx-3 text-amber">·</span>}
+          </span>
+        ))}
+      </p>
     </section>
   );
 };

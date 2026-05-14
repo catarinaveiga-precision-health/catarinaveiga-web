@@ -13,16 +13,15 @@ const Hero = () => {
             Medicina Tradicional Chinesa  ·  Cédula ACSS  ·  20 anos de prática
           </p>
           <h1 className="font-serif font-light text-[36px] md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-foreground mb-6 md:mb-8">
-            Uma leitura mais profunda<br className="hidden md:inline" />
-            <span className="md:hidden"> </span>do corpo feminino na perimenopausa.
+            Uma leitura mais profunda das transições hormonais femininas na perimenopausa.
           </h1>
           <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8 md:mb-10 font-sans max-w-[58ch]">
-            Integro sintomas, histórico clínico e padrões funcionais para construir um plano individualizado em Medicina Tradicional Chinesa, com acompanhamento longitudinal.
+            Integrando sintomas, histórico clínico, padrões funcionais e contexto metabólico — com foco em perimenopausa e saúde da mulher.
           </p>
           <div className="hidden md:block w-[60px] h-[1px] bg-amber mb-10" />
           <div className="hidden md:flex flex-col items-start gap-3 mb-10">
             <Button variant="hero" size="lg" className="rounded-[4px] max-w-[280px] w-full" onClick={openAcuity}>
-              Marcar consulta
+              Agendar consulta inicial
             </Button>
             <p className="text-muted-foreground/60 text-xs font-sans tracking-wide">
               Telemedicina  ·  Portugal e estrangeiro
@@ -47,7 +46,7 @@ const Hero = () => {
 
         <div className="fade-up flex flex-col items-center gap-3 order-3 md:hidden">
           <Button variant="hero" size="lg" className="rounded-[4px] max-w-[320px] w-full" onClick={openAcuity}>
-            Marcar consulta
+            Agendar consulta inicial
           </Button>
           <p className="text-muted-foreground/60 text-xs font-sans tracking-wide">
             Telemedicina  ·  Portugal e estrangeiro
