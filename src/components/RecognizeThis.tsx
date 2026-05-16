@@ -1,32 +1,28 @@
 import { useFadeUp } from "@/hooks/useFadeUp";
 
-const items = [
-  "Acordas cansada mesmo dormindo",
-  "Ciclo menstrual irregular ou imprevisível",
-  "Ansiedade sem causa aparente",
-  "Os teus exames estão \"normais\"",
-];
-
 const RecognizeThis = () => {
   const ref = useFadeUp();
 
   return (
     <section ref={ref} className="bg-muted section-padding">
-      <div className="max-w-2xl mx-auto text-center">
-        <h2 className="fade-up font-serif text-4xl md:text-5xl text-foreground mb-10">
+      <div className="max-w-2xl mx-auto px-6">
+        <h2 className="fade-up font-serif text-3xl md:text-4xl text-foreground mb-10 text-center">
           Reconheces isto?
         </h2>
-        <ul className="fade-up space-y-4 text-left max-w-md mx-auto mb-10">
-          {items.map((item, i) => (
-            <li key={i} className="flex items-start gap-3 font-sans text-foreground">
-              <span className="text-amber mt-1.5 text-xs">●</span>
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="fade-up font-serif italic text-amber text-lg md:text-xl">
-          Se te identificas com 2 ou mais, vale a pena investigar.
-        </p>
+        <div className="fade-up space-y-6 font-sans text-[1.0625rem] leading-[1.7] text-foreground/85">
+          <p>
+            Análises que voltam normais. A informação de que está tudo bem. E tu, que sabes que não está.
+          </p>
+          <p>
+            Fadiga que não passa com descanso. Sono que não recupera. Peso que deixou de responder. O ciclo que mudou. A concentração que escapa. O humor que oscila sem razão aparente.
+          </p>
+          <p>
+            Quarenta e tal anos. Tudo dentro dos valores de referência. E, ainda assim, cada vez menos reconhecida no teu próprio corpo.
+          </p>
+          <p className="font-serif text-foreground pt-2">
+            É neste território que trabalho.
+          </p>
+        </div>
       </div>
     </section>
   );
