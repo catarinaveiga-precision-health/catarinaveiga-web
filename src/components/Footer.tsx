@@ -31,12 +31,12 @@ const Footer = () => {
   };
 
   const navItems = [
-    { label: t("nav.abordagem"), href: "#abordagem" },
-    { label: t("nav.servicos"), href: "#servicos" },
-    { label: t("nav.programa3m"), href: "#programa-fundacao" },
-    { label: t("nav.equipa"), href: "#equipa" },
-    { label: t("nav.blog"), href: "#blog" },
-    { label: t("nav.contacto"), href: "#contacto" },
+    { label: t("nav.sobre"), href: "/sobre" },
+    { label: t("nav.programa"), href: "/programa-fundacao" },
+    { label: "Aletheia", href: "/aletheia" },
+    { label: t("nav.biblioteca"), href: "/recursos" },
+    { label: t("nav.avaliacao"), href: "/avaliacao" },
+    { label: t("nav.blog"), href: "/blog" },
   ];
 
   return (
@@ -51,7 +51,7 @@ const Footer = () => {
           <p className="label-uppercase text-ivory text-xs mb-4">{t("footer.nav")}</p>
           <nav className="space-y-2">
             {navItems.map((l) => (
-              <a key={l.href} href={l.href} className="block text-[14px] text-ivory/60 hover:text-ivory transition-colors">{l.label}</a>
+              <Link key={l.href} to={l.href} className="block text-[14px] text-ivory/60 hover:text-ivory transition-colors">{l.label}</Link>
             ))}
           </nav>
         </div>

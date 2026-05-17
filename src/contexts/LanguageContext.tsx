@@ -144,7 +144,7 @@ const translations: Record<string, Record<Language, string>> = {
 
   // Specializations
   "specs.label": { pt: "Especialidades", en: "Specialisations" },
-  "specs.title": { pt: "O que investigo e trato", en: "What I investigate and treat" },
+  "specs.title": { pt: "Domínios de atuação", en: "Areas of focus" },
   "specs.0": { pt: "Sa\u00fade Hormonal", en: "Hormonal Health" },
   "specs.1": { pt: "Perimenopausa", en: "Perimenopause" },
   "specs.2": { pt: "Tir\u00f3ide", en: "Thyroid" },
@@ -247,7 +247,7 @@ const translations: Record<string, Record<Language, string>> = {
   "ctafinal.sublink": { pt: "Ou marcar consulta avulsa \u2014 \u20ac120", en: "Or book a single consultation \u2014 \u20ac120" },
 
   // Footer
-  "footer.desc": { pt: "Medicina Tradicional Chinesa com leitura funcional integrada. Foco em sa\u00fade hormonal feminina e perimenopausa. Telemedicina em Portugal e estrangeiro.", en: "Traditional Chinese Medicine with integrated functional reading. Focus on women\u2019s hormonal health and perimenopause. Telemedicine in Portugal and abroad." },
+  "footer.desc": { pt: "Avalio, interpreto e acompanho mulheres em transições hormonais. Telemedicina em Portugal e no estrangeiro.", en: "I assess, interpret and follow women through hormonal transitions. Telemedicine in Portugal and abroad." },
   "footer.online": { pt: "Online \u00b7 Portugu\u00eas e Ingl\u00eas", en: "Online \u00b7 Portuguese and English" },
   "footer.nav": { pt: "Navega\u00e7\u00e3o", en: "Navigation" },
   "footer.contact": { pt: "Contacto", en: "Contact" },

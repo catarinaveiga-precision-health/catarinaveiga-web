@@ -31,8 +31,8 @@ const GoogleReviews = () => {
   const seeAll = lang === "en" ? "See all 20 reviews on Google →" : "Ver as 20 avaliações no Google →";
   const disclaimer =
     lang === "en"
-      ? "Subjective experience. Does not represent a promise of results."
-      : "Experiência subjetiva. Não representa promessa de resultados.";
+      ? "Reviews transcribed literally from Google. Subjective experiences. Do not represent a promise of results."
+      : "Avaliações transcritas literalmente do Google. Experiências subjetivas. Não representam promessa de resultados.";
 
   return (
     <section ref={ref} className="bg-muted section-padding">

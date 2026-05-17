@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import CredentialsBand from "@/components/CredentialsBand";
 import TrustBand from "@/components/TrustBand";
-import RecognizeThis from "@/components/RecognizeThis";
 import GoogleReviews from "@/components/GoogleReviews";
 import Footer from "@/components/Footer";
 import LegalBand from "@/components/LegalBand";
@@ -40,13 +39,7 @@ const PositioningQuote = () => {
     <section ref={ref} className="bg-background section-padding">
       <div className="max-w-3xl mx-auto text-center fade-up px-6">
         <p className="font-serif italic text-[clamp(1.5rem,3vw,2.5rem)] leading-snug text-foreground">
-          Os teus exames podem estar normais.
-          <br />
-          O teu corpo não se resume a isso.
-        </p>
-        <p className="font-sans text-[1rem] md:text-[1.0625rem] leading-[1.7] text-foreground/70 max-w-[52ch] mx-auto mt-8">
-          Há uma diferença entre estar dentro dos valores de referência e
-          funcionar bem. É nessa diferença que trabalho.
+          Entre o normal laboratorial e sentir-se verdadeiramente bem existe muitas vezes um espaço que merece atenção.
         </p>
       </div>
     </section>
@@ -115,7 +108,7 @@ const ComoTrabalho = () => {
           Leio antes de propor.
         </h2>
         <p className="font-sans text-[1.0625rem] leading-[1.7] text-foreground/85 max-w-[60ch] mb-16">
-          Na primeira consulta analisamos em detalhe os teus sintomas, o histórico clínico, o ciclo, o sono, a digestão e o padrão de energia. Em conjunto, não por partes. Sais com uma leitura escrita do teu caso, um plano organizado por prioridades e próximos passos com prazo. Não uma lista de sugestões genéricas.
+          Avalio, interpreto e acompanho. Trabalho a partir dos teus sinais, do teu histórico e dos teus padrões, e a partir daí construo um plano individualizado, com acompanhamento longitudinal.
         </p>
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-10 md:gap-y-14 max-w-3xl">
           {comoTrabalhoCards.map((c, i) => (
@@ -445,7 +438,6 @@ const Index = () => {
         <Hero />
         <CredentialsBand />
         <TrustBand />
-        <RecognizeThis />
         <PositioningQuote />
         <Dominios />
         <ComoTrabalho />
