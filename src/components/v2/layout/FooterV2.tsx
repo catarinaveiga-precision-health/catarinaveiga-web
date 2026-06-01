@@ -21,10 +21,10 @@ export const FooterV2 = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
           {/* Coluna 1 — Identidade */}
           <div>
-            <p className="font-display text-h3-v2 text-v2-ink leading-tight">
+            <p className="font-serif text-h3-v2 text-v2-ink leading-tight">
               Catarina Veiga
             </p>
-            <p className="mt-4 font-body text-body-sm-v2 text-v2-ink-mute leading-[1.7] max-w-[28ch]">
+            <p className="mt-4 font-sans text-body-sm-v2 text-v2-ink-mute leading-[1.7] max-w-[28ch]">
               Medicina Tradicional Chinesa · Saúde Funcional Feminina
               <br />
               Cédula ACSS
@@ -35,7 +35,7 @@ export const FooterV2 = () => {
 
           {/* Coluna 2 — Navegação */}
           <div>
-            <p className="font-mono text-mono-v2 uppercase tracking-[0.14em] text-v2-sage mb-6">
+            <p className="font-sans text-mono-v2 uppercase tracking-[0.14em] text-v2-sage mb-6">
               Navegação
             </p>
             <ul className="space-y-3">
@@ -43,7 +43,7 @@ export const FooterV2 = () => {
                 <li key={n.href}>
                   <Link
                     to={n.href}
-                    className="font-body text-body-sm-v2 text-v2-ink-mute hover:text-v2-ink transition-colors"
+                    className="font-sans text-body-sm-v2 text-v2-ink-mute hover:text-v2-ink transition-colors"
                   >
                     {n.label}
                   </Link>
@@ -54,10 +54,10 @@ export const FooterV2 = () => {
 
           {/* Coluna 3 — Contacto */}
           <div>
-            <p className="font-mono text-mono-v2 uppercase tracking-[0.14em] text-v2-sage mb-6">
+            <p className="font-sans text-mono-v2 uppercase tracking-[0.14em] text-v2-sage mb-6">
               Contacto
             </p>
-            <ul className="space-y-3 font-body text-body-sm-v2 text-v2-ink-mute">
+            <ul className="space-y-3 font-sans text-body-sm-v2 text-v2-ink-mute">
               <li>
                 <a
                   href="mailto:info@catarinaveiga.com"
@@ -70,7 +70,7 @@ export const FooterV2 = () => {
               <li>Português · Inglês</li>
             </ul>
 
-            <div className="mt-8 flex items-center gap-6 font-body text-body-sm-v2 text-v2-ink-mute">
+            <div className="mt-8 flex items-center gap-6 font-sans text-body-sm-v2 text-v2-ink-mute">
               <a
                 href="https://instagram.com/catarina__veiga"
                 target="_blank"
@@ -92,10 +92,10 @@ export const FooterV2 = () => {
 
           {/* Coluna 4 — Newsletter */}
           <div>
-            <p className="font-mono text-mono-v2 uppercase tracking-[0.14em] text-v2-sage mb-6">
+            <p className="font-sans text-mono-v2 uppercase tracking-[0.14em] text-v2-sage mb-6">
               Newsletter
             </p>
-            <p className="font-body text-body-sm-v2 text-v2-ink-mute leading-[1.65] mb-6 max-w-[32ch]">
+            <p className="font-sans text-body-sm-v2 text-v2-ink-mute leading-[1.65] mb-6 max-w-[32ch]">
               Leituras clínicas mensais sobre saúde hormonal feminina.
               <br />
               Sem promoção. Sem spam.
@@ -113,7 +113,7 @@ export const FooterV2 = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="email@exemplo.com"
                 required
-                className="w-full bg-transparent border-b border-v2-paper-line py-3 font-body text-body-sm-v2 text-v2-ink placeholder:text-v2-ink-mute/50 focus:outline-none focus:border-v2-sage transition-colors"
+                className="w-full bg-transparent border-b border-v2-paper-line py-3 font-sans text-body-sm-v2 text-v2-ink placeholder:text-v2-ink-mute/50 focus:outline-none focus:border-v2-sage transition-colors"
               />
               <ButtonV2 variant="ghost" size="default">
                 Subscrever
@@ -123,10 +123,10 @@ export const FooterV2 = () => {
         </div>
 
         <div className="mt-24 pt-10 border-t border-v2-paper-line flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <p className="font-mono text-mono-v2 uppercase tracking-[0.08em] text-v2-ink-mute">
+          <p className="font-sans text-mono-v2 uppercase tracking-[0.08em] text-v2-ink-mute">
             © 2026 Catarina Veiga · Todos os direitos reservados
           </p>
-          <ul className="flex gap-8 font-body text-body-sm-v2 text-v2-ink-mute">
+          <ul className="flex gap-8 font-sans text-body-sm-v2 text-v2-ink-mute">
             <li>
               <Link to="/aviso-legal" className="hover:text-v2-ink transition-colors">
                 Aviso Legal
@@ -145,7 +145,7 @@ export const FooterV2 = () => {
           </ul>
         </div>
 
-        <p className="mt-12 text-center font-body text-body-sm-v2 italic text-v2-ink-mute/80 max-w-[64ch] mx-auto leading-[1.55]">
+        <p className="mt-12 text-center font-sans text-body-sm-v2 italic text-v2-ink-mute/80 max-w-[64ch] mx-auto leading-[1.55]">
           Conteúdo deste website tem natureza educativa e informativa. Não
           substitui consulta médica, diagnóstico ou tratamento.
         </p>

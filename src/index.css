@@ -41,16 +41,25 @@
     --v2-paper:        #F5F1EA;
     --v2-paper-deep:   #ECE6DB;
     --v2-paper-line:   #DDD5C6;
-    /* Ink */
+    /* Ink (dark) */
     --v2-ink:          #1F2422;
     --v2-ink-mute:     #4A5957;
     /* Sage */
     --v2-sage:         #718281;
     --v2-sage-deep:    #4A5957;
     --v2-moss:         #2F3F36;
-    /* Terracotta (action only) */
-    --v2-terracotta:      #A0664D;
-    --v2-terracotta-deep: #834F39;
+    /* Graffiti grey (neutral mid) */
+    --v2-graffiti:     #6F7370;
+    --v2-graffiti-soft:#9A9D99;
+    /* Golden (primary CTA) */
+    --v2-golden:       #B8956A;
+    --v2-golden-deep:  #9A7B53;
+    /* Brick (alt CTA / accent) */
+    --v2-brick:        #9C5239;
+    --v2-brick-deep:   #7E3F2A;
+    /* Legacy alias (keep for backwards compat with existing code) */
+    --v2-terracotta:      #B8956A;
+    --v2-terracotta-deep: #9A7B53;
 
     /* Custom tokens */
     --ivory: 37 33% 96%;

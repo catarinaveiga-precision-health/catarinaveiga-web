@@ -40,7 +40,7 @@ const baseClasses =
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-v2-terracotta text-v2-paper hover:bg-v2-terracotta-deep px-7 py-4 uppercase tracking-[0.12em]",
+    "bg-v2-golden text-v2-paper hover:bg-v2-golden-deep px-7 py-4 uppercase tracking-[0.12em]",
   ghost:
     "bg-transparent text-v2-ink border border-v2-ink/15 hover:border-v2-ink/40 px-7 py-4 uppercase tracking-[0.12em]",
   link:

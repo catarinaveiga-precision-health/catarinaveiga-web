@@ -32,10 +32,10 @@ export const Problem = () => (
       </FadeUp>
 
       <FadeUp className="mt-12 text-center" delay={0.15}>
-        <p className="font-display text-h2-v2 italic text-v2-ink leading-[1.2] max-w-[34ch] mx-auto">
+        <p className="font-serif text-h2-v2 italic text-v2-ink leading-[1.2] max-w-[34ch] mx-auto">
           Se duas ou mais destas frases são tuas, provavelmente o problema
           não está nos teus exames.
-          <span className="block mt-4 not-italic font-display">
+          <span className="block mt-4 not-italic font-serif">
             Está na forma como foram lidos.
           </span>
         </p>

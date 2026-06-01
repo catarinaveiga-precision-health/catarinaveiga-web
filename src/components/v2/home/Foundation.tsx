@@ -49,17 +49,17 @@ export const Foundation = () => (
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20">
         <FadeUp className="lg:col-span-5">
           <Eyebrow>Fundação</Eyebrow>
-          <h2 className="mt-6 font-display text-display-2 text-v2-ink leading-[1.1] tracking-[-0.015em]">
+          <h2 className="mt-6 font-serif text-display-2 text-v2-ink leading-[1.1] tracking-[-0.015em]">
             O primeiro ciclo de reorganização clínica.
           </h2>
-          <p className="mt-10 font-body text-body-v2 text-v2-ink-mute leading-[1.7] max-w-[42ch]">
+          <p className="mt-10 font-sans text-body-v2 text-v2-ink-mute leading-[1.7] max-w-[42ch]">
             Criado para mulheres que:
           </p>
           <ul className="mt-6 space-y-4">
             {forWhom.map((w, i) => (
               <li
                 key={i}
-                className="font-body text-body-v2 text-v2-ink leading-[1.65] pl-6 relative"
+                className="font-sans text-body-v2 text-v2-ink leading-[1.65] pl-6 relative"
               >
                 <span className="absolute left-0 top-[0.65em] w-2 h-px bg-v2-sage" />
                 {w}
@@ -69,16 +69,16 @@ export const Foundation = () => (
         </FadeUp>
 
         <FadeUp className="lg:col-span-6 lg:col-start-7" delay={0.1}>
-          <p className="font-mono text-mono-v2 uppercase tracking-[0.14em] text-v2-sage">
+          <p className="font-sans text-mono-v2 uppercase tracking-[0.14em] text-v2-sage">
             O que está incluído · 3 meses
           </p>
           <ul className="mt-10 space-y-8">
             {includes.map((item, i) => (
               <li key={i}>
-                <h3 className="font-display text-h3-v2 text-v2-ink leading-[1.3]">
+                <h3 className="font-serif text-h3-v2 text-v2-ink leading-[1.3]">
                   {item.title}
                 </h3>
-                <p className="mt-3 font-body text-body-v2 text-v2-ink-mute leading-[1.65]">
+                <p className="mt-3 font-sans text-body-v2 text-v2-ink-mute leading-[1.65]">
                   {item.body}
                 </p>
               </li>
@@ -92,10 +92,10 @@ export const Foundation = () => (
       </FadeUp>
 
       <FadeUp className="mt-16 mx-auto max-w-[58ch] text-center" delay={0.2}>
-        <p className="font-mono text-mono-v2 uppercase tracking-[0.14em] text-v2-sage">
+        <p className="font-sans text-mono-v2 uppercase tracking-[0.14em] text-v2-sage">
           Porquê 3 meses
         </p>
-        <p className="mt-6 font-body text-body-lg-v2 text-v2-ink leading-[1.6]">
+        <p className="mt-6 font-sans text-body-lg-v2 text-v2-ink leading-[1.6]">
           O corpo precisa de tempo para responder. O sistema hormonal demora
           6 a 8 semanas a reagir a intervenções. A neuroplasticidade exige
           repetição consistente. Três meses é o mínimo para uma leitura
@@ -104,13 +104,13 @@ export const Foundation = () => (
       </FadeUp>
 
       <FadeUp className="mt-24 text-center" delay={0.25}>
-        <p className="font-display text-display-2 text-v2-terracotta leading-none">
+        <p className="font-serif text-display-2 text-v2-terracotta leading-none">
           €800
         </p>
-        <p className="mt-3 font-mono text-mono-v2 uppercase tracking-[0.14em] text-v2-ink-mute">
+        <p className="mt-3 font-sans text-mono-v2 uppercase tracking-[0.14em] text-v2-ink-mute">
           3 meses · acompanhamento contínuo
         </p>
-        <p className="mt-6 font-body text-body-sm-v2 text-v2-ink-mute max-w-[44ch] mx-auto">
+        <p className="mt-6 font-sans text-body-sm-v2 text-v2-ink-mute max-w-[44ch] mx-auto">
           Entrada apenas após consulta inicial e avaliação de enquadramento
           clínico.
         </p>

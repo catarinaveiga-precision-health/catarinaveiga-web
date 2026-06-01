@@ -10,7 +10,7 @@ export const Outcome = () => (
         <FadeUp className="lg:col-span-7 lg:col-start-1">
           <Eyebrow>O que muda quando lemos bem</Eyebrow>
 
-          <h2 className="mt-8 font-display text-display-2 text-v2-ink leading-[1.1] tracking-[-0.015em]">
+          <h2 className="mt-8 font-serif text-display-2 text-v2-ink leading-[1.1] tracking-[-0.015em]">
             Acordar com energia<br />
             que não vem do café.
             <span className="block mt-6 italic text-v2-ink-mute">
@@ -23,7 +23,7 @@ export const Outcome = () => (
         </FadeUp>
 
         <FadeUp className="lg:col-span-4 lg:col-start-9 self-end" delay={0.15}>
-          <div className="space-y-6 font-body text-body-v2 text-v2-ink-mute leading-[1.7] max-w-[420px]">
+          <div className="space-y-6 font-sans text-body-v2 text-v2-ink-mute leading-[1.7] max-w-[420px]">
             <p>
               Não é sobre fazer mais exames. É sobre ler bem os que já tens.
             </p>

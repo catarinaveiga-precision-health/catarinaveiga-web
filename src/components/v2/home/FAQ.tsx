@@ -57,7 +57,7 @@ export const FAQ = () => {
           <FadeUp className="lg:col-span-4">
             <div className="lg:sticky lg:top-32">
               <Eyebrow>Antes de marcares</Eyebrow>
-              <h2 className="mt-6 font-display text-h2-v2 text-v2-ink leading-[1.15] tracking-[-0.01em]">
+              <h2 className="mt-6 font-serif text-h2-v2 text-v2-ink leading-[1.15] tracking-[-0.01em]">
                 Perguntas frequentes.
               </h2>
             </div>
@@ -74,12 +74,12 @@ export const FAQ = () => {
                       className="w-full text-left py-7 flex items-start justify-between gap-8 group"
                       aria-expanded={isOpen}
                     >
-                      <span className="font-display text-body-lg-v2 text-v2-ink group-hover:text-v2-ink-mute transition-colors leading-[1.4]">
+                      <span className="font-serif text-body-lg-v2 text-v2-ink group-hover:text-v2-ink-mute transition-colors leading-[1.4]">
                         {f.q}
                       </span>
                       <span
                         className={cn(
-                          "shrink-0 mt-2 font-mono text-mono-v2 text-v2-sage transition-transform duration-300",
+                          "shrink-0 mt-2 font-sans text-mono-v2 text-v2-sage transition-transform duration-300",
                           isOpen ? "rotate-45" : "",
                         )}
                       >
@@ -93,7 +93,7 @@ export const FAQ = () => {
                       )}
                     >
                       <div className="overflow-hidden">
-                        <div className="pb-8 space-y-5 font-body text-body-v2 text-v2-ink-mute leading-[1.7] max-w-[64ch]">
+                        <div className="pb-8 space-y-5 font-sans text-body-v2 text-v2-ink-mute leading-[1.7] max-w-[64ch]">
                           {f.a.map((p, j) => (
                             <p key={j}>{p}</p>
                           ))}

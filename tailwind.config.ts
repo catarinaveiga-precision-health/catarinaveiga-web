@@ -16,10 +16,10 @@ export default {
       fontFamily: {
         serif: ["Cormorant Garamond", "serif"],
         sans: ["Jost", "sans-serif"],
-        // v2 foundation
-        display: ["GT Sectra", "Tiempos Headline", "Cormorant Garamond", "serif"],
-        body: ["Inter Tight", "Söhne", "Jost", "system-ui", "sans-serif"],
-        mono: ["IBM Plex Mono", "JetBrains Mono", "ui-monospace", "monospace"],
+        // v2 foundation · uniform fonts
+        display: ["Cormorant Garamond", "serif"],
+        body: ["Jost", "system-ui", "sans-serif"],
+        mono: ["Jost", "system-ui", "sans-serif"],
       },
       // v2 typography tokens
       fontSize: {
@@ -94,6 +94,12 @@ export default {
         "v2-sage": "var(--v2-sage)",
         "v2-sage-deep": "var(--v2-sage-deep)",
         "v2-moss": "var(--v2-moss)",
+        "v2-graffiti": "var(--v2-graffiti)",
+        "v2-graffiti-soft": "var(--v2-graffiti-soft)",
+        "v2-golden": "var(--v2-golden)",
+        "v2-golden-deep": "var(--v2-golden-deep)",
+        "v2-brick": "var(--v2-brick)",
+        "v2-brick-deep": "var(--v2-brick-deep)",
         "v2-terracotta": "var(--v2-terracotta)",
         "v2-terracotta-deep": "var(--v2-terracotta-deep)",
         sidebar: {

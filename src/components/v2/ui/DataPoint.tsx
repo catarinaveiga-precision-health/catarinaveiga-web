@@ -7,7 +7,7 @@ export const DataPoint = ({
 }: HTMLAttributes<HTMLSpanElement>) => (
   <span
     className={cn(
-      "font-mono text-mono-v2 uppercase tracking-[0.04em] text-v2-sage",
+      "font-sans text-[12px] uppercase tracking-[0.14em] text-v2-sage tabular-nums",
       className,
     )}
     {...rest}

@@ -15,7 +15,7 @@ const toneMap = {
 export const Eyebrow = ({ tone = "sage", className, ...rest }: Props) => (
   <p
     className={cn(
-      "font-body text-eyebrow-v2 uppercase",
+      "font-sans text-[11px] uppercase tracking-[0.18em]",
       toneMap[tone],
       className,
     )}

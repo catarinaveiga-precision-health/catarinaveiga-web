@@ -19,12 +19,12 @@ export const Quote = ({
   size = "default",
   className,
 }: Props) => (
-  <blockquote className={cn("font-display italic", className)}>
+  <blockquote className={cn("font-serif italic", className)}>
     <p className={cn(sizeMap[size], "leading-snug text-v2-ink")}>
       {children}
     </p>
     {attribution && (
-      <footer className="mt-6 font-body not-italic text-mono-v2 uppercase text-v2-sage tracking-[0.12em]">
+      <footer className="mt-6 font-sans not-italic text-[11px] uppercase text-v2-sage tracking-[0.14em]">
         — {attribution}
       </footer>
     )}

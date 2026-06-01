@@ -31,10 +31,10 @@ export const Method = () => (
     <Container size="default">
       <FadeUp className="text-center">
         <Eyebrow>Como trabalho</Eyebrow>
-        <h2 className="mt-6 font-display text-h2-v2 text-v2-ink leading-[1.15] tracking-[-0.01em]">
+        <h2 className="mt-6 font-serif text-h2-v2 text-v2-ink leading-[1.15] tracking-[-0.01em]">
           Leio antes de propor.
         </h2>
-        <p className="mt-8 mx-auto font-body text-body-lg-v2 text-v2-ink-mute leading-[1.55] max-w-[58ch]">
+        <p className="mt-8 mx-auto font-sans text-body-lg-v2 text-v2-ink-mute leading-[1.55] max-w-[58ch]">
           Avalio, interpreto e acompanho. Trabalho a partir dos teus sinais,
           do teu histórico e dos teus padrões — e a partir daí construo um
           plano individualizado, com acompanhamento longitudinal.
@@ -44,13 +44,13 @@ export const Method = () => (
       <div className="mt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-16 lg:gap-x-12">
         {steps.map((s, i) => (
           <FadeUp key={s.n} delay={i * 0.06}>
-            <p className="font-mono text-mono-v2 text-v2-sage uppercase tracking-[0.08em]">
+            <p className="font-sans text-mono-v2 text-v2-sage uppercase tracking-[0.08em]">
               {s.n}
             </p>
-            <h3 className="mt-5 font-display text-h3-v2 text-v2-ink leading-[1.25]">
+            <h3 className="mt-5 font-serif text-h3-v2 text-v2-ink leading-[1.25]">
               {s.title}
             </h3>
-            <p className="mt-4 font-body text-body-v2 text-v2-ink-mute leading-[1.65] max-w-[34ch]">
+            <p className="mt-4 font-sans text-body-v2 text-v2-ink-mute leading-[1.65] max-w-[34ch]">
               {s.body}
             </p>
           </FadeUp>

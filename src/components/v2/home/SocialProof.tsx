@@ -17,7 +17,7 @@ export const SocialProof = () => (
           href="https://www.google.com/maps/place/Catarina+Veiga"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 font-mono text-mono-v2 uppercase tracking-[0.12em] text-v2-ink-mute hover:text-v2-ink transition-colors"
+          className="inline-flex items-center gap-3 font-sans text-mono-v2 uppercase tracking-[0.12em] text-v2-ink-mute hover:text-v2-ink transition-colors"
         >
           <span className="text-v2-terracotta">★★★★★</span>
           <span>4,8 · 20 avaliações no Google</span>
@@ -35,7 +35,7 @@ export const SocialProof = () => (
       </div>
 
       <FadeUp className="mt-16 text-center" delay={0.2}>
-        <p className="font-body text-body-sm-v2 italic text-v2-ink-mute max-w-[60ch] mx-auto leading-[1.55]">
+        <p className="font-sans text-body-sm-v2 italic text-v2-ink-mute max-w-[60ch] mx-auto leading-[1.55]">
           Excertos de avaliações do Google, transcritos literalmente.
           Experiências subjetivas. Não representam promessa de resultados.
         </p>

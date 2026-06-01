@@ -18,12 +18,12 @@ export const Hero = () => (
             Para mulheres a quem disseram que está tudo normal
           </Eyebrow>
 
-          <h1 className="mt-8 font-display text-display-1 text-v2-ink leading-[1.05] tracking-[-0.02em]">
+          <h1 className="mt-8 font-serif text-display-1 text-v2-ink leading-[1.05] tracking-[-0.02em]">
             Os teus exames<br />estão normais.<br />
             <span className="italic text-v2-ink-mute">O teu corpo não.</span>
           </h1>
 
-          <p className="mt-8 font-body text-body-lg-v2 text-v2-ink-mute max-w-[480px] leading-[1.55]">
+          <p className="mt-8 font-sans text-body-lg-v2 text-v2-ink-mute max-w-[480px] leading-[1.55]">
             Para mulheres em perimenopausa, com fadiga persistente, ciclos
             que mudaram, ou sintomas que ninguém conseguiu ligar — mas que
             tu sabes que são reais.
@@ -32,7 +32,7 @@ export const Hero = () => (
           <Divider className="mt-12" />
 
           <div className="mt-12">
-            <p className="font-mono text-mono-v2 text-v2-sage mb-5">
+            <p className="font-sans text-mono-v2 text-v2-sage mb-5">
               Gratuito · 2 minutos · sem consulta
             </p>
             <ButtonV2 as="Link" to="/avaliacao" size="lg">
