@@ -161,15 +161,15 @@ function portableTextToPlain(blocks, maxLength = 160) {
 
 // ── SEO data for every pre-renderable static route ────────────────
 const pages = [
-  // Homepage
+  // Homepage (v2)
   {
     path: "/",
     title: "Catarina Veiga · Medicina Tradicional Chinesa para Saúde Hormonal Feminina",
     description:
-      "Consulta de Medicina Tradicional Chinesa em telemedicina, com leitura funcional integrada. Para mulheres em perimenopausa. Em colaboração com médica inscrita na Ordem dos Médicos. Portugal e estrangeiro.",
-    h1: "Uma leitura mais profunda do corpo feminino na perimenopausa.",
+      "Para mulheres em perimenopausa, com fadiga persistente, ciclos que mudaram, ou sintomas que ninguém conseguiu ligar — mas que tu sabes que são reais. Consulta de Medicina Tradicional Chinesa em telemedicina.",
+    h1: "Os teus exames estão normais. O teu corpo não.",
     intro:
-      "Integro sintomas, histórico clínico e padrões funcionais para construir um plano individualizado em Medicina Tradicional Chinesa, com acompanhamento longitudinal.",
+      "Para mulheres em perimenopausa, com fadiga persistente, ciclos que mudaram, ou sintomas que ninguém conseguiu ligar — mas que tu sabes que são reais.",
   },
   // SEO article pages
   {

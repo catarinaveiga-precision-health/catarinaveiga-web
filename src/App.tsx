@@ -40,7 +40,8 @@ const App = () => (
         <BrowserRouter>
           <SEOCanonical />
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<IndexV2 />} />
+            <Route path="/v1" element={<Index />} />
             <Route path="/v2" element={<IndexV2 />} />
             <Route path="/candidatura" element={<Candidatura />} />
             <Route path="/programa-fundacao" element={<ProgramaFundacao />} />
