@@ -10,6 +10,12 @@
     { "source": "/((?!api|_next|_static|assets|favicon|robots|sitemap|catarina|patricia|aletheia|maya|logo|.*\\..*).*)", "destination": "/index.html" }
   ],
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "catarinaveiga.com" }],
+      "destination": "https://www.catarinaveiga.com/:path*",
+      "permanent": true
+    },
     { "source": "/insulina-jejum", "destination": "/insulina-jejum-o-que-significa", "permanent": true },
     { "source": "/10-formas-de-estimular-o-nervo-vago-e-reequilibrar-o-sistema-nervoso", "destination": "/blog/nervo-vago-como-ativar-mulher", "permanent": true },
     { "source": "/adeus-obstipacao-dicas-naturais-para-um-intestino-feliz", "destination": "/blog/intestino-preso-causas-hormonais-mulher", "permanent": true },
