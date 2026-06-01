@@ -315,6 +315,16 @@ const pages = [
     intro:
       "Um programa estruturado de 3 meses focado na identificação das causas raiz dos teus desequilíbrios hormonais e metabólicos.",
   },
+  {
+    path: "/v2",
+    title: "Catarina Veiga · Medicina Tradicional Chinesa para Saúde Hormonal Feminina",
+    description:
+      "Preview homepage v2 · foundation editorial premium. Não indexar.",
+    h1: "Os teus exames estão normais. O teu corpo não.",
+    intro:
+      "Preview homepage v2 · acompanhamento clínico em saúde hormonal feminina.",
+    noindex: true,
+  },
 ];
 
 // ── Helper: generate the HTML for one route ──────────────────────
