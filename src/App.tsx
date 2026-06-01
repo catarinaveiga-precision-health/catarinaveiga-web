@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
+import IndexV2 from "./pages/IndexV2";
 import NotFound from "./pages/NotFound";
 import AvisoLegal from "./pages/AvisoLegal";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
@@ -40,6 +41,7 @@ const App = () => (
           <SEOCanonical />
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/v2" element={<IndexV2 />} />
             <Route path="/candidatura" element={<Candidatura />} />
             <Route path="/programa-fundacao" element={<ProgramaFundacao />} />
             <Route path="/metodo" element={<Metodo />} />
