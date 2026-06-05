@@ -1,9 +1,13 @@
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
 };
 
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')!;
+const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
+const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
 const FROM_EMAIL = 'info@catarinaveiga.com';
 const INTERNAL_EMAIL = 'info@catarinaveiga.com';
 
@@ -96,7 +100,50 @@ function signature(): string {
   return `${divider()}${paragraph('Catarina Veiga')}<p style="font-family:'Jost',Arial,sans-serif;font-weight:300;font-size:13px;color:#8C8279;margin:0;">Medicina Funcional Integrativa</p>`;
 }
 
-// ── AVALIAÇÃO EMAILS ──
+// ── AVALIAÇÃO EMAILS · SEGMENTO B (sem exames) ──
+// Email 1 da sequência B é enviado imediatamente no submit. Os 4 emails
+// seguintes (2/4/6/8 dias) são despachados pela edge function email-sequence-b.
+
+function avaliacaoLeadHtmlSemExames(name: string): string {
+  return emailWrapper(`
+${heading('Não precisas dos exames para começar')}
+${paragraph(`Olá ${name},`)}
+${paragraph('Vi que procuras melhorar a tua energia, metabolismo ou composição corporal.')}
+${paragraph('Também reparei que não submeteste valores laboratoriais.')}
+${paragraph('Isso acontece frequentemente.')}
+${paragraph('A maioria das mulheres que chega até mim sabe que algo não está bem, mas não tem os exames à mão ou não sabe quais os marcadores mais relevantes para analisar.')}
+${paragraph('A boa notícia é que os sintomas contam uma parte importante da história.')}
+${paragraph('Antes mesmo de olhar para análises, existem padrões clínicos que ajudam a identificar possíveis desequilíbrios hormonais, metabólicos e inflamatórios.')}
+${paragraph('Nos próximos dias vou enviar-te algumas orientações para te ajudar a compreender melhor o que pode estar por trás do que estás a sentir.')}
+${paragraph('Até breve,')}
+${signature()}
+  `);
+}
+
+function avaliacaoLeadTextSemExames(name: string): string {
+  return `Olá ${name},
+
+Vi que procuras melhorar a tua energia, metabolismo ou composição corporal.
+
+Também reparei que não submeteste valores laboratoriais.
+
+Isso acontece frequentemente.
+
+A maioria das mulheres que chega até mim sabe que algo não está bem, mas não tem os exames à mão ou não sabe quais os marcadores mais relevantes para analisar.
+
+A boa notícia é que os sintomas contam uma parte importante da história.
+
+Antes mesmo de olhar para análises, existem padrões clínicos que ajudam a identificar possíveis desequilíbrios hormonais, metabólicos e inflamatórios.
+
+Nos próximos dias vou enviar-te algumas orientações para te ajudar a compreender melhor o que pode estar por trás do que estás a sentir.
+
+Até breve,
+
+Catarina Veiga
+Medicina Funcional Integrativa`;
+}
+
+// ── AVALIAÇÃO EMAILS · SEGMENTO A (com exames) ──
 
 function avaliacaoLeadHtml(name: string, resultados?: unknown): string {
   return emailWrapper(`
@@ -314,22 +361,58 @@ Deno.serve(async (req) => {
     if (table === 'leads_avaliacao') {
       const name = record.nome || 'Olá';
       const leadEmail = record.email;
+      // Segmentação: tem_exames vem do frontend; fallback inspecciona o JSON
+      // para registos antigos ou casos em que a flag não foi enviada.
+      const lv = record.valores_laboratoriais as { values?: Record<string, unknown> } | undefined;
+      const hasAnyValue = lv?.values && typeof lv.values === 'object'
+        ? Object.values(lv.values).some((v) => v && String(v).trim() !== '')
+        : false;
+      const temExames: boolean = typeof record.tem_exames === 'boolean'
+        ? record.tem_exames
+        : hasAnyValue;
 
       if (leadEmail) {
-        const attachments: EmailAttachment[] = [];
-        if (pdf_attachment?.content && pdf_attachment?.filename) {
-          attachments.push({ content: pdf_attachment.content, filename: pdf_attachment.filename });
+        if (temExames) {
+          // SEGMENTO A — com exames: leitura funcional + PDF anexo
+          const attachments: EmailAttachment[] = [];
+          if (pdf_attachment?.content && pdf_attachment?.filename) {
+            attachments.push({ content: pdf_attachment.content, filename: pdf_attachment.filename });
+          }
+          const rA = await sendEmail({
+            from: FROM_EMAIL,
+            to: [leadEmail],
+            reply_to: FROM_EMAIL,
+            subject: 'Recebemos a tua leitura funcional',
+            html: avaliacaoLeadHtml(name, record.resultados),
+            text: avaliacaoLeadText(name, record.resultados),
+            attachments: attachments.length > 0 ? attachments : undefined,
+          });
+          results.push({ email: leadEmail, segmento: 'A', ...rA });
+        } else {
+          // SEGMENTO B — sem exames: email 1 da sequência B (imediato)
+          const rB1 = await sendEmail({
+            from: FROM_EMAIL,
+            to: [leadEmail],
+            reply_to: FROM_EMAIL,
+            subject: 'Não precisas dos exames para começar',
+            html: avaliacaoLeadHtmlSemExames(name),
+            text: avaliacaoLeadTextSemExames(name),
+          });
+          results.push({ email: leadEmail, segmento: 'B', email_seq: 1, ...rB1 });
+
+          // Marcar seq_b_email_1_sent = true na DB (best effort).
+          if (rB1.ok && record.id) {
+            try {
+              const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
+              await supabase
+                .from('leads_avaliacao')
+                .update({ seq_b_email_1_sent: true } as any)
+                .eq('id', record.id);
+            } catch (e) {
+              console.error('Failed to mark seq_b_email_1_sent', e);
+            }
+          }
         }
-        const r1 = await sendEmail({
-          from: FROM_EMAIL,
-          to: [leadEmail],
-          reply_to: FROM_EMAIL,
-          subject: 'Recebemos a tua leitura funcional',
-          html: avaliacaoLeadHtml(name, record.resultados),
-          text: avaliacaoLeadText(name, record.resultados),
-          attachments: attachments.length > 0 ? attachments : undefined,
-        });
-        results.push({ email: leadEmail, ...r1 });
       }
 
       const r2 = await sendEmail({

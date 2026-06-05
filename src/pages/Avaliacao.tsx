@@ -376,6 +376,13 @@ const Avaliacao = () => {
         ? navigator.language.split("-")[1]?.toUpperCase() ?? null
         : null;
 
+      // Segmentação automática: tem_exames = true se houver pelo menos 1 valor
+      // laboratorial preenchido. Define a sequência de emails subsequente
+      // (Segmento A vs Segmento B).
+      const temExames = Object.values(form.labValues).some(
+        (v) => v && String(v).trim() !== "",
+      );
+
       const insertData = {
         nome: form.nome.trim(),
         email: form.email.trim(),
@@ -385,9 +392,10 @@ const Avaliacao = () => {
         objetivos: form.objetivos,
         valores_laboratoriais: JSON.parse(JSON.stringify({ values: form.labValues, units: form.labUnits })),
         resultados: JSON.parse(JSON.stringify(evalResults)),
+        tem_exames: temExames,
       };
 
-      const [{ error: leadError }, { error: applicationsError }] = await Promise.all([
+      const [{ data: leadRows, error: leadError }, { error: applicationsError }] = await Promise.all([
         supabase.from("leads_avaliacao").insert([{
           nome: insertData.nome,
           email: insertData.email,
@@ -396,7 +404,8 @@ const Avaliacao = () => {
           objetivos: insertData.objetivos,
           valores_laboratoriais: insertData.valores_laboratoriais,
           resultados: insertData.resultados,
-        }]),
+          tem_exames: insertData.tem_exames,
+        } as any]).select("id"),
         supabase.from("applications").insert([{
           nome: insertData.nome,
           email: insertData.email,
@@ -431,11 +440,14 @@ const Avaliacao = () => {
       const dateSafe = new Date().toISOString().slice(0, 10);
       const safeName = form.nome.trim().toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
 
-      // Fire-and-forget: send transactional emails with PDF attachment
+      // Fire-and-forget: send transactional emails. Segmento A recebe leitura
+      // funcional + PDF; Segmento B recebe email 1 da sequência B (sem PDF).
+      const leadId = (leadRows && leadRows[0] ? (leadRows[0] as any).id : null) as string | null;
       supabase.functions.invoke('send-emails', {
         body: {
           table: 'leads_avaliacao',
           record: {
+            id: leadId,
             nome: form.nome.trim(),
             email: form.email.trim(),
             idade: form.idade ? parseInt(form.idade) : null,
@@ -443,9 +455,10 @@ const Avaliacao = () => {
             objetivos: form.objetivos,
             valores_laboratoriais: { values: form.labValues, units: form.labUnits },
             resultados: evalResults,
+            tem_exames: temExames,
             created_at: new Date().toISOString(),
           },
-          pdf_attachment: pdfBase64 ? {
+          pdf_attachment: temExames && pdfBase64 ? {
             content: pdfBase64,
             filename: `leitura-funcional-${safeName}-${dateSafe}.pdf`,
           } : undefined,
@@ -765,8 +778,42 @@ const Avaliacao = () => {
               </div>
 
               {!hasAnyLabValue ? (
-                <div className="bg-bone rounded-xl p-8 text-center">
-                  <p className="text-muted-custom font-sans">Não foram introduzidos valores laboratoriais. Agenda uma consulta para uma avaliação completa.</p>
+                <div className="space-y-6">
+                  <div className="bg-ivory border border-bone rounded-2xl p-8 md:p-10 space-y-5">
+                    <p className="label-uppercase text-matcha tracking-widest text-xs">Resultado Preliminar</p>
+                    <p className="text-foreground/85 font-sans text-base leading-relaxed">
+                      Com base na tua idade e objetivos, o teu perfil é semelhante ao de muitas mulheres que procuram apoio por sintomas como:
+                    </p>
+                    <ul className="space-y-2 pl-1">
+                      {[
+                        "Fadiga persistente",
+                        "Dificuldade em perder peso",
+                        "Alterações hormonais",
+                        "Mudanças associadas à perimenopausa",
+                        "Quebra de energia e metabolismo",
+                      ].map((sintoma) => (
+                        <li key={sintoma} className="flex items-start gap-3 font-sans text-foreground/85">
+                          <span className="text-matcha mt-1 leading-none">◆</span>
+                          <span>{sintoma}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="text-foreground/85 font-sans text-base leading-relaxed pt-2">
+                      Mesmo sem análises laboratoriais, estes padrões já justificam uma investigação mais aprofundada.
+                    </p>
+                    <p className="text-muted-custom font-sans text-sm leading-relaxed">
+                      Nos próximos dias vais receber orientações para perceber melhor quais os fatores que podem estar por trás destes sintomas e quais os exames que vale a pena considerar.
+                    </p>
+                  </div>
+
+                  <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 space-y-4">
+                    <p className="text-sm font-sans text-foreground leading-relaxed">
+                      Se preferes ir directamente para uma avaliação clínica completa — onde cruzamos sintomas, história e exames — podes agendar a consulta inicial.
+                    </p>
+                    <Button variant="hero" size="sm" onClick={() => setAcuityOpen(true)}>
+                      Agendar consulta inicial →
+                    </Button>
+                  </div>
                 </div>
               ) : (
                 <>

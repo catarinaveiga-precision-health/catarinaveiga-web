@@ -58,11 +58,13 @@ Deno.serve(async (req) => {
   try {
     const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
-    // Query leads older than 48h that haven't received follow-up
+    // Query leads do SEGMENTO A (com exames) com >48h e sem follow-up.
+    // Segmento B (sem exames) é processado pela edge function email-sequence-b.
     const { data: leads, error: queryError } = await supabase
       .from("leads_avaliacao")
       .select("id, nome, email")
       .eq("follow_up_sent", false)
+      .eq("tem_exames", true)
       .lt("created_at", new Date(Date.now() - 48 * 60 * 60 * 1000).toISOString())
       .not("email", "is", null);
 
