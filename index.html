@@ -11,8 +11,12 @@
     <link rel="preconnect" href="https://ujysejmzbotrlsypmpwd.supabase.co" crossorigin />
     <link rel="preconnect" href="https://o407628.ingest.us.sentry.io" crossorigin />
 
-    <!-- Hero image: preload for LCP -->
-    <link rel="preload" as="image" href="/catarina-hero.jpg" fetchpriority="high" />
+    <!-- Hero image: preload responsive for LCP. Mobile gets a 37KB scaled jpg. -->
+    <link rel="preload" as="image"
+      href="/catarina-hero.jpg"
+      imagesrcset="/catarina-hero-mobile.jpg 600w, /catarina-hero.jpg 800w"
+      imagesizes="(max-width: 768px) 600px, 800px"
+      fetchpriority="high" />
 
     <!-- Fonts: loaded here instead of CSS @import to avoid render-blocking -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&family=Inter+Tight:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" />
@@ -20,8 +24,8 @@
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&family=Inter+Tight:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" /></noscript>
 
     <link rel="icon" type="image/png" href="/favicon.png">
-    <title>Catarina Veiga · Medicina Tradicional Chinesa para Saúde Hormonal Feminina</title>
-    <meta name="description" content="Para mulheres em perimenopausa, com fadiga persistente, ciclos que mudaram, ou sintomas que ninguém conseguiu ligar — mas que tu sabes que são reais. Consulta de Medicina Tradicional Chinesa em telemedicina.">
+    <title>Catarina Veiga · Medicina Tradicional Chinesa Feminina</title>
+    <meta name="description" content="Consulta de Medicina Tradicional Chinesa em telemedicina para mulheres em perimenopausa, fadiga persistente e ciclos que mudaram.">
     <meta name="author" content="Catarina Veiga" />
     <meta name="keywords" content="medicina tradicional chinesa, perimenopausa, saúde hormonal feminina, leitura funcional, biomarcadores, fadiga crónica, ciclos menstruais, telemedicina, Portugal" />
     <link rel="canonical" href="https://www.catarinaveiga.com" />
@@ -34,14 +38,14 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Catarina Veiga · Medicina Tradicional Chinesa" />
-    <meta property="og:title" content="Catarina Veiga · Medicina Tradicional Chinesa para Saúde Hormonal Feminina">
-    <meta property="og:description" content="Para mulheres em perimenopausa, com fadiga persistente, ciclos que mudaram, ou sintomas que ninguém conseguiu ligar — mas que tu sabes que são reais.">
+    <meta property="og:title" content="Catarina Veiga · Medicina Tradicional Chinesa Feminina">
+    <meta property="og:description" content="Consulta de Medicina Tradicional Chinesa em telemedicina para mulheres em perimenopausa, fadiga persistente e ciclos que mudaram.">
     <meta property="og:locale" content="pt_PT" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://www.catarinaveiga.com/catarina-hero.jpg" />
-    <meta name="twitter:title" content="Catarina Veiga · Medicina Tradicional Chinesa para Saúde Hormonal Feminina" />
-    <meta name="twitter:description" content="Para mulheres em perimenopausa, com fadiga persistente, ciclos que mudaram, ou sintomas que ninguém conseguiu ligar — mas que tu sabes que são reais." />
+    <meta name="twitter:title" content="Catarina Veiga · Medicina Tradicional Chinesa Feminina" />
+    <meta name="twitter:description" content="Consulta de Medicina Tradicional Chinesa em telemedicina para mulheres em perimenopausa, fadiga persistente e ciclos que mudaram." />
 
     <!-- Google Search Console verification -->
     <!-- TODO: adicionar <meta name="google-site-verification" content="STRING_DO_GSC" /> -->

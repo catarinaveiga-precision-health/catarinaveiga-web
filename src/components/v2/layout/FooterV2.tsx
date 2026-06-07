@@ -19,7 +19,7 @@ export const FooterV2 = () => {
     <footer className="bg-v2-paper border-t border-v2-paper-line">
       <Container size="default" className="py-24 md:py-32">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
-          {/* Coluna 1 — Identidade */}
+          {/* Coluna 1 — Identidade + NAP */}
           <div>
             <p className="font-serif text-h3-v2 text-v2-ink leading-tight">
               Catarina Veiga
@@ -31,6 +31,20 @@ export const FooterV2 = () => {
               <br />
               Telemedicina · Portugal e estrangeiro
             </p>
+            <address className="not-italic mt-6 font-sans text-body-sm-v2 text-v2-ink-mute leading-[1.7]">
+              Rua Luanda 738
+              <br />
+              2775-232 Parede, Portugal
+              <br />
+              <a
+                href="https://maps.google.com/?q=Rua+Luanda+738,+2775-232+Parede"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-v2-paper-line hover:decoration-v2-ink hover:text-v2-ink transition-colors"
+              >
+                Ver no Google Maps
+              </a>
+            </address>
           </div>
 
           {/* Coluna 2 — Navegação */}
@@ -66,7 +80,14 @@ export const FooterV2 = () => {
                   info@catarinaveiga.com
                 </a>
               </li>
-              <li>+351 917 823 906</li>
+              <li>
+                <a
+                  href="tel:+351917823906"
+                  className="hover:text-v2-ink transition-colors"
+                >
+                  +351 917 823 906
+                </a>
+              </li>
               <li>Português · Inglês</li>
             </ul>
 

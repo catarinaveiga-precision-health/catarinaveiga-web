@@ -43,13 +43,19 @@ export const Hero = () => (
 
         <FadeUp className="lg:col-span-5 lg:col-start-8" delay={0.15}>
           <div className="relative aspect-[4/5] overflow-hidden bg-v2-paper-deep">
-            <img
-              src="/catarina-hero.jpg"
-              alt="Catarina Veiga · Medicina Tradicional Chinesa"
-              className="w-full h-full object-cover object-top grayscale-[0.15] contrast-[1.02]"
-              loading="eager"
-              fetchPriority="high"
-            />
+            <picture>
+              <source media="(max-width: 768px)" srcSet="/catarina-hero-mobile.jpg" />
+              <img
+                src="/catarina-hero.jpg"
+                alt="Catarina Veiga · Medicina Tradicional Chinesa"
+                width={800}
+                height={1200}
+                className="w-full h-full object-cover object-top grayscale-[0.15] contrast-[1.02]"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+              />
+            </picture>
           </div>
         </FadeUp>
       </div>
