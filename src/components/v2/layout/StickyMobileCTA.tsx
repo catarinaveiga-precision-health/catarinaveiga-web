@@ -16,8 +16,13 @@ export const StickyMobileCTA = () => {
         show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
       }`}
     >
-      <ButtonV2 as="Link" to="/avaliacao" size="lg" className="w-full">
-        Ver os meus marcadores
+      <ButtonV2
+        as="a"
+        href="https://catarinaveigaagendamento.as.me/"
+        size="lg"
+        className="w-full"
+      >
+        Marcar consulta inicial · €120
       </ButtonV2>
     </div>
   );

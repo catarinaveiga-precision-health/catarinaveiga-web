@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 const faqs = [
   {
-    q: "Isto substitui consulta médica?",
+    q: "O acompanhamento substitui consulta médica?",
     a: [
       "Não. Sou praticante de Medicina Tradicional Chinesa, não médica.",
       "Tenho pós-graduação em Saúde Hormonal e Funcional da Mulher, formação avançada em microbioma, saúde metabólica e interpretação funcional de biomarcadores, com vários anos de prática clínica focada em saúde feminina, fadiga persistente, alterações hormonais e quadros inflamatórios complexos.",
@@ -22,27 +22,21 @@ const faqs = [
     ],
   },
   {
+    q: "Preciso de ter análises?",
+    a: [
+      "Não. Podes marcar a consulta inicial sem teres exames feitos. Se já tiveres análises recentes (últimos 12 meses), traz. Se não, pedimo-las nós após a consulta inicial.",
+    ],
+  },
+  {
     q: "Posso fazer apenas uma consulta?",
     a: [
       "Sim. A consulta inicial é independente e não obriga a continuidade. Muitas pessoas começam aqui para perceber se faz sentido continuar.",
     ],
   },
   {
-    q: "Em quanto tempo vejo resultados?",
+    q: "Quanto tempo costuma durar o acompanhamento?",
     a: [
-      "Depende do caso. Algumas mudanças (sono, energia, ciclo) podem surgir nas primeiras semanas. Reorganização hormonal e metabólica exige normalmente 6 a 12 semanas.",
-    ],
-  },
-  {
-    q: "Que análises devo trazer?",
-    a: [
-      "Idealmente as análises mais recentes (últimos 12 meses). Se não tens análises actualizadas, pedimo-las nós depois da consulta inicial.",
-    ],
-  },
-  {
-    q: "O que diferencia esta abordagem?",
-    a: [
-      "Leitura funcional integrada. Não trabalho sintomas isolados. Leio padrões fisiológicos, biomarcadores, histórico clínico e contexto longitudinal antes de intervir.",
+      "Depende do caso. Algumas mudanças (sono, energia, ciclo) podem surgir nas primeiras semanas. Reorganização hormonal e metabólica exige normalmente 6 a 12 semanas. Quem opta pelo Programa Fundação trabalha durante 3 meses de forma estruturada.",
     ],
   },
 ];

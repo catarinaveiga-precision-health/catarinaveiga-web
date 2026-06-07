@@ -5,11 +5,12 @@ import { StickyMobileCTA } from "@/components/v2/layout/StickyMobileCTA";
 import { Hero } from "@/components/v2/home/Hero";
 import { Problem } from "@/components/v2/home/Problem";
 import { Outcome } from "@/components/v2/home/Outcome";
-import { LeadMagnet } from "@/components/v2/home/LeadMagnet";
+import { PrimeiraConsulta } from "@/components/v2/home/PrimeiraConsulta";
 import { Method } from "@/components/v2/home/Method";
-import { Foundation } from "@/components/v2/home/Foundation";
 import { SocialProof } from "@/components/v2/home/SocialProof";
+import { SobreCurta } from "@/components/v2/home/SobreCurta";
 import { FAQ } from "@/components/v2/home/FAQ";
+import { Foundation } from "@/components/v2/home/Foundation";
 import { FinalCTA } from "@/components/v2/home/FinalCTA";
 
 const IndexV2 = () => (
@@ -19,11 +20,12 @@ const IndexV2 = () => (
       <Hero />
       <Problem />
       <Outcome />
-      <LeadMagnet />
+      <PrimeiraConsulta />
       <Method />
-      <Foundation />
       <SocialProof />
+      <SobreCurta />
       <FAQ />
+      <Foundation />
       <FinalCTA />
     </main>
     <FooterV2 />

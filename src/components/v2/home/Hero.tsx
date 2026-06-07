@@ -24,19 +24,23 @@ export const Hero = () => (
           </h1>
 
           <p className="mt-8 font-sans text-body-lg-v2 text-v2-ink-mute max-w-[480px] leading-[1.55]">
-            Para mulheres em perimenopausa, com fadiga persistente, ciclos
-            que mudaram, ou sintomas que ninguém conseguiu ligar — mas que
-            tu sabes que são reais.
+            Para mulheres em perimenopausa, com fadiga persistente,
+            alterações hormonais, digestivas ou metabólicas que continuam
+            sem explicação clara.
           </p>
 
           <Divider className="mt-12" />
 
-          <div className="mt-12">
-            <p className="font-sans text-mono-v2 text-v2-sage mb-5">
-              Gratuito · 2 minutos · sem consulta
-            </p>
-            <ButtonV2 as="Link" to="/avaliacao" size="lg">
-              Ver os meus marcadores
+          <div className="mt-12 flex flex-col items-start gap-5">
+            <ButtonV2
+              as="a"
+              href="https://catarinaveigaagendamento.as.me/"
+              size="lg"
+            >
+              Marcar consulta inicial · €120
+            </ButtonV2>
+            <ButtonV2 as="Link" to="/avaliacao" variant="link">
+              Ou experimentar a ferramenta gratuita ›
             </ButtonV2>
           </div>
         </FadeUp>
