@@ -161,15 +161,15 @@ function portableTextToPlain(blocks, maxLength = 160) {
 
 // ── SEO data for every pre-renderable static route ────────────────
 const pages = [
-  // Homepage (v2)
+  // Homepage (v2) · vende a Consulta Inicial (€120)
   {
     path: "/",
-    title: "Catarina Veiga · Medicina Tradicional Chinesa para Saúde Hormonal Feminina",
+    title: "Catarina Veiga · Medicina Tradicional Chinesa Feminina",
     description:
-      "Para mulheres em perimenopausa, com fadiga persistente, ciclos que mudaram, ou sintomas que ninguém conseguiu ligar — mas que tu sabes que são reais. Consulta de Medicina Tradicional Chinesa em telemedicina.",
+      "Consulta de Medicina Tradicional Chinesa em telemedicina para mulheres em perimenopausa, fadiga persistente e ciclos que mudaram.",
     h1: "Os teus exames estão normais. O teu corpo não.",
     intro:
-      "Para mulheres em perimenopausa, com fadiga persistente, ciclos que mudaram, ou sintomas que ninguém conseguiu ligar — mas que tu sabes que são reais.",
+      "Para mulheres em perimenopausa, com fadiga persistente, alterações hormonais, digestivas ou metabólicas que continuam sem explicação clara. Não é sobre fazer mais exames — é sobre ler bem os que já tens. Na consulta inicial olhamos histórico clínico detalhado, sono, digestão, energia, ciclo, sintomas e exames anteriores. Sais com hipóteses claras, prioridades definidas e próximos passos concretos. 60–90 minutos em telemedicina, €120.",
   },
   // SEO article pages
   {
