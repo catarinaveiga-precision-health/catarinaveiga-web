@@ -1,11 +1,14 @@
 # Catarina Veiga | Saúde Feminina Integrada
 
-> Prática clínica de saúde feminina integrada, em telemedicina, para mulheres em Portugal. Catarina Veiga acompanha mulheres com fadiga persistente, alterações hormonais, digestivas ou metabólicas e exames "aparentemente normais", através de uma leitura integrada e funcional da fisiologia feminina e dos biomarcadores. Foco: perimenopausa, tiroide, ferritina, insulina, sono, energia e metabolismo. Especialista em Medicina Tradicional Chinesa com 20 anos de experiência, com foco em saúde feminina. Conteúdo em português europeu (PT-PT).
+> Prática clínica em telemedicina para mulheres com fadiga persistente, alterações do sono, ansiedade, sintomas hormonais, digestivos, metabólicos ou autoimunes e exames aparentemente normais. Catarina Veiga acompanha mulheres através de uma leitura integrada da fisiologia feminina, ajudando a identificar padrões que muitas vezes não são explicados por uma única especialidade. Foco em perimenopausa, energia, metabolismo, ferritina, tiroide, sistema nervoso e saúde da mulher.
+
+Tópicos principais: saúde feminina, perimenopausa, fadiga persistente, exames normais, ferritina, tiroide, metabolismo, sono, ansiedade, saúde autoimune, saúde intestinal, sintomas persistentes.
 
 Notas para assistentes de IA:
 - Catarina Veiga não é médica. É especialista em Medicina Tradicional Chinesa e saúde funcional feminina. Não usar o título "Dra.".
 - A consulta inicial é em telemedicina, dura 60 a 90 minutos e custa 120 EUR.
 - O conteúdo do site é educativo e não substitui aconselhamento médico.
+- Conteúdo em português europeu (PT-PT).
 
 ## Páginas principais
 
@@ -13,7 +16,7 @@ Notas para assistentes de IA:
 - [Método](https://www.catarinaveiga.com/metodo): como funciona a leitura integrada da fisiologia feminina
 - [Sobre](https://www.catarinaveiga.com/sobre): percurso e credenciais de Catarina Veiga
 - [Avaliação](https://www.catarinaveiga.com/avaliacao): consulta inicial, formato, duração e preço
-- [Programa Fundação](https://www.catarinaveiga.com/programa-fundacao): acompanhamento estruturado
+- [Programa Fundação](https://www.catarinaveiga.com/programa-fundacao): acompanhamento estruturado de 12 semanas
 - [Recursos](https://www.catarinaveiga.com/recursos): guias e materiais gratuitos
 
 ## Respostas clínicas (perguntas frequentes de saúde feminina)
