@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Search } from "lucide-react";
-import Navbar from "@/components/Navbar";
+import { NavbarV2 } from "@/components/v2/layout/NavbarV2";
 import LegalBand from "@/components/LegalBand";
-import Footer from "@/components/Footer";
+import { FooterV2 } from "@/components/v2/layout/FooterV2";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSanityPosts, useSanityCategories } from "@/hooks/useSanityPosts";
 import { useEffect, useState } from "react";
@@ -40,25 +40,25 @@ const BlogPage = () => {
   const rest = filtered?.slice(1) ?? [];
 
   return (
-    <div className="min-h-screen bg-ivory">
-      <Navbar />
+    <div className="min-h-screen bg-v2-paper">
+      <NavbarV2 />
       <main className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
             <div>
-              <p className="label-uppercase text-amber mb-4">{t("blog.label")}</p>
-              <h1 className="font-serif text-4xl md:text-6xl text-foreground">{t("blog.title")}</h1>
+              <p className="label-uppercase text-v2-golden mb-4">{t("blog.label")}</p>
+              <h1 className="font-serif text-4xl md:text-6xl text-v2-ink">{t("blog.title")}</h1>
             </div>
             {/* Search */}
             <div className="relative w-full md:w-80">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-v2-ink-mute w-4 h-4" />
               <input
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder={lang === "pt" ? "Pesquisar artigos…" : "Search articles…"}
-                className="w-full pl-11 pr-4 py-3 rounded-full border border-bone bg-ivory font-sans text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-amber/40 transition-all"
+                className="w-full pl-11 pr-4 py-3 rounded-full border border-v2-paper-line bg-v2-paper font-sans text-sm text-v2-ink placeholder:text-v2-ink-mute focus:outline-none focus:ring-2 focus:ring-amber/40 transition-all"
               />
             </div>
           </div>
@@ -70,8 +70,8 @@ const BlogPage = () => {
                 onClick={() => setActiveCategory(null)}
                 className={`px-4 py-2 rounded-full font-sans text-xs uppercase tracking-wider transition-all border ${
                   !activeCategory
-                    ? "bg-foreground text-ivory border-foreground"
-                    : "bg-transparent text-muted-foreground border-bone hover:border-amber"
+                    ? "bg-foreground text-v2-paper border-foreground"
+                    : "bg-transparent text-v2-ink-mute border-v2-paper-line hover:border-v2-golden"
                 }`}
               >
                 {lang === "pt" ? "Todos" : "All"}
@@ -82,8 +82,8 @@ const BlogPage = () => {
                   onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
                   className={`px-4 py-2 rounded-full font-sans text-xs uppercase tracking-wider transition-all border ${
                     activeCategory === cat
-                      ? "bg-foreground text-ivory border-foreground"
-                      : "bg-transparent text-muted-foreground border-bone hover:border-amber"
+                      ? "bg-foreground text-v2-paper border-foreground"
+                      : "bg-transparent text-v2-ink-mute border-v2-paper-line hover:border-v2-golden"
                   }`}
                 >
                   {cat}
@@ -94,19 +94,19 @@ const BlogPage = () => {
 
           {isLoading ? (
             <div className="space-y-6">
-              <div className="bg-bone rounded-2xl animate-pulse aspect-[21/9]" />
+              <div className="bg-v2-paper-deep rounded-2xl animate-pulse aspect-[21/9]" />
               <div className="grid md:grid-cols-3 gap-6">
                 {[1, 2, 3].map((i) => (
-                  <div key={i} className="bg-bone rounded-2xl animate-pulse aspect-[4/3]" />
+                  <div key={i} className="bg-v2-paper-deep rounded-2xl animate-pulse aspect-[4/3]" />
                 ))}
               </div>
             </div>
           ) : filtered && filtered.length === 0 ? (
             <div className="text-center py-20">
-              <p className="font-serif text-2xl text-foreground mb-2">
+              <p className="font-serif text-2xl text-v2-ink mb-2">
                 {lang === "pt" ? "Nenhum artigo encontrado" : "No articles found"}
               </p>
-              <p className="text-muted-foreground text-sm">
+              <p className="text-v2-ink-mute text-sm">
                 {lang === "pt" ? "Tenta outra pesquisa." : "Try a different search."}
               </p>
             </div>
@@ -119,7 +119,7 @@ const BlogPage = () => {
                   className="group relative block rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.01]"
                   style={{ boxShadow: "0 8px 30px -8px hsl(30 17% 9% / 0.12)" }}
                 >
-                  <div className="relative aspect-[21/9] overflow-hidden bg-bone rounded-2xl">
+                  <div className="relative aspect-[21/9] overflow-hidden bg-v2-paper-deep rounded-2xl">
                     {featured.mainImage?.asset?.url ? (
                       <img
                         src={featured.mainImage.asset.url}
@@ -127,7 +127,7 @@ const BlogPage = () => {
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                     ) : (
-                      <div className="w-full h-full bg-bone" />
+                      <div className="w-full h-full bg-v2-paper-deep" />
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                     <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between">
@@ -169,7 +169,7 @@ const BlogPage = () => {
                       className="group relative block rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.02]"
                       style={{ boxShadow: "0 4px 20px -4px hsl(30 17% 9% / 0.08)" }}
                     >
-                      <div className="relative aspect-[4/3] overflow-hidden bg-bone rounded-2xl">
+                      <div className="relative aspect-[4/3] overflow-hidden bg-v2-paper-deep rounded-2xl">
                         {post.mainImage?.asset?.url ? (
                           <img
                             src={post.mainImage.asset.url}
@@ -178,7 +178,7 @@ const BlogPage = () => {
                             loading="lazy"
                           />
                         ) : (
-                          <div className="w-full h-full bg-bone" />
+                          <div className="w-full h-full bg-v2-paper-deep" />
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                         <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
@@ -218,7 +218,7 @@ const BlogPage = () => {
         </div>
       </main>
       <LegalBand />
-      <Footer />
+      <FooterV2 />
     </div>
   );
 };

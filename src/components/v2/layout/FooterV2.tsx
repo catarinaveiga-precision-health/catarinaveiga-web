@@ -4,8 +4,8 @@ import { Container } from "../ui/Container";
 import { ButtonV2 } from "../ui/ButtonV2";
 
 const navItems = [
-  { label: "Início", href: "/v2" },
-  { label: "Fundação", href: "/v2#fundacao" },
+  { label: "Início", href: "/" },
+  { label: "Fundação", href: "/programa-fundacao" },
   { label: "Interpretar análises", href: "/avaliacao" },
   { label: "Sobre", href: "/sobre" },
   { label: "Biblioteca", href: "/recursos" },

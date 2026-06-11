@@ -5,8 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { NavbarV2 } from "@/components/v2/layout/NavbarV2";
+import { FooterV2 } from "@/components/v2/layout/FooterV2";
 import { supabase } from "@/integrations/supabase/client";
 
 const COUNTRIES = [
@@ -154,26 +154,26 @@ const Candidatura = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <div className="min-h-screen bg-v2-paper">
+      <NavbarV2 />
 
       {/* HERO */}
-      <section className="pt-32 pb-20 px-6 text-center bg-background">
-        <p className="label-uppercase text-amber mb-4 tracking-widest text-xs">Triagem Gratuita</p>
-        <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground leading-tight max-w-3xl mx-auto">
+      <section className="pt-32 pb-20 px-6 text-center bg-v2-paper">
+        <p className="label-uppercase text-v2-golden mb-4 tracking-widest text-xs">Triagem Gratuita</p>
+        <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-v2-ink leading-tight max-w-3xl mx-auto">
           Primeiro, vou perceber se te posso ajudar.
         </h1>
-        <p className="mt-6 text-muted-custom max-w-xl mx-auto text-base md:text-lg font-sans leading-relaxed">
+        <p className="mt-6 text-v2-ink-mute max-w-xl mx-auto text-base md:text-lg font-sans leading-relaxed">
           A triagem existe para garantir que o Programa Fundação é a abordagem certa para o teu caso específico — antes de avançares.
         </p>
       </section>
 
       {/* PROCESS STEPS */}
-      <section className="py-20 px-6 bg-bone">
+      <section className="py-20 px-6 bg-v2-paper-deep">
         <div className="max-w-3xl mx-auto">
           <div className="flex items-start justify-between relative">
             {/* Connector line */}
-            <div className="absolute top-5 left-[calc(16.67%)] right-[calc(16.67%)] h-px bg-amber/30 hidden md:block" />
+            <div className="absolute top-5 left-[calc(16.67%)] right-[calc(16.67%)] h-px bg-v2-golden/30 hidden md:block" />
 
             {[
               { num: 1, title: "Preenches", desc: "5 minutos. Respondo pessoalmente." },
@@ -181,30 +181,30 @@ const Candidatura = () => {
               { num: 3, title: "Se houver fit", desc: "Marcamos consulta inicial (€120)." },
             ].map((s) => (
               <div key={s.num} className="flex-1 text-center relative z-10">
-                <div className="w-10 h-10 rounded-full bg-amber text-primary-foreground flex items-center justify-center mx-auto font-serif text-lg">
+                <div className="w-10 h-10 rounded-full bg-v2-golden text-primary-foreground flex items-center justify-center mx-auto font-serif text-lg">
                   {s.num}
                 </div>
-                <h3 className="font-serif text-lg text-foreground mt-3">{s.title}</h3>
-                <p className="text-muted-custom text-sm font-sans mt-1 max-w-[180px] mx-auto">{s.desc}</p>
+                <h3 className="font-serif text-lg text-v2-ink mt-3">{s.title}</h3>
+                <p className="text-v2-ink-mute text-sm font-sans mt-1 max-w-[180px] mx-auto">{s.desc}</p>
               </div>
             ))}
           </div>
-          <p className="text-center text-muted-custom text-sm font-sans mt-10 italic">
+          <p className="text-center text-v2-ink-mute text-sm font-sans mt-10 italic">
             Se não for a abordagem certa, digo-o. Sem rodeios.
           </p>
         </div>
       </section>
 
       {/* MULTI-STEP FORM */}
-      <section className="py-20 px-6 bg-background">
+      <section className="py-20 px-6 bg-v2-paper">
         <div className="max-w-[680px] mx-auto">
           {submitted ? (
             <div className="text-center py-16 animate-fade-in">
-              <div className="w-16 h-16 rounded-full bg-amber/10 flex items-center justify-center mx-auto mb-6">
-                <CheckCircle className="w-8 h-8 text-amber" />
+              <div className="w-16 h-16 rounded-full bg-v2-golden/10 flex items-center justify-center mx-auto mb-6">
+                <CheckCircle className="w-8 h-8 text-v2-golden" />
               </div>
-              <h2 className="font-serif text-3xl text-foreground">Candidatura recebida.</h2>
-              <p className="text-muted-custom font-sans mt-4">Respondo pessoalmente em 48h úteis.</p>
+              <h2 className="font-serif text-3xl text-v2-ink">Candidatura recebida.</h2>
+              <p className="text-v2-ink-mute font-sans mt-4">Respondo pessoalmente em 48h úteis.</p>
             </div>
           ) : (
             <>
@@ -214,17 +214,17 @@ const Candidatura = () => {
                   <div key={i} className="flex items-center gap-2">
                     <div
                       className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                        i <= step ? "bg-amber" : "bg-bone"
+                        i <= step ? "bg-v2-golden" : "bg-v2-paper-deep"
                       }`}
                     />
                     {i < 4 && (
                       <div className={`w-8 h-0.5 transition-colors duration-300 ${
-                        i < step ? "bg-amber" : "bg-bone"
+                        i < step ? "bg-v2-golden" : "bg-v2-paper-deep"
                       }`} />
                     )}
                   </div>
                 ))}
-                <span className="ml-3 text-xs text-muted-custom font-sans">{step}/4</span>
+                <span className="ml-3 text-xs text-v2-ink-mute font-sans">{step}/4</span>
               </div>
 
               {/* Error banner */}
@@ -248,7 +248,7 @@ const Candidatura = () => {
                           value={form.nome}
                           onChange={(e) => updateField("nome", e.target.value)}
                           placeholder="Nome completo"
-                          className="bg-bone border-bone focus:border-amber"
+                          className="bg-v2-paper-deep border-v2-paper-line focus:border-v2-golden"
                         />
                       </FieldGroup>
                       <FieldGroup label="Email *">
@@ -257,7 +257,7 @@ const Candidatura = () => {
                           value={form.email}
                           onChange={(e) => updateField("email", e.target.value)}
                           placeholder="email@exemplo.com"
-                          className="bg-bone border-bone focus:border-amber"
+                          className="bg-v2-paper-deep border-v2-paper-line focus:border-v2-golden"
                         />
                       </FieldGroup>
                       <FieldGroup label="Idade">
@@ -268,14 +268,14 @@ const Candidatura = () => {
                           value={form.idade}
                           onChange={(e) => updateField("idade", e.target.value)}
                           placeholder="Ex: 35"
-                          className="bg-bone border-bone focus:border-amber"
+                          className="bg-v2-paper-deep border-v2-paper-line focus:border-v2-golden"
                         />
                       </FieldGroup>
                       <FieldGroup label="País de residência">
                         <select
                           value={form.pais}
                           onChange={(e) => updateField("pais", e.target.value)}
-                          className="w-full h-10 rounded-md border border-bone bg-bone px-3 py-2 text-sm font-sans text-foreground focus:outline-none focus:border-amber"
+                          className="w-full h-10 rounded-md border border-v2-paper-line bg-v2-paper-deep px-3 py-2 text-sm font-sans text-v2-ink focus:outline-none focus:border-v2-golden"
                         >
                           <option value="">Seleccionar</option>
                           {COUNTRIES.map((c) => (
@@ -300,8 +300,8 @@ const Candidatura = () => {
                               onClick={() => toggleSymptom(s)}
                               className={`px-4 py-2 rounded-full text-sm font-sans transition-all duration-200 border ${
                                 form.sintomas.includes(s)
-                                  ? "bg-amber text-primary-foreground border-amber"
-                                  : "bg-background text-foreground border-bone hover:border-amber/50"
+                                  ? "bg-v2-golden text-primary-foreground border-v2-golden"
+                                  : "bg-v2-paper text-v2-ink border-v2-paper-line hover:border-v2-golden/50"
                               }`}
                             >
                               {s}
@@ -313,7 +313,7 @@ const Candidatura = () => {
                         <select
                           value={form.duracao_sintomas}
                           onChange={(e) => updateField("duracao_sintomas", e.target.value)}
-                          className="w-full h-10 rounded-md border border-bone bg-bone px-3 py-2 text-sm font-sans text-foreground focus:outline-none focus:border-amber"
+                          className="w-full h-10 rounded-md border border-v2-paper-line bg-v2-paper-deep px-3 py-2 text-sm font-sans text-v2-ink focus:outline-none focus:border-v2-golden"
                         >
                           <option value="">Seleccionar</option>
                           {DURATION_OPTIONS.map((d) => (
@@ -338,9 +338,9 @@ const Candidatura = () => {
                               if (e.target.value.length <= 500) updateField("historico_tratamentos", e.target.value);
                             }}
                             placeholder="Descreve brevemente..."
-                            className="bg-bone border-bone focus:border-amber min-h-[120px]"
+                            className="bg-v2-paper-deep border-v2-paper-line focus:border-v2-golden min-h-[120px]"
                           />
-                          <span className="absolute bottom-2 right-3 text-xs text-muted-custom">
+                          <span className="absolute bottom-2 right-3 text-xs text-v2-ink-mute">
                             {form.historico_tratamentos.length}/500
                           </span>
                         </div>
@@ -350,7 +350,7 @@ const Candidatura = () => {
                           value={form.diagnosticos}
                           onChange={(e) => updateField("diagnosticos", e.target.value)}
                           placeholder="Ex: Hipotiroidismo, SII..."
-                          className="bg-bone border-bone focus:border-amber min-h-[100px]"
+                          className="bg-v2-paper-deep border-v2-paper-line focus:border-v2-golden min-h-[100px]"
                         />
                       </FieldGroup>
                       <div className="flex justify-between pt-4">
@@ -362,7 +362,7 @@ const Candidatura = () => {
 
                   {step === 4 && (
                     <StepWrapper title="Revisão">
-                      <div className="space-y-4 bg-bone rounded-xl p-6 text-sm font-sans">
+                      <div className="space-y-4 bg-v2-paper-deep rounded-xl p-6 text-sm font-sans">
                         <SummaryRow label="Nome" value={form.nome} />
                         <SummaryRow label="Email" value={form.email} />
                         <SummaryRow label="Idade" value={form.idade || "—"} />
@@ -379,9 +379,9 @@ const Candidatura = () => {
                           onCheckedChange={(checked) => updateField("rgpd_aceite", !!checked)}
                           className="mt-0.5"
                         />
-                        <label htmlFor="rgpd" className="text-sm font-sans text-muted-custom leading-snug cursor-pointer">
+                        <label htmlFor="rgpd" className="text-sm font-sans text-v2-ink-mute leading-snug cursor-pointer">
                           Li e aceito a{" "}
-                          <a href="/politica-privacidade" className="text-amber underline" target="_blank">
+                          <a href="/politica-privacidade" className="text-v2-golden underline" target="_blank">
                             Política de Privacidade
                           </a>{" "}
                           e o tratamento dos meus dados para fins clínicos.
@@ -407,7 +407,7 @@ const Candidatura = () => {
       </section>
 
       {/* TRUST SIGNALS */}
-      <section className="py-16 px-6 bg-bone">
+      <section className="py-16 px-6 bg-v2-paper-deep">
         <div className="max-w-3xl mx-auto grid md:grid-cols-3 gap-8 text-center">
           {[
             { icon: MessageCircle, text: "Resposta pessoal — nunca automatizada" },
@@ -415,17 +415,17 @@ const Candidatura = () => {
             { icon: Calendar, text: "Sem compromisso até consulta inicial" },
           ].map((item, i) => (
             <div key={i} className="flex flex-col items-center gap-3">
-              <item.icon className="w-5 h-5 text-amber" />
-              <p className="text-sm font-sans text-foreground">{item.text}</p>
+              <item.icon className="w-5 h-5 text-v2-golden" />
+              <p className="text-sm font-sans text-v2-ink">{item.text}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-20 px-6 bg-background">
+      <section className="py-20 px-6 bg-v2-paper">
         <div className="max-w-[680px] mx-auto">
-          <h2 className="font-serif text-2xl md:text-3xl text-foreground text-center mb-10">Questões frequentes</h2>
+          <h2 className="font-serif text-2xl md:text-3xl text-v2-ink text-center mb-10">Questões frequentes</h2>
           <Accordion type="single" collapsible className="space-y-2">
             {[
               { q: "A triagem tem algum custo?", a: "Não. A triagem é gratuita." },
@@ -433,11 +433,11 @@ const Candidatura = () => {
               { q: "Posso candidatar-me sem ter decidido fazer o Programa?", a: "Sim. A candidatura leva à consulta inicial — não ao Programa. Sem pressão." },
               { q: "Quanto tempo demora a ter resposta?", a: "48 horas úteis após submissão." },
             ].map((faq, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} className="border-bone">
-                <AccordionTrigger className="font-sans text-sm text-foreground hover:no-underline py-5">
+              <AccordionItem key={i} value={`faq-${i}`} className="border-v2-paper-line">
+                <AccordionTrigger className="font-sans text-sm text-v2-ink hover:no-underline py-5">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-custom font-sans text-sm">
+                <AccordionContent className="text-v2-ink-mute font-sans text-sm">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>
@@ -446,7 +446,7 @@ const Candidatura = () => {
         </div>
       </section>
 
-      <Footer />
+      <FooterV2 />
     </div>
   );
 };
@@ -454,22 +454,22 @@ const Candidatura = () => {
 /* Sub-components */
 const StepWrapper = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <div className="space-y-6">
-    <h2 className="font-serif text-2xl text-foreground">{title}</h2>
+    <h2 className="font-serif text-2xl text-v2-ink">{title}</h2>
     {children}
   </div>
 );
 
 const FieldGroup = ({ label, children }: { label: string; children: React.ReactNode }) => (
   <div className="space-y-2">
-    <label className="text-sm font-sans text-foreground">{label}</label>
+    <label className="text-sm font-sans text-v2-ink">{label}</label>
     {children}
   </div>
 );
 
 const SummaryRow = ({ label, value }: { label: string; value: string }) => (
   <div className="flex justify-between border-b border-background pb-2 last:border-0">
-    <span className="text-muted-custom">{label}</span>
-    <span className="text-foreground text-right max-w-[60%]">{value}</span>
+    <span className="text-v2-ink-mute">{label}</span>
+    <span className="text-v2-ink text-right max-w-[60%]">{value}</span>
   </div>
 );
 

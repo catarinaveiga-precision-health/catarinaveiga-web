@@ -3,8 +3,8 @@ import { CheckCircle, AlertCircle, ArrowRight, ArrowLeft, ChevronDown, Download,
 import { BIOMARKER_REFERENCES } from "@/data/biomarkerReferences";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { NavbarV2 } from "@/components/v2/layout/NavbarV2";
+import { FooterV2 } from "@/components/v2/layout/FooterV2";
 import { supabase } from "@/integrations/supabase/client";
 // PDF helpers carregados via dynamic import nos pontos de uso (lazy chunk)
 // para evitar 599 KB no bundle inicial.
@@ -231,7 +231,7 @@ const LabInput = ({
 
   return (
     <div className="space-y-1.5">
-      <label className="text-sm font-sans text-muted-foreground">{label}</label>
+      <label className="text-sm font-sans text-v2-ink-mute">{label}</label>
       <div className="flex flex-col sm:flex-row sm:items-center gap-2">
         <Input
           type="text"
@@ -239,13 +239,13 @@ const LabInput = ({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder || "—"}
-          className="bg-transparent border-matcha/30 focus:border-matcha sm:flex-1"
+          className="bg-transparent border-v2-sage/30 focus:border-v2-sage sm:flex-1"
         />
         <select
           value={unit}
           onChange={(e) => onUnitChange(e.target.value)}
           aria-label={`Unidade de ${label}`}
-          className="h-10 rounded-md border border-matcha/30 bg-transparent px-2 text-sm font-sans text-foreground focus:border-matcha focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 sm:w-auto sm:min-w-[110px]"
+          className="h-10 rounded-md border border-v2-sage/30 bg-transparent px-2 text-sm font-sans text-v2-ink focus:border-v2-sage focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 sm:w-auto sm:min-w-[110px]"
         >
           {cfg.units.length > 1 && <option value="">Unidade…</option>}
           {cfg.units.map((u) => (
@@ -261,7 +261,7 @@ const LabInput = ({
         </p>
       )}
       {showImplausible && (
-        <p className="text-xs font-sans text-amber">
+        <p className="text-xs font-sans text-v2-golden">
           Este valor parece invulgar para a unidade seleccionada. Verifica no relatório original se a unidade está correcta.
         </p>
       )}
@@ -272,16 +272,16 @@ const LabInput = ({
 const Accordion = ({ title, children }: { title: string; children: React.ReactNode }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-bone rounded-lg overflow-hidden">
+    <div className="border border-v2-paper-line rounded-lg overflow-hidden">
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-4 py-3 text-sm font-sans text-foreground hover:bg-bone/50 transition-colors"
+        className="w-full flex items-center justify-between px-4 py-3 text-sm font-sans text-v2-ink hover:bg-v2-paper-deep/50 transition-colors"
       >
         <span>{title}</span>
-        <ChevronDown className={`w-4 h-4 text-muted-custom transition-transform ${open ? "rotate-180" : ""}`} />
+        <ChevronDown className={`w-4 h-4 text-v2-ink-mute transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
-      {open && <div className="px-4 pb-4 text-sm font-sans text-muted-custom leading-relaxed">{children}</div>}
+      {open && <div className="px-4 pb-4 text-sm font-sans text-v2-ink-mute leading-relaxed">{children}</div>}
     </div>
   );
 };
@@ -293,7 +293,7 @@ const BiomarkerRefs = ({ refs }: { refs: { authors: string; journal: string; yea
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1 text-[11px] text-muted-custom hover:text-foreground/60 transition-colors font-sans"
+        className="flex items-center gap-1 text-[11px] text-v2-ink-mute hover:text-v2-ink/60 transition-colors font-sans"
       >
         <BookOpen className="w-3 h-3" />
         <span>Ver estudos</span>
@@ -302,13 +302,13 @@ const BiomarkerRefs = ({ refs }: { refs: { authors: string; journal: string; yea
       {open && (
         <ul className="mt-1.5 space-y-1 pl-4">
           {refs.map((ref) => (
-            <li key={ref.pmid} className="text-[10px] text-muted-custom font-sans leading-relaxed">
+            <li key={ref.pmid} className="text-[10px] text-v2-ink-mute font-sans leading-relaxed">
               {ref.authors} <span className="italic">{ref.journal}</span>. {ref.year}.{" "}
               <a
                 href={`https://pubmed.ncbi.nlm.nih.gov/${ref.pmid}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-foreground/60"
+                className="underline hover:text-v2-ink/60"
               >
                 PMID: {ref.pmid}
               </a>
@@ -486,19 +486,19 @@ const Avaliacao = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
+    <div className="min-h-screen bg-v2-paper">
+      <NavbarV2 />
 
       {/* Hero */}
-      <section className="pt-32 pb-12 px-6 text-center bg-background">
-        <p className="label-uppercase text-matcha mb-4 tracking-widest text-xs">Autoavaliação</p>
-        <h1 className="font-serif text-4xl md:text-5xl text-foreground leading-tight max-w-3xl mx-auto">
+      <section className="pt-32 pb-12 px-6 text-center bg-v2-paper">
+        <p className="label-uppercase text-v2-sage mb-4 tracking-widest text-xs">Autoavaliação</p>
+        <h1 className="font-serif text-4xl md:text-5xl text-v2-ink leading-tight max-w-3xl mx-auto">
           Os teus exames estão normais.<br />O teu corpo não.
         </h1>
-        <p className="mt-6 text-muted-custom max-w-2xl mx-auto text-base font-sans leading-relaxed">
+        <p className="mt-6 text-v2-ink-mute max-w-2xl mx-auto text-base font-sans leading-relaxed">
           Esta autoavaliação é educativa. Ajuda-te a chegar à consulta — comigo ou com o teu médico — com perguntas estruturadas. Não substitui avaliação clínica.
         </p>
-        <p className="mt-2 text-muted-custom font-sans text-sm">
+        <p className="mt-2 text-v2-ink-mute font-sans text-sm">
           Mais de 15 biomarcadores analisados em menos de 2 minutos.
         </p>
       </section>
@@ -518,19 +518,19 @@ const Avaliacao = () => {
                   onClick={() => { if (isPast) { setError(null); setStep(i); } }}
                   className={`flex-1 min-w-0 flex flex-col items-center gap-1 pb-2 border-b-2 transition-all ${
                     isActive
-                      ? "border-matcha"
+                      ? "border-v2-sage"
                       : isPast
-                        ? "border-transparent cursor-pointer hover:border-matcha/30"
+                        ? "border-transparent cursor-pointer hover:border-v2-sage/30"
                         : "border-transparent cursor-default"
                   }`}
                 >
                   <span className={`font-sans text-sm font-medium transition-colors ${
-                    isActive ? "text-matcha" : isPast ? "text-foreground/60" : "text-muted-foreground/40"
+                    isActive ? "text-v2-sage" : isPast ? "text-v2-ink/60" : "text-v2-ink-mute/40"
                   }`}>
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className={`hidden md:block label-uppercase text-[10px] transition-colors ${
-                    isActive ? "text-matcha" : isPast ? "text-foreground/50" : "text-muted-foreground/30"
+                    isActive ? "text-v2-sage" : isPast ? "text-v2-ink/50" : "text-v2-ink-mute/30"
                   }`}>
                     {title}
                   </span>
@@ -539,8 +539,8 @@ const Avaliacao = () => {
             })}
           </div>
           {/* Linear progress bar */}
-          <div className="h-[2px] bg-bone rounded-full overflow-hidden">
-            <div className="h-full bg-matcha rounded-full transition-all duration-500 ease-out" style={{ width: `${((step + 1) / 9) * 100}%` }} />
+          <div className="h-[2px] bg-v2-paper-deep rounded-full overflow-hidden">
+            <div className="h-full bg-v2-sage rounded-full transition-all duration-500 ease-out" style={{ width: `${((step + 1) / 9) * 100}%` }} />
           </div>
         </div>
       </section>
@@ -558,8 +558,8 @@ const Avaliacao = () => {
           {/* Step 0: Objectives */}
           {step === 0 && (
             <div className="space-y-8">
-              <h2 className="font-serif text-3xl text-foreground">Quais são os teus principais objetivos?</h2>
-              <p className="text-sm text-muted-foreground font-sans">Seleciona todos os que se aplicam.</p>
+              <h2 className="font-serif text-3xl text-v2-ink">Quais são os teus principais objetivos?</h2>
+              <p className="text-sm text-v2-ink-mute font-sans">Seleciona todos os que se aplicam.</p>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {OBJECTIVES.map((obj) => (
                   <button
@@ -568,8 +568,8 @@ const Avaliacao = () => {
                     onClick={() => toggleObjective(obj)}
                     className={`h-[52px] px-4 rounded text-sm font-sans transition-all duration-200 border text-center ${
                       form.objetivos.includes(obj)
-                        ? "bg-eclipse text-white border-eclipse"
-                        : "bg-transparent text-foreground border-matcha/40 hover:border-matcha"
+                        ? "bg-v2-moss text-white border-v2-moss"
+                        : "bg-transparent text-v2-ink border-v2-sage/40 hover:border-v2-sage"
                     }`}
                   >
                     {obj}
@@ -582,10 +582,10 @@ const Avaliacao = () => {
           {/* Step 1: Profile */}
           {step === 1 && (
             <div className="space-y-8">
-              <h2 className="font-serif text-3xl text-foreground">Perfil básico</h2>
+              <h2 className="font-serif text-3xl text-v2-ink">Perfil básico</h2>
               <div className="space-y-6">
                 <div>
-                  <label className="text-sm font-sans text-muted-foreground mb-3 block">Sexo biológico</label>
+                  <label className="text-sm font-sans text-v2-ink-mute mb-3 block">Sexo biológico</label>
                   <div className="grid grid-cols-2 gap-3 max-w-xs">
                     {["Feminino", "Masculino"].map((s) => (
                       <button
@@ -594,8 +594,8 @@ const Avaliacao = () => {
                         onClick={() => setForm((prev) => ({ ...prev, sexo: s }))}
                         className={`h-[52px] px-6 rounded text-sm font-sans transition-all border text-center ${
                           form.sexo === s
-                            ? "bg-eclipse text-white border-eclipse"
-                            : "bg-transparent text-foreground border-matcha/40 hover:border-matcha"
+                            ? "bg-v2-moss text-white border-v2-moss"
+                            : "bg-transparent text-v2-ink border-v2-sage/40 hover:border-v2-sage"
                         }`}
                       >
                         {s}
@@ -604,7 +604,7 @@ const Avaliacao = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="text-sm font-sans text-muted-foreground mb-1 block">Idade (opcional)</label>
+                  <label className="text-sm font-sans text-v2-ink-mute mb-1 block">Idade (opcional)</label>
                   <Input
                     type="number"
                     min={18}
@@ -612,7 +612,7 @@ const Avaliacao = () => {
                     value={form.idade}
                     onChange={(e) => setForm((prev) => ({ ...prev, idade: e.target.value }))}
                     placeholder="Ex: 38"
-                    className="bg-transparent border-matcha/40 focus:border-matcha max-w-[120px]"
+                    className="bg-transparent border-v2-sage/40 focus:border-v2-sage max-w-[120px]"
                   />
                 </div>
               </div>
@@ -623,8 +623,8 @@ const Avaliacao = () => {
           {step === 2 && (
             <div className="space-y-8">
               <div>
-                <h2 className="font-serif text-3xl text-foreground">Painel Tiroideu</h2>
-                <p className="text-sm text-muted-foreground font-sans mt-2">Preenche apenas os valores que tens disponíveis.</p>
+                <h2 className="font-serif text-3xl text-v2-ink">Painel Tiroideu</h2>
+                <p className="text-sm text-v2-ink-mute font-sans mt-2">Preenche apenas os valores que tens disponíveis.</p>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <LabInput label="TSH" labKey="tsh" value={form.labValues.tsh || ""} unit={form.labUnits.tsh || ""} onChange={(v) => updateLab("tsh", v)} onUnitChange={(u) => updateUnit("tsh", u)} placeholder="Ex: 2.5" />
@@ -638,8 +638,8 @@ const Avaliacao = () => {
           {step === 3 && (
             <div className="space-y-8">
               <div>
-                <h2 className="font-serif text-3xl text-foreground">Painel de Ferro</h2>
-                <p className="text-sm text-muted-foreground font-sans mt-2">Preenche apenas os valores que tens disponíveis.</p>
+                <h2 className="font-serif text-3xl text-v2-ink">Painel de Ferro</h2>
+                <p className="text-sm text-v2-ink-mute font-sans mt-2">Preenche apenas os valores que tens disponíveis.</p>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <LabInput label="Ferritina" labKey="ferritina" value={form.labValues.ferritina || ""} unit={form.labUnits.ferritina || ""} onChange={(v) => updateLab("ferritina", v)} onUnitChange={(u) => updateUnit("ferritina", u)} placeholder="Ex: 45" />
@@ -653,8 +653,8 @@ const Avaliacao = () => {
           {step === 4 && (
             <div className="space-y-8">
               <div>
-                <h2 className="font-serif text-3xl text-foreground">Marcadores Inflamatórios</h2>
-                <p className="text-sm text-muted-foreground font-sans mt-2">Preenche apenas os valores que tens disponíveis.</p>
+                <h2 className="font-serif text-3xl text-v2-ink">Marcadores Inflamatórios</h2>
+                <p className="text-sm text-v2-ink-mute font-sans mt-2">Preenche apenas os valores que tens disponíveis.</p>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <LabInput label="PCR (Proteína C-Reactiva)" labKey="pcr" value={form.labValues.pcr || ""} unit={form.labUnits.pcr || ""} onChange={(v) => updateLab("pcr", v)} onUnitChange={(u) => updateUnit("pcr", u)} placeholder="Ex: 0.5" />
@@ -668,8 +668,8 @@ const Avaliacao = () => {
           {step === 5 && (
             <div className="space-y-8">
               <div>
-                <h2 className="font-serif text-3xl text-foreground">Metabolismo e Hormonas</h2>
-                <p className="text-sm text-muted-foreground font-sans mt-2">Preenche apenas os valores que tens disponíveis.</p>
+                <h2 className="font-serif text-3xl text-v2-ink">Metabolismo e Hormonas</h2>
+                <p className="text-sm text-v2-ink-mute font-sans mt-2">Preenche apenas os valores que tens disponíveis.</p>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <LabInput label="Vitamina D" labKey="vitamina_d" value={form.labValues.vitamina_d || ""} unit={form.labUnits.vitamina_d || ""} onChange={(v) => updateLab("vitamina_d", v)} onUnitChange={(u) => updateUnit("vitamina_d", u)} placeholder="Ex: 35" />
@@ -685,39 +685,39 @@ const Avaliacao = () => {
           {step === 6 && (
             <div className="space-y-8">
               {/* Summary card */}
-              <div className="bg-ivory rounded-2xl p-8 border border-bone space-y-6">
-                <h2 className="font-serif text-3xl md:text-4xl text-foreground text-center">
+              <div className="bg-v2-paper rounded-2xl p-8 border border-v2-paper-line space-y-6">
+                <h2 className="font-serif text-3xl md:text-4xl text-v2-ink text-center">
                   A tua leitura funcional
                 </h2>
 
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-4 text-center">
-                  <div className="bg-bone/50 rounded-xl py-4 px-2">
-                    <p className="font-serif text-3xl text-foreground">{systems.length}</p>
-                    <p className="text-xs text-muted-custom font-sans mt-1">Sistemas avaliados</p>
+                  <div className="bg-v2-paper-deep/50 rounded-xl py-4 px-2">
+                    <p className="font-serif text-3xl text-v2-ink">{systems.length}</p>
+                    <p className="text-xs text-v2-ink-mute font-sans mt-1">Sistemas avaliados</p>
                   </div>
-                  <div className="bg-bone/50 rounded-xl py-4 px-2">
-                    <p className="font-serif text-3xl text-foreground">{optimalCount}</p>
-                    <p className="text-xs text-muted-custom font-sans mt-1">No intervalo funcional</p>
+                  <div className="bg-v2-paper-deep/50 rounded-xl py-4 px-2">
+                    <p className="font-serif text-3xl text-v2-ink">{optimalCount}</p>
+                    <p className="text-xs text-v2-ink-mute font-sans mt-1">No intervalo funcional</p>
                   </div>
-                  <div className="bg-bone/50 rounded-xl py-4 px-2">
-                    <p className="font-serif text-3xl text-foreground">{flagCount}</p>
-                    <p className="text-xs text-muted-custom font-sans mt-1">Padrões a investigar</p>
+                  <div className="bg-v2-paper-deep/50 rounded-xl py-4 px-2">
+                    <p className="font-serif text-3xl text-v2-ink">{flagCount}</p>
+                    <p className="text-xs text-v2-ink-mute font-sans mt-1">Padrões a investigar</p>
                   </div>
                 </div>
 
                 {/* System list with status dots only */}
                 <div className="space-y-2">
                   {systems.map(([name, status]) => (
-                    <div key={name} className="flex items-center gap-3 py-2.5 px-4 rounded-lg bg-background/60">
-                      <span className="text-sm font-sans font-medium text-foreground mr-1">
+                    <div key={name} className="flex items-center gap-3 py-2.5 px-4 rounded-lg bg-v2-paper/60">
+                      <span className="text-sm font-sans font-medium text-v2-ink mr-1">
                         {status === "optimal" ? "\u25CF" : status === "suboptimal" ? "\u26A0" : "\u2193"}
                       </span>
-                      <span className="text-sm font-sans text-foreground">{name}</span>
+                      <span className="text-sm font-sans text-v2-ink">{name}</span>
                     </div>
                   ))}
                   {systems.length === 0 && (
-                    <p className="text-sm text-muted-custom font-sans text-center py-4">
+                    <p className="text-sm text-v2-ink-mute font-sans text-center py-4">
                       Nenhum valor laboratorial foi introduzido.
                     </p>
                   )}
@@ -725,29 +725,29 @@ const Avaliacao = () => {
               </div>
 
               {/* Information gap message */}
-              <p className="text-sm font-sans text-muted-foreground italic text-center leading-relaxed max-w-[480px] mx-auto">
+              <p className="text-sm font-sans text-v2-ink-mute italic text-center leading-relaxed max-w-[480px] mx-auto">
                 "Identificámos alguns padrões nos teus biomarcadores. Para ver a interpretação completa de cada marcador, os rácios calculados e os próximos passos possíveis, introduz o teu email."
               </p>
 
               {/* Lead capture form */}
               <div className="space-y-4 max-w-sm mx-auto">
                 <div>
-                  <label className="text-sm font-sans text-muted-foreground mb-1 block">Nome</label>
+                  <label className="text-sm font-sans text-v2-ink-mute mb-1 block">Nome</label>
                   <Input
                     value={form.nome}
                     onChange={(e) => setForm((prev) => ({ ...prev, nome: e.target.value }))}
                     placeholder="Nome completo"
-                    className="bg-transparent border-matcha/30 focus:border-matcha"
+                    className="bg-transparent border-v2-sage/30 focus:border-v2-sage"
                   />
                 </div>
                 <div>
-                  <label className="text-sm font-sans text-muted-foreground mb-1 block">Email</label>
+                  <label className="text-sm font-sans text-v2-ink-mute mb-1 block">Email</label>
                   <Input
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
                     placeholder="email@exemplo.com"
-                    className="bg-transparent border-matcha/30 focus:border-matcha"
+                    className="bg-transparent border-v2-sage/30 focus:border-v2-sage"
                   />
                 </div>
                 <Button
@@ -759,7 +759,7 @@ const Avaliacao = () => {
                 >
                   {saving ? "A guardar..." : "Ver relatório completo →"}
                 </Button>
-                <p className="text-xs text-muted-custom font-sans text-center">
+                <p className="text-xs text-v2-ink-mute font-sans text-center">
                   Sem spam. Apenas a tua leitura.
                 </p>
               </div>
@@ -770,18 +770,18 @@ const Avaliacao = () => {
           {step === 7 && (
             <div className="space-y-8">
               <div className="text-center">
-                <div className="w-14 h-14 rounded-full bg-amber/10 flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="w-7 h-7 text-amber" />
+                <div className="w-14 h-14 rounded-full bg-v2-golden/10 flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="w-7 h-7 text-v2-golden" />
                 </div>
-                <h2 className="font-serif text-3xl text-foreground">A tua leitura — para levares à consulta.</h2>
-                <p className="text-muted-custom font-sans mt-2">Análise baseada em intervalos funcionais — não apenas de referência.</p>
+                <h2 className="font-serif text-3xl text-v2-ink">A tua leitura — para levares à consulta.</h2>
+                <p className="text-v2-ink-mute font-sans mt-2">Análise baseada em intervalos funcionais — não apenas de referência.</p>
               </div>
 
               {!hasAnyLabValue ? (
                 <div className="space-y-6">
-                  <div className="bg-ivory border border-bone rounded-2xl p-8 md:p-10 space-y-5">
-                    <p className="label-uppercase text-matcha tracking-widest text-xs">Resultado Preliminar</p>
-                    <p className="text-foreground/85 font-sans text-base leading-relaxed">
+                  <div className="bg-v2-paper border border-v2-paper-line rounded-2xl p-8 md:p-10 space-y-5">
+                    <p className="label-uppercase text-v2-sage tracking-widest text-xs">Resultado Preliminar</p>
+                    <p className="text-v2-ink/85 font-sans text-base leading-relaxed">
                       Com base na tua idade e objetivos, o teu perfil é semelhante ao de muitas mulheres que procuram apoio por sintomas como:
                     </p>
                     <ul className="space-y-2 pl-1">
@@ -792,22 +792,22 @@ const Avaliacao = () => {
                         "Mudanças associadas à perimenopausa",
                         "Quebra de energia e metabolismo",
                       ].map((sintoma) => (
-                        <li key={sintoma} className="flex items-start gap-3 font-sans text-foreground/85">
-                          <span className="text-matcha mt-1 leading-none">◆</span>
+                        <li key={sintoma} className="flex items-start gap-3 font-sans text-v2-ink/85">
+                          <span className="text-v2-sage mt-1 leading-none">◆</span>
                           <span>{sintoma}</span>
                         </li>
                       ))}
                     </ul>
-                    <p className="text-foreground/85 font-sans text-base leading-relaxed pt-2">
+                    <p className="text-v2-ink/85 font-sans text-base leading-relaxed pt-2">
                       Mesmo sem análises laboratoriais, estes padrões já justificam uma investigação mais aprofundada.
                     </p>
-                    <p className="text-muted-custom font-sans text-sm leading-relaxed">
+                    <p className="text-v2-ink-mute font-sans text-sm leading-relaxed">
                       Nos próximos dias vais receber orientações para perceber melhor quais os fatores que podem estar por trás destes sintomas e quais os exames que vale a pena considerar.
                     </p>
                   </div>
 
                   <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 space-y-4">
-                    <p className="text-sm font-sans text-foreground leading-relaxed">
+                    <p className="text-sm font-sans text-v2-ink leading-relaxed">
                       Se preferes ir directamente para uma avaliação clínica completa — onde cruzamos sintomas, história e exames — podes agendar a consulta inicial.
                     </p>
                     <Button variant="hero" size="sm" onClick={() => setAcuityOpen(true)}>
@@ -832,7 +832,7 @@ const Avaliacao = () => {
                             <span className="text-sm font-sans font-bold">
                               {r.status === "optimal" ? "\u25CF" : r.status === "suboptimal" ? "\u26A0" : "\u2193"}
                             </span>
-                            <span className="font-sans font-medium text-foreground text-sm">{r.marker}</span>
+                            <span className="font-sans font-medium text-v2-ink text-sm">{r.marker}</span>
                           </div>
                           <span className={`text-xs font-sans px-2 py-0.5 rounded-full ${
                             r.status === "optimal" ? "bg-green-100 text-green-800" :
@@ -842,17 +842,17 @@ const Avaliacao = () => {
                             {r.status === "optimal" ? "Funcional" : r.status === "suboptimal" ? "Sub-óptimo" : "Atenção"}
                           </span>
                         </div>
-                        <p className="text-xs text-muted-custom font-sans">
+                        <p className="text-xs text-v2-ink-mute font-sans">
                           {r.value} {r.unit}
-                          {r.implausible && <span className="text-amber"> · valor invulgar para a unidade seleccionada</span>}
+                          {r.implausible && <span className="text-v2-golden"> · valor invulgar para a unidade seleccionada</span>}
                         </p>
                         {FUNCTIONAL_RANGES[r.marker] && (
-                          <p className="text-xs text-muted-custom font-sans mt-0.5 italic">{FUNCTIONAL_RANGES[r.marker]}</p>
+                          <p className="text-xs text-v2-ink-mute font-sans mt-0.5 italic">{FUNCTIONAL_RANGES[r.marker]}</p>
                         )}
-                        <p className="text-sm text-foreground/80 font-sans mt-1">{r.note}</p>
+                        <p className="text-sm text-v2-ink/80 font-sans mt-1">{r.note}</p>
                         {refs.length > 0 && <BiomarkerRefs refs={refs} />}
                         {r.marker === "Ferritina" && (
-                          <a href="/ferritina-baixa-sintomas" className="inline-block text-amber font-sans text-xs hover:underline mt-2">
+                          <a href="/ferritina-baixa-sintomas" className="inline-block text-v2-golden font-sans text-xs hover:underline mt-2">
                             Saber mais sobre ferritina →
                           </a>
                         )}
@@ -863,7 +863,7 @@ const Avaliacao = () => {
 
                   {/* System explanations as accordions */}
                   <div className="space-y-2">
-                    <h3 className="font-serif text-xl text-foreground mb-3">Saber mais sobre cada sistema</h3>
+                    <h3 className="font-serif text-xl text-v2-ink mb-3">Saber mais sobre cada sistema</h3>
                     {systems.map(([name]) => (
                       SYSTEM_EXPLANATIONS[name] && (
                         <Accordion key={name} title={name}>
@@ -876,7 +876,7 @@ const Avaliacao = () => {
                   {/* Post-generation summary */}
                   {flagCount > 0 && (
                     <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 space-y-4">
-                      <p className="text-sm font-sans text-foreground leading-relaxed">
+                      <p className="text-sm font-sans text-v2-ink leading-relaxed">
                         Encontrámos <strong>{flagCount}</strong> biomarcador{flagCount > 1 ? "es" : ""} fora do intervalo funcional. Estes padrões podem associar-se a sintomas como fadiga, alterações hormonais ou dificuldade de recuperação. Uma consulta clínica permite interpretar estes padrões no seu contexto individual.
                       </p>
                       <Button variant="hero" size="sm" onClick={() => setAcuityOpen(true)}>
@@ -896,11 +896,11 @@ const Avaliacao = () => {
               )}
 
               {/* Disclaimer */}
-              <div className="bg-bone rounded-xl p-6 text-center space-y-4">
-                <p className="text-sm font-sans text-foreground/85 leading-relaxed max-w-[60ch] mx-auto">
+              <div className="bg-v2-paper-deep rounded-xl p-6 text-center space-y-4">
+                <p className="text-sm font-sans text-v2-ink/85 leading-relaxed max-w-[60ch] mx-auto">
                   Para além dos intervalos de referência laboratoriais, vale a pena olhar para intervalos funcionais — uma leitura complementar usada por laboratórios portugueses (como o Joaquim Chaves) e pela literatura científica internacional. Não substitui a interpretação clínica do médico.
                 </p>
-                <p className="text-xs text-muted-custom font-sans">
+                <p className="text-xs text-v2-ink-mute font-sans">
                   Esta autoavaliação é uma ferramenta educativa. Para diagnóstico, interpretação clínica de análises, prescrição ou tratamento médico, consulta o teu médico. Se quiseres acompanhamento de Medicina Tradicional Chinesa em complemento, podes marcar uma consulta comigo.
                 </p>
               </div>
@@ -916,11 +916,11 @@ const Avaliacao = () => {
 
           {/* Step 8: CONFIRMAÇÃO — Dark CTA */}
           {step === 8 && (
-            <div className="bg-[#1F1A14] rounded-2xl p-10 md:p-14 text-center space-y-6">
-              <h2 className="font-serif text-3xl md:text-4xl text-ivory italic leading-tight">
+            <div className="bg-v2-moss rounded-2xl p-10 md:p-14 text-center space-y-6">
+              <h2 className="font-serif text-3xl md:text-4xl text-v2-paper italic leading-tight">
                 Os teus exames contam uma história.<br />Queres ouvi-la?
               </h2>
-              <p className="text-ivory/70 font-sans text-sm max-w-md mx-auto leading-relaxed">
+              <p className="text-v2-paper/70 font-sans text-sm max-w-md mx-auto leading-relaxed">
                 Se identificaste padrões nos teus biomarcadores, o próximo passo é uma avaliação funcional personalizada com a nossa equipa clínica.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
@@ -931,7 +931,7 @@ const Avaliacao = () => {
                   variant="outline"
                   size="lg"
                   asChild
-                  className="border-ivory/30 text-ivory hover:bg-ivory/10"
+                  className="border-ivory/30 text-v2-paper hover:bg-v2-paper/10"
                 >
                   <a href="/programa-fundacao">Conhecer o Programa Fundação</a>
                 </Button>
@@ -956,7 +956,7 @@ const Avaliacao = () => {
       </section>
 
       <AcuityModal open={acuityOpen} onClose={() => setAcuityOpen(false)} />
-      <Footer />
+      <FooterV2 />
     </div>
   );
 };

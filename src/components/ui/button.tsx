@@ -15,10 +15,10 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-muted hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-primary text-primary-foreground hover:bg-primary/80 transition-all duration-200 font-sans font-medium tracking-wide rounded-sm",
-        heroAccent: "bg-primary text-primary-foreground hover:bg-primary/80 transition-all duration-200 font-sans font-medium tracking-wide rounded-sm",
+        hero: "bg-v2-golden text-v2-paper hover:bg-v2-golden-deep transition-all duration-200 font-sans font-medium tracking-wide rounded-sm",
+        heroAccent: "bg-v2-golden text-v2-paper hover:bg-v2-golden-deep transition-all duration-200 font-sans font-medium tracking-wide rounded-sm",
         amber: "border border-foreground/20 text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-200 font-sans font-medium rounded-sm",
-        eclipse: "bg-eclipse text-white hover:bg-eclipse/90 transition-all duration-200 font-sans font-medium rounded-sm",
+        eclipse: "bg-v2-moss text-v2-paper hover:bg-v2-moss/90 transition-all duration-200 font-sans font-medium rounded-sm",
       },
       size: {
         default: "h-10 px-5 py-2",

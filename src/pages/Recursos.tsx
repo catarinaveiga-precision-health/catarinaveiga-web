@@ -1,5 +1,5 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { NavbarV2 } from "@/components/v2/layout/NavbarV2";
+import { FooterV2 } from "@/components/v2/layout/FooterV2";
 import LegalBand from "@/components/LegalBand";
 import MobileCTA from "@/components/MobileCTA";
 import AcuityModal from "@/components/AcuityModal";
@@ -162,7 +162,7 @@ const Recursos = () => {
         </script>
       </Helmet>
 
-      <Navbar />
+      <NavbarV2 />
 
       <main>
         {/* ─── 1. SEO Header ─── */}
@@ -455,7 +455,7 @@ const Recursos = () => {
       </main>
 
       <LegalBand />
-      <Footer />
+      <FooterV2 />
       <MobileCTA />
       <AcuityModal open={open} onClose={onClose} />
     </>

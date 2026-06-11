@@ -7,25 +7,25 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { NavbarV2 } from "@/components/v2/layout/NavbarV2";
+import { FooterV2 } from "@/components/v2/layout/FooterV2";
 import LegalBand from "@/components/LegalBand";
 
 const Hero = () => {
   const ref = useFadeUp();
   return (
-    <section ref={ref} className="bg-background section-padding pt-32">
+    <section ref={ref} className="bg-v2-paper section-padding pt-32">
       <div className="max-w-3xl mx-auto text-center">
-        <span className="fade-up inline-block label-uppercase text-amber text-xs mb-6">
+        <span className="fade-up inline-block label-uppercase text-v2-golden text-xs mb-6">
           Programa Fundação
         </span>
-        <h1 className="fade-up font-serif text-5xl md:text-6xl lg:text-7xl text-foreground mb-6 leading-tight">
+        <h1 className="fade-up font-serif text-5xl md:text-6xl lg:text-7xl text-v2-ink mb-6 leading-tight">
           Investigação clínica. Protocolo personalizado. Três meses.
         </h1>
         <div className="fade-up flex justify-center mb-10">
-          <div className="w-[60px] h-[2px] bg-amber" />
+          <div className="w-[60px] h-[2px] bg-v2-golden" />
         </div>
-        <p className="fade-up text-muted-foreground max-w-2xl mx-auto mb-10 text-lg">
+        <p className="fade-up text-v2-ink-mute max-w-2xl mx-auto mb-10 text-lg">
           A abordagem estruturada para mulheres com sintomas persistentes e causas ainda por identificar.
         </p>
         <div className="fade-up flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -34,7 +34,7 @@ const Hero = () => {
           </Button>
           <a
             href="#como-funciona"
-            className="text-sm font-sans text-muted-foreground hover:text-foreground transition-colors"
+            className="text-sm font-sans text-v2-ink-mute hover:text-v2-ink transition-colors"
           >
             Como funciona em detalhe ↓
           </a>
@@ -52,22 +52,22 @@ const QualifyingBlock = () => {
     "Resultados laboratoriais normais mas sintomas reais",
   ];
   return (
-    <section ref={ref} className="bg-bone section-padding">
+    <section ref={ref} className="bg-v2-paper-deep section-padding">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="fade-up font-serif text-4xl md:text-5xl text-foreground mb-10">
+        <h2 className="fade-up font-serif text-4xl md:text-5xl text-v2-ink mb-10">
           Tens sintomas. Tens exames normais. Não tens resposta.
         </h2>
         <div className="grid md:grid-cols-3 gap-6 mb-10">
           {cards.map((text, i) => (
             <div
               key={i}
-              className="fade-up bg-background rounded-[24px] p-8 border border-border text-center"
+              className="fade-up bg-v2-paper rounded-[24px] p-8 border border-border text-center"
             >
-              <p className="text-foreground text-[15px]">{text}</p>
+              <p className="text-v2-ink text-[15px]">{text}</p>
             </div>
           ))}
         </div>
-        <p className="fade-up text-muted-foreground text-lg">
+        <p className="fade-up text-v2-ink-mute text-lg">
           Se reconheces este padrão, este programa foi desenhado para ti.
         </p>
       </div>
@@ -99,9 +99,9 @@ const phases = [
 const ThreePhases = () => {
   const ref = useFadeUp();
   return (
-    <section ref={ref} id="como-funciona" className="bg-background section-padding">
+    <section ref={ref} id="como-funciona" className="bg-v2-paper section-padding">
       <div className="max-w-4xl mx-auto">
-        <h2 className="fade-up font-serif text-4xl md:text-5xl text-foreground text-center mb-16">
+        <h2 className="fade-up font-serif text-4xl md:text-5xl text-v2-ink text-center mb-16">
           Três fases. Critérios clínicos. Sequência definida.
         </h2>
         <div className="relative">
@@ -111,13 +111,13 @@ const ThreePhases = () => {
             {phases.map((phase, i) => (
               <div key={i} className="fade-up relative pl-16 md:pl-20">
                 {/* Amber dot */}
-                <div className="absolute left-[18px] md:left-[26px] top-2 w-3 h-3 rounded-full bg-amber" />
+                <div className="absolute left-[18px] md:left-[26px] top-2 w-3 h-3 rounded-full bg-v2-golden" />
                 <span className="font-serif text-[96px] leading-none text-bone absolute -top-6 right-0 select-none hidden md:block opacity-60">
                   {phase.num}
                 </span>
-                <span className="label-uppercase text-amber text-xs">{phase.weeks}</span>
-                <h3 className="font-serif text-3xl text-foreground mt-1 mb-2">{phase.title}</h3>
-                <p className="text-muted-foreground text-[15px]">{phase.desc}</p>
+                <span className="label-uppercase text-v2-golden text-xs">{phase.weeks}</span>
+                <h3 className="font-serif text-3xl text-v2-ink mt-1 mb-2">{phase.title}</h3>
+                <p className="text-v2-ink-mute text-[15px]">{phase.desc}</p>
               </div>
             ))}
           </div>
@@ -139,17 +139,17 @@ const inclusions = [
 const WhatsIncluded = () => {
   const ref = useFadeUp();
   return (
-    <section ref={ref} className="bg-bone section-padding">
+    <section ref={ref} className="bg-v2-paper-deep section-padding">
       <div className="max-w-5xl mx-auto">
-        <h2 className="fade-up font-serif text-4xl md:text-5xl text-foreground text-center mb-14">
+        <h2 className="fade-up font-serif text-4xl md:text-5xl text-v2-ink text-center mb-14">
           O que inclui
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {inclusions.map((item, i) => (
-            <div key={i} className="fade-up bg-background rounded-[24px] p-8 border border-border">
-              <div className="w-2.5 h-2.5 rounded-full bg-amber mb-4" />
-              <h4 className="font-serif text-xl text-foreground mb-2">{item.title}</h4>
-              <p className="text-muted-foreground text-[14px]">{item.desc}</p>
+            <div key={i} className="fade-up bg-v2-paper rounded-[24px] p-8 border border-border">
+              <div className="w-2.5 h-2.5 rounded-full bg-v2-golden mb-4" />
+              <h4 className="font-serif text-xl text-v2-ink mb-2">{item.title}</h4>
+              <p className="text-v2-ink-mute text-[14px]">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -161,17 +161,17 @@ const WhatsIncluded = () => {
 const Investment = () => {
   const ref = useFadeUp();
   return (
-    <section ref={ref} className="bg-background section-padding">
+    <section ref={ref} className="bg-v2-paper section-padding">
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="fade-up font-serif text-4xl md:text-5xl text-foreground mb-8">Investimento</h2>
-        <div className="fade-up inline-block border border-amber rounded-[16px] px-12 py-8 mb-4">
-          <p className="font-serif text-7xl md:text-8xl text-foreground">€800</p>
+        <h2 className="fade-up font-serif text-4xl md:text-5xl text-v2-ink mb-8">Investimento</h2>
+        <div className="fade-up inline-block border border-v2-golden rounded-[16px] px-12 py-8 mb-4">
+          <p className="font-serif text-7xl md:text-8xl text-v2-ink">€800</p>
         </div>
-        <p className="fade-up text-muted-foreground text-lg mb-6">12 semanas · Programa completo</p>
-        <p className="fade-up text-foreground text-[15px] mb-4">
+        <p className="fade-up text-v2-ink-mute text-lg mb-6">12 semanas · Programa completo</p>
+        <p className="fade-up text-v2-ink text-[15px] mb-4">
           Equivale a €200 por consulta vs €300+ por especialista convencional
         </p>
-        <p className="fade-up text-muted-foreground text-sm mb-10">
+        <p className="fade-up text-v2-ink-mute text-sm mb-10">
           Não inclui análises laboratoriais — custo variável orientado por mim
         </p>
         <div className="fade-up">
@@ -206,18 +206,18 @@ const faqItems = [
 const FAQSection = () => {
   const ref = useFadeUp();
   return (
-    <section ref={ref} className="bg-background section-padding">
+    <section ref={ref} className="bg-v2-paper section-padding">
       <div className="max-w-2xl mx-auto">
-        <h2 className="fade-up font-serif text-4xl md:text-5xl text-foreground text-center mb-12">
+        <h2 className="fade-up font-serif text-4xl md:text-5xl text-v2-ink text-center mb-12">
           Perguntas frequentes
         </h2>
         <Accordion type="single" collapsible className="fade-up">
           {faqItems.map((item, i) => (
             <AccordionItem key={i} value={`faq-${i}`} className="border-border">
-              <AccordionTrigger className="font-serif text-lg text-foreground hover:no-underline">
+              <AccordionTrigger className="font-serif text-lg text-v2-ink hover:no-underline">
                 {item.q}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground text-[15px]">
+              <AccordionContent className="text-v2-ink-mute text-[15px]">
                 {item.a}
               </AccordionContent>
             </AccordionItem>
@@ -231,19 +231,19 @@ const FAQSection = () => {
 const FinalCTA = () => {
   const ref = useFadeUp();
   return (
-    <section ref={ref} className="bg-dark section-padding" style={{ backgroundColor: "#1F1A14" }}>
+    <section ref={ref} className="bg-v2-moss section-padding" style={{ backgroundColor: "#1F1A14" }}>
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="fade-up font-serif text-4xl md:text-5xl text-ivory mb-6">
+        <h2 className="fade-up font-serif text-4xl md:text-5xl text-v2-paper mb-6">
           Primeiro, vou perceber se te posso ajudar.
         </h2>
-        <p className="fade-up text-ivory/60 mb-10">
+        <p className="fade-up text-v2-paper/60 mb-10">
           A triagem é gratuita. Resposta pessoal em 48h.
         </p>
         <div className="fade-up">
           <Button
             variant="outline"
             size="lg"
-            className="border-ivory/30 text-ivory hover:bg-ivory hover:text-foreground transition-all duration-300 font-sans font-normal tracking-wide"
+            className="border-ivory/30 text-v2-paper hover:bg-v2-paper hover:text-v2-ink transition-all duration-300 font-sans font-normal tracking-wide"
             asChild
           >
             <a href="/candidatura">Preencher Triagem</a>
@@ -256,14 +256,14 @@ const FinalCTA = () => {
 
 const SectionDivider = () => (
   <div className="max-w-5xl mx-auto px-6">
-    <Separator className="bg-bone" />
+    <Separator className="bg-v2-paper-deep" />
   </div>
 );
 
 const ProgramaFundacao = () => {
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <NavbarV2 />
       <Hero />
       <SectionDivider />
       <QualifyingBlock />
@@ -276,7 +276,7 @@ const ProgramaFundacao = () => {
       <SectionDivider />
       <FAQSection />
       <FinalCTA />
-      <Footer />
+      <FooterV2 />
       <LegalBand />
     </div>
   );

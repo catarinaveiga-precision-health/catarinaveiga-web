@@ -1,8 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Link2, Facebook, Linkedin } from "lucide-react";
-import Navbar from "@/components/Navbar";
+import { NavbarV2 } from "@/components/v2/layout/NavbarV2";
 import LegalBand from "@/components/LegalBand";
-import Footer from "@/components/Footer";
+import { FooterV2 } from "@/components/v2/layout/FooterV2";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSanityPost, useSanityPosts } from "@/hooks/useSanityPosts";
 import { useEffect, useState, useMemo } from "react";
@@ -17,23 +17,23 @@ import { extractFaqFromBody, buildFaqJsonLd } from "@/lib/extractFaqFromBody";
 const portableTextComponents: PortableTextComponents = {
   block: {
     h2: ({ children }) => (
-      <h2 className="font-serif text-2xl md:text-3xl text-foreground mt-12 mb-4">{children}</h2>
+      <h2 className="font-serif text-2xl md:text-3xl text-v2-ink mt-12 mb-4">{children}</h2>
     ),
     h3: ({ children }) => (
-      <h3 className="font-serif text-xl md:text-2xl text-foreground mt-8 mb-3">{children}</h3>
+      <h3 className="font-serif text-xl md:text-2xl text-v2-ink mt-8 mb-3">{children}</h3>
     ),
     normal: ({ children }) => (
       <p className="my-4 leading-relaxed">{children}</p>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-2 border-amber pl-6 italic text-foreground/80 my-8 text-lg">
+      <blockquote className="border-l-2 border-v2-golden pl-6 italic text-v2-ink/80 my-8 text-lg">
         {children}
       </blockquote>
     ),
   },
   marks: {
     strong: ({ children }) => (
-      <strong className="font-semibold text-foreground">{children}</strong>
+      <strong className="font-semibold text-v2-ink">{children}</strong>
     ),
     em: ({ children }) => <em>{children}</em>,
     link: ({ children, value }) => (
@@ -41,7 +41,7 @@ const portableTextComponents: PortableTextComponents = {
         href={value?.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-amber hover:text-amber-light underline transition-colors"
+        className="text-v2-golden hover:text-v2-golden underline transition-colors"
       >
         {children}
       </a>
@@ -71,7 +71,7 @@ const portableTextComponents: PortableTextComponents = {
             loading="lazy"
           />
           {value.alt && (
-            <figcaption className="text-center text-muted-foreground text-sm mt-3 font-sans">
+            <figcaption className="text-center text-v2-ink-mute text-sm mt-3 font-sans">
               {value.alt}
             </figcaption>
           )}
@@ -120,13 +120,13 @@ const BlogArticle = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-ivory">
-        <Navbar />
+      <div className="min-h-screen bg-v2-paper">
+        <NavbarV2 />
         <main className="pt-32 pb-20 px-6">
           <div className="max-w-3xl mx-auto animate-pulse space-y-4">
-            <div className="h-8 bg-bone rounded w-1/3" />
-            <div className="h-12 bg-bone rounded w-2/3" />
-            <div className="h-64 bg-bone rounded w-full mt-8" />
+            <div className="h-8 bg-v2-paper-deep rounded w-1/3" />
+            <div className="h-12 bg-v2-paper-deep rounded w-2/3" />
+            <div className="h-64 bg-v2-paper-deep rounded w-full mt-8" />
           </div>
         </main>
       </div>
@@ -135,16 +135,16 @@ const BlogArticle = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-ivory">
-        <Navbar />
+      <div className="min-h-screen bg-v2-paper">
+        <NavbarV2 />
         <main className="pt-32 pb-20 px-6 text-center">
-          <h1 className="font-serif text-4xl text-foreground mb-4">{t("notfound.title")}</h1>
-          <Link to="/blog" className="text-amber hover:text-amber-light transition-colors">
+          <h1 className="font-serif text-4xl text-v2-ink mb-4">{t("notfound.title")}</h1>
+          <Link to="/blog" className="text-v2-golden hover:text-v2-golden transition-colors">
             ← {t("blog.back")}
           </Link>
         </main>
         <LegalBand />
-        <Footer />
+        <FooterV2 />
       </div>
     );
   }
@@ -185,8 +185,8 @@ const BlogArticle = () => {
     : { title: `${title} | Catarina Veiga`, description: excerpt || "" };
 
   return (
-    <div className="min-h-screen bg-ivory">
-      <Navbar />
+    <div className="min-h-screen bg-v2-paper">
+      <NavbarV2 />
 
       <Helmet>
         <title>{seo.title}</title>
@@ -216,23 +216,23 @@ const BlogArticle = () => {
         <div className="mb-12">
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 text-amber hover:text-amber-light transition-colors mb-8 font-serif text-xl"
+            className="inline-flex items-center gap-2 text-v2-golden hover:text-v2-golden transition-colors mb-8 font-serif text-xl"
           >
             <ArrowLeft size={14} /> {t("blog.back")}
           </Link>
 
           <div className="flex items-center gap-3 mb-6">
-            <time className="text-muted-foreground text-sm font-sans">{date}</time>
+            <time className="text-v2-ink-mute text-sm font-sans">{date}</time>
             {post.category && (
               <>
-                <span className="text-muted-foreground">·</span>
-                <span className="text-amber text-sm font-sans">{post.category}</span>
+                <span className="text-v2-ink-mute">·</span>
+                <span className="text-v2-golden text-sm font-sans">{post.category}</span>
               </>
             )}
           </div>
 
-          <h1 className="font-serif text-3xl md:text-5xl text-foreground mb-4 leading-tight">{title}</h1>
-          {excerpt && <p className="text-muted-foreground text-lg font-light">{excerpt}</p>}
+          <h1 className="font-serif text-3xl md:text-5xl text-v2-ink mb-4 leading-tight">{title}</h1>
+          {excerpt && <p className="text-v2-ink-mute text-lg font-light">{excerpt}</p>}
 
           {/* Tags */}
           {post.tags && post.tags.length > 0 && (
@@ -240,7 +240,7 @@ const BlogArticle = () => {
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 rounded-full border border-bone text-xs font-sans text-muted-foreground"
+                  className="px-3 py-1 rounded-full border border-v2-paper-line text-xs font-sans text-v2-ink-mute"
                 >
                   {tag}
                 </span>
@@ -249,13 +249,13 @@ const BlogArticle = () => {
           )}
 
           {/* Share bar */}
-          <div className="flex items-center gap-3 mt-8 pt-6 border-t border-bone">
-            <span className="text-xs text-muted-foreground font-sans uppercase tracking-wider mr-2">
+          <div className="flex items-center gap-3 mt-8 pt-6 border-t border-v2-paper-line">
+            <span className="text-xs text-v2-ink-mute font-sans uppercase tracking-wider mr-2">
               {lang === "pt" ? "Partilhar" : "Share"}
             </span>
             <button
               onClick={handleCopyLink}
-              className="w-9 h-9 rounded-full border border-bone hover:border-amber hover:bg-bone transition-all flex items-center justify-center"
+              className="w-9 h-9 rounded-full border border-v2-paper-line hover:border-v2-golden hover:bg-v2-paper-deep transition-all flex items-center justify-center"
               aria-label="Copy link"
             >
               <Link2 className="w-3.5 h-3.5" />
@@ -264,7 +264,7 @@ const BlogArticle = () => {
               href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full border border-bone hover:border-amber hover:bg-bone transition-all flex items-center justify-center"
+              className="w-9 h-9 rounded-full border border-v2-paper-line hover:border-v2-golden hover:bg-v2-paper-deep transition-all flex items-center justify-center"
               aria-label="Share on Facebook"
             >
               <Facebook className="w-3.5 h-3.5" />
@@ -273,7 +273,7 @@ const BlogArticle = () => {
               href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full border border-bone hover:border-amber hover:bg-bone transition-all flex items-center justify-center"
+              className="w-9 h-9 rounded-full border border-v2-paper-line hover:border-v2-golden hover:bg-v2-paper-deep transition-all flex items-center justify-center"
               aria-label="Share on LinkedIn"
             >
               <Linkedin className="w-3.5 h-3.5" />
@@ -282,16 +282,16 @@ const BlogArticle = () => {
         </div>
 
         {/* Article body — Portable Text */}
-        <div className="text-muted-foreground text-[16px] leading-relaxed mb-16">
+        <div className="text-v2-ink-mute text-[16px] leading-relaxed mb-16">
           {post.body && <PortableText value={post.body} components={portableTextComponents} />}
         </div>
 
         {/* Newsletter CTA */}
-        <div className="mb-16 rounded-2xl bg-bone p-8 md:p-12 text-center">
-          <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-3">
+        <div className="mb-16 rounded-2xl bg-v2-paper-deep p-8 md:p-12 text-center">
+          <h3 className="font-serif text-2xl md:text-3xl text-v2-ink mb-3">
             {lang === "pt" ? "Gostaste deste artigo?" : "Enjoyed this article?"}
           </h3>
-          <p className="text-muted-foreground text-sm mb-6">
+          <p className="text-v2-ink-mute text-sm mb-6">
             {lang === "pt"
               ? "Subscreve para receber os próximos artigos diretamente no teu email."
               : "Subscribe to receive new articles directly in your inbox."}
@@ -303,12 +303,12 @@ const BlogArticle = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder={lang === "pt" ? "O teu email" : "Your email"}
               required
-              className="flex-1 px-5 py-3 rounded-full border border-bone bg-ivory font-sans text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-amber/40 transition-all"
+              className="flex-1 px-5 py-3 rounded-full border border-v2-paper-line bg-v2-paper font-sans text-sm text-v2-ink placeholder:text-v2-ink-mute focus:outline-none focus:ring-2 focus:ring-amber/40 transition-all"
             />
             <button
               type="submit"
               disabled={subscribing}
-              className="px-8 py-3 rounded-full bg-foreground text-ivory font-sans text-sm font-medium hover:bg-foreground/90 transition-all disabled:opacity-50"
+              className="px-8 py-3 rounded-full bg-foreground text-v2-paper font-sans text-sm font-medium hover:bg-foreground/90 transition-all disabled:opacity-50"
             >
               {lang === "pt" ? "Subscrever" : "Subscribe"}
             </button>
@@ -318,9 +318,9 @@ const BlogArticle = () => {
 
       {/* Related articles */}
       {relatedPosts.length > 0 && (
-        <section className="bg-bone py-16 px-6">
+        <section className="bg-v2-paper-deep py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="font-serif text-3xl text-foreground mb-8">
+            <h2 className="font-serif text-3xl text-v2-ink mb-8">
               {lang === "pt" ? "Também te pode interessar" : "You might also like"}
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
@@ -331,7 +331,7 @@ const BlogArticle = () => {
                   className="group relative block rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.02]"
                   style={{ boxShadow: "0 4px 20px -4px hsl(30 17% 9% / 0.08)" }}
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden bg-ivory rounded-2xl">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-v2-paper rounded-2xl">
                     {rp.mainImage?.asset?.url ? (
                       <img
                         src={rp.mainImage.asset.url}
@@ -340,7 +340,7 @@ const BlogArticle = () => {
                         loading="lazy"
                       />
                     ) : (
-                      <div className="w-full h-full bg-ivory" />
+                      <div className="w-full h-full bg-v2-paper" />
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                     <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
@@ -371,7 +371,7 @@ const BlogArticle = () => {
       )}
 
       <LegalBand />
-      <Footer />
+      <FooterV2 />
     </div>
   );
 };
