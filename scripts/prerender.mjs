@@ -93,47 +93,81 @@ async function fetchSanityPostsWithToken() {
 function portableTextToHtml(blocks) {
   if (!blocks || !Array.isArray(blocks)) return "";
 
-  return blocks
-    .map((block) => {
-      if (block._type === "block") {
-        const text = (block.children || [])
-          .map((child) => {
-            let t = escapeHtml(child.text || "");
-            if (child.marks && child.marks.length > 0) {
-              for (const mark of child.marks) {
-                if (mark === "strong") t = `<strong>${t}</strong>`;
-                else if (mark === "em") t = `<em>${t}</em>`;
-              }
+  const out = [];
+  let listOpen = null; // "bullet" | "number"
+  const closeList = () => {
+    if (listOpen) {
+      out.push(listOpen === "number" ? "</ol>" : "</ul>");
+      listOpen = null;
+    }
+  };
+
+  for (const block of blocks) {
+    if (block._type === "block") {
+      const defs = {};
+      (block.markDefs || []).forEach((d) => {
+        defs[d._key] = d;
+      });
+
+      const text = (block.children || [])
+        .map((child) => {
+          let t = escapeHtml(child.text || "");
+          if (child.marks && child.marks.length > 0) {
+            for (const mark of child.marks) {
+              if (mark === "strong") t = `<strong>${t}</strong>`;
+              else if (mark === "em") t = `<em>${t}</em>`;
+              else if (defs[mark] && defs[mark]._type === "link" && defs[mark].href)
+                t = `<a href="${escapeHtml(defs[mark].href)}">${t}</a>`;
             }
-            return t;
-          })
-          .join("");
+          }
+          return t;
+        })
+        .join("");
 
-        switch (block.style) {
-          case "h1":
-            return `<h1>${text}</h1>`;
-          case "h2":
-            return `<h2>${text}</h2>`;
-          case "h3":
-            return `<h3>${text}</h3>`;
-          case "h4":
-            return `<h4>${text}</h4>`;
-          case "blockquote":
-            return `<blockquote>${text}</blockquote>`;
-          default:
-            return text ? `<p>${text}</p>` : "";
+      // Listas: agrupar blocos consecutivos com listItem
+      if (block.listItem) {
+        const kind = block.listItem === "number" ? "number" : "bullet";
+        if (listOpen && listOpen !== kind) closeList();
+        if (!listOpen) {
+          out.push(kind === "number" ? "<ol>" : "<ul>");
+          listOpen = kind;
         }
+        out.push(`<li>${text}</li>`);
+        continue;
       }
+      closeList();
 
-      if (block._type === "image" && block.asset) {
-        const alt = escapeHtml(block.alt || "");
-        return `<img src="${block.asset.url || block.asset._ref || ""}" alt="${alt}" loading="lazy" />`;
+      switch (block.style) {
+        case "h1":
+          out.push(`<h1>${text}</h1>`);
+          break;
+        case "h2":
+          out.push(`<h2>${text}</h2>`);
+          break;
+        case "h3":
+          out.push(`<h3>${text}</h3>`);
+          break;
+        case "h4":
+          out.push(`<h4>${text}</h4>`);
+          break;
+        case "blockquote":
+          out.push(`<blockquote>${text}</blockquote>`);
+          break;
+        default:
+          if (text) out.push(`<p>${text}</p>`);
       }
+      continue;
+    }
 
-      return "";
-    })
-    .filter(Boolean)
-    .join("\n");
+    closeList();
+    if (block._type === "image" && block.asset) {
+      const alt = escapeHtml(block.alt || "");
+      out.push(`<img src="${block.asset.url || block.asset._ref || ""}" alt="${alt}" loading="lazy" />`);
+    }
+  }
+  closeList();
+
+  return out.join("\n");
 }
 
 function escapeHtml(str) {
