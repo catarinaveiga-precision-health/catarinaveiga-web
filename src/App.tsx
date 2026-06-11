@@ -57,7 +57,7 @@ const App = () => (
             <Route path="/ferritina-baixa-sintomas" element={<FerritinaBaixa />} />
             <Route path="/recursos" element={<Recursos />} />
             <Route path="/vitamina-d-valores-funcionais" element={<VitaminaD />} />
-            <Route path="/vitamina-d" element={<VitaminaD />} />
+            <Route path="/vitamina-d" element={<Navigate to="/vitamina-d-valores-funcionais" replace />} />
             <Route path="/insulina-jejum-o-que-significa" element={<InsulinaJejum />} />
             <Route path="/fadiga-exames-normais" element={<FadigaExamesNormais />} />
             <Route path="/tsh-normal-mas-com-sintomas" element={<TshNormal />} />
