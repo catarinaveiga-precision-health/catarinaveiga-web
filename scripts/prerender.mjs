@@ -164,9 +164,9 @@ const pages = [
   // Homepage (v2) · vende a Consulta Inicial (€120)
   {
     path: "/",
-    title: "Catarina Veiga · Medicina Tradicional Chinesa Feminina",
+    title: "Catarina Veiga · Saúde Hormonal Feminina e Perimenopausa",
     description:
-      "Consulta de Medicina Tradicional Chinesa em telemedicina para mulheres em perimenopausa, fadiga persistente e ciclos que mudaram.",
+      "Acompanho mulheres em perimenopausa, fadiga persistente, alterações hormonais, ansiedade, sono e metabolismo, quando os exames parecem normais mas o corpo dá sinais.",
     h1: "Os teus exames estão normais. O teu corpo não.",
     intro:
       "Para mulheres em perimenopausa, com fadiga persistente, alterações hormonais, digestivas ou metabólicas que continuam sem explicação clara. Não é sobre fazer mais exames: é sobre ler bem os que já tens. Na consulta inicial olhamos histórico clínico detalhado, sono, digestão, energia, ciclo, sintomas e exames anteriores. Sais com hipóteses claras, prioridades definidas e próximos passos concretos. 60–90 minutos em telemedicina, €120.",
@@ -263,7 +263,7 @@ const pages = [
   },
   {
     path: "/metodo",
-    title: "O Método · Catarina Veiga · Medicina Tradicional Chinesa",
+    title: "O Método · Catarina Veiga · Saúde Hormonal Feminina",
     description:
       "Abordagem clínica integrativa que investiga as causas raiz dos teus sintomas. Não tratar sintomas — corrigir o que os causa.",
     h1: "O Método",
@@ -281,7 +281,7 @@ const pages = [
   },
   {
     path: "/recursos",
-    title: "Recursos · Catarina Veiga · Medicina Tradicional Chinesa",
+    title: "Recursos · Catarina Veiga · Saúde Feminina",
     description:
       "Ferramentas e recursos gratuitos de saúde hormonal feminina. Avaliação funcional de exames, guias e artigos especializados.",
     h1: "Recursos de Saúde Hormonal Feminina",
@@ -317,7 +317,7 @@ const pages = [
   },
   {
     path: "/v2",
-    title: "Catarina Veiga · Medicina Tradicional Chinesa para Saúde Hormonal Feminina",
+    title: "Catarina Veiga · Saúde Hormonal Feminina e Perimenopausa",
     description:
       "Preview homepage v2 · foundation editorial premium. Não indexar.",
     h1: "Os teus exames estão normais. O teu corpo não.",
