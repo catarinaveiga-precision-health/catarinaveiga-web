@@ -2,6 +2,7 @@ import { Section } from "../ui/Section";
 import { Container } from "../ui/Container";
 import { Eyebrow } from "../ui/Eyebrow";
 import { FadeUp } from "../motion/FadeUp";
+import { RangeDiagram } from "../clinical/RangeDiagram";
 
 export const Outcome = () => (
   <Section bg="paper">
@@ -21,6 +22,10 @@ export const Outcome = () => (
             os que já tens.
           </span>
         </h2>
+      </FadeUp>
+
+      <FadeUp delay={0.2} className="mt-20">
+        <RangeDiagram />
       </FadeUp>
     </Container>
   </Section>

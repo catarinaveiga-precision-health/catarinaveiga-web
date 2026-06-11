@@ -3,6 +3,7 @@ import { Container } from "../ui/Container";
 import { Eyebrow } from "../ui/Eyebrow";
 import { Divider } from "../ui/Divider";
 import { FadeUp } from "../motion/FadeUp";
+import { LabReportDoc } from "../clinical/LabReportDoc";
 
 const reasons = [
   "Fiz análises e disseram que estava tudo normal.",
@@ -16,21 +17,32 @@ const reasons = [
 
 export const Problem = () => (
   <Section bg="paper-deep">
-    <Container size="prose">
+    <Container size="default">
       <FadeUp className="text-center">
         <Eyebrow>Porque chegam até mim</Eyebrow>
       </FadeUp>
 
-      <ul className="mt-16 space-y-6 max-w-[60ch] mx-auto">
-        {reasons.map((r, i) => (
-          <FadeUp key={i} delay={i * 0.05}>
-            <li className="flex items-start gap-5 font-serif italic text-body-lg-v2 text-v2-ink leading-[1.5]">
-              <span aria-hidden className="mt-[0.6em] w-3 h-px bg-v2-sage shrink-0" />
-              <span>{r}</span>
-            </li>
-          </FadeUp>
-        ))}
-      </ul>
+      <div className="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-12 items-center">
+        <div className="lg:col-span-6">
+          <ul className="space-y-6 max-w-[54ch]">
+            {reasons.map((r, i) => (
+              <FadeUp key={i} delay={i * 0.05}>
+                <li className="flex items-start gap-5 font-serif italic text-body-lg-v2 text-v2-ink leading-[1.5]">
+                  <span
+                    aria-hidden
+                    className="mt-[0.6em] w-3 h-px bg-v2-sage shrink-0"
+                  />
+                  <span>{r}</span>
+                </li>
+              </FadeUp>
+            ))}
+          </ul>
+        </div>
+
+        <FadeUp className="lg:col-span-5 lg:col-start-8" delay={0.2}>
+          <LabReportDoc />
+        </FadeUp>
+      </div>
 
       <FadeUp className="mt-20 flex justify-center">
         <Divider />

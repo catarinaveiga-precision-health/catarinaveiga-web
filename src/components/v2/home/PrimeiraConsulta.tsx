@@ -4,6 +4,8 @@ import { Eyebrow } from "../ui/Eyebrow";
 import { ButtonV2 } from "../ui/ButtonV2";
 import { Divider } from "../ui/Divider";
 import { FadeUp } from "../motion/FadeUp";
+import { PlanoDoc } from "../clinical/PlanoDoc";
+import editorialPhoto from "@/assets/editorial-featured.jpg";
 
 const itens = [
   "Histórico clínico detalhado",
@@ -28,6 +30,22 @@ export const PrimeiraConsulta = () => (
             60–90 min, em telemedicina. Resposta de marcação em 48h. Sem
             necessidade de teres exames já feitos.
           </p>
+
+          {/* composição editorial: fotografia + documento do plano */}
+          <div className="relative mt-14 hidden lg:block">
+            <div className="aspect-[4/3] overflow-hidden bg-v2-paper-deep max-w-[400px]">
+              <img
+                src={editorialPhoto}
+                alt="Livro e chá sobre lençóis de linho em luz natural"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-10 -right-2 w-[260px]">
+              <PlanoDoc />
+            </div>
+          </div>
         </FadeUp>
 
         <FadeUp className="lg:col-span-6 lg:col-start-7" delay={0.1}>
