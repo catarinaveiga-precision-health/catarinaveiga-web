@@ -8,6 +8,7 @@ import SEOContentSection from "@/components/seo/SEOContentSection";
 import SEOPatternCards from "@/components/seo/SEOPatternCards";
 import SEOCalculator from "@/components/seo/SEOCalculator";
 import SEOCTA from "@/components/seo/SEOCTA";
+import { useFadeUp } from "@/hooks/useFadeUp";
 
 const symptoms = [
   "Fadiga persistente, mesmo após descanso adequado",
@@ -58,6 +59,71 @@ const ferritinCalc = (values: string[]) => {
   }
 
   return { icon, text, note };
+};
+
+const FAQSection = () => {
+  const ref = useFadeUp();
+  const faqs = [
+    {
+      q: "Posso ter sintomas de ferritina baixa com hemoglobina normal?",
+      a: "Sim. A hemoglobina mede o ferro em circulação, enquanto a ferritina mede as reservas disponíveis para uso celular. É possível ter hemoglobina normal e ferritina baixa: os exames convencionais não identificam anemia, mas o corpo já está a funcionar com reservas insuficientes.",
+    },
+    {
+      q: "Que sintomas pode causar a ferritina baixa?",
+      a: "Os sintomas frequentes incluem fadiga persistente mesmo após descanso adequado, queda de cabelo difusa, intolerância ao frio nas extremidades, dificuldade de concentração e nevoeiro mental, recuperação lenta após exercício, palpitações com esforço moderado e unhas frágeis ou quebradiças.",
+    },
+    {
+      q: "Qual é o valor ideal de ferritina para uma mulher?",
+      a: "O intervalo funcional associado a energia, cabelo e cognição óptimos situa-se entre 50 e 100 ng/mL. O laboratório considera normal qualquer valor acima de 10 ng/mL, mas valores abaixo de 50 podem associar-se a défice funcional, e abaixo de 30 as reservas são insuficientes.",
+    },
+    {
+      q: "Porque é que tenho ferritina baixa se como bem?",
+      a: "As causas mais comuns em mulheres incluem perdas menstruais abundantes, absorção reduzida (permeabilidade intestinal, hipocloridria ou dieta pobre em ferro biodisponível), stress crónico (o cortisol interfere com a absorção e utilização do ferro), inflamação crónica (a hepcidina sequestra o ferro nos depósitos), gravidez e pós-parto, e dietas restritivas.",
+    },
+    {
+      q: "A ferritina baixa pode afectar a tiróide?",
+      a: "A combinação de ferritina baixa com TSH elevado é um padrão frequente em disfunção tiroideia subclínica. Por isso, a ferritina raramente deve ser avaliada isoladamente: o padrão mais informativo inclui a combinação com outros biomarcadores, como TSH, VGM, PCR e vitamina D.",
+    },
+  ];
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
+  return (
+    <section ref={ref} className="bg-background py-28 md:py-36 px-6">
+      <div className="max-w-3xl mx-auto fade-up">
+        <p className="font-sans text-[11px] font-normal tracking-[0.25em] uppercase text-matcha mb-6">
+          Perguntas frequentes
+        </p>
+        <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-16">
+          FAQ: ferritina baixa
+        </h2>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+        <div className="space-y-10">
+          {faqs.map((faq, i) => (
+            <div key={i}>
+              <h3 className="font-sans font-normal text-foreground text-[17px] mb-3">
+                {faq.q}
+              </h3>
+              <p className="font-sans font-light text-foreground/70 text-[15px] leading-[1.85]">
+                {faq.a}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 const FerritinaBaixa = () => {
@@ -155,6 +221,8 @@ const FerritinaBaixa = () => {
         patterns={causes}
         bg="almond"
       />
+
+      <FAQSection />
 
       <SEOCTA
         title="Os teus exames podem estar normais. Mas o teu corpo pode estar a pedir atenção."

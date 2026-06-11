@@ -7,6 +7,7 @@ import SEOContentSection from "@/components/seo/SEOContentSection";
 import SEOPatternCards from "@/components/seo/SEOPatternCards";
 import SEOCalculator from "@/components/seo/SEOCalculator";
 import SEOCTA from "@/components/seo/SEOCTA";
+import { useFadeUp } from "@/hooks/useFadeUp";
 
 const symptoms = [
   "Fadiga persistente sem causa aparente",
@@ -49,6 +50,71 @@ const vitDCalc = (values: string[]) => {
   }
 
   return { icon, text };
+};
+
+const FAQSection = () => {
+  const ref = useFadeUp();
+  const faqs = [
+    {
+      q: "Ter vitamina D acima de 20 ng/mL é suficiente?",
+      a: "O laboratório considera suficiente qualquer valor acima de 20 ng/mL, mas esse limiar foi definido para prevenir raquitismo, não para garantir função óptima. O intervalo funcional associado a função imune e hormonal óptima situa-se entre 50 e 80 ng/mL, e valores entre 30 e 49 são frequentemente insuficientes em contexto clínico.",
+    },
+    {
+      q: "Que sintomas pode causar a vitamina D insuficiente?",
+      a: "Os sintomas frequentes incluem fadiga persistente sem causa aparente, infecções respiratórias frequentes, dores musculares ou ósseas difusas, alterações do humor (incluindo depressão sazonal), nevoeiro mental, queda de cabelo, cicatrização lenta e agravamento de condições autoimunes.",
+    },
+    {
+      q: "Porque tenho vitamina D baixa se vivo em Portugal?",
+      a: "Mesmo em clima mediterrânico, a exposição solar insuficiente nos meses de inverno, combinada com trabalho em interior, torna o défice extremamente comum. A melanina e o protector solar reduzem a síntese cutânea, a permeabilidade intestinal pode comprometer a absorção, e na obesidade a vitamina D fica sequestrada no tecido adiposo.",
+    },
+    {
+      q: "A vitamina D é uma vitamina ou uma hormona?",
+      a: "Tecnicamente, é uma hormona esteróide. É produzida pela pele mediante exposição solar e activa receptores em praticamente todos os tecidos: sistema imune, músculo, osso, cérebro e tiróide.",
+    },
+    {
+      q: "A vitamina D baixa está ligada a outros desequilíbrios?",
+      a: "Sim, há padrões combinados relevantes: vitamina D baixa com TSH elevado é uma associação frequente em disfunção tiroideia, com ferritina baixa forma um padrão de deplecção múltipla em fadiga crónica, com PCR elevada pode amplificar inflamação sistémica, e com insulina elevada associa-se a resistência à insulina.",
+    },
+  ];
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
+  return (
+    <section ref={ref} className="bg-background py-28 md:py-36 px-6">
+      <div className="max-w-3xl mx-auto fade-up">
+        <p className="font-sans text-[11px] font-normal tracking-[0.25em] uppercase text-matcha mb-6">
+          Perguntas frequentes
+        </p>
+        <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-16">
+          FAQ: vitamina D
+        </h2>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+        <div className="space-y-10">
+          {faqs.map((faq, i) => (
+            <div key={i}>
+              <h3 className="font-sans font-normal text-foreground text-[17px] mb-3">
+                {faq.q}
+              </h3>
+              <p className="font-sans font-light text-foreground/70 text-[15px] leading-[1.85]">
+                {faq.a}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 const VitaminaD = () => {
@@ -140,6 +206,8 @@ const VitaminaD = () => {
         patterns={causes}
         bg="almond"
       />
+
+      <FAQSection />
 
       <SEOCTA
         title="O défice de vitamina D é corrigível. Mas precisa de ser identificado primeiro."

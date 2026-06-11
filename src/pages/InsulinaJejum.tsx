@@ -7,6 +7,7 @@ import SEOContentSection from "@/components/seo/SEOContentSection";
 import SEOPatternCards from "@/components/seo/SEOPatternCards";
 import SEOCalculator from "@/components/seo/SEOCalculator";
 import SEOCTA from "@/components/seo/SEOCTA";
+import { useFadeUp } from "@/hooks/useFadeUp";
 
 const symptoms = [
   "Fadiga pós-prandial — cansaço a seguir às refeições",
@@ -44,6 +45,71 @@ const insulinCalc = (values: string[]) => {
   }
 
   return { icon, text };
+};
+
+const FAQSection = () => {
+  const ref = useFadeUp();
+  const faqs = [
+    {
+      q: "Posso ter insulina elevada com glicose normal?",
+      a: "Sim, e é um dos padrões mais precoces de resistência metabólica: chama-se hiperinsulinemia compensatória. A glicose pode estar normal enquanto o pâncreas já trabalha em excesso para a manter controlada. Este padrão pode preceder um diagnóstico de diabetes tipo 2 por uma década.",
+    },
+    {
+      q: "Qual é o valor ideal de insulina em jejum?",
+      a: "O intervalo funcional situa-se entre 2 e 5 µIU/mL, associado a boa sensibilidade celular à insulina. Valores acima de 5 a 7 já podem indicar resistência metabólica, e acima de 10 trata-se de hiperinsulinemia franca, com risco cardiovascular associado.",
+    },
+    {
+      q: "Que sintomas pode dar a insulina elevada?",
+      a: "Os sintomas frequentes incluem fadiga pós-prandial (cansaço a seguir às refeições), cravings intensos de açúcar ou hidratos, dificuldade em perder peso apesar de dieta controlada, peso concentrado na zona abdominal, nevoeiro mental após refeições, fome intensa poucas horas após comer e irritabilidade quando não come.",
+    },
+    {
+      q: "Porque é que o exame de glicose não detecta o problema?",
+      a: "Porque a glicose pode mascarar o problema durante anos. O intervalo laboratorial da insulina (2 a 25 µIU/mL) é muito amplo e está focado em diabetes manifesta, não em resistência inicial. A monitorização precoce da insulina em jejum permite prevenir a progressão para pré-diabetes.",
+    },
+    {
+      q: "A insulina elevada está associada a outros marcadores alterados?",
+      a: "Sim, há padrões combinados relevantes: insulina elevada com triglicéridos altos é a síndrome metabólica clássica, com vitamina D baixa associa-se a resistência à insulina, e com PCR elevada reflecte a coexistência frequente de inflamação e resistência metabólica.",
+    },
+  ];
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
+  return (
+    <section ref={ref} className="bg-background py-28 md:py-36 px-6">
+      <div className="max-w-3xl mx-auto fade-up">
+        <p className="font-sans text-[11px] font-normal tracking-[0.25em] uppercase text-matcha mb-6">
+          Perguntas frequentes
+        </p>
+        <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-16">
+          FAQ: insulina em jejum
+        </h2>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+        <div className="space-y-10">
+          {faqs.map((faq, i) => (
+            <div key={i}>
+              <h3 className="font-sans font-normal text-foreground text-[17px] mb-3">
+                {faq.q}
+              </h3>
+              <p className="font-sans font-light text-foreground/70 text-[15px] leading-[1.85]">
+                {faq.a}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 const InsulinaJejum = () => {
@@ -128,6 +194,8 @@ const InsulinaJejum = () => {
         title="Padrões combinados relevantes"
         patterns={patterns}
       />
+
+      <FAQSection />
 
       <SEOCTA
         title="A resistência à insulina começa anos antes do diagnóstico. Identificá-la cedo faz diferença."

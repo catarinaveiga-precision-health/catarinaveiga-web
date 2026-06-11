@@ -7,6 +7,7 @@ import SEOContentSection from "@/components/seo/SEOContentSection";
 import SEOPatternCards from "@/components/seo/SEOPatternCards";
 import SEOCalculator from "@/components/seo/SEOCalculator";
 import SEOCTA from "@/components/seo/SEOCTA";
+import { useFadeUp } from "@/hooks/useFadeUp";
 
 const symptoms = [
   "Fadiga persistente, especialmente de manhã",
@@ -52,6 +53,71 @@ const tshCalc = (values: string[]) => {
   }
 
   return { icon, text };
+};
+
+const FAQSection = () => {
+  const ref = useFadeUp();
+  const faqs = [
+    {
+      q: "TSH normal exclui problemas de tiroide?",
+      a: "Não necessariamente. O intervalo laboratorial aceita valores até 4.5 mUI/L como normais, mas em medicina funcional valores acima de 2.0 já podem associar-se a lentificação metabólica, sobretudo em mulheres com sintomas como fadiga, frio ou queda de cabelo.",
+    },
+    {
+      q: "O que é o TSH e para que serve?",
+      a: "O TSH é produzido pela hipófise e regula a produção das hormonas tiroideias T3 e T4. Quando a tiróide está lenta, a hipófise aumenta o TSH para a estimular. Por isso, valores elevados (mesmo dentro do intervalo laboratorial) podem indicar que a tiróide está a trabalhar com dificuldade.",
+    },
+    {
+      q: "Qual é o intervalo funcional do TSH?",
+      a: "O intervalo funcional associado a função tiroideia óptima situa-se entre 0.5 e 2.0 mUI/L. A zona cinzenta entre 2.0 e 4.5 mUI/L é frequentemente relevante em mulheres sintomáticas e merece avaliação em contexto clínico.",
+    },
+    {
+      q: "Que sintomas posso ter com TSH dentro do normal?",
+      a: "Os sintomas frequentes de hipotiroidismo subclínico incluem fadiga persistente (especialmente de manhã), intolerância ao frio, aumento de peso sem alteração da dieta, queda de cabelo difusa, pele seca, obstipação crónica, nevoeiro mental, ciclo menstrual irregular e humor baixo sem causa aparente.",
+    },
+    {
+      q: "Porque é que a tiróide é tão sensível em mulheres?",
+      a: "A função tiroideia é influenciada por estrogénio, cortisol, ferro, vitamina D e estado inflamatório: factores que flutuam significativamente ao longo do ciclo menstrual, gravidez, pós-parto e perimenopausa. Um défice de ferro, por exemplo, compromete a conversão de T4 em T3.",
+    },
+  ];
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
+  return (
+    <section ref={ref} className="bg-background py-28 md:py-36 px-6">
+      <div className="max-w-3xl mx-auto fade-up">
+        <p className="font-sans text-[11px] font-normal tracking-[0.25em] uppercase text-matcha mb-6">
+          Perguntas frequentes
+        </p>
+        <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-16">
+          FAQ: TSH e função tiroideia
+        </h2>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+        <div className="space-y-10">
+          {faqs.map((faq, i) => (
+            <div key={i}>
+              <h3 className="font-sans font-normal text-foreground text-[17px] mb-3">
+                {faq.q}
+              </h3>
+              <p className="font-sans font-light text-foreground/70 text-[15px] leading-[1.85]">
+                {faq.a}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 const TshNormal = () => {
@@ -143,6 +209,8 @@ const TshNormal = () => {
           A função tiroideia é influenciada por estrogénio, cortisol, ferro, vitamina D e estado inflamatório — todos factores que flutuam significativamente em mulheres ao longo do ciclo menstrual, gravidez, pós-parto e perimenopausa.
         </p>
       </SEOContentSection>
+
+      <FAQSection />
 
       <SEOCTA
         title="A tiróide é um dos sistemas mais sensíveis ao contexto fisiológico. E um dos mais subestimados."
