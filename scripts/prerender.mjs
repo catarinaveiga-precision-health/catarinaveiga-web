@@ -369,7 +369,7 @@ const pages = [
 const OG_IMAGE_DEFAULT =
   "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9855dba8-f6e3-4815-8dc5-a5c3c55085dc/id-preview-d882e72b--1b66c010-57ae-47c6-80d8-0bf8d63e429e.lovable.app-1772398965070.png";
 
-function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, noindex }) {
+function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, noindex, article }) {
   // Escapar aspas: title/description entram em atributos HTML
   title = String(title).replace(/"/g, "&quot;");
   description = String(description).replace(/"/g, "&quot;");
@@ -440,6 +440,28 @@ function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, 
     html = html.replace(
       /<meta name="robots" content="[^"]*"\s*\/?>/,
       `<meta name="robots" content="noindex, nofollow">`
+    );
+  }
+
+  // Article JSON-LD para posts do blog (E-E-A-T: autora ligada à entidade #person)
+  if (article) {
+    const articleLd = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: article.headline,
+      description: article.description,
+      datePublished: article.datePublished,
+      dateModified: article.dateModified || article.datePublished,
+      image: image,
+      inLanguage: "pt-PT",
+      mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+      author: { "@id": "https://www.catarinaveiga.com/#person" },
+      publisher: { "@id": "https://www.catarinaveiga.com/#person" },
+    };
+    const ldJson = JSON.stringify(articleLd).replace(/</g, "\\u003c");
+    html = html.replace(
+      "</head>",
+      `  <script type="application/ld+json">${ldJson}</script>\n  </head>`
     );
   }
 
@@ -529,6 +551,11 @@ async function main() {
       intro: post.excerpt || "",
       ogImage,
       bodyHtml,
+      article: {
+        headline: post.title,
+        description,
+        datePublished: post.publishedAt || undefined,
+      },
     };
 
     const html = generatePage(pageData);
