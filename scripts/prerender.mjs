@@ -254,12 +254,12 @@ const pages = [
   // Main site pages
   {
     path: "/sobre",
-    title: "Sobre · Catarina Veiga · Medicina Tradicional Chinesa",
+    title: "Sobre · Catarina Veiga · Saúde Feminina e Microbioma",
     description:
-      "Catarina Veiga é especialista em Medicina Tradicional Chinesa, com vinte anos de prática clínica e quatro anos no Departamento de Microbioma da Regenerus Labs. Acompanha mulheres em perimenopausa, em colaboração com médica inscrita na Ordem dos Médicos.",
-    h1: "Acompanho mulheres que sabem que algo não está certo — mesmo quando os números dizem o contrário.",
+      "Vinte anos de prática clínica, quatro anos no Departamento de Microbioma da Regenerus Labs. Para mulheres com sintomas reais e análises aparentemente normais.",
+    h1: "Talvez tenha chegado aqui porque está cansada de ouvir que está tudo normal.",
     intro:
-      "Vinte anos de prática clínica em Medicina Tradicional Chinesa, com foco em saúde hormonal feminina e perimenopausa. Telemedicina, em Portugal e no estrangeiro.",
+      "Mulheres entre os 35 e os 55 anos. Fadiga, brain fog, ansiedade nova, alterações intestinais, perimenopausa, sono fragmentado. Exames normais. Vinte anos de prática clínica, quatro anos no Departamento de Microbioma da Regenerus Labs, em colaboração com médica inscrita na Ordem dos Médicos. Telemedicina, em Portugal e no estrangeiro.",
   },
   {
     path: "/metodo",

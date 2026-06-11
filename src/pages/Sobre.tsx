@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavbarV2 } from "@/components/v2/layout/NavbarV2";
 import catarinaPhoto from "@/assets/catarina-sobre-portrait.jpg";
 import { FooterV2 } from "@/components/v2/layout/FooterV2";
@@ -5,355 +6,471 @@ import LegalBand from "@/components/LegalBand";
 import MobileCTA from "@/components/MobileCTA";
 import AcuityModal from "@/components/AcuityModal";
 import { useAcuityModal, openAcuity } from "@/hooks/useAcuityModal";
-import { useFadeUp } from "@/hooks/useFadeUp";
-import { Button } from "@/components/ui/button";
+import { Section } from "@/components/v2/ui/Section";
+import { Container } from "@/components/v2/ui/Container";
+import { Eyebrow } from "@/components/v2/ui/Eyebrow";
+import { Divider } from "@/components/v2/ui/Divider";
+import { ButtonV2 } from "@/components/v2/ui/ButtonV2";
+import { FadeUp } from "@/components/v2/motion/FadeUp";
+import { cn } from "@/lib/utils";
 
-const AmberHairline = ({ className = "" }: { className?: string }) => (
-  <div className={`w-[60px] h-[1px] bg-v2-golden mx-auto ${className}`} />
-);
+/* ─────────────────────────────────────────────────────────────────
+   Página Sobre · centrada na mulher que chega ao site
+   Reconhecimento → Território → Tese → Método → Credenciais →
+   Transparência → FAQ → CTA
+   Posicionamento: saúde feminina complexa · microbioma · bioquímica
+   clínica · perimenopausa. MTC aparece apenas em credenciais e
+   transparência.
+───────────────────────────────────────────────────────────────── */
 
-const Eyebrow = ({ children }: { children: React.ReactNode }) => (
-  <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-v2-ink-mute mb-8">
-    {children}
-  </p>
-);
-
-/* ── I  POSICIONAMENTO ── */
-const PositioningSection = () => {
-  const ref = useFadeUp();
-  return (
-    <section ref={ref} className="bg-v2-paper section-padding pt-32 md:pt-40">
-      <div className="max-w-3xl mx-auto fade-up text-center">
-        <Eyebrow>I  —  Sobre</Eyebrow>
-        <p className="font-serif italic text-[clamp(1.5rem,2.8vw,2.25rem)] leading-snug text-v2-ink max-w-[42ch] mx-auto mb-12">
-          Acompanho mulheres que sabem que algo não está certo — mesmo quando os números dizem o contrário.
-        </p>
-        <div className="flex justify-center mb-10">
-          <img
-            src={catarinaPhoto}
-            alt="Catarina Veiga, especialista em Medicina Tradicional Chinesa"
-            className="w-[180px] h-[180px] md:w-[220px] md:h-[220px] rounded-full object-cover object-top"
-            loading="lazy"
-            decoding="async"
-            width={220}
-            height={220}
-          />
-        </div>
-        <p className="font-sans text-sm text-v2-ink-mute/80 leading-relaxed">
-          Catarina Veiga  ·  Especialista em Medicina Tradicional Chinesa  ·  Telemedicina, Portugal e estrangeiro
-        </p>
-      </div>
-    </section>
-  );
-};
-
-/* ── II  PERCURSO ── */
-const PercursoSection = () => {
-  const ref = useFadeUp();
-  return (
-    <section ref={ref} className="bg-v2-paper-deep section-padding">
-      <div className="max-w-2xl mx-auto fade-up">
-        <Eyebrow>II  —  Percurso</Eyebrow>
-        <h2 className="font-serif text-[clamp(2rem,3vw,2.75rem)] leading-tight text-v2-ink mb-12 text-balance">
-          Cheguei à Medicina Tradicional Chinesa por necessidade, não por convicção.
-        </h2>
-
-        <div className="space-y-6 text-v2-ink/85 font-sans text-[1.0625rem] leading-[1.7]">
-          <p>
-            Há vinte e poucos anos passei por um pós-operatório complexo ao menisco. Os exames estavam normais. Os sintomas não. Foi a primeira vez que vi, na primeira pessoa, a fenda entre o que se mede e o que se sente. Fui investigar as causas — e encontrei défices funcionais que a medicina convencional tinha classificado como dentro da normalidade. Foi essa experiência que mudou a forma como pratico.
-          </p>
-          <p>
-            Foi por aí que cheguei à Medicina Tradicional Chinesa. Não pela estética, nem pela filosofia. Por método. A MTC dá-me uma forma de ler o corpo que não depende exclusivamente de marcadores isolados — observa padrões, contexto, ritmo. E isso, em mulheres com sintomas que escorregam por entre os exames, é raro.
-          </p>
-          <p>
-            Comecei a prática em equipas multidisciplinares com psicólogos e psiquiatras. Foi cedo que percebi que fisiologia e saúde mental não se separam — uma serve a outra, sempre. Esse enquadramento nunca me largou.
-          </p>
-          <p>
-            Formei-me no Instituto Van Nghi Portugal. Tenho cédula provisória da ACSS ao abrigo da Lei n.º 71/2013, em validação de créditos. Pratico há vinte anos. Em 2024, fui oradora no Longevity Med Summit, com a apresentação "Oestrogen-Related Conditions and Gut Microbiota".
-          </p>
-          <p>
-            Entre 2020 e 2024 integrei a equipa da Omnos.me — hoje Regenerus Labs, um dos maiores laboratórios europeus de testes funcionais. Quatro anos no Departamento de Microbioma e à frente da Educação para a Saúde. Estive envolvida no desenvolvimento da interface clínica do teste de microbioma 360°, premiado no Reino Unido. Não foi um intervalo. Foi onde aprendi a ler análises funcionais com a profundidade que hoje trago para a consulta.
-          </p>
-          <p>
-            A razão pela qual continuo a fazer este trabalho não está só no currículo. Está também na perimenopausa que vivo na primeira pessoa — e na frustração, repetida em vinte anos de prática, de ver mulheres saírem dos consultórios com "está tudo normal" quando claramente não está.
-          </p>
-        </div>
-
-        <AmberHairline className="mt-20 mb-20" />
-
-        <blockquote className="text-center max-w-[50ch] mx-auto">
-          <p className="font-serif italic text-[clamp(1.25rem,2vw,1.625rem)] leading-snug text-v2-ink">
-            "Entre o normal laboratorial e sentir-se verdadeiramente bem existe muitas vezes um espaço que merece atenção."
-          </p>
-          <footer className="font-sans text-[11px] uppercase tracking-[0.12em] text-v2-ink-mute mt-4">
-            — Catarina Veiga
-          </footer>
-        </blockquote>
-      </div>
-    </section>
-  );
-};
-
-/* ── III  TESE ── */
-const TeseSection = () => {
-  const ref = useFadeUp();
-  return (
-    <section ref={ref} className="bg-v2-paper section-padding">
-      <div className="max-w-2xl mx-auto fade-up">
-        <Eyebrow>III  —  Tese</Eyebrow>
-        <h2 className="font-serif text-[clamp(2rem,3vw,2.75rem)] leading-tight text-v2-ink mb-12 text-balance">
-          A maioria das respostas que as mulheres recebem ainda são demasiado curtas.
-        </h2>
-        <div className="space-y-6 text-v2-ink/85 font-sans text-[1.0625rem] leading-[1.7]">
-          <p>
-            Há um padrão que vejo repetidamente. Mulheres entre os 38 e os 55 anos. Sintomas reais. Exames normais. E uma sequência de consultas que termina em "é stress" ou "é da idade".
-          </p>
-          <p>
-            Não é stress. Não é só da idade. É um corpo a sinalizar uma transição que merece ser lida com a complexidade que tem — perimenopausa, eixo hormonal, sistema nervoso, intestino, sono, ritmos. Tudo ligado. Raramente em silos.
-          </p>
-          <p>
-            O sistema convencional faz coisas que eu não faço, e bem — diagnostica, prescreve, opera. Mas o tempo curto da consulta médica deixa pouco espaço para o que vem entre os silos. É nesse espaço que eu trabalho.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-/* ── IV  MÉTODO ── */
-const MetodoSection = () => {
-  const ref = useFadeUp();
-  return (
-    <section ref={ref} className="bg-v2-paper-deep section-padding">
-      <div className="max-w-2xl mx-auto fade-up">
-        <Eyebrow>IV  —  Método</Eyebrow>
-        <h2 className="font-serif text-[clamp(2rem,3vw,2.75rem)] leading-tight text-v2-ink mb-12 text-balance">
-          Leio antes de propor.
-        </h2>
-        <div className="space-y-6 text-v2-ink/85 font-sans text-[1.0625rem] leading-[1.7]">
-          <p>
-            Cada acompanhamento começa com uma anamnese longa. Não vinte minutos. Sessenta a noventa. Histórico clínico, padrões energéticos, ciclo, sono, digestão, emocional. Exames recentes, se existem. Tudo no mesmo plano de leitura.
-          </p>
-          <p>
-            Depois construo. Um plano por escrito que pode incluir fitoterapia chinesa, ajustes alimentares, ritmo, sono, gestão de stress. Reavaliações periódicas. Se houver indicação clínica — uma análise, uma prescrição, uma especialidade — encaminho. Não substituo o que não é meu para substituir.
-          </p>
-        </div>
-
-        <AmberHairline className="mt-16 mb-10" />
-
-        <p className="font-sans text-[15px] leading-relaxed text-v2-ink-mute italic text-center max-w-[58ch] mx-auto">
-          Colaboro com a Dra. Patrícia Salvador, médica inscrita na Ordem dos Médicos, responsável pela componente médica do acompanhamento. Em rede com endocrinologia, ginecologia, psicologia, gastroenterologia e outras especialidades quando faz sentido.
-        </p>
-      </div>
-    </section>
-  );
-};
-
-/* ── V  FORMAÇÃO E PALCOS ── */
-const formacao = [
-  "Instituto Van Nghi Portugal — Medicina Tradicional Chinesa",
-  "Nutrição Funcional e Interpretação de Exames Laboratoriais — Dr. Gabriel de Carvalho, FSA",
-  "Modulação Intestinal — Prof. Murilo Pereira",
-  "Nutrição Funcional Pediátrica",
-  "Psicologia — Universidade de Lisboa",
-  "Neurobiologia — University of Chicago",
-  "Pós-graduação em Língua Gestual — FMUL",
+const territorio = [
+  "Fadiga",
+  "Brain fog",
+  "Ansiedade nova",
+  "Alterações intestinais",
+  "Perimenopausa",
+  "Sono fragmentado",
 ];
 
-const publicacoes = [
-  'Longevity Med Summit 2024 — oradora · "Oestrogen-Related Conditions and Gut Microbiota"',
-  "Artigos em publicações internacionais de saúde funcional",
-  "Webinários e formação para profissionais de saúde · Reino Unido e Portugal",
-  "Quatro anos no Departamento de Microbioma · Regenerus Labs (anteriormente Omnos.me)",
+const metodoPassos = [
+  {
+    n: "01",
+    title: "Anamnese longa",
+    body: "Sessenta a noventa minutos. História clínica, sintomas, sono, digestão, ciclo, contexto de vida.",
+  },
+  {
+    n: "02",
+    title: "Leitura integrada",
+    body: "Exames disponíveis, padrões fisiológicos e contexto, tudo no mesmo plano de leitura.",
+  },
+  {
+    n: "03",
+    title: "Plano individualizado",
+    body: "Por escrito. Alimentação, ritmo, sono, gestão de stress, suplementação dirigida quando faz sentido.",
+  },
+  {
+    n: "04",
+    title: "Reavaliação",
+    body: "Revisões periódicas para ajustar o plano à evolução. Encaminhamento médico sempre que houver indicação clínica.",
+  },
 ];
 
-const FormacaoSection = () => {
-  const ref = useFadeUp();
-  return (
-    <section ref={ref} className="bg-v2-paper section-padding">
-      <div className="max-w-4xl mx-auto fade-up">
-        <Eyebrow>V  —  Formação e palcos</Eyebrow>
-        <div className="grid md:grid-cols-2 gap-12">
-          <div>
-            <p className="font-sans text-[11px] uppercase tracking-[0.14em] text-v2-ink-mute mb-6">
-              Formação
-            </p>
-            <ul>
-              {formacao.map((f, i) => (
-                <li
-                  key={f}
-                  className={`font-sans text-[15px] leading-[1.65] text-v2-ink/85 py-3 ${
-                    i < formacao.length - 1 ? "border-b border-border" : ""
-                  }`}
-                >
-                  {f}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <p className="font-sans text-[11px] uppercase tracking-[0.14em] text-v2-ink-mute mb-6">
-              Publicações e palcos
-            </p>
-            <ul>
-              {publicacoes.map((p, i) => (
-                <li
-                  key={p}
-                  className={`font-sans text-[15px] leading-[1.65] text-v2-ink/85 py-3 ${
-                    i < publicacoes.length - 1 ? "border-b border-border" : ""
-                  }`}
-                >
-                  {p}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+const percurso = [
+  {
+    period: "Formação de base",
+    text: "Licenciatura de cinco anos em Medicina Tradicional Chinesa pela Nanjing University.",
+  },
+  {
+    period: "20 anos",
+    text: "Prática clínica contínua, iniciada em equipas multidisciplinares com psicólogos e psiquiatras.",
+  },
+  {
+    period: "2020 a 2024",
+    text: "Equipa Omnos.me, hoje Regenerus Labs. Quatro anos no Departamento de Microbioma e à frente da Educação para a Saúde.",
+  },
+  {
+    period: "GI360",
+    text: "Envolvida no desenvolvimento da interface clínica do teste de microbioma GI360, premiado no Reino Unido.",
+  },
+  {
+    period: "Formação de profissionais",
+    text: "Webinários e formação para profissionais de saúde, Reino Unido e Portugal.",
+  },
+  {
+    period: "2024",
+    text: "Oradora no Longevity Med Summit, com a apresentação “Oestrogen-Related Conditions and Gut Microbiota”.",
+  },
+];
 
-/* ── VI  TRANSPARÊNCIA ── */
-const TransparenciaSection = () => {
-  const ref = useFadeUp();
-  const items = [
-    "Não sou médica. Não estou inscrita na Ordem dos Médicos.",
-    "Não sou nutricionista.",
-    "Não prescrevo medicamentos. Não peço análises. Não emito diagnósticos médicos.",
-    "O meu trabalho não substitui diagnóstico ou tratamento médico. Acompanho, dentro do âmbito da MTC, em complemento ao acompanhamento médico.",
-  ];
-  return (
-    <section ref={ref} className="bg-v2-paper-deep section-padding">
-      <div className="max-w-2xl md:max-w-3xl mx-auto md:ml-[max(24px,8vw)] md:mr-auto fade-up">
-        <Eyebrow>VI  —  Transparência</Eyebrow>
-        <h2 className="font-serif text-[clamp(1.75rem,2.8vw,2.25rem)] leading-tight text-v2-ink mb-10">
-          Para que não haja ambiguidade.
-        </h2>
-        <ul className="space-y-5 max-w-[55ch]">
-          {items.map((item) => (
-            <li
-              key={item}
-              className="font-sans text-base leading-relaxed text-v2-ink/85 pl-5 border-l border-v2-golden/40"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-        <p className="font-sans text-[15px] text-v2-ink/85 mt-12 max-w-[55ch] leading-relaxed">
-          A clareza sobre aquilo que faço — e aquilo que não faço — faz parte da forma como trabalho.
-        </p>
-        <p className="font-sans text-[15px] italic text-v2-ink-mute mt-4 max-w-[55ch]">
-          Esta consulta integra-se numa rede de cuidados — não a substitui.
-        </p>
-      </div>
-    </section>
-  );
-};
+const transparencia = [
+  "Não sou médica. Não estou inscrita na Ordem dos Médicos.",
+  "Não sou nutricionista.",
+  "Não prescrevo medicamentos.",
+  "Não faço diagnósticos médicos.",
+  "Não substituo acompanhamento médico.",
+];
 
-/* ── VII  FAQ ── */
-const faqItems = [
+const faqs = [
   {
     q: "O que acontece na primeira consulta?",
-    a: "A primeira consulta dura entre 60 e 90 minutos, em videochamada. Recebes um questionário prévio por email para preparar. Em consulta, exploramos o teu histórico clínico, sintomas, ciclo, sono, digestão, energia e contexto emocional. Sais com um plano estruturado por escrito, com revisões previstas.",
+    a: [
+      "A primeira consulta dura entre 60 e 90 minutos, em videochamada. Recebes um questionário prévio por email para preparar. Em consulta, exploramos o teu histórico clínico, sintomas, ciclo, sono, digestão, energia e contexto emocional. Sais com um plano estruturado por escrito, com revisões previstas.",
+    ],
   },
   {
     q: "Como funciona o acompanhamento?",
-    a: "O acompanhamento estende-se ao longo do tempo. Após a primeira consulta, há revisões periódicas para ajustar o plano à evolução. A frequência depende do teu caso — pode ser mais próxima nas fases iniciais e espaçar-se à medida que o equilíbrio se estabiliza. Não é uma consulta isolada. É um processo.",
+    a: [
+      "O acompanhamento estende-se ao longo do tempo. Após a primeira consulta, há revisões periódicas para ajustar o plano à evolução. A frequência depende do teu caso: pode ser mais próxima nas fases iniciais e espaçar-se à medida que o equilíbrio se estabiliza. Não é uma consulta isolada. É um processo.",
+    ],
   },
   {
     q: "Em que casos é indicado este acompanhamento?",
-    a: "Acompanho mulheres em transições hormonais — perimenopausa, alterações de ciclo, fadiga persistente, sono alterado, equilíbrio emocional, digestão sensível. Trabalho sobretudo com sintomas reais e exames maioritariamente normais. Para descompensações agudas ou necessidade de intervenção médica imediata, refiro para médicos e outras especialidades.",
+    a: [
+      "Acompanho mulheres em transições hormonais: perimenopausa, alterações de ciclo, fadiga persistente, sono alterado, equilíbrio emocional, digestão sensível. Trabalho sobretudo com sintomas reais e exames maioritariamente normais. Para descompensações agudas ou necessidade de intervenção médica imediata, refiro para médicos e outras especialidades.",
+    ],
   },
   {
     q: "Como olhas para as análises clínicas?",
-    a: "A leitura clínica oficial das análises é da Dra. Patrícia Salvador, médica inscrita na Ordem dos Médicos com quem colaboro. O que eu faço é integrar essa leitura no contexto mais amplo da Medicina Tradicional Chinesa e dos quatro anos que passei no Departamento de Microbioma da Regenerus Labs. Integro — não substituo — a interpretação médica.",
+    a: [
+      "A leitura clínica oficial das análises é da Dra. Patrícia Salvador, médica inscrita na Ordem dos Médicos com quem colaboro. O que eu faço é integrar essa leitura no contexto mais amplo da minha formação e dos quatro anos que passei no Departamento de Microbioma da Regenerus Labs. Integro, não substituo, a interpretação médica.",
+    ],
   },
   {
     q: "O que posso esperar ao longo do tempo?",
-    a: "A evolução depende de vários fatores — o teu corpo, a tua fase de vida, a consistência com o plano. As pacientes descrevem mudanças subjetivas em sono, energia e equilíbrio ao longo de semanas a meses. Não prometo prazos nem resultados.",
+    a: [
+      "A evolução depende de vários fatores: o teu corpo, a tua fase de vida, a consistência com o plano. As pacientes descrevem mudanças subjetivas em sono, energia e equilíbrio ao longo de semanas a meses. Não prometo prazos nem resultados.",
+    ],
   },
 ];
 
-const FAQSection = () => {
-  const ref = useFadeUp();
-  return (
-    <section ref={ref} id="faq" className="bg-v2-paper section-padding scroll-mt-24">
-      <div className="max-w-2xl mx-auto fade-up">
-        <Eyebrow>VII  —  Antes de marcares</Eyebrow>
-        <h2 className="font-serif text-[clamp(2rem,3vw,2.75rem)] leading-tight text-v2-ink mb-12 text-balance">
-          Perguntas frequentes.
-        </h2>
-        <div className="space-y-0">
-          {faqItems.map((item, i) => (
-            <details
-              key={item.q}
-              className={`group py-6 md:py-7 ${i < faqItems.length - 1 ? "border-b border-border" : ""}`}
-            >
-              <summary className="flex items-start justify-between gap-6 cursor-pointer list-none">
-                <h3 className="font-serif text-[1.125rem] md:text-[1.25rem] text-v2-ink/90 group-open:text-v2-ink transition-colors">
-                  {item.q}
-                </h3>
-                <span className="font-serif text-2xl text-v2-golden leading-none mt-0.5 transition-transform duration-200 group-open:rotate-45 shrink-0">
-                  +
-                </span>
-              </summary>
-              <p className="font-sans text-[15px] md:text-[1rem] leading-[1.7] text-v2-ink/80 mt-4 max-w-[60ch]">
-                {item.a}
-              </p>
-            </details>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-/* ── VIII  CTA ── */
-const CTASection = () => {
-  const ref = useFadeUp();
-  return (
-    <section ref={ref} className="bg-v2-paper section-padding">
-      <div className="max-w-2xl mx-auto text-center fade-up">
-        <h2 className="font-serif text-[clamp(1.75rem,2.5vw,2.25rem)] leading-tight text-v2-ink mb-6">
-          Se chegaste até aqui.
-        </h2>
-        <p className="font-sans text-[1.0625rem] text-v2-ink-mute max-w-[52ch] mx-auto mb-10">
-          Provavelmente vale a pena conversarmos.
-        </p>
-        <Button variant="hero" size="lg" onClick={openAcuity}>
-          Iniciar acompanhamento
-        </Button>
-        <p className="font-sans text-xs text-v2-ink-mute/60 mt-4 tracking-wide">
-          Telemedicina  ·  60-90 minutos  ·  questionário prévio por email
-        </p>
-      </div>
-    </section>
-  );
-};
-
-/* ── PAGE ── */
 const Sobre = () => {
-  const { open, onClose } = useAcuityModal();
+  const acuity = useAcuityModal();
+  const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <>
+    <div className="min-h-screen bg-v2-paper text-v2-ink font-sans antialiased selection:bg-v2-sage/20">
       <NavbarV2 />
-      <main>
-        <PositioningSection />
-        <PercursoSection />
-        <TeseSection />
-        <MetodoSection />
-        <FormacaoSection />
-        <TransparenciaSection />
-        <FAQSection />
-        <CTASection />
+
+      <main className="overflow-hidden">
+        {/* ── HERO · reconhecimento ─────────────────────────── */}
+        <Section bg="paper" tight className="pt-40 md:pt-48 lg:pt-56 pb-24 md:pb-32">
+          <Container size="default">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              <FadeUp className="lg:col-span-7">
+                <Eyebrow>Sobre</Eyebrow>
+                <h1 className="mt-8 font-serif text-display-2 text-v2-ink leading-[1.1] tracking-[-0.015em]">
+                  Talvez tenha chegado aqui porque está cansada de ouvir que
+                  está tudo normal.
+                </h1>
+                <div className="mt-10 space-y-1 font-sans text-body-lg-v2 text-v2-ink-mute leading-[1.6]">
+                  <p>Os exames não explicam o cansaço.</p>
+                  <p>O sono continua leve.</p>
+                  <p>A ansiedade apareceu sem aviso.</p>
+                  <p>O corpo mudou.</p>
+                </div>
+                <p className="mt-8 font-sans text-body-v2 text-v2-ink-mute leading-[1.7] max-w-[48ch]">
+                  E, apesar disso, as respostas continuam frequentemente as
+                  mesmas:
+                </p>
+                <p className="mt-4 font-serif italic text-h3-v2 text-v2-ink">
+                  "Os exames estão normais."
+                </p>
+                <div className="mt-12">
+                  <ButtonV2 onClick={openAcuity} size="lg">
+                    Marcar primeira consulta
+                  </ButtonV2>
+                </div>
+              </FadeUp>
+
+              <FadeUp className="lg:col-span-4 lg:col-start-9" delay={0.15}>
+                <div className="relative aspect-[4/5] overflow-hidden bg-v2-paper-deep">
+                  <img
+                    src={catarinaPhoto}
+                    alt="Catarina Veiga"
+                    className="w-full h-full object-cover object-top grayscale-[0.2] contrast-[1.02]"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </div>
+              </FadeUp>
+            </div>
+          </Container>
+        </Section>
+
+        {/* ── 1 · O TERRITÓRIO ─────────────────────────────── */}
+        <Section bg="paper-deep">
+          <Container size="prose">
+            <FadeUp className="text-center">
+              <Eyebrow>O território onde trabalho</Eyebrow>
+            </FadeUp>
+
+            <FadeUp delay={0.08}>
+              <p className="mt-12 font-sans text-body-lg-v2 text-v2-ink leading-[1.65] text-center max-w-[52ch] mx-auto">
+                Mulheres entre os 35 e os 55 anos. Sintomas reais.
+              </p>
+            </FadeUp>
+
+            <FadeUp delay={0.12}>
+              <ul className="mt-12 max-w-[360px] mx-auto space-y-4">
+                {territorio.map((t) => (
+                  <li
+                    key={t}
+                    className="font-serif italic text-h3-v2 text-v2-ink leading-[1.4] text-center"
+                  >
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </FadeUp>
+
+            <FadeUp delay={0.16} className="mt-14 flex justify-center">
+              <Divider />
+            </FadeUp>
+
+            <FadeUp delay={0.2}>
+              <p className="mt-12 font-sans text-body-lg-v2 text-v2-ink-mute leading-[1.65] text-center max-w-[44ch] mx-auto">
+                Exames normais. E a sensação constante de que ninguém
+                consegue juntar todas as peças.
+              </p>
+            </FadeUp>
+          </Container>
+        </Section>
+
+        {/* ── 2 · A TESE ───────────────────────────────────── */}
+        <Section bg="paper">
+          <Container size="default">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+              <FadeUp className="lg:col-span-6">
+                <Eyebrow>A tese</Eyebrow>
+                <h2 className="mt-6 font-serif text-display-2 text-v2-ink leading-[1.1] tracking-[-0.015em]">
+                  A maioria das respostas continua demasiado curta.
+                </h2>
+              </FadeUp>
+              <FadeUp className="lg:col-span-5 lg:col-start-8 self-end" delay={0.12}>
+                <div className="space-y-6 font-sans text-body-v2 text-v2-ink-mute leading-[1.7]">
+                  <p>
+                    O sistema médico é excelente a diagnosticar doença. Faz
+                    coisas que eu não faço, e bem: diagnostica, prescreve,
+                    opera.
+                  </p>
+                  <p>
+                    Mas muitas mulheres ficam numa zona intermédia. Não estão
+                    "bem". E também não existe um diagnóstico claro.
+                  </p>
+                </div>
+              </FadeUp>
+            </div>
+
+            <FadeUp delay={0.18} className="mt-24 lg:mt-32">
+              <blockquote className="font-serif italic text-h2-v2 text-v2-ink leading-[1.3] text-center max-w-[44ch] mx-auto">
+                Entre o normal laboratorial e sentir-se verdadeiramente bem
+                existe muitas vezes um espaço que merece atenção.
+              </blockquote>
+            </FadeUp>
+          </Container>
+        </Section>
+
+        {/* ── 3 · COMO TRABALHO ────────────────────────────── */}
+        <Section bg="paper-deep">
+          <Container size="default">
+            <FadeUp className="text-center">
+              <Eyebrow>Como trabalho</Eyebrow>
+              <h2 className="mt-6 font-serif text-h2-v2 text-v2-ink leading-[1.15] tracking-[-0.01em]">
+                Leio antes de propor.
+              </h2>
+            </FadeUp>
+
+            <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-14 lg:gap-x-12">
+              {metodoPassos.map((s, i) => (
+                <FadeUp key={s.n} delay={i * 0.06}>
+                  <p className="font-sans text-mono-v2 text-v2-sage uppercase tracking-[0.08em]">
+                    {s.n}
+                  </p>
+                  <h3 className="mt-5 font-serif text-h3-v2 text-v2-ink leading-[1.25]">
+                    {s.title}
+                  </h3>
+                  <p className="mt-4 font-sans text-body-v2 text-v2-ink-mute leading-[1.65] max-w-[34ch]">
+                    {s.body}
+                  </p>
+                </FadeUp>
+              ))}
+            </div>
+          </Container>
+        </Section>
+
+        {/* ── 4 · PERCURSO E CREDENCIAIS · timeline editorial ── */}
+        <Section bg="paper">
+          <Container size="default">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+              <FadeUp className="lg:col-span-4">
+                <div className="lg:sticky lg:top-32">
+                  <Eyebrow>Percurso</Eyebrow>
+                  <h2 className="mt-6 font-serif text-h2-v2 text-v2-ink leading-[1.15] tracking-[-0.01em]">
+                    Porque desenvolvi esta abordagem.
+                  </h2>
+                  <p className="mt-8 font-sans text-body-v2 text-v2-ink-mute leading-[1.7] max-w-[38ch]">
+                    A razão pela qual faço este trabalho não está só no
+                    percurso. Está também na perimenopausa que vivo na
+                    primeira pessoa, e em vinte anos a ver mulheres saírem
+                    dos consultórios com "está tudo normal" quando
+                    claramente não está.
+                  </p>
+                </div>
+              </FadeUp>
+
+              <FadeUp className="lg:col-span-7 lg:col-start-6" delay={0.1}>
+                <ul className="border-l border-v2-paper-line">
+                  {percurso.map((p, i) => (
+                    <li key={i} className="relative pl-10 pb-12 last:pb-0">
+                      <span
+                        aria-hidden
+                        className="absolute left-[-3px] top-[0.55em] w-[5px] h-[5px] rounded-full bg-v2-sage"
+                      />
+                      <p className="font-sans text-mono-v2 uppercase tracking-[0.14em] text-v2-sage">
+                        {p.period}
+                      </p>
+                      <p className="mt-3 font-sans text-body-v2 text-v2-ink leading-[1.65] max-w-[58ch]">
+                        {p.text}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </FadeUp>
+            </div>
+          </Container>
+        </Section>
+
+        {/* ── 5 · TRANSPARÊNCIA ────────────────────────────── */}
+        <Section bg="paper-deep">
+          <Container size="prose">
+            <FadeUp className="text-center">
+              <Eyebrow>Transparência</Eyebrow>
+              <h2 className="mt-6 font-serif text-h2-v2 text-v2-ink leading-[1.15] tracking-[-0.01em]">
+                O que faço e o que não faço.
+              </h2>
+            </FadeUp>
+
+            <FadeUp delay={0.1}>
+              <ul className="mt-14 max-w-[480px] mx-auto space-y-5">
+                {transparencia.map((t) => (
+                  <li
+                    key={t}
+                    className="font-sans text-body-lg-v2 text-v2-ink leading-[1.55] pl-7 relative"
+                  >
+                    <span
+                      aria-hidden
+                      className="absolute left-0 top-[0.7em] w-3 h-px bg-v2-sage"
+                    />
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </FadeUp>
+
+            <FadeUp delay={0.15}>
+              <p className="mt-14 font-sans text-body-v2 text-v2-ink-mute leading-[1.7] text-center max-w-[52ch] mx-auto">
+                A formação de base é a Medicina Tradicional Chinesa, com
+                cédula da ACSS ao abrigo da Lei n.º 71/2013. Acompanho dentro
+                desse âmbito, em complemento ao acompanhamento médico. Quando
+                existe necessidade de avaliação médica, há articulação com a
+                Dra. Patrícia Salvador, médica inscrita na Ordem dos Médicos,
+                ou referenciação para outras especialidades.
+              </p>
+            </FadeUp>
+
+            <FadeUp delay={0.2}>
+              <p className="mt-8 font-serif italic text-body-lg-v2 text-v2-ink text-center max-w-[44ch] mx-auto leading-[1.5]">
+                A clareza sobre aquilo que faço, e aquilo que não faço, faz
+                parte da forma como trabalho.
+              </p>
+            </FadeUp>
+          </Container>
+        </Section>
+
+        {/* ── 6 · FAQ · acordeão ───────────────────────────── */}
+        <Section bg="paper">
+          <Container size="default">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+              <FadeUp className="lg:col-span-4">
+                <div className="lg:sticky lg:top-32">
+                  <Eyebrow>Antes de marcares</Eyebrow>
+                  <h2 className="mt-6 font-serif text-h2-v2 text-v2-ink leading-[1.15] tracking-[-0.01em]">
+                    Perguntas frequentes.
+                  </h2>
+                </div>
+              </FadeUp>
+
+              <FadeUp className="lg:col-span-7 lg:col-start-6" delay={0.1}>
+                <ul className="divide-y divide-v2-paper-line border-y border-v2-paper-line">
+                  {faqs.map((f, i) => {
+                    const isOpen = open === i;
+                    return (
+                      <li key={i}>
+                        <button
+                          onClick={() => setOpen(isOpen ? null : i)}
+                          className="w-full text-left py-7 flex items-start justify-between gap-8 group"
+                          aria-expanded={isOpen}
+                        >
+                          <span className="font-serif text-body-lg-v2 text-v2-ink group-hover:text-v2-ink-mute transition-colors leading-[1.4]">
+                            {f.q}
+                          </span>
+                          <span
+                            className={cn(
+                              "shrink-0 mt-2 font-sans text-mono-v2 text-v2-sage transition-transform duration-300",
+                              isOpen ? "rotate-45" : "",
+                            )}
+                          >
+                            +
+                          </span>
+                        </button>
+                        <div
+                          className={cn(
+                            "grid transition-[grid-template-rows] duration-300 ease-out",
+                            isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+                          )}
+                        >
+                          <div className="overflow-hidden">
+                            <div className="pb-8 space-y-5 font-sans text-body-v2 text-v2-ink-mute leading-[1.7] max-w-[64ch]">
+                              {f.a.map((p, j) => (
+                                <p key={j}>{p}</p>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </FadeUp>
+            </div>
+          </Container>
+        </Section>
+
+        {/* ── CTA FINAL · fundo moss ───────────────────────── */}
+        <Section bg="moss">
+          <Container size="narrow" className="text-center">
+            <FadeUp>
+              <h2 className="font-serif text-display-2 text-v2-paper leading-[1.1] tracking-[-0.015em]">
+                Se chegou até aqui, talvez não esteja à procura de mais
+                informação.
+              </h2>
+            </FadeUp>
+
+            <FadeUp delay={0.08}>
+              <p className="mt-10 font-sans text-body-lg-v2 text-v2-paper/80 leading-[1.6] max-w-[48ch] mx-auto">
+                Talvez esteja à procura de uma forma diferente de olhar para
+                aquilo que lhe está a acontecer.
+              </p>
+            </FadeUp>
+
+            <FadeUp delay={0.15} className="mt-14">
+              <ButtonV2 onClick={openAcuity} size="lg">
+                Marcar primeira consulta
+              </ButtonV2>
+              <p className="mt-6 font-sans text-mono-v2 uppercase tracking-[0.12em] text-v2-paper/60">
+                Telemedicina · 60 a 90 minutos · questionário prévio por email
+              </p>
+            </FadeUp>
+
+            <FadeUp delay={0.2} className="mt-12">
+              <ButtonV2
+                as="Link"
+                to="/programa-fundacao"
+                variant="ghost"
+                className="text-v2-paper border-v2-paper/30 hover:border-v2-paper/70"
+              >
+                Conhecer o acompanhamento
+              </ButtonV2>
+            </FadeUp>
+          </Container>
+        </Section>
       </main>
+
       <LegalBand />
       <FooterV2 />
       <MobileCTA />
-      <AcuityModal open={open} onClose={onClose} />
-    </>
+      <AcuityModal open={acuity.open} onClose={acuity.onClose} />
+    </div>
   );
 };
 
