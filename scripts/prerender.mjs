@@ -308,12 +308,12 @@ const pages = [
   },
   {
     path: "/programa-fundacao",
-    title: "Programa Fundação 3M | Catarina Veiga",
+    title: "Programa Fundação · 12 Semanas · Catarina Veiga",
     description:
-      "Programa de acompanhamento em Medicina Funcional Integrativa com duração de 3 meses. Investigação profunda das causas dos teus sintomas.",
-    h1: "Programa Fundação 3M",
+      "Acompanhamento estruturado de 12 semanas para mulheres que sabem que algo não está certo, mesmo quando os exames parecem normais. Investigar, intervir, consolidar.",
+    h1: "Há uma diferença entre estar dentro dos valores de referência e sentir-se verdadeiramente bem.",
     intro:
-      "Um programa estruturado de 3 meses focado na identificação das causas raiz dos teus desequilíbrios hormonais e metabólicos.",
+      "O Programa Fundação foi criado para mulheres que sabem que algo não está certo, mesmo quando os exames parecem normais. Três fases ao longo de 12 semanas: investigar, intervir, consolidar. 4 consultas individuais, plano clínico escrito e atualizado, interpretação integrada dos exames existentes, suporte entre consultas e plano de manutenção final. €800. Entrada após consulta inicial.",
   },
   {
     path: "/v2",
