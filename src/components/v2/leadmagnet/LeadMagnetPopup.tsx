@@ -106,12 +106,12 @@ export const LeadMagnetPopup = () => {
       />
 
       {/* Cartão: branco elevado, sombra profunda */}
-      <div className="relative w-full max-w-[860px] bg-white shadow-[0_32px_80px_-12px_rgba(31,36,34,0.45)] ring-1 ring-[rgba(31,36,34,0.12)] max-h-[92vh] overflow-y-auto">
+      <div className="relative w-full max-w-[720px] bg-white shadow-[0_32px_80px_-12px_rgba(31,36,34,0.45)] ring-1 ring-[rgba(31,36,34,0.12)] max-h-[92vh] overflow-y-auto">
         <button
           type="button"
           onClick={close}
           aria-label="Fechar"
-          className="absolute top-3 right-3 z-10 w-10 h-10 flex items-center justify-center font-sans text-2xl leading-none text-v2-ink-mute hover:text-v2-ink bg-white/80 rounded-full transition-colors"
+          className="absolute top-3 right-3 z-10 w-9 h-9 flex items-center justify-center font-sans text-xl leading-none text-v2-ink bg-white border border-v2-paper-line rounded-full shadow-sm hover:bg-v2-paper transition-colors"
         >
           ×
         </button>
@@ -143,7 +143,7 @@ export const LeadMagnetPopup = () => {
               <img
                 src={guiaCapa}
                 alt='Capa do guia "Tens fome pouco depois de comer?"'
-                className="w-full h-44 md:h-full object-cover object-top md:object-center"
+                className="w-full h-28 md:h-full object-cover object-top md:object-center"
               />
               <div
                 aria-hidden
@@ -152,28 +152,23 @@ export const LeadMagnetPopup = () => {
             </div>
 
             {/* Conteúdo · 60% */}
-            <div className="md:col-span-3 px-7 py-9 md:px-10 md:py-11">
+            <div className="md:col-span-3 px-6 py-7 md:px-8 md:py-8">
               <p className="font-sans text-mono-v2 uppercase tracking-[0.16em] text-v2-sage">
                 Guia gratuito
               </p>
-              <h2 className="mt-4 font-serif text-h2-v2 text-v2-ink leading-[1.12] tracking-[-0.01em]">
+              <h2 className="mt-3 font-serif text-h3-v2 md:text-[26px] text-v2-ink leading-[1.18] tracking-[-0.01em]">
                 Tem fome pouco depois de comer?
               </h2>
-              <p className="mt-4 font-sans text-body-v2 text-v2-ink-mute leading-[1.6]">
-                Se está constantemente a pensar em comida, a petiscar ao
-                longo do dia ou com energia instável, talvez o problema não
-                seja falta de disciplina.
-              </p>
-              <p className="mt-4 font-serif italic text-body-lg-v2 text-v2-ink leading-[1.45]">
+              <p className="mt-3 font-serif italic text-[16px] text-v2-ink leading-[1.45]">
                 Receba o guia completo e descubra porque continua com fome
                 pouco depois de comer.
               </p>
 
-              <ul className="mt-6 space-y-3">
+              <ul className="mt-5 space-y-2">
                 {beneficios.map((b) => (
                   <li
                     key={b}
-                    className="flex items-start gap-3 font-sans text-body-sm-v2 text-v2-ink leading-[1.5]"
+                    className="flex items-start gap-2.5 font-sans text-[13px] text-v2-ink leading-[1.45]"
                   >
                     <Check />
                     <span>{b}</span>
@@ -181,7 +176,7 @@ export const LeadMagnetPopup = () => {
                 ))}
               </ul>
 
-              <form onSubmit={submit} className="mt-8 space-y-4">
+              <form onSubmit={submit} className="mt-6 space-y-3">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input
                     type="text"
@@ -189,7 +184,7 @@ export const LeadMagnetPopup = () => {
                     onChange={(e) => setNome(e.target.value)}
                     placeholder="Nome"
                     required
-                    className="w-full bg-v2-paper border border-v2-paper-line px-4 py-3.5 font-sans text-body-v2 text-v2-ink placeholder:text-v2-ink-mute/50 focus:outline-none focus:border-v2-sage transition-colors"
+                    className="w-full bg-v2-paper border border-v2-paper-line px-4 py-3 font-sans text-[14px] text-v2-ink placeholder:text-v2-ink-mute/50 focus:outline-none focus:border-v2-sage transition-colors"
                   />
                   <input
                     type="email"
@@ -197,7 +192,7 @@ export const LeadMagnetPopup = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email"
                     required
-                    className="w-full bg-v2-paper border border-v2-paper-line px-4 py-3.5 font-sans text-body-v2 text-v2-ink placeholder:text-v2-ink-mute/50 focus:outline-none focus:border-v2-sage transition-colors"
+                    className="w-full bg-v2-paper border border-v2-paper-line px-4 py-3 font-sans text-[14px] text-v2-ink placeholder:text-v2-ink-mute/50 focus:outline-none focus:border-v2-sage transition-colors"
                   />
                 </div>
                 {error && (
