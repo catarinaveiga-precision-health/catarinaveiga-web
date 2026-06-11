@@ -244,12 +244,12 @@ const pages = [
   {
     path: "/pequenos-almocos-ricos-em-proteina",
     title:
-      "Pequenos-Almoços Ricos em Proteína: Porquê, Quanto e O Que Comer | Catarina Veiga",
+      "Pequeno-Almoço Proteico: Porquê, Quanto e O Que Comer | Catarina Veiga",
     description:
-      "Descubra porque um pequeno-almoço com 25–30 g de proteína estabiliza energia, reduz cravings e apoia a saúde hormonal, especialmente na perimenopausa.",
+      "O que é um pequeno-almoço proteico, porquê 25 a 30 g de proteína e 6 opções práticas. Menos cravings, mais energia estável e saciedade, especialmente na perimenopausa.",
     h1: "Pequenos-almoços ricos em proteína: porquê, quanto e o que comer",
     intro:
-      "Um pequeno-almoço com 25 a 30 g de proteína estabiliza a glicemia, reduz cravings e apoia a produção hormonal, com impacto directo na energia, no peso e na clareza mental ao longo do dia.",
+      "Um pequeno-almoço proteico, com 25 a 30 g de proteína, estabiliza a glicemia, reduz cravings e apoia a produção hormonal: impacto directo na energia, no peso e na clareza mental ao longo do dia.",
   },
   // Main site pages
   {
