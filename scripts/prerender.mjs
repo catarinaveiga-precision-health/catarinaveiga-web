@@ -161,6 +161,16 @@ function portableTextToPlain(blocks, maxLength = 160) {
 
 // ── SEO data for every pre-renderable static route ────────────────
 const pages = [
+  // Página pilar · tese da marca
+  {
+    path: "/exames-normais-mas-sintomas",
+    title: "Exames Normais mas Sintomas Persistentes | Catarina Veiga",
+    description:
+      "Fadiga, ansiedade, sono fragmentado e alterações hormonais com análises consideradas normais. Porque acontece, e o que uma leitura integrada da fisiologia feminina procura encontrar.",
+    h1: "Os teus exames estão normais. O teu corpo não.",
+    intro:
+      "Fadiga persistente. Alterações hormonais. Sono fragmentado. Ansiedade nova. Sintomas que afetam a qualidade de vida, mesmo quando os exames são considerados normais. Os valores de referência descrevem a população, não o funcionamento ótimo: ferritina, vitamina D, insulina, tiroide e perimenopausa são exemplos em que normal e ótimo não coincidem. A leitura integrada cruza história clínica, sintomas, biomarcadores funcionais e contexto de vida.",
+  },
   // Homepage (v2) · vende a Consulta Inicial (€120)
   {
     path: "/",

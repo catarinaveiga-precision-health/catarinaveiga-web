@@ -24,6 +24,7 @@ import FadigaExamesNormais from "./pages/FadigaExamesNormais";
 import TshNormal from "./pages/TshNormal";
 import MedicinaFuncional from "./pages/MedicinaFuncional";
 import PequenosAlmocosRicosProteina from "./pages/PequenosAlmocosRicosProteina";
+import ExamesNormaisMasSintomas from "./pages/ExamesNormaisMasSintomas";
 import Aletheia from "./pages/Aletheia";
 import GuiaSaciedade from "./pages/GuiaSaciedade";
 import { LeadMagnetPopup } from "./components/v2/leadmagnet/LeadMagnetPopup";
@@ -63,6 +64,7 @@ const App = () => (
             <Route path="/tsh-normal-mas-com-sintomas" element={<TshNormal />} />
             <Route path="/medicina-funcional" element={<MedicinaFuncional />} />
             <Route path="/pequenos-almocos-ricos-em-proteina" element={<PequenosAlmocosRicosProteina />} />
+            <Route path="/exames-normais-mas-sintomas" element={<ExamesNormaisMasSintomas />} />
             <Route path="/pequenos-almocos-com-proteina-energia-equilibrio-hormonal-e-simplicidade-para-mulheres-em-peri-e-menopausa" element={<Navigate to="/pequenos-almocos-ricos-em-proteina" replace />} />
             <Route path="/aletheia" element={<Aletheia />} />
             <Route path="/guia-saciedade" element={<GuiaSaciedade />} />

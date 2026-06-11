@@ -158,6 +158,7 @@ const PequenosAlmocosRicosProteina = () => {
       description="Descubra porque um pequeno-almoço com 25–30 g de proteína estabiliza energia, reduz cravings e apoia a saúde hormonal — especialmente na perimenopausa."
       canonical="https://www.catarinaveiga.com/pequenos-almocos-ricos-em-proteina"
       structuredData={structuredData}
+      hideLeadMagnet
     >
       <SEOHero
         label="Nutrição Funcional · Proteína"

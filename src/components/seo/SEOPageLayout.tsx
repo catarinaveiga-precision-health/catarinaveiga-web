@@ -11,9 +11,10 @@ interface SEOPageLayoutProps {
   canonical: string;
   structuredData: Record<string, unknown>;
   children: React.ReactNode;
+  hideLeadMagnet?: boolean;
 }
 
-const SEOPageLayout = ({ title, description, canonical, structuredData, children }: SEOPageLayoutProps) => (
+const SEOPageLayout = ({ title, description, canonical, structuredData, children, hideLeadMagnet }: SEOPageLayoutProps) => (
   <>
     <Helmet>
       <title>{title}</title>
@@ -27,9 +28,11 @@ const SEOPageLayout = ({ title, description, canonical, structuredData, children
     </Helmet>
     <NavbarV2 />
     <main>{children}</main>
-    <div className="max-w-3xl mx-auto px-6">
-      <ArticleLeadMagnetCTA />
-    </div>
+    {!hideLeadMagnet && (
+      <div className="max-w-3xl mx-auto px-6">
+        <ArticleLeadMagnetCTA />
+      </div>
+    )}
     <LegalBand />
     <FooterV2 />
     <MobileCTA />
