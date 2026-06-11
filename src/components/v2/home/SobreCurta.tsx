@@ -35,16 +35,16 @@ export const SobreCurta = () => (
           </h2>
           <div className="mt-8 space-y-5 font-sans text-body-v2 text-v2-ink-mute leading-[1.7] max-w-[52ch]">
             <p>
-              Praticante de Medicina Tradicional Chinesa com pós-graduação
-              em Saúde Hormonal e Funcional da Mulher e formação avançada
-              em microbioma, saúde metabólica e interpretação funcional de
-              biomarcadores.
+              Trabalho com mulheres em perimenopausa, fadiga persistente,
+              alterações hormonais, ansiedade, sono e metabolismo, casos
+              em que os exames costumam ser "normais" mas o corpo continua
+              a dar sinais. Uma leitura integrada do corpo feminino.
             </p>
             <p>
-              Trabalho com mulheres em perimenopausa, fadiga persistente,
-              alterações hormonais e quadros inflamatórios complexos,
-              casos em que os exames costumam ser "normais" mas o corpo
-              continua a dar sinais.
+              Vinte anos de prática clínica, com pós-graduação em Saúde
+              Hormonal e Funcional da Mulher e experiência profunda em
+              bioquímica clínica e interpretação funcional de
+              biomarcadores.
             </p>
             <p>
               Quando é necessária avaliação médica, há articulação com a

@@ -254,12 +254,12 @@ const pages = [
   // Main site pages
   {
     path: "/sobre",
-    title: "Sobre · Catarina Veiga · Saúde Feminina e Microbioma",
+    title: "Sobre · Catarina Veiga · Saúde Feminina e Perimenopausa",
     description:
-      "Vinte anos de prática clínica, quatro anos no Departamento de Microbioma da Regenerus Labs. Para mulheres com sintomas reais e análises aparentemente normais.",
+      "Uma leitura integrada do corpo feminino. Para mulheres com sintomas reais e exames aparentemente normais: fadiga, alterações hormonais, ansiedade, sono, metabolismo.",
     h1: "Talvez tenha chegado aqui porque está cansada de ouvir que está tudo normal.",
     intro:
-      "Mulheres entre os 35 e os 55 anos. Fadiga, brain fog, ansiedade nova, alterações intestinais, perimenopausa, sono fragmentado. Exames normais. Vinte anos de prática clínica, quatro anos no Departamento de Microbioma da Regenerus Labs, em colaboração com médica inscrita na Ordem dos Médicos. Telemedicina, em Portugal e no estrangeiro.",
+      "Mulheres entre os 35 e os 55 anos. Fadiga, brain fog, ansiedade nova, alterações intestinais, perimenopausa, sono fragmentado. Sintomas reais, exames normais. Uma leitura integrada do corpo feminino, com vinte anos de prática clínica e em colaboração com médica inscrita na Ordem dos Médicos. Telemedicina, em Portugal e no estrangeiro.",
   },
   {
     path: "/metodo",

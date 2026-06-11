@@ -18,9 +18,9 @@ import { cn } from "@/lib/utils";
    Página Sobre · centrada na mulher que chega ao site
    Reconhecimento → Território → Tese → Método → Credenciais →
    Transparência → FAQ → CTA
-   Posicionamento: saúde feminina complexa · microbioma · bioquímica
-   clínica · perimenopausa. MTC aparece apenas em credenciais e
-   transparência.
+   Posicionamento: saúde feminina complexa · perimenopausa · sintomas
+   reais com exames normais · leitura integrada do corpo feminino.
+   Microbioma e MTC aparecem apenas em credenciais e transparência.
 ───────────────────────────────────────────────────────────────── */
 
 const territorio = [
