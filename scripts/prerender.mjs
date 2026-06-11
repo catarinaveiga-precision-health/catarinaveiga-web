@@ -164,9 +164,9 @@ const pages = [
   // Homepage (v2) · vende a Consulta Inicial (€120)
   {
     path: "/",
-    title: "Catarina Veiga · Saúde Hormonal Feminina e Perimenopausa",
+    title: "Catarina Veiga | Saúde Feminina Integrada",
     description:
-      "Acompanho mulheres em perimenopausa, fadiga persistente, alterações hormonais, ansiedade, sono e metabolismo, quando os exames parecem normais mas o corpo dá sinais.",
+      "Acompanho mulheres com fadiga, alterações hormonais, sintomas persistentes e exames aparentemente normais através de uma leitura integrada da fisiologia feminina.",
     h1: "Os teus exames estão normais. O teu corpo não.",
     intro:
       "Para mulheres em perimenopausa, com fadiga persistente, alterações hormonais, digestivas ou metabólicas que continuam sem explicação clara. Não é sobre fazer mais exames: é sobre ler bem os que já tens. Na consulta inicial olhamos histórico clínico detalhado, sono, digestão, energia, ciclo, sintomas e exames anteriores. Sais com hipóteses claras, prioridades definidas e próximos passos concretos. 60–90 minutos em telemedicina, €120.",
@@ -317,7 +317,7 @@ const pages = [
   },
   {
     path: "/v2",
-    title: "Catarina Veiga · Saúde Hormonal Feminina e Perimenopausa",
+    title: "Catarina Veiga | Saúde Feminina Integrada",
     description:
       "Preview homepage v2 · foundation editorial premium. Não indexar.",
     h1: "Os teus exames estão normais. O teu corpo não.",
