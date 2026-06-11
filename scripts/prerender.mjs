@@ -390,7 +390,7 @@ function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, 
 
   // Replace meta description
   html = html.replace(
-    /<meta name="description" content="[^"]*">/,
+    /<meta name="description" content="[^"]*"\s*\/?>/,
     `<meta name="description" content="${description}">`
   );
 
@@ -414,29 +414,29 @@ function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, 
 
   // Replace Twitter tags
   html = html.replace(
-    /<meta name="twitter:title" content="[^"]*">/,
+    /<meta name="twitter:title" content="[^"]*"\s*\/?>/,
     `<meta name="twitter:title" content="${title}">`
   );
   html = html.replace(
-    /<meta name="twitter:description" content="[^"]*">/,
+    /<meta name="twitter:description" content="[^"]*"\s*\/?>/,
     `<meta name="twitter:description" content="${description}">`
   );
   html = html.replace(
-    /<meta name="twitter:image" content="[^"]*">/,
+    /<meta name="twitter:image" content="[^"]*"\s*\/?>/,
     `<meta name="twitter:image" content="${image}">`
   );
 
   // Replace canonical
   html = html.replace(
-    /<link rel="canonical" href="[^"]*">/,
+    /<link rel="canonical" href="[^"]*"\s*\/?>/,
     `<link rel="canonical" href="${canonical}">`
   );
 
-  // Noindex pages (previews, drafts)
+  // Noindex pages (previews, drafts): substituir a meta robots do template
   if (noindex) {
     html = html.replace(
-      /<link rel="canonical" href="[^"]*">/,
-      `<link rel="canonical" href="${canonical}">\n    <meta name="robots" content="noindex, nofollow">`
+      /<meta name="robots" content="[^"]*"\s*\/?>/,
+      `<meta name="robots" content="noindex, nofollow">`
     );
   }
 
