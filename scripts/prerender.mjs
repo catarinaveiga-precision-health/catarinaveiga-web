@@ -369,7 +369,7 @@ const pages = [
 const OG_IMAGE_DEFAULT =
   "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9855dba8-f6e3-4815-8dc5-a5c3c55085dc/id-preview-d882e72b--1b66c010-57ae-47c6-80d8-0bf8d63e429e.lovable.app-1772398965070.png";
 
-function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml }) {
+function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, noindex }) {
   const canonical = `https://www.catarinaveiga.com${path === "/" ? "" : path}`;
   const image = ogImage || OG_IMAGE_DEFAULT;
 
@@ -432,6 +432,14 @@ function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml }
     `<link rel="canonical" href="${canonical}">`
   );
 
+  // Noindex pages (previews, drafts)
+  if (noindex) {
+    html = html.replace(
+      /<link rel="canonical" href="[^"]*">/,
+      `<link rel="canonical" href="${canonical}">\n    <meta name="robots" content="noindex, nofollow">`
+    );
+  }
+
   // Inject static content into #root
   html = html.replace(
     '<div id="root"></div>',
@@ -450,6 +458,7 @@ function generateSitemap(staticPages, blogPosts) {
 
   // Static pages
   for (const page of staticPages) {
+    if (page.noindex) continue;
     const loc = `https://www.catarinaveiga.com${page.path === "/" ? "" : page.path}`;
     const priority = page.path === "/" ? "1.0" : page.path === "/blog" ? "0.7" : "0.8";
     const freq = page.path === "/" || page.path === "/blog" ? "weekly" : "monthly";
@@ -463,12 +472,6 @@ function generateSitemap(staticPages, blogPosts) {
     const loc = `https://www.catarinaveiga.com/blog/${slug}`;
     const lastmod = post.publishedAt ? post.publishedAt.split("T")[0] : today;
     xml += `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
-  }
-
-  // Legal pages
-  const legalPages = ["/aviso-legal", "/politica-privacidade", "/termos-utilizacao"];
-  for (const p of legalPages) {
-    xml += `  <url>\n    <loc>https://www.catarinaveiga.com${p}</loc>\n    <changefreq>yearly</changefreq>\n    <priority>0.3</priority>\n  </url>\n`;
   }
 
   xml += `</urlset>\n`;
