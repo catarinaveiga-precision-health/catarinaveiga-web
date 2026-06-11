@@ -169,7 +169,7 @@ const pages = [
       "Consulta de Medicina Tradicional Chinesa em telemedicina para mulheres em perimenopausa, fadiga persistente e ciclos que mudaram.",
     h1: "Os teus exames estão normais. O teu corpo não.",
     intro:
-      "Para mulheres em perimenopausa, com fadiga persistente, alterações hormonais, digestivas ou metabólicas que continuam sem explicação clara. Não é sobre fazer mais exames — é sobre ler bem os que já tens. Na consulta inicial olhamos histórico clínico detalhado, sono, digestão, energia, ciclo, sintomas e exames anteriores. Sais com hipóteses claras, prioridades definidas e próximos passos concretos. 60–90 minutos em telemedicina, €120.",
+      "Para mulheres em perimenopausa, com fadiga persistente, alterações hormonais, digestivas ou metabólicas que continuam sem explicação clara. Não é sobre fazer mais exames: é sobre ler bem os que já tens. Na consulta inicial olhamos histórico clínico detalhado, sono, digestão, energia, ciclo, sintomas e exames anteriores. Sais com hipóteses claras, prioridades definidas e próximos passos concretos. 60–90 minutos em telemedicina, €120.",
   },
   // SEO article pages
   {
@@ -180,7 +180,7 @@ const pages = [
       "Ferritina dentro do normal mas com fadiga e queda de cabelo? Descobre a diferença entre valores laboratoriais e funcionais.",
     h1: "Ferritina baixa: sintomas, causas e o que os exames podem não mostrar",
     intro:
-      "Muitas mulheres têm ferritina dentro dos valores de referência — e ainda assim apresentam fadiga persistente, queda de cabelo e dificuldade de recuperação.",
+      "Muitas mulheres têm ferritina dentro dos valores de referência, e ainda assim apresentam fadiga persistente, queda de cabelo e dificuldade de recuperação.",
   },
   {
     path: "/vitamina-d-valores-funcionais",
@@ -190,7 +190,7 @@ const pages = [
       "Vitamina D dentro dos valores normais mas com fadiga e infecções frequentes? Descobre a diferença entre valores laboratoriais e funcionais.",
     h1: "Vitamina D baixa: o que os valores laboratoriais não explicam",
     intro:
-      "A maioria da população portuguesa tem vitamina D insuficiente — mas os valores considerados normais podem ainda assim ser insuficientes para função fisiológica óptima.",
+      "A maioria da população portuguesa tem vitamina D insuficiente, mas os valores considerados normais podem ainda assim ser insuficientes para função fisiológica óptima.",
   },
   {
     path: "/insulina-jejum-o-que-significa",
@@ -220,7 +220,7 @@ const pages = [
       "Cansaço persistente com exames normais? Descobre os padrões biomarcadores mais frequentes em mulheres com fadiga inexplicada.",
     h1: "Fadiga com exames normais: porque acontece e o que investigar",
     intro:
-      "É uma das queixas mais frequentes em medicina — e uma das mais frustrantes. Os exames estão normais, mas o cansaço persiste.",
+      "É uma das queixas mais frequentes em medicina, e uma das mais frustrantes. Os exames estão normais, mas o cansaço persiste.",
   },
   {
     path: "/medicina-funcional",
@@ -229,17 +229,17 @@ const pages = [
       "Os teus exames estão normais mas os sintomas continuam. A medicina funcional investiga as causas que os valores de referência standard não mostram.",
     h1: "Medicina Funcional: o que é e quando pode ajudar",
     intro:
-      "A medicina funcional é uma abordagem clínica que investiga as causas raiz de sintomas persistentes — especialmente quando os exames parecem normais.",
+      "A medicina funcional é uma abordagem clínica que investiga as causas raiz de sintomas persistentes, especialmente quando os exames parecem normais.",
   },
   {
     path: "/pequenos-almocos-ricos-em-proteina",
     title:
       "Pequenos-Almoços Ricos em Proteína: Porquê, Quanto e O Que Comer | Catarina Veiga",
     description:
-      "Descubra porque um pequeno-almoço com 25–30 g de proteína estabiliza energia, reduz cravings e apoia a saúde hormonal — especialmente na perimenopausa.",
+      "Descubra porque um pequeno-almoço com 25–30 g de proteína estabiliza energia, reduz cravings e apoia a saúde hormonal, especialmente na perimenopausa.",
     h1: "Pequenos-almoços ricos em proteína: porquê, quanto e o que comer",
     intro:
-      "Um pequeno-almoço com 25 a 30 g de proteína estabiliza a glicemia, reduz cravings e apoia a produção hormonal — com impacto directo na energia, no peso e na clareza mental ao longo do dia.",
+      "Um pequeno-almoço com 25 a 30 g de proteína estabiliza a glicemia, reduz cravings e apoia a produção hormonal, com impacto directo na energia, no peso e na clareza mental ao longo do dia.",
   },
   {
     path: "/pequenos-almocos-com-proteina-energia-equilibrio-hormonal-e-simplicidade-para-mulheres-em-peri-e-menopausa",
@@ -263,7 +263,7 @@ const pages = [
   },
   {
     path: "/metodo",
-    title: "O Método | Catarina Veiga — Medicina Funcional",
+    title: "O Método · Catarina Veiga · Medicina Tradicional Chinesa",
     description:
       "Abordagem clínica integrativa que investiga as causas raiz dos teus sintomas. Não tratar sintomas — corrigir o que os causa.",
     h1: "O Método",
@@ -272,7 +272,7 @@ const pages = [
   },
   {
     path: "/blog",
-    title: "Blog | Catarina Veiga — Saúde Hormonal Feminina",
+    title: "Blog · Catarina Veiga · Saúde Hormonal Feminina",
     description:
       "Artigos sobre saúde hormonal feminina, perimenopausa, ferritina, vitamina D, tiróide e medicina funcional. Informação baseada em evidência.",
     h1: "Blog — Saúde Hormonal Feminina",
@@ -281,7 +281,7 @@ const pages = [
   },
   {
     path: "/recursos",
-    title: "Recursos | Catarina Veiga — Medicina Funcional",
+    title: "Recursos · Catarina Veiga · Medicina Tradicional Chinesa",
     description:
       "Ferramentas e recursos gratuitos de saúde hormonal feminina. Avaliação funcional de exames, guias e artigos especializados.",
     h1: "Recursos de Saúde Hormonal Feminina",
@@ -324,6 +324,34 @@ const pages = [
     intro:
       "Preview homepage v2 · acompanhamento clínico em saúde hormonal feminina.",
     noindex: true,
+  },
+  // Páginas legais (obrigatório RGPD: têm de responder 200)
+  {
+    path: "/aviso-legal",
+    title: "Aviso Legal · Catarina Veiga",
+    description:
+      "Aviso legal do website catarinaveiga.com: identificação, âmbito dos serviços e limitações de responsabilidade.",
+    h1: "Aviso Legal",
+    intro:
+      "Identificação do responsável pelo website, âmbito dos serviços de Medicina Tradicional Chinesa e limitações de responsabilidade.",
+  },
+  {
+    path: "/politica-privacidade",
+    title: "Política de Privacidade · Catarina Veiga",
+    description:
+      "Política de privacidade e protecção de dados pessoais do website catarinaveiga.com, em conformidade com o RGPD.",
+    h1: "Política de Privacidade",
+    intro:
+      "Como são recolhidos, tratados e protegidos os teus dados pessoais neste website, em conformidade com o Regulamento Geral de Protecção de Dados.",
+  },
+  {
+    path: "/termos-utilizacao",
+    title: "Termos de Utilização · Catarina Veiga",
+    description:
+      "Termos e condições de utilização do website catarinaveiga.com e dos serviços associados.",
+    h1: "Termos de Utilização",
+    intro:
+      "Condições de utilização do website e dos serviços de telemedicina associados.",
   },
 ];
 

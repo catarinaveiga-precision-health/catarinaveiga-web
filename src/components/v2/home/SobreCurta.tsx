@@ -42,7 +42,7 @@ export const SobreCurta = () => (
             </p>
             <p>
               Trabalho com mulheres em perimenopausa, fadiga persistente,
-              alterações hormonais e quadros inflamatórios complexos —
+              alterações hormonais e quadros inflamatórios complexos,
               casos em que os exames costumam ser "normais" mas o corpo
               continua a dar sinais.
             </p>

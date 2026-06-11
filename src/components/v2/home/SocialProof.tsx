@@ -5,7 +5,7 @@ import { FadeUp } from "../motion/FadeUp";
 
 const testimonials = [
   "Foi a primeira profissional de saúde a realmente olhar para o meu quadro em detalhe. Super metódica e cuidadosa nas análises. O acompanhamento é personalizado e ajustado em função dos sintomas e evolução.",
-  "Finalmente consegui que alguém me escutasse, validasse e analisasse os meus sintomas com uma atenção que não tinha encontrado antes. Análises, hábitos, regime alimentar, sono, suplementação — tudo é abordado e trabalhado.",
+  "Finalmente consegui que alguém me escutasse, validasse e analisasse os meus sintomas com uma atenção que não tinha encontrado antes. Análises, hábitos, regime alimentar, sono, suplementação: tudo é abordado e trabalhado.",
   "Com o apoio e o conhecimento da Catarina comecei finalmente a olhar para as causas, não só para os sintomas. O maior ganho foi no sono. Hoje durmo melhor, acordo com mais energia e sinto mais equilíbrio no dia a dia.",
 ];
 

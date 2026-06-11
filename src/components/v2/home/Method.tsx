@@ -36,7 +36,7 @@ export const Method = () => (
         </h2>
         <p className="mt-8 mx-auto font-sans text-body-lg-v2 text-v2-ink-mute leading-[1.55] max-w-[58ch]">
           Avalio, interpreto e acompanho. Trabalho a partir dos teus sinais,
-          do teu histórico e dos teus padrões — e a partir daí construo um
+          do teu histórico e dos teus padrões. A partir daí construo um
           plano individualizado, com acompanhamento longitudinal.
         </p>
       </FadeUp>
