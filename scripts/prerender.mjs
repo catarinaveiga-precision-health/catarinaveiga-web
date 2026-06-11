@@ -241,16 +241,6 @@ const pages = [
     intro:
       "Um pequeno-almoço com 25 a 30 g de proteína estabiliza a glicemia, reduz cravings e apoia a produção hormonal, com impacto directo na energia, no peso e na clareza mental ao longo do dia.",
   },
-  {
-    path: "/pequenos-almocos-com-proteina-energia-equilibrio-hormonal-e-simplicidade-para-mulheres-em-peri-e-menopausa",
-    title:
-      "Pequenos-Almoços com Proteína para Mulheres na Peri e Menopausa | Catarina Veiga",
-    description:
-      "Proteína ao pequeno-almoço estabiliza energia, reduz cravings e apoia o equilíbrio hormonal na perimenopausa. 6 opções simples, rápidas e sem meal prep.",
-    h1: "Pequenos-almoços com proteína, energia, equilíbrio hormonal e simplicidade para mulheres em peri e menopausa",
-    intro:
-      "Se está na perimenopausa ou menopausa, o que come ao pequeno-almoço tem um impacto directo na energia, no peso, no humor e no equilíbrio hormonal.",
-  },
   // Main site pages
   {
     path: "/sobre",

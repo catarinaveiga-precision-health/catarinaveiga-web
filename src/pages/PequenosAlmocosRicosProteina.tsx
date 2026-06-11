@@ -6,6 +6,7 @@ import SEOImpactQuote from "@/components/seo/SEOImpactQuote";
 import SEOSymptomGrid from "@/components/seo/SEOSymptomGrid";
 import SEOPatternCards from "@/components/seo/SEOPatternCards";
 import SEOCTA from "@/components/seo/SEOCTA";
+import SEOLeadMagnetCTA from "@/components/seo/SEOLeadMagnetCTA";
 import { useFadeUp } from "@/hooks/useFadeUp";
 
 const sintomas = [
@@ -327,6 +328,8 @@ const PequenosAlmocosRicosProteina = () => {
       </SEOContentSection>
 
       <FAQSection />
+
+      <SEOLeadMagnetCTA />
 
       <SEOCTA
         title="O que come ao pequeno-almoço pode estar a definir o resto do seu dia."
