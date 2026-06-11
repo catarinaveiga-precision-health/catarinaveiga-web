@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Link2, Facebook, Linkedin } from "lucide-react";
 import { NavbarV2 } from "@/components/v2/layout/NavbarV2";
+import { ArticleLeadMagnetCTA } from "@/components/v2/leadmagnet/ArticleLeadMagnetCTA";
 import LegalBand from "@/components/LegalBand";
 import { FooterV2 } from "@/components/v2/layout/FooterV2";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -143,7 +144,8 @@ const BlogArticle = () => {
             ← {t("blog.back")}
           </Link>
         </main>
-        <LegalBand />
+        <div className="max-w-3xl mx-auto px-6"><ArticleLeadMagnetCTA /></div>
+      <LegalBand />
         <FooterV2 />
       </div>
     );

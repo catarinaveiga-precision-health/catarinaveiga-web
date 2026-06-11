@@ -325,6 +325,16 @@ const pages = [
       "Preview homepage v2 · acompanhamento clínico em saúde hormonal feminina.",
     noindex: true,
   },
+  // Lead magnet · landing de captura
+  {
+    path: "/guia-saciedade",
+    title: "Guia Gratuito · Porque tem fome pouco depois de comer? · Catarina Veiga",
+    description:
+      "Explicação clínica da fisiologia da saciedade, erros comuns que aumentam a fome e 29 receitas ricas em proteína. Para mais saciedade, menos cravings e energia estável.",
+    h1: "Porque tem fome pouco depois de comer?",
+    intro:
+      "Os exames podem estar normais. O seu corpo não. Receba gratuitamente o guia com explicação simples da fisiologia da saciedade, os erros mais comuns que aumentam a fome, estratégias práticas para energia e controlo alimentar, e 29 receitas ricas em proteína.",
+  },
   // Páginas legais (obrigatório RGPD: têm de responder 200)
   {
     path: "/aviso-legal",

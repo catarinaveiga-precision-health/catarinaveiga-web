@@ -1,8 +1,9 @@
 import { Helmet } from "react-helmet-async";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { NavbarV2 } from "@/components/v2/layout/NavbarV2";
+import { FooterV2 } from "@/components/v2/layout/FooterV2";
 import LegalBand from "@/components/LegalBand";
 import MobileCTA from "@/components/MobileCTA";
+import { ArticleLeadMagnetCTA } from "@/components/v2/leadmagnet/ArticleLeadMagnetCTA";
 
 interface SEOPageLayoutProps {
   title: string;
@@ -24,10 +25,13 @@ const SEOPageLayout = ({ title, description, canonical, structuredData, children
       <meta property="og:type" content="article" />
       <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
     </Helmet>
-    <Navbar />
+    <NavbarV2 />
     <main>{children}</main>
+    <div className="max-w-3xl mx-auto px-6">
+      <ArticleLeadMagnetCTA />
+    </div>
     <LegalBand />
-    <Footer />
+    <FooterV2 />
     <MobileCTA />
   </>
 );

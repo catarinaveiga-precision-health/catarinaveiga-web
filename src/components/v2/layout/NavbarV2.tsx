@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { ButtonV2 } from "../ui/ButtonV2";
+import { LeadMagnetTopBar } from "../leadmagnet/LeadMagnetTopBar";
 import logoIcon from "@/assets/logo-icon.png";
 
 const navLinks = [
@@ -45,6 +46,7 @@ export const NavbarV2 = () => {
           : "border-b border-transparent",
       )}
     >
+      <LeadMagnetTopBar />
       <div className="mx-auto max-w-[1280px] px-6 md:px-8 lg:px-12 h-20 flex items-center justify-between gap-8">
         {/* Logo */}
         <Link

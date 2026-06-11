@@ -26,6 +26,8 @@ import MedicinaFuncional from "./pages/MedicinaFuncional";
 import PequenosAlmocosRicosProteina from "./pages/PequenosAlmocosRicosProteina";
 import PequenosAlmocosProteinaEnergia from "./pages/PequenosAlmocosProteinaEnergia";
 import Aletheia from "./pages/Aletheia";
+import GuiaSaciedade from "./pages/GuiaSaciedade";
+import { LeadMagnetPopup } from "./components/v2/leadmagnet/LeadMagnetPopup";
 import { HelmetProvider } from "react-helmet-async";
 import SEOCanonical from "./components/SEOCanonical";
 
@@ -64,6 +66,7 @@ const App = () => (
             <Route path="/pequenos-almocos-ricos-em-proteina" element={<PequenosAlmocosRicosProteina />} />
             <Route path="/pequenos-almocos-com-proteina-energia-equilibrio-hormonal-e-simplicidade-para-mulheres-em-peri-e-menopausa" element={<PequenosAlmocosProteinaEnergia />} />
             <Route path="/aletheia" element={<Aletheia />} />
+            <Route path="/guia-saciedade" element={<GuiaSaciedade />} />
             <Route path="/especialidades/medicina-funcional/" element={<Navigate to="/medicina-funcional" replace />} />
             <Route path="/especialidades/" element={<Navigate to="/medicina-funcional" replace />} />
             
@@ -75,6 +78,7 @@ const App = () => (
             <Route path="/nsdr-descanso-profundo-sem-dormir-para-melhorar-saude-e-produtividade/" element={<Navigate to="/blog/nervo-vago-como-ativar-mulher" replace />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <LeadMagnetPopup />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
