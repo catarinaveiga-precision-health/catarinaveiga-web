@@ -37,19 +37,19 @@ export const SobreCurta = () => (
             <p>
               Trabalho com mulheres em perimenopausa, fadiga persistente,
               alterações hormonais, ansiedade, sono e metabolismo, casos
-              em que os exames costumam ser "normais" mas o corpo continua
-              a dar sinais. Uma leitura integrada do corpo feminino.
+              em que os exames costumam ser considerados normais, mas o
+              corpo continua a dar sinais.
+            </p>
+            <p>Uma leitura integrada da saúde feminina.</p>
+            <p>
+              Vinte anos de prática clínica, com formação avançada em
+              saúde hormonal feminina, bioquímica clínica e interpretação
+              funcional de biomarcadores.
             </p>
             <p>
-              Vinte anos de prática clínica, com pós-graduação em Saúde
-              Hormonal e Funcional da Mulher e experiência profunda em
-              bioquímica clínica e interpretação funcional de
-              biomarcadores.
-            </p>
-            <p>
-              Quando é necessária avaliação médica, há articulação com a
-              Dra. Patrícia Salvador (Ordem dos Médicos) ou referenciação
-              para outras especialidades.
+              Sempre que necessário, o acompanhamento articula-se com
+              médicos e outras especialidades para garantir uma abordagem
+              integrada e adequada a cada situação.
             </p>
           </div>
 
