@@ -10,6 +10,7 @@ const navItems = [
   { label: "Sobre", href: "/sobre" },
   { label: "Biblioteca", href: "/recursos" },
   { label: "Blog", href: "/blog" },
+  { label: "English consultations", href: "/english-consultations" },
 ];
 
 export const FooterV2 = () => {
@@ -88,7 +89,12 @@ export const FooterV2 = () => {
                   +351 917 823 906
                 </a>
               </li>
-              <li>Português · Inglês</li>
+              <li>
+                Português ·{" "}
+                <Link to="/english-consultations" className="hover:text-v2-ink transition-colors underline decoration-v2-paper-line">
+                  English
+                </Link>
+              </li>
             </ul>
 
             <div className="mt-8 flex items-center gap-6 font-sans text-body-sm-v2 text-v2-ink-mute">

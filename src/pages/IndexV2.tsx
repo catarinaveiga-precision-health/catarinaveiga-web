@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { NavbarV2 } from "@/components/v2/layout/NavbarV2";
 import { FooterV2 } from "@/components/v2/layout/FooterV2";
 import { StickyMobileCTA } from "@/components/v2/layout/StickyMobileCTA";
@@ -27,6 +28,17 @@ const IndexV2 = () => (
       <FAQ />
       <Foundation />
       <FinalCTA />
+      <section className="bg-v2-paper-deep border-t border-v2-paper-line py-8 text-center">
+        <p className="font-sans text-sm text-v2-ink-mute px-6">
+          English-speaking?{" "}
+          <Link
+            to="/english-consultations"
+            className="text-v2-ink underline decoration-v2-paper-line hover:decoration-v2-ink transition-colors"
+          >
+            Consultations in English, online or in Cascais
+          </Link>
+        </p>
+      </section>
     </main>
     <FooterV2 />
     <StickyMobileCTA />

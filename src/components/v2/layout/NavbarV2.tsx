@@ -81,9 +81,9 @@ export const NavbarV2 = () => {
         {/* Direita · idioma + CTA + hambúrguer */}
         <div className="flex items-center gap-5 shrink-0">
           <span className="hidden md:inline-flex items-center gap-1 font-sans text-[11px] uppercase tracking-[0.14em] text-v2-graffiti">
-            <span className="text-v2-ink">PT</span>
+            <Link to="/" className="text-v2-ink hover:opacity-70 transition-opacity">PT</Link>
             <span className="opacity-40">|</span>
-            <span>EN</span>
+            <Link to="/english-consultations" className="hover:text-v2-ink transition-colors">EN</Link>
           </span>
           <ButtonV2
             as="a"
@@ -132,6 +132,14 @@ export const NavbarV2 = () => {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link
+                to="/english-consultations"
+                className="font-serif text-h3-v2 text-v2-ink hover:text-v2-ink-mute transition-colors"
+              >
+                English
+              </Link>
+            </li>
           </ul>
           <div className="mt-12 pt-10 border-t border-v2-paper-line">
             <ButtonV2

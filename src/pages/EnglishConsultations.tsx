@@ -8,8 +8,7 @@ import catarinaPortrait from "@/assets/catarina-sobre-portrait.jpg";
 import notesImage from "@/assets/en-consult-notes.jpg";
 import deskImage from "@/assets/en-consult-desk.jpg";
 
-const BOOKING_URL =
-  "https://wa.me/351937046132?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20with%20Catarina%20Veiga.";
+const BOOKING_URL = "https://catarinaveigaagendamento.as.me/";
 
 const BookButton = ({ label = "Book a consultation", light = false }: { label?: string; light?: boolean }) => (
   <a
