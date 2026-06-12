@@ -7,52 +7,185 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
   ],
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "catarinaveiga.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "catarinaveiga.com"
+        }
+      ],
       "destination": "https://www.catarinaveiga.com/:path*",
       "permanent": true
     },
-    { "source": "/insulina-jejum", "destination": "/insulina-jejum-o-que-significa", "permanent": true },
-    { "source": "/equipa", "destination": "/sobre", "permanent": true },
-    { "source": "/vitamina-d", "destination": "/vitamina-d-valores-funcionais", "permanent": true },
-    { "source": "/pequenos-almocos-com-proteina-energia-equilibrio-hormonal-e-simplicidade-para-mulheres-em-peri-e-menopausa", "destination": "/pequenos-almocos-ricos-em-proteina", "permanent": true },
-    { "source": "/10-formas-de-estimular-o-nervo-vago-e-reequilibrar-o-sistema-nervoso", "destination": "/blog/nervo-vago-como-ativar-mulher", "permanent": true },
-    { "source": "/adeus-obstipacao-dicas-naturais-para-um-intestino-feliz", "destination": "/blog/intestino-preso-causas-hormonais-mulher", "permanent": true },
-    { "source": "/nsdr-descanso-profundo-sem-dormir-para-melhorar-saude-e-produtividade", "destination": "/blog/nervo-vago-como-ativar-mulher", "permanent": true },
-    { "source": "/especialidades", "destination": "/medicina-funcional", "permanent": true },
-    { "source": "/especialidades/medicina-funcional", "destination": "/medicina-funcional", "permanent": true }
+    {
+      "source": "/insulina-jejum",
+      "destination": "/insulina-jejum-o-que-significa",
+      "permanent": true
+    },
+    {
+      "source": "/equipa",
+      "destination": "/sobre",
+      "permanent": true
+    },
+    {
+      "source": "/vitamina-d",
+      "destination": "/vitamina-d-valores-funcionais",
+      "permanent": true
+    },
+    {
+      "source": "/pequenos-almocos-com-proteina-energia-equilibrio-hormonal-e-simplicidade-para-mulheres-em-peri-e-menopausa",
+      "destination": "/pequenos-almocos-ricos-em-proteina",
+      "permanent": true
+    },
+    {
+      "source": "/10-formas-de-estimular-o-nervo-vago-e-reequilibrar-o-sistema-nervoso",
+      "destination": "/blog/nervo-vago-como-ativar-mulher",
+      "permanent": true
+    },
+    {
+      "source": "/adeus-obstipacao-dicas-naturais-para-um-intestino-feliz",
+      "destination": "/blog/intestino-preso-causas-hormonais-mulher",
+      "permanent": true
+    },
+    {
+      "source": "/nsdr-descanso-profundo-sem-dormir-para-melhorar-saude-e-produtividade",
+      "destination": "/blog/nervo-vago-como-ativar-mulher",
+      "permanent": true
+    },
+    {
+      "source": "/especialidades",
+      "destination": "/medicina-funcional",
+      "permanent": true
+    },
+    {
+      "source": "/tag/:slug*",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/2024",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/2024/:path*",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/2025/:path*",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/sobre-mim",
+      "destination": "/sobre",
+      "permanent": true
+    },
+    {
+      "source": "/contactos",
+      "destination": "/sobre",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/testemunhos",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/programa-3m",
+      "destination": "/programa-fundacao",
+      "permanent": true
+    },
+    {
+      "source": "/marcacao-de-teleconsulta",
+      "destination": "https://catarinaveigaagendamento.as.me/",
+      "permanent": true
+    },
+    {
+      "source": "/especialidades/:path*",
+      "destination": "/medicina-funcional",
+      "permanent": true
+    },
+    {
+      "source": "/tiroide-lenta-sintomas-causas-ocultas-e-estrategias-funcionais-para-recuperar-ener",
+      "destination": "/tsh-normal-mas-com-sintomas",
+      "permanent": true
+    },
+    {
+      "source": "/perimenopausa-primeiros-sintomas-e-como-dar-os-primeiros-passos-para-recuperar-energia-e-equilibrio-hormonal",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/smoothie-golden-milk-vegan-conforto-anti-inflamatorio-digestivo",
+      "destination": "/blog",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()" },
-        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        }
       ]
     },
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*)\\.(jpg|jpeg|png|gif|webp|avif|svg|ico)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*)\\.(woff|woff2|ttf|otf|eot)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     }
   ]
