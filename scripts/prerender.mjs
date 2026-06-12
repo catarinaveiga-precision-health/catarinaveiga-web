@@ -369,6 +369,16 @@ const pages = [
     intro:
       "Os exames podem estar normais. O seu corpo não. Receba gratuitamente o guia com explicação simples da fisiologia da saciedade, os erros mais comuns que aumentam a fome, estratégias práticas para energia e controlo alimentar, e 29 receitas ricas em proteína.",
   },
+  // English consultations · landing para anglófonas em Portugal
+  {
+    path: "/english-consultations",
+    title: "Women's Health & Perimenopause Support in Portugal | Catarina Veiga",
+    description:
+      "English-speaking consultations for women experiencing fatigue, poor sleep, anxiety, perimenopause symptoms and persistent health concerns. Online and in Cascais, Portugal.",
+    h1: "You've been told everything looks normal. So why don't you feel normal?",
+    intro:
+      "English-speaking consultations for women with persistent symptoms despite normal blood tests. Fatigue, poor sleep, anxiety, brain fog, perimenopause. Online worldwide or in-person in Parede, Cascais.",
+  },
   // Páginas legais (obrigatório RGPD: têm de responder 200)
   {
     path: "/aviso-legal",

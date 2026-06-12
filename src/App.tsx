@@ -27,6 +27,7 @@ import PequenosAlmocosRicosProteina from "./pages/PequenosAlmocosRicosProteina";
 import ExamesNormaisMasSintomas from "./pages/ExamesNormaisMasSintomas";
 import Aletheia from "./pages/Aletheia";
 import GuiaSaciedade from "./pages/GuiaSaciedade";
+import EnglishConsultations from "./pages/EnglishConsultations";
 import { LeadMagnetPopup } from "./components/v2/leadmagnet/LeadMagnetPopup";
 import { HelmetProvider } from "react-helmet-async";
 import SEOCanonical from "./components/SEOCanonical";
@@ -68,6 +69,8 @@ const App = () => (
             <Route path="/pequenos-almocos-com-proteina-energia-equilibrio-hormonal-e-simplicidade-para-mulheres-em-peri-e-menopausa" element={<Navigate to="/pequenos-almocos-ricos-em-proteina" replace />} />
             <Route path="/aletheia" element={<Aletheia />} />
             <Route path="/guia-saciedade" element={<GuiaSaciedade />} />
+            <Route path="/english-consultations" element={<EnglishConsultations />} />
+            <Route path="/en" element={<Navigate to="/english-consultations" replace />} />
             <Route path="/especialidades/medicina-funcional/" element={<Navigate to="/medicina-funcional" replace />} />
             <Route path="/especialidades/" element={<Navigate to="/medicina-funcional" replace />} />
             
