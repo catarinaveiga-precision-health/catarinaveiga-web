@@ -359,6 +359,27 @@ const pages = [
       "Preview homepage v2 · acompanhamento clínico em saúde hormonal feminina.",
     noindex: true,
   },
+  // Homepage v1 (preview antiga) · não indexar para não competir com "/"
+  {
+    path: "/v1",
+    title: "Catarina Veiga | Saúde Feminina Integrada",
+    description:
+      "Preview homepage v1 · acompanhamento clínico em saúde hormonal feminina. Não indexar.",
+    h1: "Os teus exames estão normais. O teu corpo não.",
+    intro:
+      "Preview homepage v1 · acompanhamento clínico em saúde hormonal feminina.",
+    noindex: true,
+  },
+  // Programa Aletheia · landing indexável (canonical próprio)
+  {
+    path: "/aletheia",
+    title: "Programa Aletheia | Catarina Veiga — Medicina Funcional",
+    description:
+      "Programa clínico personalizado para mulheres 35-55 com sintomas não resolvidos. Análise funcional de 66+ biomarcadores e acompanhamento integrado. PT e BR.",
+    h1: "Programa Aletheia",
+    intro:
+      "Programa clínico personalizado para mulheres dos 35 aos 55 anos com sintomas persistentes e exames aparentemente normais. Análise funcional de mais de 66 biomarcadores e acompanhamento integrado, em Portugal e no Brasil.",
+  },
   // Lead magnet · landing de captura
   {
     path: "/guia-saciedade",
@@ -566,6 +587,24 @@ async function main() {
   }
 
   console.log(`✓ Pre-rendered ${count} static pages`);
+
+  // 1b. Generate 404.html (noindex) so orphan/unknown URLs return a real
+  //     "not found" page instead of the homepage. Vercel serves dist/404.html
+  //     with HTTP 404 for any path without a matching file, once the SPA
+  //     catch-all rewrite is removed. Keeps the SPA bundle so humans with JS
+  //     still get client-side routing for valid deep links.
+  const notFoundHtml = generatePage({
+    path: "/404",
+    title: "Página não encontrada | Catarina Veiga",
+    description:
+      "A página que procura não existe ou foi movida. Explore o site de Catarina Veiga: saúde hormonal feminina, perimenopausa e medicina funcional integrativa.",
+    h1: "Página não encontrada",
+    intro:
+      "A página que procura não existe ou foi movida. Pode voltar à página inicial ou explorar os artigos sobre saúde hormonal feminina, perimenopausa e medicina funcional integrativa.",
+    noindex: true,
+  });
+  writeFileSync(join(DIST, "404.html"), notFoundHtml, "utf-8");
+  console.log("✓ Generated 404.html (noindex)");
 
   // 2. Fetch and pre-render blog posts from Sanity
   console.log("⏳ Fetching blog posts from Sanity...");
