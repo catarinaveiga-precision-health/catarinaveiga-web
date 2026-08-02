@@ -26,7 +26,7 @@ export const FooterV2 = () => {
               Catarina Veiga
             </p>
             <p className="mt-4 font-sans text-body-sm-v2 text-v2-ink-mute leading-[1.7] max-w-[28ch]">
-              Medicina Tradicional Chinesa · Saúde Funcional Feminina
+              Medicina Funcional Integrativa · Saúde Hormonal Feminina
               <br />
               Cédula ACSS
               <br />

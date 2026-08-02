@@ -208,9 +208,9 @@ const pages = [
   // Homepage (v2) · vende a Consulta Inicial (€120)
   {
     path: "/",
-    title: "Catarina Veiga | Saúde Feminina Integrada",
+    title: "Catarina Veiga | Medicina Funcional: Exames Normais, Corpo Não",
     description:
-      "Acompanho mulheres com fadiga, alterações hormonais, sintomas persistentes e exames aparentemente normais através de uma leitura integrada da fisiologia feminina.",
+      "Medicina funcional integrativa para mulheres cujos exames dão normais mas o corpo não. Fadiga, hormonas, tiroide e perimenopausa, investigadas à causa, quando a medicina convencional não deu respostas.",
     h1: "Os teus exames estão normais. O teu corpo não.",
     intro:
       "Para mulheres em perimenopausa, com fadiga persistente, alterações hormonais, digestivas ou metabólicas que continuam sem explicação clara. Não é sobre fazer mais exames: é sobre ler bem os que já tens. Na consulta inicial olhamos histórico clínico detalhado, sono, digestão, energia, ciclo, sintomas e exames anteriores. Sais com hipóteses claras, prioridades definidas e próximos passos concretos. 60–90 minutos em telemedicina, €120.",
@@ -288,9 +288,9 @@ const pages = [
   // Main site pages
   {
     path: "/sobre",
-    title: "Sobre · Catarina Veiga · Saúde Feminina e Perimenopausa",
+    title: "Sobre · Catarina Veiga · Medicina Funcional Integrativa para Mulheres",
     description:
-      "Uma leitura integrada do corpo feminino. Para mulheres com sintomas reais e exames aparentemente normais: fadiga, alterações hormonais, ansiedade, sono, metabolismo.",
+      "Cansada de ouvir que está tudo normal? Medicina funcional integrativa para mulheres com sintomas reais e exames normais: fadiga, hormonas, tiroide e perimenopausa. Vinte anos de prática clínica.",
     h1: "Talvez tenha chegado aqui porque está cansada de ouvir que está tudo normal.",
     intro:
       "Mulheres entre os 35 e os 55 anos. Fadiga, brain fog, ansiedade nova, alterações intestinais, perimenopausa, sono fragmentado. Sintomas reais, exames normais. Uma leitura integrada do corpo feminino, com vinte anos de prática clínica e em colaboração com médica inscrita na Ordem dos Médicos. Telemedicina, em Portugal e no estrangeiro.",
