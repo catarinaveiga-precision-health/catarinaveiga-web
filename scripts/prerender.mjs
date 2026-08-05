@@ -265,6 +265,24 @@ const pages = [
     h1: "Fadiga com exames normais: a quem recorrer e o que investigar",
     intro:
       "É uma das queixas mais frequentes em medicina, e uma das mais frustrantes. Os exames estão normais, mas o cansaço persiste.",
+    faq: [
+      {
+        q: "A quem posso recorrer se os exames dão normais mas continuo cansada?",
+        a: "Quando a medicina convencional considera os exames normais mas o cansaço persiste, a medicina funcional integrativa é uma via: relê as análises que já tens com intervalos funcionais, investiga padrões entre biomarcadores e procura a causa em vez de gerir o sintoma. É este o trabalho que faço com mulheres cansadas há anos, sem energia e sem respostas.",
+      },
+      {
+        q: "Porque continuo cansada se os meus exames estão normais?",
+        a: "Porque os intervalos laboratoriais de referência são definidos pela distribuição estatística da população, não pelos valores associados a função energética óptima. Um valor pode estar dentro do intervalo normal e ainda assim ser insuficiente para as necessidades fisiológicas individuais.",
+      },
+      {
+        q: "Que valores devo olhar com mais atenção quando há fadiga?",
+        a: "Os padrões biomarcadores mais frequentes em fadiga inexplicada incluem ferritina baixo-normal (20 a 50 ng/mL), TSH elevado-normal (2.5 a 4.0 mUI/L), vitamina D insuficiente (20 a 40 ng/mL), vitamina B12 baixo-normal (200 a 400 pg/mL), insulina em jejum elevada (acima de 7 µIU/mL) e PCR elevada (acima de 1 mg/L).",
+      },
+      {
+        q: "Qual é a diferença entre intervalos laboratoriais e funcionais?",
+        a: "Os intervalos convencionais são populacionais: baseiam-se na distribuição estatística, focam-se na ausência de doença e olham para valores isolados sem contexto. Os intervalos funcionais baseiam-se em valores associados a energia e vitalidade, investigam padrões e consideram a relação entre biomarcadores e sistemas.",
+      },
+    ],
   },
   {
     path: "/medicina-funcional",
@@ -434,7 +452,7 @@ const pages = [
 const OG_IMAGE_DEFAULT =
   "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9855dba8-f6e3-4815-8dc5-a5c3c55085dc/id-preview-d882e72b--1b66c010-57ae-47c6-80d8-0bf8d63e429e.lovable.app-1772398965070.png";
 
-function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, noindex, article }) {
+function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, noindex, article, faq }) {
   // Escapar aspas: title/description entram em atributos HTML
   title = String(title).replace(/"/g, "&quot;");
   description = String(description).replace(/"/g, "&quot;");
@@ -527,6 +545,24 @@ function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, 
     html = html.replace(
       "</head>",
       `  <script type="application/ld+json">${ldJson}</script>\n  </head>`
+    );
+  }
+
+  // FAQPage JSON-LD por rota (crawler-visible; o FAQSection do componente e client-only)
+  if (faq && faq.length) {
+    const faqLd = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faq.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    };
+    const faqJson = JSON.stringify(faqLd).replace(/</g, "\\u003c");
+    html = html.replace(
+      "</head>",
+      `  <script type="application/ld+json">${faqJson}</script>\n  </head>`
     );
   }
 
