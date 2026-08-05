@@ -255,6 +255,24 @@ const pages = [
     h1: "Tiroide com TSH normal mas com sintomas: o que a leitura funcional explica",
     intro:
       "O intervalo laboratorial aceita valores até 4.5 mUI/L como normais. Em medicina funcional, valores acima de 2.0 já podem associar-se a lentificação metabólica.",
+    faq: [
+      {
+        q: "TSH normal exclui problemas de tiroide?",
+        a: "Não necessariamente. O intervalo laboratorial aceita valores até 4.5 mUI/L como normais, mas em medicina funcional valores acima de 2.0 já podem associar-se a lentificação metabólica, sobretudo em mulheres com sintomas como fadiga, frio ou queda de cabelo.",
+      },
+      {
+        q: "Qual é o intervalo funcional do TSH?",
+        a: "O intervalo funcional associado a função tiroideia óptima situa-se entre 0.5 e 2.0 mUI/L. A zona cinzenta entre 2.0 e 4.5 mUI/L é frequentemente relevante em mulheres sintomáticas e merece avaliação em contexto clínico.",
+      },
+      {
+        q: "Que sintomas posso ter com TSH dentro do normal?",
+        a: "Os sintomas frequentes de hipotiroidismo subclínico incluem fadiga persistente (especialmente de manhã), intolerância ao frio, aumento de peso sem alteração da dieta, queda de cabelo difusa, pele seca, obstipação crónica, nevoeiro mental, ciclo menstrual irregular e humor baixo sem causa aparente.",
+      },
+      {
+        q: "Porque é que a tiroide é tão sensível em mulheres?",
+        a: "A função tiroideia é influenciada por estrogénio, cortisol, ferro, vitamina D e estado inflamatório: factores que flutuam ao longo do ciclo menstrual, gravidez, pós-parto e perimenopausa. Um défice de ferro, por exemplo, compromete a conversão de T4 em T3.",
+      },
+    ],
   },
   {
     path: "/fadiga-exames-normais",
