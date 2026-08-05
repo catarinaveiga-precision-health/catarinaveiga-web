@@ -31,6 +31,10 @@ const FAQSection = () => {
   const ref = useFadeUp();
   const faqs = [
     {
+      q: "A quem posso recorrer se os exames dão normais mas continuo cansada?",
+      a: "Quando a medicina convencional considera os exames normais mas o cansaço persiste, a medicina funcional integrativa é uma via: relê as análises que já tens com intervalos funcionais, investiga padrões entre biomarcadores e procura a causa em vez de gerir o sintoma. É este o trabalho que faço com mulheres cansadas há anos, sem energia e sem respostas.",
+    },
+    {
       q: "Porque continuo cansada se os meus exames estão normais?",
       a: "Porque os intervalos laboratoriais de referência são definidos pela distribuição estatística da população, não pelos valores associados a função energética óptima. Um valor pode estar dentro do intervalo normal e ainda assim ser insuficiente para as necessidades fisiológicas individuais.",
     },
@@ -96,8 +100,8 @@ const FadigaExamesNormais = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "MedicalWebPage",
-    "name": "Fadiga com Exames Normais: Causas e Investigação Funcional",
-    "description": "Cansaço persistente com exames normais? Descobre os padrões biomarcadores mais frequentes em mulheres com fadiga inexplicada.",
+    "name": "Fadiga com Exames Normais: A Quem Recorrer e o Que Investigar",
+    "description": "Sem energia e cansada mas os exames dão normais? A quem recorrer, porque acontece, e o que a medicina funcional investiga quando a convencional diz que está tudo bem.",
     "url": "https://www.catarinaveiga.com/fadiga-exames-normais",
     "inLanguage": "pt",
     "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
@@ -106,14 +110,14 @@ const FadigaExamesNormais = () => {
 
   return (
     <SEOPageLayout
-      title="Fadiga com Exames Normais: Causas e Investigação Funcional | Catarina Veiga"
-      description="Cansaço persistente com exames normais? Descobre os padrões biomarcadores mais frequentes em mulheres com fadiga inexplicada."
+      title="Fadiga com Exames Normais: A Quem Recorrer e o Que Investigar | Catarina Veiga"
+      description="Sem energia e cansada mas os exames dão normais? A quem recorrer, porque acontece, e o que a medicina funcional investiga quando a convencional diz que está tudo bem."
       canonical="https://www.catarinaveiga.com/fadiga-exames-normais"
       structuredData={structuredData}
     >
       <SEOHero
         label="Medicina Funcional · Investigação"
-        title="Fadiga com exames normais: porque acontece e o que investigar"
+        title="Fadiga com exames normais: a quem recorrer e o que investigar"
         intro="É uma das queixas mais frequentes em medicina — e uma das mais frustrantes. Os exames estão normais, mas o cansaço persiste."
         breadcrumb={[
           { label: "Início", to: "/" },
