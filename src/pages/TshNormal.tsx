@@ -124,8 +124,8 @@ const TshNormal = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "MedicalWebPage",
-    "name": "TSH Normal Mas Com Sintomas: Função Tiroideia Funcional",
-    "description": "TSH dentro dos valores normais mas com fadiga, frio, queda de cabelo? Descobre o que os intervalos laboratoriais não mostram.",
+    "name": "Tiroide com TSH Normal Mas Com Sintomas: Leitura Funcional",
+    "description": "Tiroide lenta com TSH 'normal'? Fadiga, frio, queda de cabelo apesar de análises normais. O que a medicina funcional vê nos intervalos que o laboratório aceita como normais.",
     "url": "https://www.catarinaveiga.com/tsh-normal-mas-com-sintomas",
     "inLanguage": "pt",
     "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
@@ -134,14 +134,14 @@ const TshNormal = () => {
 
   return (
     <SEOPageLayout
-      title="TSH Normal Mas Com Sintomas: Função Tiroideia Funcional | Catarina Veiga"
-      description="TSH dentro dos valores normais mas com fadiga, frio, queda de cabelo? Descobre o que os intervalos laboratoriais não mostram."
+      title="Tiroide com TSH Normal Mas Com Sintomas: Leitura Funcional | Catarina Veiga"
+      description="Tiroide lenta com TSH 'normal'? Fadiga, frio, queda de cabelo apesar de análises normais. O que a medicina funcional vê nos intervalos que o laboratório aceita como normais."
       canonical="https://www.catarinaveiga.com/tsh-normal-mas-com-sintomas"
       structuredData={structuredData}
     >
       <SEOHero
         label="Medicina Funcional · Tiróide"
-        title="TSH normal mas com sintomas: o que a tiróide funcional explica"
+        title="Tiroide com TSH normal mas com sintomas: o que a leitura funcional explica"
         intro="O intervalo laboratorial aceita valores até 4.5 mUI/L como normais. Em medicina funcional, valores acima de 2.0 já podem associar-se a lentificação metabólica."
         breadcrumb={[
           { label: "Início", to: "/" },

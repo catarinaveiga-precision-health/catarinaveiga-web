@@ -249,10 +249,10 @@ const pages = [
   {
     path: "/tsh-normal-mas-com-sintomas",
     title:
-      "TSH Normal Mas Com Sintomas: Função Tiroideia Funcional | Catarina Veiga",
+      "Tiroide com TSH Normal Mas Com Sintomas: Leitura Funcional | Catarina Veiga",
     description:
-      "TSH dentro dos valores normais mas com fadiga, frio, queda de cabelo? Descobre o que os intervalos laboratoriais não mostram.",
-    h1: "TSH normal mas com sintomas: o que a tiróide funcional explica",
+      "Tiroide lenta com TSH 'normal'? Fadiga, frio, queda de cabelo apesar de análises normais. O que a medicina funcional vê nos intervalos que o laboratório aceita como normais.",
+    h1: "Tiroide com TSH normal mas com sintomas: o que a leitura funcional explica",
     intro:
       "O intervalo laboratorial aceita valores até 4.5 mUI/L como normais. Em medicina funcional, valores acima de 2.0 já podem associar-se a lentificação metabólica.",
   },
