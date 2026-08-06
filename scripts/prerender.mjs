@@ -204,6 +204,28 @@ const pages = [
     h1: "Os teus exames estão normais. O teu corpo não.",
     intro:
       "Fadiga persistente. Alterações hormonais. Sono fragmentado. Ansiedade nova. Sintomas que afetam a qualidade de vida, mesmo quando os exames são considerados normais. Os valores de referência descrevem a população, não o funcionamento ótimo: ferritina, vitamina D, insulina, tiroide e perimenopausa são exemplos em que normal e ótimo não coincidem. A leitura integrada cruza história clínica, sintomas, biomarcadores funcionais e contexto de vida.",
+    faq: [
+      {
+        q: "Os meus exames dão normais mas continuo com sintomas. A quem posso recorrer?",
+        a: "Uma consulta de medicina funcional integrativa é a via indicada quando os exames são considerados normais e os sintomas persistem. O trabalho consiste em reler as análises que já tens com intervalos funcionais, cruzar biomarcadores em vez de os ler isoladamente e procurar a causa fisiológica do sintoma. Faço este acompanhamento em telemedicina, com mulheres que já passaram por várias consultas sem obter respostas.",
+      },
+      {
+        q: "Vale a pena pedir uma segunda opinião sobre análises que já foram dadas como normais?",
+        a: "Sim, sobretudo quando os sintomas são persistentes e afectam a qualidade de vida. Uma segunda leitura não implica repetir exames: implica interpretar os mesmos resultados com intervalos funcionais e olhar para os padrões entre os valores. Ferritina de 25 ng/mL, TSH de 3.8 mUI/L e vitamina D de 28 ng/mL são individualmente normais e, em conjunto, explicam frequentemente anos de fadiga.",
+      },
+      {
+        q: "Porque é que um exame normal não significa que está tudo bem?",
+        a: "Porque os intervalos de referência são construídos a partir da distribuição estatística da população analisada, que inclui pessoas sintomáticas, e destinam-se a excluir doença, não a confirmar função óptima. Estar dentro do intervalo significa não ter doença detectável naquele parâmetro, o que é diferente de o corpo estar a funcionar bem.",
+      },
+      {
+        q: "Que sintomas aparecem com mais frequência com exames normais?",
+        a: "Os mais frequentes são fadiga que não melhora com descanso, sono fragmentado (sobretudo acordar entre as 3h e as 5h), ansiedade nova ou agravada, alterações do ciclo menstrual, queda de cabelo, nevoeiro mental, aumento de peso sem alteração de dieta e intolerância ao frio. Em perimenopausa, é comum vários destes surgirem em simultâneo.",
+      },
+      {
+        q: "Isto substitui o acompanhamento médico?",
+        a: "Não. A medicina funcional integrativa é complementar e trabalha em articulação com a medicina convencional. Não substitui diagnóstico médico nem prescrição, e as situações que exigem investigação médica são sinalizadas e encaminhadas.",
+      },
+    ],
   },
   // Homepage (v2) · vende a Consulta Inicial (€120)
   {
@@ -214,6 +236,30 @@ const pages = [
     h1: "Os teus exames estão normais. O teu corpo não.",
     intro:
       "Para mulheres em perimenopausa, com fadiga persistente, alterações hormonais, digestivas ou metabólicas que continuam sem explicação clara. Não é sobre fazer mais exames: é sobre ler bem os que já tens. Na consulta inicial olhamos histórico clínico detalhado, sono, digestão, energia, ciclo, sintomas e exames anteriores. Sais com hipóteses claras, prioridades definidas e próximos passos concretos. 60–90 minutos em telemedicina, €120.",
+    // Estas 5 perguntas viviam num FAQPage global do index.html, repetido em
+    // todas as paginas. Passaram a viver so aqui, para nao duplicar FAQPage.
+    faq: [
+      {
+        q: "O que acontece na primeira consulta?",
+        a: "A primeira consulta dura entre 60 e 90 minutos, em videochamada. Recebes um questionário prévio por email para preparar. Em consulta exploramos o teu histórico clínico, sintomas, ciclo, sono, digestão, energia e contexto emocional. Sais com um plano estruturado por escrito, com revisões previstas.",
+      },
+      {
+        q: "Como funciona o acompanhamento?",
+        a: "O acompanhamento estende-se ao longo do tempo. Após a primeira consulta, há revisões periódicas para ajustar o plano à evolução. A frequência depende do teu caso.",
+      },
+      {
+        q: "Em que casos é indicado este acompanhamento?",
+        a: "Acompanho mulheres em transições hormonais: perimenopausa, alterações de ciclo, fadiga persistente, sono alterado, equilíbrio emocional, digestão sensível. Trabalho sobretudo com sintomas reais e exames maioritariamente normais. Para descompensações agudas ou necessidade de intervenção médica imediata, refiro para médicos e outras especialidades.",
+      },
+      {
+        q: "Como olha para as análises clínicas?",
+        a: "A leitura clínica oficial das análises é da Dra. Patrícia Salvador, médica inscrita na Ordem dos Médicos. Eu integro essa leitura no contexto mais amplo da minha formação e dos quatro anos que passei no Departamento de Microbioma da Regenerus Labs. Integro, não substituo, a interpretação médica.",
+      },
+      {
+        q: "O que posso esperar ao longo do tempo?",
+        a: "A evolução depende de vários fatores. As pacientes descrevem mudanças subjetivas em sono, energia e equilíbrio ao longo de semanas a meses. Não prometo prazos nem resultados.",
+      },
+    ],
   },
   // SEO article pages
   {
@@ -225,6 +271,28 @@ const pages = [
     h1: "Ferritina baixa: sintomas, causas e o que os exames podem não mostrar",
     intro:
       "Muitas mulheres têm ferritina dentro dos valores de referência, e ainda assim apresentam fadiga persistente, queda de cabelo e dificuldade de recuperação.",
+    faq: [
+      {
+        q: "Posso ter sintomas de ferritina baixa com hemoglobina normal?",
+        a: "Sim. A hemoglobina mede o ferro em circulação, enquanto a ferritina mede as reservas disponíveis para uso celular. É possível ter hemoglobina normal e ferritina baixa: os exames convencionais não identificam anemia, mas o corpo já está a funcionar com reservas insuficientes.",
+      },
+      {
+        q: "Que sintomas pode causar a ferritina baixa?",
+        a: "Os sintomas frequentes incluem fadiga persistente mesmo após descanso adequado, queda de cabelo difusa, intolerância ao frio nas extremidades, dificuldade de concentração e nevoeiro mental, recuperação lenta após exercício, palpitações com esforço moderado e unhas frágeis ou quebradiças.",
+      },
+      {
+        q: "Qual é o valor ideal de ferritina para uma mulher?",
+        a: "O intervalo funcional associado a energia, cabelo e cognição óptimos situa-se entre 50 e 100 ng/mL. O laboratório considera normal qualquer valor acima de 10 ng/mL, mas valores abaixo de 50 podem associar-se a défice funcional, e abaixo de 30 as reservas são insuficientes.",
+      },
+      {
+        q: "Porque é que tenho ferritina baixa se como bem?",
+        a: "As causas mais comuns em mulheres incluem perdas menstruais abundantes, absorção reduzida (permeabilidade intestinal, hipocloridria ou dieta pobre em ferro biodisponível), stress crónico (o cortisol interfere com a absorção e utilização do ferro), inflamação crónica (a hepcidina sequestra o ferro nos depósitos), gravidez e pós-parto, e dietas restritivas.",
+      },
+      {
+        q: "A ferritina baixa pode afectar a tiróide?",
+        a: "A combinação de ferritina baixa com TSH elevado é um padrão frequente em disfunção tiroideia subclínica. Por isso, a ferritina raramente deve ser avaliada isoladamente: o padrão mais informativo inclui a combinação com outros biomarcadores, como TSH, VGM, PCR e vitamina D.",
+      },
+    ],
   },
   {
     path: "/vitamina-d-valores-funcionais",
@@ -235,6 +303,28 @@ const pages = [
     h1: "Vitamina D baixa: o que os valores laboratoriais não explicam",
     intro:
       "A maioria da população portuguesa tem vitamina D insuficiente, mas os valores considerados normais podem ainda assim ser insuficientes para função fisiológica óptima.",
+    faq: [
+      {
+        q: "Ter vitamina D acima de 20 ng/mL é suficiente?",
+        a: "O laboratório considera suficiente qualquer valor acima de 20 ng/mL, mas esse limiar foi definido para prevenir raquitismo, não para garantir função óptima. O intervalo funcional associado a função imune e hormonal óptima situa-se entre 50 e 80 ng/mL, e valores entre 30 e 49 são frequentemente insuficientes em contexto clínico.",
+      },
+      {
+        q: "Que sintomas pode causar a vitamina D insuficiente?",
+        a: "Os sintomas frequentes incluem fadiga persistente sem causa aparente, infecções respiratórias frequentes, dores musculares ou ósseas difusas, alterações do humor (incluindo depressão sazonal), nevoeiro mental, queda de cabelo, cicatrização lenta e agravamento de condições autoimunes.",
+      },
+      {
+        q: "Porque tenho vitamina D baixa se vivo em Portugal?",
+        a: "Mesmo em clima mediterrânico, a exposição solar insuficiente nos meses de inverno, combinada com trabalho em interior, torna o défice extremamente comum. A melanina e o protector solar reduzem a síntese cutânea, a permeabilidade intestinal pode comprometer a absorção, e na obesidade a vitamina D fica sequestrada no tecido adiposo.",
+      },
+      {
+        q: "A vitamina D é uma vitamina ou uma hormona?",
+        a: "Tecnicamente, é uma hormona esteróide. É produzida pela pele mediante exposição solar e activa receptores em praticamente todos os tecidos: sistema imune, músculo, osso, cérebro e tiróide.",
+      },
+      {
+        q: "A vitamina D baixa está ligada a outros desequilíbrios?",
+        a: "Sim, há padrões combinados relevantes: vitamina D baixa com TSH elevado é uma associação frequente em disfunção tiroideia, com ferritina baixa forma um padrão de deplecção múltipla em fadiga crónica, com PCR elevada pode amplificar inflamação sistémica, e com insulina elevada associa-se a resistência à insulina.",
+      },
+    ],
   },
   {
     path: "/insulina-jejum-o-que-significa",
@@ -245,6 +335,28 @@ const pages = [
     h1: "Insulina em jejum elevada: o marcador que aparece anos antes do diagnóstico",
     intro:
       "A glicose pode estar normal enquanto a insulina já está elevada há anos. Este padrão é um dos sinais mais precoces de resistência metabólica.",
+    faq: [
+      {
+        q: "Posso ter insulina elevada com glicose normal?",
+        a: "Sim, e é um dos padrões mais precoces de resistência metabólica: chama-se hiperinsulinemia compensatória. A glicose pode estar normal enquanto o pâncreas já trabalha em excesso para a manter controlada. Este padrão pode preceder um diagnóstico de diabetes tipo 2 por uma década.",
+      },
+      {
+        q: "Qual é o valor ideal de insulina em jejum?",
+        a: "O intervalo funcional situa-se entre 2 e 5 µIU/mL, associado a boa sensibilidade celular à insulina. Valores acima de 5 a 7 já podem indicar resistência metabólica, e acima de 10 trata-se de hiperinsulinemia franca, com risco cardiovascular associado.",
+      },
+      {
+        q: "Que sintomas pode dar a insulina elevada?",
+        a: "Os sintomas frequentes incluem fadiga pós-prandial (cansaço a seguir às refeições), cravings intensos de açúcar ou hidratos, dificuldade em perder peso apesar de dieta controlada, peso concentrado na zona abdominal, nevoeiro mental após refeições, fome intensa poucas horas após comer e irritabilidade quando não come.",
+      },
+      {
+        q: "Porque é que o exame de glicose não detecta o problema?",
+        a: "Porque a glicose pode mascarar o problema durante anos. O intervalo laboratorial da insulina (2 a 25 µIU/mL) é muito amplo e está focado em diabetes manifesta, não em resistência inicial. A monitorização precoce da insulina em jejum permite prevenir a progressão para pré-diabetes.",
+      },
+      {
+        q: "A insulina elevada está associada a outros marcadores alterados?",
+        a: "Sim, há padrões combinados relevantes: insulina elevada com triglicéridos altos é a síndrome metabólica clássica, com vitamina D baixa associa-se a resistência à insulina, e com PCR elevada reflecte a coexistência frequente de inflamação e resistência metabólica.",
+      },
+    ],
   },
   {
     path: "/tsh-normal-mas-com-sintomas",
@@ -310,6 +422,28 @@ const pages = [
     h1: "Medicina Funcional: o que é e quando pode ajudar",
     intro:
       "A medicina funcional é uma abordagem clínica que investiga as causas raiz de sintomas persistentes, especialmente quando os exames parecem normais.",
+    faq: [
+      {
+        q: "O que é medicina funcional integrativa?",
+        a: "É uma abordagem clínica que combina investigação de causas raiz com intervenções baseadas em evidência: nutrição terapêutica, modulação do estilo de vida, suplementação dirigida e colaboração com medicina convencional quando necessário.",
+      },
+      {
+        q: "Quando faz sentido procurar medicina funcional?",
+        a: "Faz sentido quando os sintomas persistem apesar de os exames serem considerados normais, quando já passaste por várias consultas sem obter uma explicação, ou quando as queixas (fadiga, sono, hormonas, digestão, peso) aparecem em conjunto e são tratadas isoladamente. É a situação mais comum em perimenopausa.",
+      },
+      {
+        q: "Medicina funcional tem base científica?",
+        a: "Sim. Utiliza os mesmos exames laboratoriais e os mesmos princípios fisiológicos da medicina convencional, com uma interpretação mais detalhada e uma abordagem sistémica.",
+      },
+      {
+        q: "Existe consulta presencial ou é tudo online?",
+        a: "Trabalho exclusivamente em formato online. As consultas por videochamada permitem o mesmo nível de detalhe clínico com flexibilidade total de horário e localização, em Portugal e no estrangeiro.",
+      },
+      {
+        q: "Quanto custa uma consulta de medicina funcional?",
+        a: "A consulta inicial custa 120 euros e dura entre 60 e 90 minutos, em telemedicina. Inclui revisão do histórico clínico e dos exames que já tens, com hipóteses, prioridades e próximos passos concretos no final.",
+      },
+    ],
   },
   {
     path: "/pequenos-almocos-ricos-em-proteina",
@@ -320,6 +454,28 @@ const pages = [
     h1: "Pequenos-almoços ricos em proteína: porquê, quanto e o que comer",
     intro:
       "Um pequeno-almoço proteico, com 25 a 30 g de proteína, estabiliza a glicemia, reduz cravings e apoia a produção hormonal: impacto directo na energia, no peso e na clareza mental ao longo do dia.",
+    faq: [
+      {
+        q: "Quanta proteína devo comer ao pequeno-almoço?",
+        a: "O valor ideal para a maioria das mulheres adultas situa-se entre 25 e 30 g de proteína. Esta quantidade activa de forma eficaz as hormonas de saciedade e contribui para a estabilização da glicemia ao longo da manhã.",
+      },
+      {
+        q: "O que acontece se o meu pequeno-almoço não tiver proteína suficiente?",
+        a: "Um pequeno-almoço pobre em proteína e rico em hidratos simples gera um pico de glicemia seguido de uma quebra rápida, o que se traduz em fome, irritabilidade, cravings e nevoeiro mental antes do almoço.",
+      },
+      {
+        q: "Os ovos são uma boa fonte de proteína ao pequeno-almoço?",
+        a: "Sim. Dois ovos inteiros fornecem cerca de 12 a 14 g de proteína, além de colina, vitamina D e gorduras saudáveis. Combinados com queijo, sementes ou salmão fumado, atingem facilmente os 25 g recomendados.",
+      },
+      {
+        q: "Posso usar proteína em pó ao pequeno-almoço?",
+        a: "Sim, é uma opção prática. A proteína whey ou a proteína de arroz e ervilha (para quem evita lacticínios) podem ser adicionadas a batidos, panquecas ou overnight oats sem alterar o sabor de forma significativa.",
+      },
+      {
+        q: "O que comer ao pequeno-almoço na perimenopausa?",
+        a: "Na perimenopausa, a resistência à insulina tende a aumentar e a massa muscular a diminuir. Um pequeno-almoço com 25 a 30 g de proteína, gordura saudável e fibra é uma das intervenções alimentares mais simples e eficazes para estabilizar energia e hormonas.",
+      },
+    ],
   },
   // Main site pages
   {
@@ -483,8 +639,19 @@ function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, 
     // Full article content for blog posts
     staticContent = `<article style="max-width:720px;margin:80px auto;padding:0 24px;font-family:system-ui,sans-serif"><h1 style="font-size:2rem;line-height:1.2;margin-bottom:16px">${escapeHtml(h1)}</h1>${bodyHtml}<p style="margin-top:24px"><a href="/" style="color:#8b7355">catarinaveiga.com</a></p></article>`;
   } else {
-    // Minimal content for static pages
-    staticContent = `<div style="max-width:720px;margin:80px auto;padding:0 24px;font-family:system-ui,sans-serif"><h1 style="font-size:2rem;line-height:1.2;margin-bottom:16px">${escapeHtml(h1)}</h1><p style="color:#666;font-size:1.1rem;line-height:1.6">${escapeHtml(intro)}</p><p style="margin-top:24px"><a href="/" style="color:#8b7355">catarinaveiga.com</a></p></div>`;
+    // Minimal content for static pages. O FAQ entra tambem em HTML: o JSON-LD
+    // sozinho nao da texto citavel aos crawlers de IA, e o Google espera que o
+    // FAQPage corresponda a conteudo presente na pagina.
+    const faqHtml =
+      faq && faq.length
+        ? `<section style="margin-top:48px"><h2 style="font-size:1.4rem;line-height:1.3;margin-bottom:8px">Perguntas frequentes</h2>${faq
+            .map(
+              (f) =>
+                `<h3 style="font-size:1.05rem;line-height:1.4;margin:24px 0 6px">${escapeHtml(f.q)}</h3><p style="color:#666;line-height:1.6;margin:0">${escapeHtml(f.a)}</p>`
+            )
+            .join("")}</section>`
+        : "";
+    staticContent = `<div style="max-width:720px;margin:80px auto;padding:0 24px;font-family:system-ui,sans-serif"><h1 style="font-size:2rem;line-height:1.2;margin-bottom:16px">${escapeHtml(h1)}</h1><p style="color:#666;font-size:1.1rem;line-height:1.6">${escapeHtml(intro)}</p>${faqHtml}<p style="margin-top:24px"><a href="/" style="color:#8b7355">catarinaveiga.com</a></p></div>`;
   }
 
   let html = TEMPLATE;
