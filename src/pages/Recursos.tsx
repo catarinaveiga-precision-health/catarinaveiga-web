@@ -66,6 +66,13 @@ const secondaryArticles = [
     href: "/medicina-funcional",
     image: editorialFunctional,
   },
+  {
+    title: "Segunda Opinião Sobre Análises Normais",
+    description:
+      "O que muda numa segunda leitura, que exames levar e quando faz sentido pedir.",
+    href: "/segunda-opiniao-analises-normais",
+    image: editorialFatigue,
+  },
 ];
 
 const structuredData = {
@@ -76,7 +83,7 @@ const structuredData = {
       name: "Recursos — Compreender as Tuas Análises e Sintomas",
       description:
         "Artigos educativos sobre biomarcadores, análises laboratoriais e conceitos de medicina funcional.",
-      url: "https://catarinaveiga.lovable.app/recursos",
+      url: "https://www.catarinaveiga.com/recursos",
       publisher: {
         "@type": "Organization",
         name: "Catarina Veiga — Medicina Funcional",
@@ -90,7 +97,7 @@ const structuredData = {
         ].map((a, i) => ({
           "@type": "ListItem",
           position: i + 1,
-          url: `https://catarinaveiga.lovable.app${a.href}`,
+          url: `https://www.catarinaveiga.com${a.href}`,
           name: a.title,
         })),
       },
@@ -98,14 +105,14 @@ const structuredData = {
     {
       "@type": "Person",
       name: "Catarina Veiga",
-      jobTitle: "Practitioner de Medicina Funcional",
-      url: "https://catarinaveiga.lovable.app/sobre",
+      jobTitle: "Especialista em Medicina Funcional Integrativa",
+      url: "https://www.catarinaveiga.com/sobre",
       sameAs: [],
     },
     ...[featured, ...coreArticles, ...secondaryArticles].map((a) => ({
       "@type": "Article",
       headline: a.title,
-      url: `https://catarinaveiga.lovable.app${a.href}`,
+      url: `https://www.catarinaveiga.com${a.href}`,
       author: {
         "@type": "Person",
         name: "Catarina Veiga",
@@ -142,7 +149,7 @@ const Recursos = () => {
         />
         <link
           rel="canonical"
-          href="https://catarinaveiga.lovable.app/recursos"
+          href="https://www.catarinaveiga.com/recursos"
         />
         <meta
           property="og:title"
@@ -154,7 +161,7 @@ const Recursos = () => {
         />
         <meta
           property="og:url"
-          content="https://catarinaveiga.lovable.app/recursos"
+          content="https://www.catarinaveiga.com/recursos"
         />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">
