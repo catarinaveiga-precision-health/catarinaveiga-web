@@ -659,8 +659,7 @@ const pages = [
 ];
 
 // ── Helper: generate the HTML for one route ──────────────────────
-const OG_IMAGE_DEFAULT =
-  "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9855dba8-f6e3-4815-8dc5-a5c3c55085dc/id-preview-d882e72b--1b66c010-57ae-47c6-80d8-0bf8d63e429e.lovable.app-1772398965070.png";
+const OG_IMAGE_DEFAULT = "https://www.catarinaveiga.com/og-default.jpg";
 
 function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, noindex, article, faq }) {
   // Escapar aspas: title/description entram em atributos HTML
