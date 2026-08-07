@@ -157,7 +157,7 @@ const QuemAcompanhaSection = () => {
               Conhece a diferença entre ler um artigo sobre flutuações hormonais e dormir mal cinco noites por semana durante meses sem conseguir dizer porquê. A especialização não é apenas académica.
             </p>
             <p className="text-foreground">
-              A Aletheia não é uma consulta a solo. A equipa inclui profissionais parceiros em yoga terapêutico, libertação somática e coaching — seleccionados pela Catarina.
+              A Aletheia não é uma consulta a solo. A equipa inclui médica inscrita na Ordem dos Médicos, para a articulação clínica formal, e profissionais parceiros em yoga terapêutico, libertação somática e coaching — seleccionados pela Catarina.
             </p>
           </div>
         </div>
@@ -170,6 +170,7 @@ const QuemAcompanhaSection = () => {
 const inclusions: { title: string; desc: string }[] = [
   { title: "Relatório de Avaliação BioFuncional ODX", desc: "Interpretação funcional de 66+ biomarcadores em 12 sistemas. O mapa que fundamenta todo o resto." },
   { title: "Consultas de medicina funcional integrativa", desc: "Frequência adaptada ao teu plano. Revisão de dados, ajuste de plano, leitura funcional integrada." },
+  { title: "2 consultas médicas de articulação clínica", desc: "Com médica inscrita na Ordem dos Médicos. Início e fim do plano, para articulação clínica formal quando necessário." },
   { title: "Plano alimentar adaptado e revisto", desc: "Com base nos teus marcadores e sintomas. Não é uma dieta genérica de perimenopausa." },
   { title: "Orientação e análise de dados de wearables", desc: "Monitor contínuo de glicose, Oura Ring e outros. Os dados do teu corpo lidos clinicamente." },
   { title: "App totalmente personalizada", desc: "Tracking de sintomas, sono, ciclo, energia. A Catarina lê os dados antes de cada consulta." },
