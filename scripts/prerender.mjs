@@ -253,7 +253,7 @@ const pages = [
       },
       {
         q: "Como olha para as análises clínicas?",
-        a: "A leitura clínica oficial das análises é da Dra. Patrícia Salvador, médica inscrita na Ordem dos Médicos. Eu integro essa leitura no contexto mais amplo da minha formação e dos quatro anos que passei no Departamento de Microbioma da Regenerus Labs. Integro, não substituo, a interpretação médica.",
+        a: "Leio as análises que já tens com intervalos funcionais e cruzo os marcadores entre si, em vez de os avaliar isoladamente. Integro essa leitura no contexto da minha formação e dos quatro anos no Departamento de Microbioma da Regenerus Labs. É uma leitura complementar, que não substitui diagnóstico nem prescrição médica.",
       },
       {
         q: "O que posso esperar ao longo do tempo?",
