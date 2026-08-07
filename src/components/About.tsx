@@ -3,7 +3,7 @@ import heroImage from "@/assets/catarina-about.jpeg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const tags = [
-  "Medicina Tradicional Chinesa",
+  "Medicina Funcional Integrativa",
   "Saúde Hormonal Feminina",
   "Perimenopausa",
   "Telemedicina",

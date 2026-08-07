@@ -10,7 +10,7 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-16 items-center">
         <div className="fade-up text-center md:text-left order-1">
           <p className="label-uppercase text-muted-foreground text-[11px] tracking-[0.18em] mb-6">
-            Medicina Tradicional Chinesa  ·  Cédula ACSS  ·  20 anos de prática
+            Medicina Funcional Integrativa  ·  Cédula ACSS  ·  20 anos de prática
           </p>
           <h1 className="font-serif font-light text-[36px] md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-foreground mb-6 md:mb-8">
             Uma leitura mais profunda das transições hormonais femininas na perimenopausa.
@@ -33,7 +33,7 @@ const Hero = () => {
           <div className="relative overflow-hidden md:overflow-visible">
             <img
               src="/catarina-hero.jpg"
-              alt="Catarina Veiga, especialista em Medicina Tradicional Chinesa"
+              alt="Catarina Veiga, especialista em Medicina Funcional Integrativa"
               className="w-full h-[300px] md:h-auto object-cover object-top md:translate-y-4"
               loading="eager"
               fetchPriority="high"

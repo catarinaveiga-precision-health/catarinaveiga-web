@@ -63,7 +63,7 @@ const ClinicalPatterns = () => {
         </div>
 
         <p className="fade-up text-center text-muted-foreground text-[11px] font-sans mt-8 max-w-2xl mx-auto leading-relaxed">
-          A leitura clínica oficial de análises é da Dra. Patrícia Salvador, médica inscrita na Ordem dos Médicos. Estes exemplos descrevem padrões de observação no âmbito da Medicina Tradicional Chinesa.
+          Estes exemplos descrevem padrões de observação no âmbito da medicina funcional integrativa. Não constituem diagnóstico médico nem substituem a interpretação clínica de análises por um médico.
         </p>
       </div>
     </section>

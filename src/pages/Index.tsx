@@ -311,7 +311,7 @@ const naoFaco = [
   "O acompanhamento não substitui consulta médica convencional.",
   "Não é um serviço de urgência.",
   "Não envolve diagnóstico médico nem prescrição farmacológica.",
-  "Quando existe necessidade de avaliação médica, há articulação com a Dra. Patrícia Salvador (médica inscrita na Ordem dos Médicos) ou referenciação para outras especialidades.",
+  "Quando existe necessidade de avaliação médica, prescrição ou diagnóstico, há referenciação para médico ou para outras especialidades.",
 ];
 
 const OQueNaoFaco = () => {
@@ -354,11 +354,11 @@ const faqItems = [
   },
   {
     q: "Isto é indicado se já tomo medicação ou terapia hormonal?",
-    a: "Sim, frequentemente. O acompanhamento não interfere com medicação prescrita pelo teu médico nem altera prescrições. Trabalho em complementaridade, e quando faz sentido, há articulação com a Dra. Patrícia Salvador ou com o teu médico assistente.",
+    a: "Sim, frequentemente. O acompanhamento não interfere com medicação prescrita pelo teu médico nem altera prescrições. Trabalho em complementaridade e, quando faz sentido, em articulação com o teu médico assistente.",
   },
   {
     q: "Isto substitui acompanhamento médico?",
-    a: "Não. O meu trabalho não substitui consulta médica, diagnóstico ou tratamento. Quando existe necessidade de avaliação, prescrição ou referenciação médica, há articulação com a Dra. Patrícia Salvador ou outras especialidades indicadas.",
+    a: "Não. O meu trabalho não substitui consulta médica, diagnóstico ou tratamento. Quando existe necessidade de avaliação, prescrição ou referenciação médica, há encaminhamento para médico ou para as especialidades indicadas.",
   },
   {
     q: "Como olhas para as análises clínicas?",

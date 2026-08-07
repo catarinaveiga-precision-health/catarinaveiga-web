@@ -112,7 +112,7 @@ const faqs = [
   {
     q: "Como olhas para as análises clínicas?",
     a: [
-      "A leitura clínica oficial das análises é da Dra. Patrícia Salvador, médica inscrita na Ordem dos Médicos com quem colaboro. O que eu faço é integrar essa leitura no contexto mais amplo da minha formação e dos quatro anos que passei no Departamento de Microbioma da Regenerus Labs. Integro, não substituo, a interpretação médica.",
+      "Leio as análises com intervalos funcionais e cruzo os marcadores entre si, em vez de os avaliar isoladamente, no contexto da minha formação e dos quatro anos que passei no Departamento de Microbioma da Regenerus Labs. É uma leitura complementar: integro, não substituo, a interpretação médica.",
     ],
   },
   {
@@ -349,12 +349,11 @@ const Sobre = () => {
 
             <FadeUp delay={0.15}>
               <p className="mt-14 font-sans text-body-v2 text-v2-ink-mute leading-[1.7] text-center max-w-[52ch] mx-auto">
-                A formação de base é a Medicina Tradicional Chinesa, com
-                cédula da ACSS ao abrigo da Lei n.º 71/2013. Acompanho dentro
-                desse âmbito, em complemento ao acompanhamento médico. Quando
-                existe necessidade de avaliação médica, há articulação com a
-                Dra. Patrícia Salvador, médica inscrita na Ordem dos Médicos,
-                ou referenciação para outras especialidades.
+                Acompanho em medicina funcional integrativa, com cédula
+                profissional da ACSS ao abrigo da Lei n.º 71/2013, em
+                complemento ao acompanhamento médico. Quando existe
+                necessidade de avaliação médica, prescrição ou diagnóstico,
+                há referenciação para médico ou para outras especialidades.
               </p>
             </FadeUp>
 

@@ -9,10 +9,10 @@ const faqs = [
   {
     q: "O acompanhamento substitui consulta médica?",
     a: [
-      "Não. Sou praticante de Medicina Tradicional Chinesa, não médica.",
+      "Não. Sou especialista em Medicina Funcional Integrativa, não médica.",
       "Tenho pós-graduação em Saúde Hormonal e Funcional da Mulher e vinte anos de prática clínica focada em saúde feminina: perimenopausa, fadiga persistente, alterações hormonais, ansiedade, sono e metabolismo, com experiência profunda em bioquímica clínica e interpretação funcional de biomarcadores.",
       "O acompanhamento não substitui consulta médica convencional, diagnóstico ou tratamento médico.",
-      "Quando existe necessidade de avaliação médica, há articulação com a Dra. Patrícia Salvador (médica inscrita na Ordem dos Médicos) ou referenciação para outras especialidades.",
+      "Quando existe necessidade de avaliação médica, prescrição ou diagnóstico, há referenciação para médico ou para outras especialidades.",
     ],
   },
   {

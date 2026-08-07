@@ -362,8 +362,8 @@ const ExamesNormaisMasSintomas = () => {
         bg="almond"
       >
         <p>
-          Vinte anos de prática clínica em saúde feminina, com formação em
-          Medicina Tradicional Chinesa. Quatro anos no Departamento de
+          Vinte anos de prática clínica em saúde feminina, em medicina
+          funcional integrativa. Quatro anos no Departamento de
           Microbioma da Regenerus Labs, num dos laboratórios de medicina
           funcional de referência no Reino Unido. Presença na Longevity Med
           Summit. O foco de trabalho é um só: mulheres com sintomas reais e
