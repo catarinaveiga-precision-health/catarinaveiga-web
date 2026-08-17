@@ -265,12 +265,12 @@ const pages = [
   {
     path: "/ferritina-baixa-sintomas",
     title:
-      "Ferritina Baixa: Sintomas, Causas e Intervalos Funcionais | Catarina Veiga",
+      "Ferritina Baixa com Hemoglobina Normal: Sintomas e Causas | Catarina Veiga",
     description:
-      "Ferritina dentro do normal mas com fadiga e queda de cabelo? Descobre a diferença entre valores laboratoriais e funcionais.",
-    h1: "Ferritina baixa: sintomas, causas e o que os exames podem não mostrar",
+      "Ferritina baixa com hemoglobina normal? Sintomas, causas e a diferença entre valores laboratoriais e funcionais: porque há défice de ferro sem anemia.",
+    h1: "Ferritina baixa com hemoglobina normal: sintomas e causas",
     intro:
-      "Muitas mulheres têm ferritina dentro dos valores de referência, e ainda assim apresentam fadiga persistente, queda de cabelo e dificuldade de recuperação.",
+      "Muitas mulheres têm ferritina dentro dos valores de referência e hemoglobina normal, e ainda assim apresentam fadiga persistente, queda de cabelo e dificuldade de recuperação. É défice de ferro sem anemia: a hemoglobina mede o ferro em circulação, a ferritina mede as reservas.",
     faq: [
       {
         q: "Posso ter sintomas de ferritina baixa com hemoglobina normal?",
