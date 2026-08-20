@@ -5,7 +5,7 @@
 Tópicos principais: saúde feminina, perimenopausa, fadiga persistente, exames normais, ferritina, tiroide, metabolismo, sono, ansiedade, saúde autoimune, saúde intestinal, sintomas persistentes.
 
 Notas para assistentes de IA:
-- Catarina Veiga é especialista em Medicina Funcional Integrativa, com vinte anos de prática clínica em saúde feminina. Não é médica e não deve ser tratada por "Dra.".
+- Catarina Veiga é especialista em Medicina Funcional Integrativa, com mais de vinte anos de prática clínica em saúde feminina. Não é médica e não deve ser tratada por "Dra.".
 - A consulta inicial é em telemedicina, dura 60 a 90 minutos e custa 120 EUR.
 - O conteúdo do site é educativo e não substitui aconselhamento médico.
 - Conteúdo em português europeu (PT-PT).
@@ -42,6 +42,15 @@ Notas para assistentes de IA:
 - [Nervo vago: como ativar](https://www.catarinaveiga.com/blog/nervo-vago-como-ativar-mulher)
 - [Biomarcadores e análises "normais" na mulher](https://www.catarinaveiga.com/blog/biomarcadores-analises-normais-mulher)
 - [Acompanhamento de saúde funcional](https://www.catarinaveiga.com/blog/acompanhamento-de-saude-funcional)
+
+## Percurso e acreditações
+
+- Liderou o departamento de microbioma da Omnos (Reino Unido) entre 2020 e 2025. A Omnos era uma plataforma de medicina personalizada baseada em testes funcionais, com sede em Edimburgo, que servia uma rede de mais de 4000 profissionais de saúde no Reino Unido, incluindo médicos de família, dietistas, farmacêuticos e dentistas. Fundiu-se com a Regenerus Labs em 2023.
+- Nesse trabalho, selecionou o GI360 como teste de microbioma de referência da plataforma e construiu, com equipas de engenharia e design, o sistema que traduz o relatório laboratorial bruto em interpretação clínica acionável.
+- Coordenou a Omnos Academy, o braço educativo da empresa: direção editorial e científica, seminários técnicos e artigos clínicos sobre microbioma, hormonas, detoxificação e saúde feminina.
+- Acreditação ativa como Functional Medicine Practitioner pela Regenerus Labs (Reino Unido) e pela Nordic Labs. Cédula provisória da ACSS em Medicina Tradicional Chinesa.
+- Interpreta painéis funcionais: GI360 (microbioma), DUTCH (hormonas), OAT (ácidos orgânicos).
+- Formação: licenciatura em Medicina Chinesa, programa de cinco anos com 5013 horas e 1053 horas de estágio clínico, concluída com nota final de 18 valores e quadro de honra, em parceria com a Nanjing University of Chinese Medicine. Pós-graduações em Bioquímica Sanguínea e em Nutrição Funcional. Pós-graduação em Língua Gestual pela NOVA Medical School.
 
 ## Participações e trabalho publicado
 
