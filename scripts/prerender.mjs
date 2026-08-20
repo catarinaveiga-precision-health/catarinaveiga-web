@@ -194,6 +194,42 @@ function portableTextToPlain(blocks, maxLength = 160) {
 }
 
 // ── SEO data for every pre-renderable static route ────────────────
+// Testemunhos: o texto tem de estar no HTML estatico, e o que os crawlers de IA
+// citam. Fonte unica partilhada com a app (src/data/testemunhos.json).
+const testemunhosData = JSON.parse(
+  readFileSync(new URL("../src/data/testemunhos.json", import.meta.url), "utf-8")
+);
+const testemunhosHtml =
+  `<p style="color:#666;font-size:1.1rem;line-height:1.6">Avaliacoes publicadas no perfil Google da consulta (media ${testemunhosData.avaliacaoGlobal.media} em ${testemunhosData.avaliacaoGlobal.total} avaliacoes), reproduzidas sem alteracoes.</p>` +
+  testemunhosData.testemunhos
+    .map(
+      (t) =>
+        `<figure style="margin:32px 0;border-left:2px solid #e8e2d9;padding-left:20px"><blockquote style="color:#444;line-height:1.8;margin:0">${escapeHtml(t.texto)}</blockquote><figcaption style="margin-top:10px;color:#888;font-size:0.9rem">${escapeHtml(t.autor)}, avaliacao no Google</figcaption></figure>`
+    )
+    .join("");
+
+const testemunhosLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://www.catarinaveiga.com/#business",
+  name: "Catarina Veiga · Medicina Funcional Integrativa",
+  url: "https://www.catarinaveiga.com",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: testemunhosData.avaliacaoGlobal.media,
+    reviewCount: testemunhosData.avaliacaoGlobal.total,
+    bestRating: 5,
+  },
+  review: testemunhosData.testemunhos.map((t) => ({
+    "@type": "Review",
+    author: { "@type": "Person", name: t.autor },
+    reviewBody: t.texto,
+    inLanguage: t.idioma === "en" ? "en" : "pt-PT",
+    ...(t.data ? { datePublished: t.data } : {}),
+    reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+  })),
+};
+
 const pages = [
   // Página pilar · tese da marca
   {
@@ -451,6 +487,17 @@ const pages = [
     ],
   },
   {
+    path: "/testemunhos",
+    title: "Testemunhos: o que dizem as pacientes | Catarina Veiga",
+    description:
+      "Avaliacoes reais de mulheres acompanhadas em medicina funcional integrativa. Fadiga, sono, hormonas e exames normais: o que mudou, por palavras delas.",
+    h1: "O que dizem as mulheres que ja passaram por aqui",
+    intro:
+      "Avaliacoes reais, publicadas no Google, reproduzidas aqui sem alteracoes. A maioria descreve a mesma coisa: anos a ouvir que estava tudo normal, ate alguem olhar para o conjunto. O tratamento por \u0022Dra.\u0022 e a forma como as pacientes escrevem; Catarina Veiga e especialista em medicina funcional integrativa, nao e medica.",
+    extraHtml: testemunhosHtml,
+    jsonLd: testemunhosLd,
+  },
+  {
     path: "/medicina-funcional",
     title: "Medicina Funcional: Quando os Exames Dão Tudo Normal",
     description:
@@ -661,7 +708,7 @@ const pages = [
 // ── Helper: generate the HTML for one route ──────────────────────
 const OG_IMAGE_DEFAULT = "https://www.catarinaveiga.com/og-default.jpg";
 
-function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, noindex, article, faq }) {
+function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, noindex, article, faq, extraHtml, jsonLd }) {
   // Escapar aspas: title/description entram em atributos HTML
   title = String(title).replace(/"/g, "&quot;");
   description = String(description).replace(/"/g, "&quot;");
@@ -686,7 +733,7 @@ function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, 
             )
             .join("")}</section>`
         : "";
-    staticContent = `<div style="max-width:720px;margin:80px auto;padding:0 24px;font-family:system-ui,sans-serif"><h1 style="font-size:2rem;line-height:1.2;margin-bottom:16px">${escapeHtml(h1)}</h1><p style="color:#666;font-size:1.1rem;line-height:1.6">${escapeHtml(intro)}</p>${faqHtml}<p style="margin-top:24px"><a href="/" style="color:#8b7355">catarinaveiga.com</a></p></div>`;
+    staticContent = `<div style="max-width:720px;margin:80px auto;padding:0 24px;font-family:system-ui,sans-serif"><h1 style="font-size:2rem;line-height:1.2;margin-bottom:16px">${escapeHtml(h1)}</h1><p style="color:#666;font-size:1.1rem;line-height:1.6">${escapeHtml(intro)}</p>${extraHtml || ""}${faqHtml}<p style="margin-top:24px"><a href="/" style="color:#8b7355">catarinaveiga.com</a></p></div>`;
   }
 
   let html = TEMPLATE;
@@ -765,6 +812,16 @@ function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, 
     html = html.replace(
       "</head>",
       `  <script type="application/ld+json">${ldJson}</script>\n  </head>`
+    );
+  }
+
+  // JSON-LD arbitrario por rota (crawler-visible; o structuredData do
+  // SEOPageLayout e client-only e nunca chega ao crawler)
+  if (jsonLd) {
+    const extraJson = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
+    html = html.replace(
+      "</head>",
+      `  <script type="application/ld+json">${extraJson}</script>\n  </head>`
     );
   }
 
