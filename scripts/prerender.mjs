@@ -200,7 +200,7 @@ const testemunhosData = JSON.parse(
   readFileSync(new URL("../src/data/testemunhos.json", import.meta.url), "utf-8")
 );
 const testemunhosHtml =
-  `<p style="color:#666;font-size:1.1rem;line-height:1.6">Avaliacoes publicadas no perfil Google da consulta (media ${testemunhosData.avaliacaoGlobal.media} em ${testemunhosData.avaliacaoGlobal.total} avaliacoes), reproduzidas sem alteracoes.</p>` +
+  `<p style="color:#666;font-size:1.1rem;line-height:1.6">Avaliacoes publicadas no perfil Google da consulta (media ${testemunhosData.avaliacaoGlobal.media} em ${testemunhosData.avaliacaoGlobal.total} avaliacoes), reproduzidas sem alteracoes. Algumas descrevem melhorias concretas em situacoes clinicas especificas: sao a experiencia de cada uma, nao uma previsao do que acontece a outra pessoa, e nada aqui substitui avaliacao medica.</p>` +
   testemunhosData.testemunhos
     .map(
       (t) =>

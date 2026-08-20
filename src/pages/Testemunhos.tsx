@@ -85,7 +85,7 @@ const Testemunhos = () => {
           Estas avaliações foram escritas por pacientes no perfil Google da consulta, onde a média é de {avaliacaoGlobal.media} em {avaliacaoGlobal.total} avaliações. Estão reproduzidas tal como foram escritas, incluindo o tratamento por "Dra.", que é a forma como as pacientes escrevem e não uma descrição da minha profissão: sou especialista em medicina funcional integrativa, não sou médica.
         </p>
         <p>
-          Ficaram deliberadamente de fora as avaliações que descrevem diagnósticos, medicação ou resultados clínicos concretos. Um testemunho não é uma promessa de resultado, e cada caso é um caso.
+          Algumas descrevem melhorias concretas em situações clínicas específicas. São a experiência de cada uma delas, não uma previsão do que acontece a outra pessoa: cada caso é um caso, e nada aqui substitui avaliação médica.
         </p>
       </SEOContentSection>
 
