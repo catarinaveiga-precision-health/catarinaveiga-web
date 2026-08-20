@@ -94,11 +94,6 @@
       "permanent": true
     },
     {
-      "source": "/testemunhos",
-      "destination": "/",
-      "permanent": true
-    },
-    {
       "source": "/programa-3m",
       "destination": "/programa-fundacao",
       "permanent": true
