@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { NavbarV2 } from "@/components/v2/layout/NavbarV2";
 import { FooterV2 } from "@/components/v2/layout/FooterV2";
 import { supabase } from "@/integrations/supabase/client";
+import { notificarLead } from "@/lib/notificarLead";
 // PDF helpers carregados via dynamic import nos pontos de uso (lazy chunk)
 // para evitar 599 KB no bundle inicial.
 import AcuityModal from "@/components/AcuityModal";
@@ -394,6 +395,18 @@ const Avaliacao = () => {
         resultados: JSON.parse(JSON.stringify(evalResults)),
         tem_exames: temExames,
       };
+
+      // Notificar antes de gravar: se a base de dados falhar, o lead chega na mesma.
+      notificarLead({
+        nome: insertData.nome,
+        email: insertData.email,
+        origem: "avaliacao-14-biomarcadores",
+        notas:
+          "Idade: " + (insertData.idade ?? "") +
+          " | Sexo: " + (insertData.sexo ?? "") +
+          " | Tem exames: " + (insertData.tem_exames ? "sim" : "nao") +
+          " | Objetivos: " + (Array.isArray(insertData.objetivos) ? insertData.objetivos.join(", ") : ""),
+      });
 
       const [{ data: leadRows, error: leadError }, { error: applicationsError }] = await Promise.all([
         supabase.from("leads_avaliacao").insert([{

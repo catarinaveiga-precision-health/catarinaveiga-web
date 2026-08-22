@@ -1,4 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
+import { notificarLead } from "@/lib/notificarLead";
 
 /* ─────────────────────────────────────────────────────────────────
    Lead magnet · Guia "Tens fome pouco depois de comer?"
@@ -48,6 +49,14 @@ export async function submitGuiaSaciedade(
       follow_up_sent: true,
     } as any,
   ]);
+
+  // Notificar sempre, mesmo que o Supabase falhe: o lead nao se perde.
+  notificarLead({
+    nome: cleanNome,
+    email: cleanEmail,
+    origem: `guia-saciedade (${origem})`,
+    notas: error ? "NOTA: a gravacao na base de dados falhou; este lead so existe aqui." : "",
+  });
 
   if (error) {
     console.error("leadMagnet submit error", error);

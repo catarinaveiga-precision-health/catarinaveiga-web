@@ -8,6 +8,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 import { NavbarV2 } from "@/components/v2/layout/NavbarV2";
 import { FooterV2 } from "@/components/v2/layout/FooterV2";
 import { supabase } from "@/integrations/supabase/client";
+import { notificarLead } from "@/lib/notificarLead";
 
 const COUNTRIES = [
   "Portugal", "Brasil", "Angola", "Moçambique", "Cabo Verde",
@@ -105,6 +106,20 @@ const Candidatura = () => {
     }
     setLoading(true);
     setError(null);
+
+    // Notificar antes de gravar: se a base de dados falhar, o lead chega na mesma.
+    notificarLead({
+      nome: form.nome.trim(),
+      email: form.email.trim(),
+      origem: "candidatura-consulta",
+      notas:
+        "Idade: " + (form.idade || "-") +
+        " | Pais: " + (form.pais || "-") +
+        " | Duracao dos sintomas: " + (form.duracao_sintomas || "-") +
+        " | Sintomas: " + (Array.isArray(form.sintomas) ? form.sintomas.join(", ") : (form.sintomas || "-")) +
+        "\n\nHistorico: " + (form.historico_tratamentos || "-") +
+        "\n\nDiagnosticos: " + (form.diagnosticos || "-"),
+    });
 
     // Primary: save to leads_candidatura
     const { error: dbError } = await supabase.from("leads_candidatura").insert({
