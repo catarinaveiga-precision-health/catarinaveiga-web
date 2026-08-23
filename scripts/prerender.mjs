@@ -199,6 +199,15 @@ function portableTextToPlain(blocks, maxLength = 160) {
 const testemunhosData = JSON.parse(
   readFileSync(new URL("../src/data/testemunhos.json", import.meta.url), "utf-8")
 );
+
+// FAQ da homepage: fonte unica partilhada com o componente React
+// (src/components/v2/home/FAQ.tsx). Antes havia duas copias a mao, uma aqui e
+// outra la, que podiam divergir em silencio. O generatePage espera [{q, a}]
+// com `a` em texto corrido, por isso os paragrafos sao juntados aqui.
+const faqHomeData = JSON.parse(
+  readFileSync(new URL("../src/data/faq-home.json", import.meta.url), "utf-8")
+);
+const faqHome = faqHomeData.map(({ q, a }) => ({ q, a: a.join(" ") }));
 const testemunhosHtml =
   `<p style="color:#666;font-size:1.1rem;line-height:1.6">Avaliacoes publicadas no perfil Google da consulta (media ${testemunhosData.avaliacaoGlobal.media} em ${testemunhosData.avaliacaoGlobal.total} avaliacoes), reproduzidas sem alteracoes. Algumas descrevem melhorias concretas em situacoes clinicas especificas: sao a experiencia de cada uma, nao uma previsao do que acontece a outra pessoa, e nada aqui substitui avaliacao medica.</p>` +
   testemunhosData.testemunhos
@@ -271,31 +280,12 @@ const pages = [
       "Medicina funcional integrativa para mulheres cujos exames dão normais mas o corpo não. Fadiga, hormonas, tiroide e perimenopausa, investigadas à causa, quando a medicina convencional não deu respostas.",
     h1: "Os teus exames estão normais. O teu corpo não.",
     intro:
-      "Para mulheres em perimenopausa, com fadiga persistente, alterações hormonais, digestivas ou metabólicas que continuam sem explicação clara. Não é sobre fazer mais exames: é sobre ler bem os que já tens. Na consulta inicial olhamos histórico clínico detalhado, sono, digestão, energia, ciclo, sintomas e exames anteriores. Sais com hipóteses claras, prioridades definidas e próximos passos concretos. 60–90 minutos em telemedicina, €120.",
-    // Estas 5 perguntas viviam num FAQPage global do index.html, repetido em
-    // todas as paginas. Passaram a viver so aqui, para nao duplicar FAQPage.
-    faq: [
-      {
-        q: "O que acontece na primeira consulta?",
-        a: "A primeira consulta dura entre 60 e 90 minutos, em videochamada. Recebes um questionário prévio por email para preparar. Em consulta exploramos o teu histórico clínico, sintomas, ciclo, sono, digestão, energia e contexto emocional. Sais com um plano estruturado por escrito, com revisões previstas.",
-      },
-      {
-        q: "Como funciona o acompanhamento?",
-        a: "O acompanhamento estende-se ao longo do tempo. Após a primeira consulta, há revisões periódicas para ajustar o plano à evolução. A frequência depende do teu caso.",
-      },
-      {
-        q: "Em que casos é indicado este acompanhamento?",
-        a: "Acompanho mulheres em transições hormonais: perimenopausa, alterações de ciclo, fadiga persistente, sono alterado, equilíbrio emocional, digestão sensível. Trabalho sobretudo com sintomas reais e exames maioritariamente normais. Para descompensações agudas ou necessidade de intervenção médica imediata, refiro para médicos e outras especialidades.",
-      },
-      {
-        q: "Como olha para as análises clínicas?",
-        a: "Leio as análises que já tens com intervalos funcionais e cruzo os marcadores entre si, em vez de os avaliar isoladamente. Integro essa leitura no contexto da minha formação e dos quatro anos no Departamento de Microbioma da Regenerus Labs. É uma leitura complementar, que não substitui diagnóstico nem prescrição médica.",
-      },
-      {
-        q: "O que posso esperar ao longo do tempo?",
-        a: "A evolução depende de vários fatores. As pacientes descrevem mudanças subjetivas em sono, energia e equilíbrio ao longo de semanas a meses. Não prometo prazos nem resultados.",
-      },
-    ],
+      "Para mulheres em perimenopausa, com fadiga persistente, alterações hormonais, digestivas ou metabólicas que continuam sem explicação clara. Não é sobre fazer mais exames: é sobre ler bem os que já tens. Na consulta inicial olhamos histórico clínico detalhado, sono, digestão, energia, ciclo, sintomas e exames anteriores. Sais com hipóteses claras, prioridades definidas e próximos passos concretos. 90 minutos em telemedicina, €120.",
+    // FONTE UNICA: src/data/faq-home.json, o mesmo ficheiro que alimenta o
+    // acordeao em src/components/v2/home/FAQ.tsx. Este e o unico FAQPage do
+    // site (as perguntas viviam num FAQPage global do index.html, repetido em
+    // todas as paginas, e foram movidas para aqui para nao duplicar).
+    faq: faqHome,
   },
   // SEO article pages
   {

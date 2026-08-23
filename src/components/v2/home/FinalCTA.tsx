@@ -30,7 +30,7 @@ export const FinalCTA = () => (
           Marcar consulta inicial · €120
         </ButtonV2>
         <p className="mt-6 font-sans text-mono-v2 uppercase tracking-[0.12em] text-v2-paper/60">
-          60–90 min · telemedicina · resposta em 48h
+          90 min · telemedicina · resposta em 48h
         </p>
       </FadeUp>
 

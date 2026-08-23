@@ -22,7 +22,7 @@ const testimonials = [
 ];
 
 export const SocialProof = () => (
-  <Section bg="paper">
+  <Section bg="paper-deep">
     <Container size="default">
       <FadeUp className="text-center">
         <a

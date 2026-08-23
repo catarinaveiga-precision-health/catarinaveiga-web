@@ -5,7 +5,10 @@ import { ButtonV2 } from "../ui/ButtonV2";
 import { Divider } from "../ui/Divider";
 import { FadeUp } from "../motion/FadeUp";
 import { PlanoDoc } from "../clinical/PlanoDoc";
-import editorialPhoto from "@/assets/editorial-featured.jpg";
+// Fotografia real da secretária de trabalho (análises, gráficos, apontamentos).
+// Substituiu editorial-featured.jpg, stock gerado por IA com uma cama e um chá,
+// que era registo wellness e não dizia nada sobre o trabalho clínico.
+import editorialPhoto from "@/assets/en-consult-desk.jpg";
 
 const itens = [
   "Histórico clínico detalhado",
@@ -27,22 +30,24 @@ export const PrimeiraConsulta = () => (
             O que acontece na primeira consulta.
           </h2>
           <p className="mt-8 font-sans text-body-v2 text-v2-ink-mute leading-[1.7] max-w-[42ch]">
-            60–90 min, em telemedicina. Resposta de marcação em 48h. Sem
+            90 min, em telemedicina. Resposta de marcação em 48h. Sem
             necessidade de teres exames já feitos.
           </p>
 
           {/* composição editorial: fotografia + documento do plano */}
-          <div className="relative mt-14 hidden lg:block">
+          <div className="relative mt-14">
             <div className="aspect-[4/3] overflow-hidden bg-v2-paper-deep max-w-[400px]">
               <img
                 src={editorialPhoto}
-                alt="Livro e chá sobre lençóis de linho em luz natural"
+                alt="Análises impressas, apontamentos à mão e óculos sobre uma mesa de madeira"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-10 -right-2 w-[260px]">
+            {/* A maqueta do plano sobrepõe-se à foto; em ecrãs pequenos não há
+                espaço para a sobreposição, por isso só aparece a partir de lg. */}
+            <div className="absolute -bottom-10 -right-2 w-[260px] hidden lg:block">
               <PlanoDoc />
             </div>
           </div>

@@ -200,8 +200,8 @@ const FerramentaTeaser = () => {
 const formas = [
   {
     title: "Consulta inicial",
-    body: "60–90 minutos de anamnese aprofundada. História clínica, sintomas e exames anteriores. Saímos com um plano estruturado.",
-    micro: "Consulta inicial · 60–90 min · €120",
+    body: "90 minutos de anamnese aprofundada. História clínica, sintomas e exames anteriores. Saímos com um plano estruturado.",
+    micro: "Consulta inicial · 90 min · €120",
   },
   {
     title: "Checkup funcional",
@@ -414,7 +414,7 @@ const CTAFinalSection = () => {
           Estás cansada de ouvir que está tudo normal?
         </h2>
         <p className="font-sans text-sm text-muted-foreground mb-8 tracking-wide">
-          Consulta inicial · 60–90 min · €120 · telemedicina
+          Consulta inicial · 90 min · €120 · telemedicina
         </p>
         <Button variant="hero" size="lg" onClick={openAcuity}>
           Agendar consulta inicial

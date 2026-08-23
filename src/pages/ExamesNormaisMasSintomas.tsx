@@ -183,7 +183,7 @@ const ProximosPassos = () => {
     {
       eyebrow: "Primeiro contacto clínico",
       title: "Avaliação Inicial",
-      desc: "60 a 90 minutos em telemedicina. Histórico clínico, sono, digestão, energia, ciclo e exames anteriores. Sais com hipóteses claras e prioridades definidas.",
+      desc: "90 minutos em telemedicina. Histórico clínico, sono, digestão, energia, ciclo e exames anteriores. Sais com hipóteses claras e prioridades definidas.",
       to: "/avaliacao",
       cta: "Conhecer a Avaliação",
     },

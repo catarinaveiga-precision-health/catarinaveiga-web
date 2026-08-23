@@ -4,42 +4,7 @@ import { Container } from "../ui/Container";
 import { Eyebrow } from "../ui/Eyebrow";
 import { FadeUp } from "../motion/FadeUp";
 import { cn } from "@/lib/utils";
-
-const faqs = [
-  {
-    q: "O acompanhamento substitui consulta médica?",
-    a: [
-      "Não. Sou especialista em Medicina Funcional Integrativa, não médica.",
-      "Tenho pós-graduação em Saúde Hormonal e Funcional da Mulher e vinte anos de prática clínica focada em saúde feminina: perimenopausa, fadiga persistente, alterações hormonais, ansiedade, sono e metabolismo, com experiência profunda em bioquímica clínica e interpretação funcional de biomarcadores.",
-      "O acompanhamento não substitui consulta médica convencional, diagnóstico ou tratamento médico.",
-      "Quando existe necessidade de avaliação médica, prescrição ou diagnóstico, há referenciação para médico ou para outras especialidades.",
-    ],
-  },
-  {
-    q: "As consultas são online?",
-    a: [
-      "Sim. O acompanhamento é feito em telemedicina para pacientes em Portugal e estrangeiro.",
-    ],
-  },
-  {
-    q: "Preciso de ter análises?",
-    a: [
-      "Não. Podes marcar a consulta inicial sem teres exames feitos. Se já tiveres análises recentes (últimos 12 meses), traz. Se não, pedimo-las nós após a consulta inicial.",
-    ],
-  },
-  {
-    q: "Posso fazer apenas uma consulta?",
-    a: [
-      "Sim. A consulta inicial é independente e não obriga a continuidade. Muitas pessoas começam aqui para perceber se faz sentido continuar.",
-    ],
-  },
-  {
-    q: "Quanto tempo costuma durar o acompanhamento?",
-    a: [
-      "Depende do caso. Algumas mudanças (sono, energia, ciclo) podem surgir nas primeiras semanas. Reorganização hormonal e metabólica exige normalmente 6 a 12 semanas. Quem opta pelo Programa Fundação trabalha durante 3 meses de forma estruturada.",
-    ],
-  },
-];
+import { faqHome as faqs } from "@/data/faq-home";
 
 export const FAQ = () => {
   const [open, setOpen] = useState<number | null>(0);

@@ -5,9 +5,14 @@ import { StickyMobileCTA } from "@/components/v2/layout/StickyMobileCTA";
 
 import { Hero } from "@/components/v2/home/Hero";
 import { Problem } from "@/components/v2/home/Problem";
+import { StatsRow } from "@/components/v2/home/StatsRow";
+import { CredentialsMarquee } from "@/components/v2/home/CredentialsMarquee";
 import { Outcome } from "@/components/v2/home/Outcome";
 import { PrimeiraConsulta } from "@/components/v2/home/PrimeiraConsulta";
 import { Method } from "@/components/v2/home/Method";
+import { Comparison } from "@/components/v2/home/Comparison";
+import { Qualification } from "@/components/v2/home/Qualification";
+import { ImageBand } from "@/components/v2/home/ImageBand";
 import { SocialProof } from "@/components/v2/home/SocialProof";
 import { SobreCurta } from "@/components/v2/home/SobreCurta";
 import { FAQ } from "@/components/v2/home/FAQ";
@@ -18,11 +23,21 @@ const IndexV2 = () => (
   <div className="min-h-screen bg-v2-paper text-v2-ink font-sans antialiased selection:bg-v2-sage/20">
     <NavbarV2 />
     <main className="overflow-hidden">
+      {/*
+        Ordem pensada como um argumento, e com os fundos a alternar
+        (paper / paper-deep / moss) para a página não ser um bloco só de bege:
+        reconhecimento, autoridade, o que é, como se compara, para quem é, prova.
+      */}
       <Hero />
       <Problem />
+      <StatsRow />
+      <CredentialsMarquee />
       <Outcome />
       <PrimeiraConsulta />
       <Method />
+      <Comparison />
+      <Qualification />
+      <ImageBand />
       <SocialProof />
       <SobreCurta />
       <FAQ />

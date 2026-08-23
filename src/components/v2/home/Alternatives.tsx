@@ -8,7 +8,7 @@ const cards = [
   {
     label: "Consulta inicial",
     price: "€120",
-    body: "60–90 minutos de anamnese aprofundada, leitura de exames anteriores e hipóteses clínicas escritas. Sem compromisso de continuidade.",
+    body: "90 minutos de anamnese aprofundada, leitura de exames anteriores e hipóteses clínicas escritas. Sem compromisso de continuidade.",
     cta: { label: "Marcar consulta", href: "https://catarinaveigaagendamento.as.me/" },
   },
   {

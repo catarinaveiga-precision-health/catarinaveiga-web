@@ -1,0 +1,90 @@
+[
+  {
+    "q": "És médica?",
+    "a": [
+      "Não. Sou especialista em medicina funcional integrativa, com 21 anos de prática clínica em saúde da mulher, acreditada como Functional Medicine Practitioner pela Regenerus Labs e pela Nordic Labs, no Reino Unido.",
+      "Não diagnostico doenças nem prescrevo medicação: isso é ato médico. O que faço é investigar o que está por trás dos sintomas e ler as tuas análises em conjunto. Esse trabalho é feito para funcionar ao lado do teu médico, não em vez dele."
+    ]
+  },
+  {
+    "q": "A consulta substitui o meu médico?",
+    "a": [
+      "Não, e nunca substitui. Isto é complementar.",
+      "Quando o teu quadro exige diagnóstico, prescrição ou uma avaliação que é ato médico, digo-o com clareza e encaminho. O que faço é ler as tuas análises em conjunto e procurar a causa, que é trabalho que a consulta de rotina não tem tempo para fazer."
+    ]
+  },
+  {
+    "q": "Tenho de estar em perimenopausa para marcar?",
+    "a": [
+      "Não. Acompanho mulheres em várias fases, e muitas chegam sem saber se o que sentem é perimenopausa ou outra coisa. Perceber isso é parte do trabalho, não um pré-requisito para o começar."
+    ]
+  },
+  {
+    "q": "E se eu não tiver análises nenhumas?",
+    "a": [
+      "Também funciona. Nesse caso a consulta é feita a partir da história clínica, dos sintomas e do contexto, e no fim ficas a saber que análises fazem sentido pedir e porquê, em vez de fazeres um painel genérico.",
+      "Muitas mulheres chegam assim."
+    ]
+  },
+  {
+    "q": "Preciso de fazer análises antes?",
+    "a": [
+      "Na maioria dos casos não. Começamos pelas que já tens, incluindo as antigas, que muitas vezes são as mais úteis porque mostram a direção em que os valores se moveram.",
+      "Só faz sentido pedir novas quando falta mesmo um marcador que nunca foi doseado."
+    ]
+  },
+  {
+    "q": "Posso fazer só uma consulta?",
+    "a": [
+      "Sim. A consulta inicial é independente e não obriga a continuidade. Muitas pessoas começam aqui para perceber se faz sentido continuar."
+    ]
+  },
+  {
+    "q": "Falo sempre contigo, ou com outra pessoa?",
+    "a": [
+      "Sempre comigo. Não é uma clínica com vários profissionais em rotação: quem lê as tuas análises é a mesma pessoa que ouviu a tua história."
+    ]
+  },
+  {
+    "q": "Que situações costumas acompanhar?",
+    "a": [
+      "Fadiga persistente, sono desregulado, alterações hormonais e de ciclo, tiroide, ferritina e ferro, saúde intestinal, e o conjunto de sintomas que costuma aparecer em perimenopausa.",
+      "Quase sempre com um denominador comum: exames considerados normais."
+    ]
+  },
+  {
+    "q": "Vou ter de tomar hormonas?",
+    "a": [
+      "Não prescrevo hormonas nem medicação, porque isso é ato médico. Se a reposição hormonal fizer sentido para ti, essa conversa é com um médico, e digo-to."
+    ]
+  },
+  {
+    "q": "Quanto tempo até notar diferença?",
+    "a": [
+      "Depende do que está por trás, e não te vou dar um número que não posso sustentar.",
+      "O que observo na prática: quando a causa é sono ou ritmo circadiano, as primeiras mudanças costumam aparecer em semanas. Quando envolve reservas de ferro, tiroide ou inflamação, conta-se em meses, porque o corpo demora a repor o que perdeu ao longo de anos.",
+      "O que consigo dar-te já na primeira consulta é outra coisa: saberes o que está a acontecer e por que ordem tratar."
+    ]
+  },
+  {
+    "q": "A consulta online funciona tão bem?",
+    "a": [
+      "Para este trabalho, sim. A leitura da história e das análises tem exatamente a mesma profundidade. O que exige presença é o exame físico, que não faz parte desta consulta.",
+      "Acompanho pacientes em Portugal e no estrangeiro."
+    ]
+  },
+  {
+    "q": "E se não se descobrir nada?",
+    "a": [
+      "É um desfecho possível e é informação útil. Nem tudo tem tradução laboratorial.",
+      "Nesse caso a investigação passa para sono, carga de stress, alimentação e ciclo, que são causas frequentes e tratáveis."
+    ]
+  },
+  {
+    "q": "Porquê 120 euros?",
+    "a": [
+      "São 90 minutos de consulta, mais a preparação, a releitura de todas as análises que enviares, e o documento escrito que fica contigo.",
+      "É consulta única, não é avença nem tem fidelização."
+    ]
+  }
+]

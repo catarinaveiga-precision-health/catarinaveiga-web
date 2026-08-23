@@ -94,7 +94,7 @@ const faqs = [
   {
     q: "O que acontece na primeira consulta?",
     a: [
-      "A primeira consulta dura entre 60 e 90 minutos, em videochamada. Recebes um questionário prévio por email para preparar. Em consulta, exploramos o teu histórico clínico, sintomas, ciclo, sono, digestão, energia e contexto emocional. Sais com um plano estruturado por escrito, com revisões previstas.",
+      "A primeira consulta dura 90 minutos, em videochamada. Recebes um questionário prévio por email para preparar. Em consulta, exploramos o teu histórico clínico, sintomas, ciclo, sono, digestão, energia e contexto emocional. Sais com um plano estruturado por escrito, com revisões previstas.",
     ],
   },
   {
@@ -447,7 +447,7 @@ const Sobre = () => {
                 Marcar primeira consulta
               </ButtonV2>
               <p className="mt-6 font-sans text-mono-v2 uppercase tracking-[0.12em] text-v2-paper/60">
-                Telemedicina · 60 a 90 minutos · questionário prévio por email
+                Telemedicina · 90 minutos · questionário prévio por email
               </p>
             </FadeUp>
 

@@ -305,7 +305,7 @@ const Consultations = () => {
           <div className="bg-v2-paper p-10">
             <h3 className="font-serif text-2xl text-v2-ink font-light mb-1">Initial Consultation</h3>
             <span className="block font-sans text-xs tracking-[0.16em] uppercase text-v2-golden mb-4">
-              60–90 minutes
+              90 minutes
             </span>
             <p className="font-serif text-3xl text-v2-ink mb-4">€120</p>
             <p className="text-v2-ink-mute text-[15px]">
