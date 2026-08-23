@@ -1,0 +1,240 @@
+/*
+  Sistema visual da página da consulta inicial.
+
+  Paleta e proporções extraídas do CSS da Parsley Health, que é a referência
+  escolhida pela Catarina. Teodor e Euclid Circular B são proprietárias; os
+  equivalentes livres são Petrona (serif contemporâneo) e Jost (geométrico).
+
+  Tudo está dentro de .cv-consulta de propósito: o resto do site corre no
+  sistema v2 (Cormorant + sage #718281) e os dois não se podem contaminar.
+*/
+
+.cv-consulta {
+  --forest: #284849;
+  --sage: #477568;
+  --mint: #c8e4db;
+  --mint-pale: #e4f1ec;
+  --shell: #fcfbfa;
+  --sand: #f8f6f2;
+  --ochre: #bf7e3d;
+  --ink: #132d2e;
+  --ink-soft: #5b6f70;
+  --line: #e3e0da;
+
+  --r: 12px;
+  --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px;
+  --s7: 48px; --s8: 64px; --s9: 96px; --s10: 128px;
+
+  background: var(--shell);
+  color: var(--ink);
+  font-family: Jost, system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+.cv-consulta *, .cv-consulta *::before, .cv-consulta *::after { box-sizing: border-box; }
+.cv-consulta ::selection { background: var(--mint); }
+
+.cv-consulta .page { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.cv-consulta .mid { max-width: 760px; }
+
+.cv-consulta h1, .cv-consulta h2 {
+  font-family: Petrona, Georgia, serif; font-weight: 400; line-height: 1.12;
+  letter-spacing: -0.01em; text-wrap: balance; color: var(--forest); margin: 0;
+}
+.cv-consulta h1 { font-size: clamp(2.7rem, 5.6vw, 4.6rem); line-height: 1.05; }
+.cv-consulta h2 { font-size: clamp(1.9rem, 3.6vw, 3rem); }
+.cv-consulta h3 {
+  font-family: Jost, sans-serif; font-size: 1.05rem; font-weight: 500;
+  color: var(--ink); line-height: 1.35; margin: 0;
+}
+.cv-consulta p { text-wrap: pretty; margin: 0; }
+.cv-consulta em { font-style: italic; }
+
+.cv-consulta .lab {
+  font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--sage);
+}
+.cv-consulta section { padding: var(--s10) 0; }
+.cv-consulta .sand { background: var(--sand); }
+.cv-consulta .forest { background: var(--forest); color: var(--shell); }
+.cv-consulta .forest h2, .cv-consulta .forest h3 { color: var(--shell); }
+.cv-consulta .forest p { color: #bcd0cd; }
+.cv-consulta .forest .lab { color: var(--mint); }
+
+/* botões redondos, como na Parsley */
+.cv-consulta .btn {
+  display: inline-block; background: var(--forest); color: var(--shell);
+  text-decoration: none; padding: 17px 36px; border-radius: 70px;
+  font-size: 14px; font-weight: 500; letter-spacing: 0.02em;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s;
+}
+.cv-consulta .btn:hover { background: var(--sage); }
+.cv-consulta .btn:active { transform: translateY(1px) scale(0.99); }
+.cv-consulta .btn.pale { background: var(--mint); color: var(--forest); }
+.cv-consulta .btn.pale:hover { background: var(--shell); }
+.cv-consulta .fine { font-size: 13.5px; color: var(--ink-soft); margin-top: 14px; }
+.cv-consulta .forest .fine { color: #bcd0cd; }
+
+/* 1 · HERO */
+.cv-consulta .hero { padding: var(--s9) 0 var(--s10); background: var(--sand); }
+.cv-consulta .hero h1 { margin: 20px 0 22px; max-width: 15ch; }
+.cv-consulta .hero .sub {
+  font-size: clamp(1.1rem, 1.8vw, 1.34rem); color: var(--ink-soft);
+  max-width: 44ch; margin-bottom: var(--s6);
+}
+.cv-consulta .hero-grid {
+  display: grid; grid-template-columns: 1.15fr 0.85fr; gap: var(--s8); align-items: center;
+}
+.cv-consulta .hero-fig { position: relative; }
+.cv-consulta .hero-fig img {
+  width: 100%; height: auto; display: block; border-radius: var(--r);
+  object-fit: cover; object-position: top; aspect-ratio: 4/5;
+}
+.cv-consulta .badge {
+  position: absolute; left: -26px; bottom: 34px; background: var(--forest);
+  color: var(--shell); border-radius: var(--r); padding: 18px 22px; max-width: 236px;
+  box-shadow: 0 18px 44px rgba(19, 45, 46, 0.18);
+}
+.cv-consulta .badge .n {
+  font-family: Petrona, serif; font-size: 2rem; color: var(--mint);
+  line-height: 1; display: block;
+}
+.cv-consulta .badge p { font-size: 12.5px; color: #bcd0cd; margin-top: 6px; line-height: 1.4; }
+.cv-consulta .cred-line {
+  margin-top: 18px; font-size: 12.5px; line-height: 1.6; color: var(--ink-soft);
+  max-width: 46ch; border-top: 1px solid var(--line); padding-top: 12px;
+}
+.cv-consulta .stat {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--s5); margin-top: var(--s9); padding-top: var(--s6);
+  border-top: 1px solid var(--line);
+}
+.cv-consulta .stat .n {
+  font-family: Petrona, serif; font-size: 2.7rem; color: var(--sage);
+  line-height: 1; display: block; margin-bottom: 6px;
+}
+.cv-consulta .stat p { font-size: 13.5px; color: var(--ink-soft); line-height: 1.45; }
+
+/* faixa deslizante de credenciais */
+.cv-consulta .marquee {
+  overflow: hidden; position: relative; border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line); background: var(--shell); padding: var(--s5) 0;
+}
+.cv-consulta .marquee-track {
+  display: flex; gap: var(--s8); width: max-content;
+  animation: cv-slide 38s linear infinite;
+}
+.cv-consulta .marquee:hover .marquee-track { animation-play-state: paused; }
+.cv-consulta .marquee .m { display: flex; align-items: baseline; gap: 10px; white-space: nowrap; }
+.cv-consulta .marquee .m b {
+  font-family: Petrona, serif; font-size: 1.12rem; color: var(--forest); font-weight: 400;
+}
+.cv-consulta .marquee .m span { font-size: 12.5px; color: var(--ink-soft); }
+.cv-consulta .marquee .dot { color: var(--mint); align-self: center; }
+@keyframes cv-slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* 3 · SINTOMAS */
+.cv-consulta .sy { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--s7); margin-top: var(--s6); }
+.cv-consulta .sy .i { padding: var(--s4) 0; border-bottom: 1px solid var(--line); }
+.cv-consulta .sy p { font-size: 14.5px; color: var(--ink-soft); margin-top: 3px; }
+
+/* 4 · RESULTADO */
+.cv-consulta .res { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s8); align-items: start; margin-top: var(--s6); }
+.cv-consulta .res .big {
+  font-family: Petrona, serif; font-size: clamp(1.5rem, 2.7vw, 2.15rem);
+  line-height: 1.25; color: var(--forest);
+}
+.cv-consulta .res li { list-style: none; padding: var(--s4) 0; border-bottom: 1px solid var(--line); font-size: 15.5px; }
+.cv-consulta .res li:first-child { border-top: 1px solid var(--line); }
+.cv-consulta .res .note { font-size: 13.5px; color: var(--ink-soft); margin-top: var(--s5); max-width: 52ch; }
+
+/* 5 · CARTÕES */
+.cv-consulta .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(232px, 1fr)); gap: var(--s4); margin-top: var(--s7); }
+.cv-consulta .card { background: var(--shell); border-radius: var(--r); padding: var(--s6) var(--s5); }
+.cv-consulta .sand .card { background: var(--shell); }
+.cv-consulta .card .n { font-family: Petrona, serif; font-size: 1.5rem; color: var(--sage); display: block; margin-bottom: 10px; }
+.cv-consulta .card p { font-size: 14.5px; color: var(--ink-soft); margin-top: 6px; }
+
+/* 6 · PASSOS */
+.cv-consulta .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(196px, 1fr)); gap: var(--s5); margin-top: var(--s7); }
+.cv-consulta .steps .s { padding-top: var(--s5); border-top: 2px solid var(--mint); }
+.cv-consulta .steps .k { font-family: Petrona, serif; font-size: 1.1rem; color: var(--sage); display: block; margin-bottom: 8px; }
+.cv-consulta .steps p { font-size: 14px; color: var(--ink-soft); margin-top: 6px; }
+
+/* 7 · MATRIZ */
+.cv-consulta .matrix-wrap { overflow-x: auto; margin-top: var(--s7); }
+.cv-consulta table { width: 100%; border-collapse: collapse; font-size: 14.5px; background: var(--shell); border-radius: var(--r); overflow: hidden; min-width: 560px; }
+.cv-consulta th, .cv-consulta td { padding: var(--s4) var(--s3); text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+.cv-consulta thead th { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); background: var(--sand); }
+.cv-consulta thead th.me { color: var(--forest); background: var(--mint-pale); }
+.cv-consulta tbody td:first-child { font-weight: 500; width: 23%; }
+.cv-consulta td.me { background: var(--mint-pale); }
+.cv-consulta td.off { color: var(--ink-soft); }
+.cv-consulta tbody tr:last-child td { border-bottom: 0; }
+
+/* 8 · QUALIFICAÇÃO */
+.cv-consulta .fit { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s5); margin-top: var(--s7); }
+.cv-consulta .fit > div { background: var(--shell); border-radius: var(--r); padding: var(--s6); }
+.cv-consulta .fit > div.no { background: transparent; box-shadow: inset 0 0 0 1px var(--line); }
+.cv-consulta .fit h3 { margin-bottom: var(--s4); }
+.cv-consulta .fit ul { margin: 0; padding: 0; }
+.cv-consulta .fit li { list-style: none; padding: 11px 0 11px 26px; position: relative; font-size: 14.5px; border-bottom: 1px solid var(--line); }
+.cv-consulta .fit li:last-child { border-bottom: 0; }
+.cv-consulta .fit .yes li::before { content: "\2713"; position: absolute; left: 0; color: var(--sage); font-weight: 500; }
+.cv-consulta .fit .no li { color: var(--ink-soft); }
+.cv-consulta .fit .no li::before { content: "\25C7"; position: absolute; left: 0; color: var(--line); }
+
+/* 9 · FAQ */
+.cv-consulta details { border-bottom: 1px solid var(--line); }
+.cv-consulta details summary {
+  list-style: none; cursor: pointer; padding: var(--s5) 0; font-weight: 500;
+  font-size: 16px; display: flex; justify-content: space-between; gap: var(--s4); align-items: baseline;
+}
+.cv-consulta details summary::-webkit-details-marker { display: none; }
+.cv-consulta details summary::after { content: "+"; color: var(--sage); font-size: 1.2rem; flex-shrink: 0; }
+.cv-consulta details[open] summary::after { content: "\2013"; }
+.cv-consulta details p { padding-bottom: var(--s5); color: var(--ink-soft); font-size: 15px; max-width: 66ch; }
+
+/* 10 · PROVA */
+.cv-consulta .quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(268px, 1fr)); gap: var(--s4); margin-top: var(--s7); }
+.cv-consulta .quotes blockquote {
+  background: var(--shell); border-radius: var(--r); padding: var(--s6); margin: 0;
+  font-family: Petrona, serif; font-size: 1.13rem; line-height: 1.4; color: var(--forest);
+}
+.cv-consulta .quotes cite {
+  display: block; font-family: Jost, sans-serif; font-style: normal; font-size: 12px;
+  letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-soft); margin-top: var(--s4);
+}
+.cv-consulta .score { display: flex; align-items: baseline; gap: 14px; margin-top: var(--s5); }
+.cv-consulta .score .b { font-family: Petrona, serif; font-size: 3.1rem; color: var(--sage); line-height: 1; }
+
+/* faixa de imagem e assinatura */
+.cv-consulta .band-img { height: clamp(220px, 34vw, 420px); overflow: hidden; }
+.cv-consulta .band-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cv-consulta .sign { display: flex; gap: var(--s5); align-items: center; margin-top: var(--s7); padding-top: var(--s6); border-top: 1px solid var(--line); }
+.cv-consulta .sign img { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; object-position: top; flex-shrink: 0; }
+.cv-consulta .sign p { font-size: 14.5px; color: var(--ink-soft); max-width: 52ch; }
+.cv-consulta .sign b { display: block; color: var(--ink); font-weight: 500; font-size: 15.5px; margin-bottom: 3px; }
+
+/* fecho */
+.cv-consulta .close { text-align: center; }
+.cv-consulta .close h2 { max-width: 18ch; margin: 0 auto; }
+.cv-consulta .close .money { font-family: Petrona, serif; font-size: clamp(2.6rem, 5vw, 3.8rem); color: var(--mint); margin: var(--s5) 0; }
+.cv-consulta .close p { margin: 0 auto var(--s6); max-width: 42ch; }
+
+@media (max-width: 840px) {
+  .cv-consulta .hero-grid { grid-template-columns: 1fr; gap: var(--s6); }
+  .cv-consulta .badge { position: static; max-width: none; margin-top: -52px; margin-left: 16px; width: calc(100% - 32px); }
+  .cv-consulta .sign { flex-direction: column; align-items: flex-start; }
+  .cv-consulta .sy, .cv-consulta .fit, .cv-consulta .res { grid-template-columns: 1fr; gap: var(--s5); }
+  .cv-consulta section { padding: var(--s9) 0; }
+  .cv-consulta th, .cv-consulta td { padding: var(--s3) 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-consulta * { transition: none !important; }
+  .cv-consulta .marquee-track { animation: none; flex-wrap: wrap; width: auto; }
+}
