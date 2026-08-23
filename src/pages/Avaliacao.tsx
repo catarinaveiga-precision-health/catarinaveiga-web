@@ -417,7 +417,11 @@ const Avaliacao = () => {
           objetivos: insertData.objetivos,
           valores_laboratoriais: insertData.valores_laboratoriais,
           resultados: insertData.resultados,
-          tem_exames: insertData.tem_exames,
+          // tem_exames NÃO vai na gravação: a coluna nunca foi criada em produção
+          // (migração 20260605 bloqueada por falta de acesso ao Supabase do Lovable).
+          // Enviá-la faz o PostgREST rejeitar o insert inteiro (PGRST204) e o
+          // formulário mostrava "Erro ao guardar" a toda a gente desde 5 jun.
+          // Repor quando a coluna existir. O valor segue no notificarLead.
         } as any]).select("id"),
         supabase.from("applications").insert([{
           nome: insertData.nome,
