@@ -59,7 +59,7 @@ export const Hero = () => (
                   height={1200}
                   className="w-full h-full object-cover object-top grayscale-[0.15] contrast-[1.02]"
                   loading="eager"
-                  fetchPriority="high"
+                  {...{ fetchpriority: "high" }}
                   decoding="async"
                 />
               </picture>
