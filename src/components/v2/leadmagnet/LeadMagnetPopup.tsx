@@ -47,7 +47,7 @@ export const LeadMagnetPopup = () => {
   /* Páginas de conversão onde o pop-up não pode aparecer: a regra da skill
      de monetização é uma CTA por página, e um modal que tapa o ecrã inteiro
      com uma oferta gratuita é a mais agressiva das CTAs concorrentes. */
-  const SEM_POPUP = ["/consulta-inicial"];
+  const SEM_POPUP = ["/", "/consulta-inicial"];
 
   const blocked =
     location.pathname === GUIA_LANDING_URL ||
