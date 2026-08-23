@@ -12,7 +12,7 @@ const stats = [
   {
     n: "4000",
     label: "profissionais",
-    desc: "de saúde no Reino Unido usavam a Omnos, que ajudei a fundar.",
+    desc: "de saúde no Reino Unido usavam a Omnos, que ajudei a fundar, hoje parte da Regenerus Labs.",
   },
   {
     n: "4,8",

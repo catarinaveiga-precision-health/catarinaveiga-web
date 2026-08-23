@@ -53,7 +53,7 @@ export const PlanoDoc = () => (
       </div>
     </div>
     <figcaption className="sr-only">
-      Documento do plano clínico escrito entregue após a primeira consulta
+      Documento do plano clínico escrito, entregue até 48 horas após a primeira consulta
     </figcaption>
   </figure>
 );

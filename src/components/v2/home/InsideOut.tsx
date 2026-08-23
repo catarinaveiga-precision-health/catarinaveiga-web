@@ -35,7 +35,7 @@ const passos = [
   {
     k: "Depois",
     t: "Fica-te um plano escrito",
-    d: "Hipóteses, prioridades e próximos passos, por escrito. É teu, e podes levá-lo ao teu médico.",
+    d: "Hipóteses, prioridades e próximos passos, por escrito, até 48 horas depois da consulta. É teu, e podes levá-lo ao teu médico.",
   },
   {
     k: "Depois",
