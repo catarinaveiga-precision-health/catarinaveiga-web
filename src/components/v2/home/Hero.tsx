@@ -25,9 +25,9 @@ export const Hero = () => (
           </h1>
 
           <p className="mt-8 font-sans text-body-lg-v2 text-v2-ink-mute max-w-[480px] leading-[1.55]">
-            Para mulheres em perimenopausa, com fadiga persistente,
-            alterações hormonais, digestivas ou metabólicas que continuam
-            sem explicação clara.
+            Para mulheres em perimenopausa. Cansaço que não passa, sono que
+            não descansa, um corpo que mudou. E exames que dizem que está
+            tudo bem.
           </p>
 
           <Divider className="mt-12" />
