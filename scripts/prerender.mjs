@@ -561,6 +561,17 @@ const pages = [
       "Mulheres entre os 35 e os 55 anos. Fadiga, brain fog, ansiedade nova, alterações intestinais, perimenopausa, sono fragmentado. Sintomas reais, exames normais. Uma leitura integrada do corpo feminino, com vinte anos de prática clínica e em colaboração com médica inscrita na Ordem dos Médicos. Telemedicina, em Portugal e no estrangeiro.",
   },
   {
+    // Página da consulta inicial. Sem entrada aqui o Vercel serve o 404
+    // estatico, porque o prerender gera um ficheiro por rota conhecida.
+    path: "/consulta-inicial",
+    title: "Consulta inicial · Catarina Veiga · A pergunta não é o que tem, é porquê",
+    description:
+      "Consulta inicial de 90 minutos, online, 120 euros. Para mulheres que já contaram esta história a várias pessoas, ouviram que está tudo normal, e saíram sem explicação nenhuma. Não precisa de ter análises feitas.",
+    h1: "A pergunta não é o que tem. É porquê.",
+    intro:
+      "Para mulheres que já contaram esta história a várias pessoas, ouviram que está tudo normal, e saíram sem explicação nenhuma. Em 90 minutos sai a saber o que se está a passar e por que ordem tratar. Consulta inicial de 90 minutos, online, 120 euros, em Portugal e no estrangeiro.",
+  },
+  {
     path: "/metodo",
     title: "O Método · Catarina Veiga · Saúde Hormonal Feminina",
     description:
