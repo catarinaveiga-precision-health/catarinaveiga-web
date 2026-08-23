@@ -336,7 +336,9 @@ const ConsultaInicial = () => (
       <div className="page">
         <p className="lab">Antes de marcar</p>
         <h2 style={{ marginTop: 18, maxWidth: "16ch" }}>
-          Isto serve-lhe, <em>ou não serve</em>
+          {/* nowrap: sem isto a linha parte em "serve-" / "lhe" no hífen */}
+          <span style={{ whiteSpace: "nowrap" }}>Isto serve-lhe,</span>{" "}
+          <em>ou não serve</em>
         </h2>
         <div className="fit">
           <div className="yes">

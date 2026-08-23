@@ -44,8 +44,16 @@ export const LeadMagnetPopup = () => {
   const [error, setError] = useState<string | null>(null);
   const triggered = useRef(false);
 
+  /* Páginas de conversão onde o pop-up não pode aparecer: a regra da skill
+     de monetização é uma CTA por página, e um modal que tapa o ecrã inteiro
+     com uma oferta gratuita é a mais agressiva das CTAs concorrentes. */
+  const SEM_POPUP = ["/consulta-inicial"];
+
   const blocked =
-    location.pathname === GUIA_LANDING_URL || isDone() || isDismissedRecently();
+    location.pathname === GUIA_LANDING_URL ||
+    SEM_POPUP.includes(location.pathname) ||
+    isDone() ||
+    isDismissedRecently();
 
   useEffect(() => {
     if (blocked || triggered.current) return;
