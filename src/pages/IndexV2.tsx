@@ -16,6 +16,7 @@ import { Qualification } from "@/components/v2/home/Qualification";
 import { ImageBand } from "@/components/v2/home/ImageBand";
 import { SocialProof } from "@/components/v2/home/SocialProof";
 import { FAQ } from "@/components/v2/home/FAQ";
+import { Promessa } from "@/components/v2/home/Promessa";
 import { FinalCTA } from "@/components/v2/home/FinalCTA";
 
 /*
@@ -35,6 +36,7 @@ import { FinalCTA } from "@/components/v2/home/FinalCTA";
      StatsRow, Comparison, Qualification: autoridade, distinção, qualificação
    6 PROVA ........ SocialProof
    7 OBJEÇÕES ..... FAQ, 13 perguntas, a da credencial em primeiro
+     Promessa: reversão de risco, entregáveis e não resultado clínico
    8 CTA FINAL .... FinalCTA. Um botão, um preço, uma ação
 
   REGRA DA SKILL, absoluta: uma só CTA. Todos os botões levam ao mesmo sítio,
@@ -63,6 +65,7 @@ const IndexV2 = () => (
       <ImageBand />
       <SocialProof />
       <FAQ />
+      <Promessa />
       <FinalCTA />
       <section className="bg-v2-paper-deep border-t border-v2-paper-line py-8 text-center">
         <p className="font-sans text-sm text-v2-ink-mute px-6">
