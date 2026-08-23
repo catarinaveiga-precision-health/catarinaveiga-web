@@ -17,6 +17,7 @@ export const NavbarV2 = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -46,7 +47,11 @@ export const NavbarV2 = () => {
           : "border-b border-transparent",
       )}
     >
-      <LeadMagnetTopBar />
+      {/* Regra absoluta da skill de monetização: uma só CTA por página de
+          conversão. Na homepage a barra do guia gratuito competia com a
+          marcação da consulta, e era a primeira coisa da página. Continua
+          em todas as outras páginas do site. */}
+      {!isHome && <LeadMagnetTopBar />}
       <div className="mx-auto max-w-[1280px] px-6 md:px-8 lg:px-12 h-20 flex items-center justify-between gap-8">
         {/* Logo */}
         <Link

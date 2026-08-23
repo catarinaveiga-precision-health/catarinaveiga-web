@@ -34,8 +34,8 @@ import { FinalCTA } from "@/components/v2/home/FinalCTA";
    4 REVEAL ....... PrimeiraConsulta, e só aqui é que o produto aparece
    5 INSIDE-OUT ... InsideOut, tudo o que está dentro, sem reservas
      StatsRow, Comparison, Qualification: autoridade, distinção, qualificação
-   6 PROVA ........ SocialProof
-   7 OBJEÇÕES ..... FAQ, 13 perguntas, a da credencial em primeiro
+   6 OBJEÇÕES ..... FAQ, 13 perguntas, a da credencial em primeiro
+   7 PROVA ........ SocialProof, imediatamente antes do fecho
      Promessa: reversão de risco, entregáveis e não resultado clínico
    8 CTA FINAL .... FinalCTA. Um botão, um preço, uma ação
 
@@ -63,8 +63,8 @@ const IndexV2 = () => (
       <Comparison />
       <Qualification />
       <ImageBand />
-      <SocialProof />
       <FAQ />
+      <SocialProof />
       <Promessa />
       <FinalCTA />
       <section className="bg-v2-paper-deep border-t border-v2-paper-line py-8 text-center">

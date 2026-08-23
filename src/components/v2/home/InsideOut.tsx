@@ -77,7 +77,7 @@ export const InsideOut = () => (
           Marcar consulta inicial · 120 €
         </ButtonV2>
         <p className="font-sans text-body-sm-v2 text-v2-ink-mute">
-          90 minutos, online. Resposta em 24 horas úteis.
+          90 minutos, online. Resposta em 48 horas úteis.
         </p>
       </FadeUp>
     </Container>

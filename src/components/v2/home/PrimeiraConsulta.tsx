@@ -31,7 +31,7 @@ export const PrimeiraConsulta = () => (
             O que acontece na primeira consulta.
           </h2>
           <p className="mt-8 font-sans text-body-v2 text-v2-ink-mute leading-[1.7] max-w-[42ch]">
-            São 90 minutos, online. Respondo em 48 horas. Não precisas de ter
+            São 90 minutos, online. Respondo em 48 horas úteis. Não precisas de ter
             exames feitos.
           </p>
 

@@ -26,8 +26,9 @@ export const Hero = () => (
 
           <p className="mt-8 font-sans text-body-lg-v2 text-v2-ink-mute max-w-[480px] leading-[1.55]">
             Para mulheres em perimenopausa. Cansaço que não passa, sono que
-            não descansa, um corpo que mudou. E exames que dizem que está
-            tudo bem.
+            não descansa, exames que dizem que está tudo bem. Sais desta
+            consulta com uma explicação e uma ordem: o que tratar primeiro,
+            e porquê.
           </p>
 
           <Divider className="mt-12" />
@@ -40,7 +41,8 @@ export const Hero = () => (
               Marcar consulta inicial · 120 €
             </ButtonV2>
             <p className="font-sans text-body-sm-v2 text-v2-ink-mute">
-              90 minutos, online. Resposta em 24 horas úteis.
+              90 minutos, online. Resposta em 48 horas úteis.
+              Não precisas de ter exames feitos.
             </p>
           </div>
         </FadeUp>
