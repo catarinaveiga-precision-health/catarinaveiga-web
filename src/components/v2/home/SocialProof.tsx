@@ -32,7 +32,7 @@ export const SocialProof = () => (
           className="inline-flex items-center gap-3 font-sans text-mono-v2 uppercase tracking-[0.12em] text-v2-ink-mute hover:text-v2-ink transition-colors"
         >
           <span className="text-v2-golden">★★★★★</span>
-          <span>4,8 · 20 avaliações no Google</span>
+          <span>4,8 · 21 avaliações no Google</span>
         </a>
       </FadeUp>
 
