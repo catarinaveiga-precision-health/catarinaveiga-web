@@ -422,7 +422,10 @@ const Avaliacao = () => {
           // Enviá-la faz o PostgREST rejeitar o insert inteiro (PGRST204) e o
           // formulário mostrava "Erro ao guardar" a toda a gente desde 5 jun.
           // Repor quando a coluna existir. O valor segue no notificarLead.
-        } as any]).select("id"),
+          // Sem .select("id"): a RLS permite INSERT anonimo mas nao SELECT,
+          // e pedir a linha de volta fazia a gravacao inteira falhar com 401.
+          // leadRows fica null e o leadId ja tolerava null.
+        } as any]),
         supabase.from("applications").insert([{
           nome: insertData.nome,
           email: insertData.email,
