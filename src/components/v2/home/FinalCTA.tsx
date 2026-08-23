@@ -1,8 +1,8 @@
 import { Section } from "../ui/Section";
 import { Container } from "../ui/Container";
 import { ButtonV2 } from "../ui/ButtonV2";
-import { Divider } from "../ui/Divider";
 import { FadeUp } from "../motion/FadeUp";
+import { acuityUrl } from "@/lib/acuity";
 
 export const FinalCTA = () => (
   <Section bg="moss">
@@ -24,28 +24,19 @@ export const FinalCTA = () => (
       <FadeUp delay={0.15} className="mt-14">
         <ButtonV2
           as="a"
-          href="https://catarinaveigaagendamento.as.me/"
+          href={acuityUrl("fecho")}
           size="lg"
         >
-          Marcar consulta inicial · €120
+          Marcar consulta inicial · 120 €
         </ButtonV2>
         <p className="mt-6 font-sans text-mono-v2 uppercase tracking-[0.12em] text-v2-paper/60">
           90 min · telemedicina · resposta em 48h
         </p>
       </FadeUp>
 
-      <FadeUp delay={0.2} className="mt-16 flex justify-center">
-        <Divider tone="paper-soft" />
-      </FadeUp>
-
-      <FadeUp delay={0.25} className="mt-14">
-        <p className="font-sans text-body-v2 text-v2-paper/60 mb-5">
-          Ou primeiro:
-        </p>
-        <ButtonV2 as="Link" to="/avaliacao" variant="ghost" className="text-v2-paper border-v2-paper/30 hover:border-v2-paper/70">
-          Ver os meus marcadores em 2 minutos
-        </ButtonV2>
-      </FadeUp>
+      {/* O "Ou primeiro: ver os meus marcadores" saiu daqui. Era uma segunda
+          ação no exato momento da decisão, e a regra da página é uma CTA só.
+          A ferramenta continua acessível pelo menu. */}
     </Container>
   </Section>
 );

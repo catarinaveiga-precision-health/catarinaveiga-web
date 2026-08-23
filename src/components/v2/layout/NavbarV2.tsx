@@ -4,9 +4,9 @@ import { cn } from "@/lib/utils";
 import { ButtonV2 } from "../ui/ButtonV2";
 import { LeadMagnetTopBar } from "../leadmagnet/LeadMagnetTopBar";
 import logoIcon from "@/assets/logo-icon.png";
+import { acuityUrl } from "@/lib/acuity";
 
 const navLinks = [
-  { label: "Fundação", href: "/programa-fundacao" },
   { label: "Biblioteca", href: "/recursos" },
   { label: "Sobre", href: "/sobre" },
   { label: "Interpretar análises", href: "/avaliacao" },
@@ -87,7 +87,7 @@ export const NavbarV2 = () => {
           </span>
           <ButtonV2
             as="a"
-            href="https://catarinaveigaagendamento.as.me/"
+            href={acuityUrl("menu")}
             variant="primary"
             className="hidden sm:inline-flex"
           >
@@ -144,7 +144,7 @@ export const NavbarV2 = () => {
           <div className="mt-12 pt-10 border-t border-v2-paper-line">
             <ButtonV2
               as="a"
-              href="https://catarinaveigaagendamento.as.me/"
+              href={acuityUrl("menu")}
               variant="primary"
               size="lg"
               className="w-full"

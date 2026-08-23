@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ButtonV2 } from "../ui/ButtonV2";
+import { acuityUrl } from "@/lib/acuity";
 
 export const StickyMobileCTA = () => {
   const [show, setShow] = useState(false);
@@ -18,11 +19,11 @@ export const StickyMobileCTA = () => {
     >
       <ButtonV2
         as="a"
-        href="https://catarinaveigaagendamento.as.me/"
+        href={acuityUrl("barra-mobile")}
         size="lg"
         className="w-full"
       >
-        Marcar consulta inicial · €120
+        Marcar consulta inicial · 120 €
       </ButtonV2>
     </div>
   );

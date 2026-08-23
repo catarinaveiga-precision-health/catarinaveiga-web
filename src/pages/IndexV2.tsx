@@ -4,44 +4,65 @@ import { FooterV2 } from "@/components/v2/layout/FooterV2";
 import { StickyMobileCTA } from "@/components/v2/layout/StickyMobileCTA";
 
 import { Hero } from "@/components/v2/home/Hero";
-import { Problem } from "@/components/v2/home/Problem";
-import { StatsRow } from "@/components/v2/home/StatsRow";
 import { CredentialsMarquee } from "@/components/v2/home/CredentialsMarquee";
+import { Problem } from "@/components/v2/home/Problem";
 import { Outcome } from "@/components/v2/home/Outcome";
+import { Resultado } from "@/components/v2/home/Resultado";
 import { PrimeiraConsulta } from "@/components/v2/home/PrimeiraConsulta";
-import { Method } from "@/components/v2/home/Method";
+import { InsideOut } from "@/components/v2/home/InsideOut";
+import { StatsRow } from "@/components/v2/home/StatsRow";
 import { Comparison } from "@/components/v2/home/Comparison";
 import { Qualification } from "@/components/v2/home/Qualification";
 import { ImageBand } from "@/components/v2/home/ImageBand";
 import { SocialProof } from "@/components/v2/home/SocialProof";
-import { SobreCurta } from "@/components/v2/home/SobreCurta";
 import { FAQ } from "@/components/v2/home/FAQ";
-import { Foundation } from "@/components/v2/home/Foundation";
 import { FinalCTA } from "@/components/v2/home/FinalCTA";
 
+/*
+  Homepage · página de conversão única para a consulta inicial.
+
+  Segue o Story Framework de 8 secções da skill monetization-copy, pela ordem
+  que ela impõe: o produto só aparece depois de a dor estar validada e de o
+  outcome estar vendido.
+
+   1 STOP ......... Hero
+     CredentialsMarquee: quem chega por recomendação vem confirmar quem ela é
+   2 PROBLEMA ..... Problem, nas palavras das pacientes
+     Outcome: a tese, "não é fazer mais exames, é ler bem os que já tens"
+   3 OUTCOME ...... Resultado, a vida depois. Compreensão, nunca cura
+   4 REVEAL ....... PrimeiraConsulta, e só aqui é que o produto aparece
+   5 INSIDE-OUT ... InsideOut, tudo o que está dentro, sem reservas
+     StatsRow, Comparison, Qualification: autoridade, distinção, qualificação
+   6 PROVA ........ SocialProof
+   7 OBJEÇÕES ..... FAQ, 13 perguntas, a da credencial em primeiro
+   8 CTA FINAL .... FinalCTA. Um botão, um preço, uma ação
+
+  REGRA DA SKILL, absoluta: uma só CTA. Todos os botões levam ao mesmo sítio,
+  marcar a consulta inicial. Sem lead magnet a competir, sem segunda oferta.
+
+  Saíram desta página:
+  - Foundation (Programa Fundação): decisão da Catarina, não existe
+  - Method: substituído pelo InsideOut, que mostra o mesmo em detalhe
+  - SobreCurta: a autoridade passou para a faixa de credenciais e os números
+  - o link para a ferramenta gratuita no hero: era uma segunda ação a competir
+*/
 const IndexV2 = () => (
   <div className="min-h-screen bg-v2-paper text-v2-ink font-sans antialiased selection:bg-v2-sage/20">
     <NavbarV2 />
     <main className="overflow-hidden">
-      {/*
-        Ordem pensada como um argumento, e com os fundos a alternar
-        (paper / paper-deep / moss) para a página não ser um bloco só de bege:
-        reconhecimento, autoridade, o que é, como se compara, para quem é, prova.
-      */}
       <Hero />
-      <Problem />
-      <StatsRow />
       <CredentialsMarquee />
+      <Problem />
       <Outcome />
+      <Resultado />
       <PrimeiraConsulta />
-      <Method />
+      <InsideOut />
+      <StatsRow />
       <Comparison />
       <Qualification />
       <ImageBand />
       <SocialProof />
-      <SobreCurta />
       <FAQ />
-      <Foundation />
       <FinalCTA />
       <section className="bg-v2-paper-deep border-t border-v2-paper-line py-8 text-center">
         <p className="font-sans text-sm text-v2-ink-mute px-6">

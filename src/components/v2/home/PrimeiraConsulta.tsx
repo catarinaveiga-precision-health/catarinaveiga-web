@@ -9,6 +9,7 @@ import { PlanoDoc } from "../clinical/PlanoDoc";
 // Substituiu editorial-featured.jpg, stock gerado por IA com uma cama e um chá,
 // que era registo wellness e não dizia nada sobre o trabalho clínico.
 import editorialPhoto from "@/assets/en-consult-desk.jpg";
+import { acuityUrl } from "@/lib/acuity";
 
 const itens = [
   "Histórico clínico detalhado",
@@ -25,7 +26,7 @@ export const PrimeiraConsulta = () => (
     <Container size="default">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
         <FadeUp className="lg:col-span-5">
-          <Eyebrow>Consulta inicial · €120</Eyebrow>
+          <Eyebrow>Consulta inicial · 120 €</Eyebrow>
           <h2 className="mt-6 font-serif text-display-2 text-v2-ink leading-[1.1] tracking-[-0.015em]">
             O que acontece na primeira consulta.
           </h2>
@@ -82,10 +83,10 @@ export const PrimeiraConsulta = () => (
           <div className="mt-10">
             <ButtonV2
               as="a"
-              href="https://catarinaveigaagendamento.as.me/"
+              href={acuityUrl("primeira-consulta")}
               size="lg"
             >
-              Marcar consulta inicial · €120
+              Marcar consulta inicial · 120 €
             </ButtonV2>
           </div>
         </FadeUp>

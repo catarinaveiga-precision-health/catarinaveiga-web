@@ -4,6 +4,7 @@ import { Eyebrow } from "../ui/Eyebrow";
 import { Divider } from "../ui/Divider";
 import { ButtonV2 } from "../ui/ButtonV2";
 import { FadeUp } from "../motion/FadeUp";
+import { acuityUrl } from "@/lib/acuity";
 
 export const Hero = () => (
   <Section
@@ -31,17 +32,16 @@ export const Hero = () => (
 
           <Divider className="mt-12" />
 
-          <div className="mt-12 flex flex-col items-start gap-5">
-            <ButtonV2
-              as="a"
-              href="https://catarinaveigaagendamento.as.me/"
-              size="lg"
-            >
-              Marcar consulta inicial · €120
+          {/* Uma CTA só. O link para a ferramenta gratuita saiu daqui de
+              propósito: era uma segunda ação a competir com a marcação, e a
+              página tem um objetivo único. A ferramenta continua no menu. */}
+          <div className="mt-12 flex flex-col items-start gap-4">
+            <ButtonV2 as="a" href={acuityUrl("hero")} size="lg">
+              Marcar consulta inicial · 120 €
             </ButtonV2>
-            <ButtonV2 as="Link" to="/avaliacao" variant="link">
-              Ou experimentar a ferramenta gratuita ›
-            </ButtonV2>
+            <p className="font-sans text-body-sm-v2 text-v2-ink-mute">
+              90 minutos, online. Resposta em 24 horas úteis.
+            </p>
           </div>
         </FadeUp>
 
