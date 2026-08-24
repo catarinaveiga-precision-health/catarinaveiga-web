@@ -25,10 +25,10 @@ export const Hero = () => (
           </h1>
 
           <p className="mt-8 font-sans text-body-lg-v2 text-v2-ink-mute max-w-[480px] leading-[1.55]">
-            Para mulheres em perimenopausa. Cansaço que não passa, sono que
-            não descansa, exames que dizem que está tudo bem. Sais desta
-            consulta com uma explicação e uma ordem: o que tratar primeiro,
-            e porquê.
+            Consulta de medicina funcional integrativa para mulheres em
+            perimenopausa. Cansaço que não passa, sono que não descansa,
+            exames que dizem que está tudo bem. Sais com uma explicação e
+            uma ordem: o que tratar primeiro, e porquê.
           </p>
 
           <Divider className="mt-12" />
