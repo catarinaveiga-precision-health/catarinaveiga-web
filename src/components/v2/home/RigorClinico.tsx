@@ -2,7 +2,7 @@ import { Section } from "../ui/Section";
 import { Container } from "../ui/Container";
 import { Eyebrow } from "../ui/Eyebrow";
 import { FadeUp } from "../motion/FadeUp";
-import retrato from "@/assets/catarina-sobre-portrait.jpg";
+import retrato from "@/assets/catarina-retrato-creme.jpg";
 
 /* Rigor clínico com rosto, adaptado da secção "Clinical rigor and
    root-cause depth, without compromise" da Parsley (retrato da

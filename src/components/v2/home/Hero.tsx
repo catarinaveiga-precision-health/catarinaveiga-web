@@ -47,23 +47,24 @@ export const Hero = () => (
           </div>
         </FadeUp>
 
+        {/* Hero imersivo (pedido da Catarina, 2026-08-24): sem caixa nem
+            moldura. O retrato de estúdio tem fundo quase branco, e com a
+            página em branco puro a máscara radial funde os limites da
+            fotografia com a própria secção: ela está em pé na página,
+            não dentro de um retângulo. Sem filtros, para os fundos
+            casarem. */}
         <FadeUp className="lg:col-span-5 lg:col-start-8" delay={0.15}>
-          <div className="relative">
-            <div className="relative aspect-[4/5] overflow-hidden bg-v2-paper-deep">
-              <picture>
-                <source media="(max-width: 768px)" srcSet="/catarina-hero-mobile.jpg" />
-                <img
-                  src="/catarina-hero.jpg"
-                  alt="Catarina Veiga"
-                  width={800}
-                  height={1200}
-                  className="w-full h-full object-cover object-top grayscale-[0.15] contrast-[1.02]"
-                  loading="eager"
-                  {...{ fetchpriority: "high" }}
-                  decoding="async"
-                />
-              </picture>
-            </div>
+          <div className="relative flex items-end justify-center">
+            <img
+              src="/catarina-hero-camisa.jpg"
+              alt="Catarina Veiga"
+              width={1020}
+              height={1318}
+              className="w-full max-w-[440px] lg:max-w-none h-auto [mask-image:linear-gradient(to_bottom,black_80%,transparent_99%)] [-webkit-mask-image:linear-gradient(to_bottom,black_80%,transparent_99%)]"
+              loading="eager"
+              {...{ fetchpriority: "high" }}
+              decoding="async"
+            />
             {/* fragmento de análise · objecto clínico sobreposto */}
             <div className="absolute -bottom-6 -left-4 md:-left-8 bg-white border border-v2-paper-line px-5 py-4 shadow-[0_16px_40px_-14px_rgba(31,36,34,0.3)] max-w-[230px]">
               <p className="font-sans text-[9px] uppercase tracking-[0.16em] text-v2-ink-mute/80 pb-2 border-b border-v2-paper-line">
