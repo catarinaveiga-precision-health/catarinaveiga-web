@@ -3,21 +3,28 @@ import { Container } from "../ui/Container";
 import { FadeUp } from "../motion/FadeUp";
 
 /* Testemunhos em formato documental (estilo Google Review):
-   cartão branco, estrelas, inicial em selo. Texto transcrito
-   literalmente das avaliações públicas. */
+   cartão branco, estrelas, inicial em selo e nome da autora.
+   Excertos LITERAIS e contíguos das avaliações públicas (fonte:
+   src/data/testemunhos.json), com […] a marcar cortes. Ortografia
+   original preservada: é isso que os torna verificáveis no Google.
+   O estudo das 3000 landing pages aponta testemunhos identificados
+   como um dos elementos do grupo que converte acima de 2%. */
 
 const testimonials = [
   {
-    initial: "P",
-    text: "Foi a primeira profissional de saúde a realmente olhar para o meu quadro em detalhe. Super metódica e cuidadosa nas análises. O acompanhamento é personalizado e ajustado em função dos sintomas e evolução.",
-  },
-  {
-    initial: "M",
-    text: "Finalmente consegui que alguém me escutasse, validasse e analisasse os meus sintomas com uma atenção que não tinha encontrado antes. Análises, hábitos, regime alimentar, sono, suplementação: tudo é abordado e trabalhado.",
+    initial: "C",
+    author: "Claudia Soeiro",
+    text: "A catarina é super metódica e cuidadosa nas analises que faz e todos os tratamentos são personalizados e ajustados de x em x tempo em função dos sintomas, resultados e evolução. Foi o primeiro profissional de saude a realmente olhar o meu quadro clinico em detalhe […]",
   },
   {
     initial: "A",
-    text: "Com o apoio e o conhecimento da Catarina comecei finalmente a olhar para as causas, não só para os sintomas. O maior ganho foi no sono. Hoje durmo melhor, acordo com mais energia e sinto mais equilíbrio no dia a dia.",
+    author: "Alexandra Fernandes",
+    text: "A Dra. Catarina escutou, validou, avaliou e analisou todos os meus sintomas como mais nenhum médico foi capaz de fazer. […] Recomendo a todos que se sintam perdidos, não validados e cujos sintomas de saúde física e mental condicionem o dia a dia.",
+  },
+  {
+    initial: "Â",
+    author: "Ângela Lourenço",
+    text: "Com o apoio e o conhecimento da Catarina, comecei finalmente a olhar para as causas, não só para os sintomas. O maior ganho foi no sono. Hoje durmo melhor, acordo com mais energia e sinto mais equilíbrio no dia a dia.",
   },
 ];
 
@@ -52,7 +59,7 @@ export const SocialProof = () => (
                 "{t.text}"
               </p>
               <p className="mt-6 pt-5 border-t border-v2-paper-line font-sans text-[10px] uppercase tracking-[0.16em] text-v2-ink-mute/80">
-                Paciente · Google Reviews
+                {t.author} · Google Reviews
               </p>
             </article>
           </FadeUp>
