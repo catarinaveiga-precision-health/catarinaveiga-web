@@ -99,10 +99,6 @@ const FAQSection = () => {
         <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-16">
           FAQ: TSH e função tiroideia
         </h2>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-        />
         <div className="space-y-10">
           {faqs.map((faq, i) => (
             <div key={i}>
@@ -123,12 +119,11 @@ const FAQSection = () => {
 const TshNormal = () => {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
+    "@type": "WebPage",
     "name": "Tiroide com TSH Normal Mas Com Sintomas: Leitura Funcional",
     "description": "Tiroide lenta com TSH 'normal'? Fadiga, frio, queda de cabelo apesar de análises normais. O que a medicina funcional vê nos intervalos que o laboratório aceita como normais.",
     "url": "https://www.catarinaveiga.com/tsh-normal-mas-com-sintomas",
     "inLanguage": "pt",
-    "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
     "publisher": { "@type": "Organization", "name": "Catarina Veiga — Medicina Funcional Integrativa", "url": "https://www.catarinaveiga.com" },
   };
 

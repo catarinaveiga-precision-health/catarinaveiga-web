@@ -81,11 +81,17 @@ export const FooterV2 = () => {
                 </a>
               </li>
               <li>
+                {/* Número público = WhatsApp da prática (o direto da Catarina
+                    fica privado). wa.me em vez de tel: porque as pacientes
+                    escrevem, não ligam. Mesmo número no schema do index.html
+                    e no GBP: o NAP tem de bater certo nos três. */}
                 <a
-                  href="tel:+351917823906"
+                  href="https://wa.me/351937046132"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-v2-ink transition-colors"
                 >
-                  +351 917 823 906
+                  WhatsApp · +351 937 046 132
                 </a>
               </li>
               <li>

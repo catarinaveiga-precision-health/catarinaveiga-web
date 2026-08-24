@@ -110,10 +110,6 @@ const FAQSection = () => {
         <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-16">
           FAQ — Pequenos-almoços ricos em proteína
         </h2>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-        />
         <div className="space-y-10">
           {faqs.map((faq, i) => (
             <div key={i}>

@@ -217,27 +217,8 @@ const testemunhosHtml =
     )
     .join("");
 
-const testemunhosLd = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "@id": "https://www.catarinaveiga.com/#business",
-  name: "Catarina Veiga · Medicina Funcional Integrativa",
-  url: "https://www.catarinaveiga.com",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: testemunhosData.avaliacaoGlobal.media,
-    reviewCount: testemunhosData.avaliacaoGlobal.total,
-    bestRating: 5,
-  },
-  review: testemunhosData.testemunhos.map((t) => ({
-    "@type": "Review",
-    author: { "@type": "Person", name: t.autor },
-    reviewBody: t.texto,
-    inLanguage: t.idioma === "en" ? "en" : "pt-PT",
-    ...(t.data ? { datePublished: t.data } : {}),
-    reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-  })),
-};
+// Sem Review/AggregateRating self-serving no dominio proprio (politica Google,
+// auditoria 2026-08-24). O texto das avaliacoes fica; o rating vive no GBP.
 
 const pages = [
   // Página pilar · tese da marca
@@ -485,7 +466,6 @@ const pages = [
     intro:
       "Avaliacoes reais, publicadas no Google, reproduzidas aqui sem alteracoes. A maioria descreve a mesma coisa: anos a ouvir que estava tudo normal, ate alguem olhar para o conjunto. O tratamento por \u0022Dra.\u0022 e a forma como as pacientes escrevem; Catarina Veiga e especialista em medicina funcional integrativa, nao e medica.",
     extraHtml: testemunhosHtml,
-    jsonLd: testemunhosLd,
   },
   {
     path: "/medicina-funcional",
@@ -514,7 +494,7 @@ const pages = [
       },
       {
         q: "Quanto custa uma consulta de medicina funcional?",
-        a: "A consulta inicial custa 120 euros e dura entre 60 e 90 minutos, em telemedicina. Inclui revisão do histórico clínico e dos exames que já tens, com hipóteses, prioridades e próximos passos concretos no final.",
+        a: "A consulta inicial custa 120 euros e dura 90 minutos, em telemedicina. Inclui revisão do histórico clínico e dos exames que já tens, com hipóteses, prioridades e próximos passos concretos no final.",
       },
     ],
   },
@@ -807,7 +787,7 @@ function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, 
       inLanguage: "pt-PT",
       mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
       author: { "@id": "https://www.catarinaveiga.com/#person" },
-      publisher: { "@id": "https://www.catarinaveiga.com/#person" },
+      publisher: { "@type": "Organization", "@id": "https://www.catarinaveiga.com/#organization", name: "Catarina Veiga · Medicina Funcional Integrativa", url: "https://www.catarinaveiga.com", logo: { "@type": "ImageObject", url: "https://www.catarinaveiga.com/favicon.png", width: 192, height: 192 } },
     };
     const ldJson = JSON.stringify(articleLd).replace(/</g, "\\u003c");
     html = html.replace(

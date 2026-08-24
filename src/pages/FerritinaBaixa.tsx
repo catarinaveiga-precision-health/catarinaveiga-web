@@ -106,10 +106,6 @@ const FAQSection = () => {
         <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-16">
           FAQ: ferritina baixa
         </h2>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-        />
         <div className="space-y-10">
           {faqs.map((faq, i) => (
             <div key={i}>
@@ -130,12 +126,11 @@ const FAQSection = () => {
 const FerritinaBaixa = () => {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
+    "@type": "WebPage",
     "name": "Ferritina Baixa com Hemoglobina Normal: Sintomas e Causas",
     "description": "Ferritina baixa com hemoglobina normal? Sintomas, causas e a diferença entre valores laboratoriais e funcionais: porque há défice de ferro sem anemia.",
     "url": "https://www.catarinaveiga.com/ferritina-baixa-sintomas",
     "inLanguage": "pt",
-    "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
     "publisher": { "@type": "Organization", "name": "Catarina Veiga — Medicina Funcional Integrativa", "url": "https://www.catarinaveiga.com" },
   };
 

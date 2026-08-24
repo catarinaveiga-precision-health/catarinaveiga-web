@@ -91,10 +91,6 @@ const FAQSection = () => {
         <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-16">
           FAQ: insulina em jejum
         </h2>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-        />
         <div className="space-y-10">
           {faqs.map((faq, i) => (
             <div key={i}>
@@ -115,12 +111,11 @@ const FAQSection = () => {
 const InsulinaJejum = () => {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
+    "@type": "WebPage",
     "name": "Insulina em Jejum Elevada: O Que Significa",
     "description": "Insulina em jejum elevada com glicose normal? Descobre o que a hiperinsulinemia significa antes de um diagnóstico de pré-diabetes.",
     "url": "https://www.catarinaveiga.com/insulina-jejum-o-que-significa",
     "inLanguage": "pt",
-    "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
     "publisher": { "@type": "Organization", "name": "Catarina Veiga — Medicina Funcional Integrativa", "url": "https://www.catarinaveiga.com" },
   };
 

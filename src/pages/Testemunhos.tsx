@@ -41,26 +41,17 @@ const TestemunhosGrid = () => {
 };
 
 const Testemunhos = () => {
+  /* Sem Review/AggregateRating: reviews self-serving no próprio domínio
+     violam a política do Google para Review snippets (auditoria 2026-08-24).
+     O texto das avaliações continua visível na página; o rating vive no
+     Google Business Profile, que é a fonte que conta. */
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "@id": "https://www.catarinaveiga.com/#business",
-    name: "Catarina Veiga · Medicina Funcional Integrativa",
-    url: "https://www.catarinaveiga.com",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: avaliacaoGlobal.media,
-      reviewCount: avaliacaoGlobal.total,
-      bestRating: 5,
-    },
-    review: testemunhos.map((t) => ({
-      "@type": "Review",
-      author: { "@type": "Person", name: t.autor },
-      reviewBody: t.texto,
-      inLanguage: t.idioma === "en" ? "en" : "pt-PT",
-      ...(t.data ? { datePublished: t.data } : {}),
-      reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-    })),
+    "@type": "WebPage",
+    name: "Testemunhos: o que dizem as pacientes",
+    url: "https://www.catarinaveiga.com/testemunhos",
+    inLanguage: "pt-PT",
+    about: { "@id": "https://www.catarinaveiga.com/#business" },
   };
 
   return (

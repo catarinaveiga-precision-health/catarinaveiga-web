@@ -84,25 +84,19 @@ const MedicinaFuncional = () => {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
+    "@type": "WebPage",
     "name": "Medicina Funcional: o que é e quando pode ajudar",
     "description": "A medicina funcional investiga as causas raiz de sintomas persistentes — especialmente quando os exames parecem normais.",
     "url": "https://www.catarinaveiga.com/medicina-funcional",
     "inLanguage": "pt",
-    "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
     "publisher": {
       "@type": "Organization",
       "name": "Catarina Veiga — Medicina Funcional Integrativa",
       "url": "https://www.catarinaveiga.com",
     },
-    "mainEntity": {
-      "@type": "FAQPage",
-      "mainEntity": faqs.map((faq) => ({
-        "@type": "Question",
-        "name": faq.q,
-        "acceptedAnswer": { "@type": "Answer", "text": faq.a },
-      })),
-    },
+    /* FAQPage aninhado removido (auditoria 2026-08-24): coexistia com o
+       FAQPage do prerender e dava uma resposta de preço diferente na mesma
+       página. O prerender é a fonte única do FAQPage desta rota. */
   };
 
   return (

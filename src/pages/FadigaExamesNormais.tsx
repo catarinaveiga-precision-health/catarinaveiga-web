@@ -75,10 +75,6 @@ const FAQSection = () => {
         <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-16">
           FAQ: fadiga com exames normais
         </h2>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-        />
         <div className="space-y-10">
           {faqs.map((faq, i) => (
             <div key={i}>
@@ -99,12 +95,11 @@ const FAQSection = () => {
 const FadigaExamesNormais = () => {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
+    "@type": "WebPage",
     "name": "Fadiga com Exames Normais: A Quem Recorrer e o Que Investigar",
     "description": "Sem energia e cansada mas os exames dão normais? A quem recorrer, porque acontece, e o que a medicina funcional investiga quando a convencional diz que está tudo bem.",
     "url": "https://www.catarinaveiga.com/fadiga-exames-normais",
     "inLanguage": "pt",
-    "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
     "publisher": { "@type": "Organization", "name": "Catarina Veiga — Medicina Funcional Integrativa", "url": "https://www.catarinaveiga.com" },
   };
 
