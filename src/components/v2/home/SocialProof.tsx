@@ -46,7 +46,7 @@ export const SocialProof = () => (
       <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 items-start">
         {testimonials.map((t, i) => (
           <FadeUp key={i} delay={i * 0.08}>
-            <article className="bg-white border border-v2-paper-line px-8 py-9 shadow-[0_14px_36px_-16px_rgba(31,36,34,0.18)] h-full">
+            <article className="rounded-2xl bg-white border border-v2-paper-line px-8 py-9 shadow-[0_14px_36px_-16px_rgba(31,36,34,0.18)] h-full">
               <div className="flex items-center justify-between">
                 <span className="w-10 h-10 rounded-full bg-v2-paper-deep border border-v2-paper-line flex items-center justify-center font-serif text-[17px] text-v2-ink-mute">
                   {t.initial}

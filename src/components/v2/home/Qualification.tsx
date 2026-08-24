@@ -31,7 +31,7 @@ export const Qualification = () => (
 
       <div className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
         <FadeUp>
-          <div className="h-full bg-v2-paper-deep px-8 py-9 md:px-10 md:py-11">
+          <div className="h-full rounded-3xl bg-v2-paper-deep ring-1 ring-v2-sage/25 px-8 py-9 md:px-10 md:py-11">
             <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-v2-sage">
               É para ti se
             </p>
@@ -54,7 +54,7 @@ export const Qualification = () => (
         </FadeUp>
 
         <FadeUp delay={0.1}>
-          <div className="h-full border border-v2-paper-line px-8 py-9 md:px-10 md:py-11">
+          <div className="h-full rounded-3xl border border-v2-paper-line px-8 py-9 md:px-10 md:py-11">
             <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-v2-ink-mute">
               Não é para ti se
             </p>

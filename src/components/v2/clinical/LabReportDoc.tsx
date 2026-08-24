@@ -16,9 +16,9 @@ export const LabReportDoc = () => (
     {/* folha por trás, ligeiramente rodada: profundidade física */}
     <div
       aria-hidden
-      className="absolute inset-0 translate-x-2 translate-y-2 rotate-[0.6deg] bg-white border border-v2-paper-line"
+      className="absolute inset-0 translate-x-2 translate-y-2 rotate-[0.6deg] rounded-xl bg-white border border-v2-paper-line"
     />
-    <div className="relative bg-white border border-v2-paper-line px-7 py-8 shadow-[0_18px_48px_-18px_rgba(31,36,34,0.28)]">
+    <div className="relative rounded-xl bg-white border border-v2-paper-line px-7 py-8 shadow-[0_18px_48px_-18px_rgba(31,36,34,0.28)]">
       <div className="flex items-baseline justify-between border-b border-v2-paper-line pb-4">
         <p className="font-sans text-[10px] uppercase tracking-[0.18em] text-v2-ink-mute">
           Análises clínicas · resultados

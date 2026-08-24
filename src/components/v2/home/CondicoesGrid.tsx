@@ -138,7 +138,7 @@ export const CondicoesGrid = () => (
           >
             <Link
               to={c.href}
-              className="group flex flex-col h-full bg-white border border-v2-paper-line px-7 pt-8 pb-7 shadow-[0_14px_36px_-20px_rgba(22,53,44,0.35)] transition-shadow hover:shadow-[0_20px_44px_-18px_rgba(22,53,44,0.45)]"
+              className="group flex flex-col h-full rounded-2xl bg-white border border-v2-paper-line px-7 pt-8 pb-7 shadow-[0_14px_36px_-20px_rgba(22,53,44,0.35)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_48px_-18px_rgba(22,53,44,0.5)] hover:-translate-y-1"
             >
               <span className="block w-24 h-24 rounded-full overflow-hidden ring-1 ring-v2-paper-line">
                 <img
@@ -148,7 +148,7 @@ export const CondicoesGrid = () => (
                   decoding="async"
                   width={96}
                   height={96}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </span>
               <h3 className="mt-6 font-serif text-h3-v2 text-v2-ink leading-[1.25]">

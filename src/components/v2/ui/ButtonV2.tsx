@@ -38,11 +38,14 @@ type Props = ButtonProps | AnchorProps | LinkProps;
 const baseClasses =
   "inline-flex items-center justify-center font-body text-body-sm-v2 tracking-wide transition-colors duration-[180ms] ease-out focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-v2-ink/40 focus-visible:ring-offset-2 focus-visible:ring-offset-v2-paper disabled:opacity-50";
 
+/* Pill (2026-08-24, decisão da Catarina): cantos totalmente redondos
+   nos botões, o gesto da Parsley. A sombra dourada suave no primary dá
+   o relevo "clicável" que o retângulo plano não tinha. */
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-v2-golden text-v2-paper hover:bg-v2-golden-deep px-7 py-4 uppercase tracking-[0.12em]",
+    "bg-v2-golden text-v2-paper hover:bg-v2-golden-deep px-8 py-4 uppercase tracking-[0.12em] rounded-full shadow-[0_10px_28px_-10px_rgba(154,123,83,0.55)] hover:shadow-[0_14px_32px_-10px_rgba(154,123,83,0.65)] transition-[background-color,box-shadow,transform] hover:-translate-y-px",
   ghost:
-    "bg-transparent text-v2-ink border border-v2-ink/15 hover:border-v2-ink/40 px-7 py-4 uppercase tracking-[0.12em]",
+    "bg-transparent text-v2-ink border border-v2-ink/15 hover:border-v2-ink/40 px-8 py-4 uppercase tracking-[0.12em] rounded-full",
   link:
     "bg-transparent text-current underline-offset-4 hover:underline px-0 py-0",
 };

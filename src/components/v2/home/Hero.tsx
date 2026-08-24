@@ -47,26 +47,30 @@ export const Hero = () => (
           </div>
         </FadeUp>
 
-        {/* Hero imersivo (pedido da Catarina, 2026-08-24): sem caixa nem
-            moldura. O retrato de estúdio tem fundo quase branco, e com a
-            página em branco puro a máscara radial funde os limites da
-            fotografia com a própria secção: ela está em pé na página,
-            não dentro de um retângulo. Sem filtros, para os fundos
-            casarem. */}
+        {/* Hero imersivo com o retrato original (escolha da Catarina,
+            2026-08-24): o fundo do estúdio foi removido a sério (rembg,
+            local, só recorte, zero retoque no rosto) e o WebP com alpha
+            funde com qualquer fundo. Atrás dela, um halo radial sage
+            muito ténue dá profundidade sem criar caixa. O fade inferior
+            dissolve o corte das calças na página. */}
         <FadeUp className="lg:col-span-5 lg:col-start-8" delay={0.15}>
           <div className="relative flex items-end justify-center">
+            <div
+              aria-hidden
+              className="absolute inset-x-0 top-6 bottom-0 [background:radial-gradient(75%_62%_at_50%_38%,rgba(113,130,129,0.16),transparent_75%)]"
+            />
             <img
-              src="/catarina-hero-camisa.jpg"
+              src="/catarina-hero-recorte.webp"
               alt="Catarina Veiga"
-              width={1020}
-              height={1318}
-              className="w-full max-w-[440px] lg:max-w-none h-auto [mask-image:linear-gradient(to_bottom,black_80%,transparent_99%)] [-webkit-mask-image:linear-gradient(to_bottom,black_80%,transparent_99%)]"
+              width={800}
+              height={1200}
+              className="relative w-full max-w-[420px] lg:max-w-[460px] h-auto [mask-image:linear-gradient(to_bottom,black_86%,transparent_99%)] [-webkit-mask-image:linear-gradient(to_bottom,black_86%,transparent_99%)]"
               loading="eager"
               {...{ fetchpriority: "high" }}
               decoding="async"
             />
             {/* fragmento de análise · objecto clínico sobreposto */}
-            <div className="absolute -bottom-6 -left-4 md:-left-8 bg-white border border-v2-paper-line px-5 py-4 shadow-[0_16px_40px_-14px_rgba(31,36,34,0.3)] max-w-[230px]">
+            <div className="absolute -bottom-6 -left-4 md:-left-8 rounded-xl bg-white border border-v2-paper-line px-5 py-4 shadow-[0_16px_40px_-14px_rgba(31,36,34,0.3)] max-w-[230px] backdrop-blur">
               <p className="font-sans text-[9px] uppercase tracking-[0.16em] text-v2-ink-mute/80 pb-2 border-b border-v2-paper-line">
                 Leitura funcional
               </p>

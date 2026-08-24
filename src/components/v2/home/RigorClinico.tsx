@@ -24,7 +24,7 @@ export const RigorClinico = () => (
     <Container size="default">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         <FadeUp className="lg:col-span-5">
-          <div className="relative aspect-[4/5] overflow-hidden bg-v2-paper-deep max-w-[420px]">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-v2-paper-deep max-w-[420px] shadow-[0_24px_50px_-24px_rgba(22,53,44,0.4)]">
             <img
               src={retrato}
               alt="Catarina Veiga, especialista em medicina funcional integrativa"

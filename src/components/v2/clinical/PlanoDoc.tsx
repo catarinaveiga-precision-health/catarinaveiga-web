@@ -29,9 +29,9 @@ export const PlanoDoc = () => (
   <figure className="relative max-w-[380px]">
     <div
       aria-hidden
-      className="absolute inset-0 -translate-x-2 translate-y-2 -rotate-[0.5deg] bg-white border border-v2-paper-line"
+      className="absolute inset-0 -translate-x-2 translate-y-2 -rotate-[0.5deg] rounded-xl bg-white border border-v2-paper-line"
     />
-    <div className="relative bg-white border border-v2-paper-line px-7 py-7 shadow-[0_18px_48px_-18px_rgba(31,36,34,0.25)]">
+    <div className="relative rounded-xl bg-white border border-v2-paper-line px-7 py-7 shadow-[0_18px_48px_-18px_rgba(31,36,34,0.25)]">
       <div className="flex items-baseline justify-between border-b border-v2-paper-line pb-3.5">
         <p className="font-serif text-[15px] text-v2-ink">Plano clínico</p>
         <p className="font-sans text-[10px] uppercase tracking-[0.14em] text-v2-ink-mute/70">

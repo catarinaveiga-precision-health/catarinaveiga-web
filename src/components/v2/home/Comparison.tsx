@@ -47,7 +47,7 @@ export const Comparison = () => (
       </FadeUp>
 
       <FadeUp delay={0.1} className="mt-14">
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto rounded-2xl border border-v2-paper-line shadow-[0_24px_56px_-28px_rgba(22,53,44,0.45)]">
           <table className="w-full min-w-[640px] border-collapse bg-v2-paper">
             <caption className="sr-only">
               Comparação entre a consulta de rotina, os serviços de análises

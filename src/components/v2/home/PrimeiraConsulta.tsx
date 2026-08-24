@@ -37,7 +37,7 @@ export const PrimeiraConsulta = () => (
 
           {/* composição editorial: fotografia + documento do plano */}
           <div className="relative mt-14">
-            <div className="aspect-[4/3] overflow-hidden bg-v2-paper-deep max-w-[400px]">
+            <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-v2-paper-deep max-w-[400px] shadow-[0_20px_44px_-22px_rgba(22,53,44,0.4)]">
               <img
                 src={editorialPhoto}
                 alt="Análises impressas, apontamentos à mão e óculos sobre uma mesa de madeira"

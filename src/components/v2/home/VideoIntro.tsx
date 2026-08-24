@@ -35,7 +35,7 @@ export const VideoIntro = () => {
         </FadeUp>
 
         <FadeUp delay={0.1} className="mt-12">
-          <div className="relative aspect-video overflow-hidden bg-v2-ink">
+          <div className="relative aspect-video overflow-hidden rounded-2xl bg-v2-ink shadow-[0_28px_60px_-24px_rgba(22,53,44,0.55)]">
             {playing ? (
               <iframe
                 src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?autoplay=1&rel=0`}
