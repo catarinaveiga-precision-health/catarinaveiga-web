@@ -16,6 +16,7 @@ import { InsideOut } from "@/components/v2/home/InsideOut";
 import { StatsRow } from "@/components/v2/home/StatsRow";
 import { Comparison } from "@/components/v2/home/Comparison";
 import { Qualification } from "@/components/v2/home/Qualification";
+import { QuizBand } from "@/components/v2/home/QuizBand";
 import { ImageBand } from "@/components/v2/home/ImageBand";
 import { SocialProof } from "@/components/v2/home/SocialProof";
 import { VideoIntro } from "@/components/v2/home/VideoIntro";
@@ -47,8 +48,13 @@ import { FinalCTA } from "@/components/v2/home/FinalCTA";
      Promessa: reversão de risco, entregáveis e não resultado clínico
    8 CTA FINAL .... FinalCTA. Um botão, um preço, uma ação
 
-  REGRA DA SKILL, absoluta: uma só CTA. Todos os botões levam ao mesmo sítio,
-  marcar a consulta inicial. Sem lead magnet a competir, sem segunda oferta.
+  REGRA DA CTA, revista a 2026-08-24 pela Catarina com base em dados: já não
+  é "uma só CTA", é HIERARQUIA POR PRONTIDÃO. A consulta é a oferta dominante
+  (botões dourados, topo e fecho); a QuizBand (autoavaliação gratuita, botão
+  sage, depois da qualificação) apanha quem ainda não está pronta para 120 EUR.
+  Evidência: a /avaliacao converteu um pedido de consulta sem promoção, e a
+  concorrente com melhor conversão tem o quiz em destaque duplo. O pop-up do
+  guia continua fora desta página: modal a tapar o ecrã é outra coisa.
 
   Saíram desta página:
   - Foundation (Programa Fundação): decisão da Catarina, não existe
@@ -73,6 +79,7 @@ const IndexV2 = () => (
       <StatsRow />
       <Comparison />
       <Qualification />
+      <QuizBand />
       <ImageBand />
       <FAQ />
       <SocialProof />

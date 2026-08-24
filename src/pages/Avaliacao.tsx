@@ -514,7 +514,7 @@ const Avaliacao = () => {
           Os teus exames estão normais.<br />O teu corpo não.
         </h1>
         <p className="mt-6 text-v2-ink-mute max-w-2xl mx-auto text-base font-sans leading-relaxed">
-          Esta autoavaliação é educativa. Ajuda-te a chegar à consulta — comigo ou com o teu médico — com perguntas estruturadas. Não substitui avaliação clínica.
+          Esta autoavaliação é educativa. Ajuda-te a chegar à consulta, comigo ou com o teu médico, com perguntas estruturadas. Não substitui avaliação clínica.
         </p>
         <p className="mt-2 text-v2-ink-mute font-sans text-sm">
           Mais de 15 biomarcadores analisados em menos de 2 minutos.
