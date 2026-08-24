@@ -4,59 +4,61 @@ import { Container } from "../ui/Container";
 import { Eyebrow } from "../ui/Eyebrow";
 import { FadeUp } from "../motion/FadeUp";
 
-/* Grelha de condições como portas de entrada, o mecanismo central da
-   homepage da Parsley ("Symptoms and conditions we treat at the root"):
-   cada condição nomeia os sintomas na voz da paciente e liga à página
-   que o site já tem sobre o tema. Responde à pergunta "ela trata o que
-   EU tenho?" e desfaz a ideia de que isto é só leitura de análises. */
+/* Índice clínico editorial. Redesenho de 2026-08-24: a primeira versão
+   era uma grelha 4x2 de caixas iguais e lia-se como uma tabela de
+   widgets. Passa a lista editorial em duas colunas, cada condição uma
+   entrada de índice: numeração pequena, nome em serif grande, sintomas
+   em itálico como voz da paciente, linha fina a separar. O mecanismo da
+   Parsley ("conditions we treat" com portas de entrada) mantém-se; a
+   forma passa a ser a da página, editorial e não SaaS. */
 
 const condicoes = [
   {
     nome: "Fadiga persistente",
     sintomas:
-      "Cansaço que não passa com sono, energia a desaparecer a meio da tarde, ouvir que é do stress.",
+      "cansaço que não passa com sono, energia a desaparecer a meio da tarde, ouvir que é do stress",
     href: "/fadiga-exames-normais",
   },
   {
     nome: "Tiroide",
     sintomas:
-      "TSH dentro da referência mas com sintomas: frio, queda de cabelo, metabolismo lento, névoa mental.",
+      "TSH dentro da referência mas com sintomas: frio, queda de cabelo, metabolismo lento, névoa mental",
     href: "/tsh-normal-mas-com-sintomas",
   },
   {
     nome: "Ferro e ferritina",
     sintomas:
-      "Ferritina baixa com hemoglobina normal, cansaço, falta de ar a subir escadas, cabelo e unhas frágeis.",
+      "ferritina baixa com hemoglobina normal, falta de ar a subir escadas, cabelo e unhas frágeis",
     href: "/ferritina-baixa-sintomas",
   },
   {
     nome: "Perimenopausa",
     sintomas:
-      "Acordar às 4 da manhã, ciclos a mudar, ansiedade que não existia, calores, memória que falha.",
+      "acordar às 4 da manhã, ciclos a mudar, ansiedade que não existia, calores, memória que falha",
     href: "/blog/acordar-as-4-da-manha-perimenopausa",
   },
   {
     nome: "Hormonas e ciclo",
     sintomas:
-      "SPM que piorou, fase lútea difícil, seios sensíveis, sono frágil na semana antes do período.",
+      "SPM que piorou, fase lútea difícil, seios sensíveis, sono frágil na semana antes do período",
     href: "/blog/progesterona-baixa-sintomas-fase-lutea",
   },
   {
     nome: "Metabolismo e insulina",
     sintomas:
-      "Peso que não mexe apesar do esforço, fome pouco depois de comer, glicemia normal mas algo não bate certo.",
+      "peso que não mexe apesar do esforço, fome pouco depois de comer, glicemia normal mas algo não bate certo",
     href: "/insulina-jejum-o-que-significa",
   },
   {
     nome: "Digestão",
     sintomas:
-      "Inchaço ao fim do dia, intestino preso, sensibilidade a comidas que antes não davam problema.",
+      "inchaço ao fim do dia, intestino preso, sensibilidade a comidas que antes não davam problema",
     href: "/blog/intestino-preso-nao-e-um-problema-de-fibra-e-um-problema-hormonal",
   },
   {
     nome: "Sintomas sem explicação",
     sintomas:
-      "Vários sintomas ao mesmo tempo, exames repetidamente normais, e ninguém a ligar as peças.",
+      "vários sintomas ao mesmo tempo, exames repetidamente normais, e ninguém a ligar as peças",
     href: "/exames-normais-mas-sintomas",
   },
 ];
@@ -64,33 +66,44 @@ const condicoes = [
 export const CondicoesGrid = () => (
   <Section bg="paper-deep">
     <Container size="default">
-      <FadeUp>
+      <FadeUp className="max-w-[62ch]">
         <Eyebrow>O que acompanho</Eyebrow>
-        <h2 className="mt-6 font-serif text-h2-v2 text-v2-ink leading-[1.15] tracking-[-0.01em] max-w-[24ch]">
+        <h2 className="mt-6 font-serif text-h2-v2 text-v2-ink leading-[1.15] tracking-[-0.01em]">
           Sintomas com nome, tratados na raiz.
         </h2>
-        <p className="mt-8 font-sans text-body-lg-v2 text-v2-ink-mute leading-[1.55] max-w-[52ch]">
+        <p className="mt-8 font-sans text-body-lg-v2 text-v2-ink-mute leading-[1.55]">
           Quase tudo isto costuma chegar com a mesma frase: "os exames
           estão normais". Cada tema tem uma página onde explico como o
           abordo.
         </p>
       </FadeUp>
 
-      <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-v2-paper-line border border-v2-paper-line">
+      <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-x-20 border-t border-[rgba(31,36,34,0.15)]">
         {condicoes.map((c, i) => (
-          <FadeUp key={c.nome} delay={(i % 4) * 0.06} className="h-full">
+          <FadeUp key={c.nome} delay={(i % 2) * 0.06}>
             <Link
               to={c.href}
-              className="group flex flex-col h-full bg-v2-paper px-7 py-8 transition-colors hover:bg-white"
+              className="group grid grid-cols-[auto_1fr_auto] items-baseline gap-x-6 py-8 border-b border-[rgba(31,36,34,0.15)]"
             >
-              <h3 className="font-serif text-h3-v2 text-v2-ink leading-[1.25]">
-                {c.nome}
-              </h3>
-              <p className="mt-4 font-sans text-body-sm-v2 text-v2-ink-mute leading-[1.6] flex-1">
-                {c.sintomas}
-              </p>
-              <span className="mt-6 font-sans text-mono-v2 uppercase tracking-[0.14em] text-v2-sage group-hover:text-v2-sage-deep transition-colors">
-                Como abordo ›
+              <span
+                aria-hidden
+                className="font-sans text-mono-v2 tabular-nums text-v2-sage"
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span>
+                <span className="block font-serif text-[clamp(1.5rem,2.2vw,1.9rem)] text-v2-ink leading-[1.2] tracking-[-0.01em] transition-colors group-hover:text-v2-sage-deep">
+                  {c.nome}
+                </span>
+                <span className="mt-2.5 block font-serif italic text-[15px] text-v2-ink-mute leading-[1.55] max-w-[46ch]">
+                  {c.sintomas}
+                </span>
+              </span>
+              <span
+                aria-hidden
+                className="font-serif text-[1.4rem] text-v2-sage self-center transition-transform duration-300 group-hover:translate-x-1.5"
+              >
+                ›
               </span>
             </Link>
           </FadeUp>
