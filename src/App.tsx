@@ -22,6 +22,7 @@ import Recursos from "./pages/Recursos";
 import VitaminaD from "./pages/VitaminaD";
 import InsulinaJejum from "./pages/InsulinaJejum";
 import FadigaExamesNormais from "./pages/FadigaExamesNormais";
+import PerimenopausaSintomas from "./pages/PerimenopausaSintomas";
 import TshNormal from "./pages/TshNormal";
 import MedicinaFuncional from "./pages/MedicinaFuncional";
 import PequenosAlmocosRicosProteina from "./pages/PequenosAlmocosRicosProteina";
@@ -66,6 +67,7 @@ const App = () => (
             <Route path="/vitamina-d" element={<Navigate to="/vitamina-d-valores-funcionais" replace />} />
             <Route path="/insulina-jejum-o-que-significa" element={<InsulinaJejum />} />
             <Route path="/fadiga-exames-normais" element={<FadigaExamesNormais />} />
+            <Route path="/perimenopausa-sintomas" element={<PerimenopausaSintomas />} />
             <Route path="/segunda-opiniao-analises-normais" element={<SegundaOpiniaoAnalises />} />
             <Route path="/testemunhos" element={<Testemunhos />} />
             <Route path="/tsh-normal-mas-com-sintomas" element={<TshNormal />} />

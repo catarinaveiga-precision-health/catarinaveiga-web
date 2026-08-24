@@ -56,7 +56,7 @@ const condicoes = [
     alt: "Despertador analógico a marcar as quatro na mesa de cabeceira",
     sintomas:
       "Acordar às 4 da manhã, ciclos a mudar, ansiedade que não existia, calores, memória que falha.",
-    href: "/blog/acordar-as-4-da-manha-perimenopausa",
+    href: "/perimenopausa-sintomas",
   },
   {
     nome: "Hormonas e ciclo",

@@ -393,6 +393,40 @@ const pages = [
       },
     ],
   },
+  // Perimenopausa: sintomas · criada na Fase 2 da auditoria SEO (2026-08-24),
+  // a consulta de maior volume do territorio nao tinha pagina propria.
+  {
+    path: "/perimenopausa-sintomas",
+    title:
+      "Sintomas da Perimenopausa: 10 Sinais e Porque as Análises Dão Normais | Catarina Veiga",
+    description:
+      "Acordar às 4h, ciclos a mudar, ansiedade nova, calores, memória que falha. Os sintomas da perimenopausa explicados, e porque as análises podem dar normais.",
+    h1: "Sintomas da perimenopausa: o que é normal, o que merece investigação",
+    intro:
+      "A perimenopausa é a transição que antecede a menopausa e pode durar vários anos. A primeira hormona a cair é a progesterona, por isso os primeiros sintomas raramente são calores: são sono frágil, ansiedade nova e ciclos que mudam.",
+    faq: [
+      {
+        q: "Quando começa a perimenopausa e quanto tempo dura?",
+        a: "Tipicamente começa depois dos 40 anos, embora possa começar antes, e prolonga-se por vários anos até à menopausa, que se confirma após doze meses sem menstruação. Não é um interruptor, é uma transição gradual: as hormonas flutuam, com meses melhores e meses piores. Muitas mulheres passam os primeiros anos desta fase sem que ninguém lhe ponha o nome certo, porque os sintomas iniciais, sono frágil, ansiedade nova, ciclos ligeiramente diferentes, são atribuídos ao stress ou à idade. Reconhecer a fase pelo que ela é muda a forma de investigar e de tratar.",
+      },
+      {
+        q: "Posso estar em perimenopausa com análises normais?",
+        a: "Sim, e é a situação mais comum. As hormonas na perimenopausa flutuam de semana para semana e até de dia para dia, por isso uma análise feita num único dia apanha apenas uma fotografia de um filme inteiro. A orientação clínica britânica (NICE, guideline NG23) recomenda que, em mulheres com mais de 45 anos, a perimenopausa seja identificada pelos sintomas e pela história clínica, sem análises hormonais de rotina, precisamente porque valores flutuantes confundem mais do que esclarecem. As análises continuam a ser úteis para o resto do quadro: ferritina, tiroide, insulina e vitamina D lidas em conjunto.",
+      },
+      {
+        q: "Quais são os sintomas mais comuns da perimenopausa?",
+        a: "Os que vejo com mais frequência em consulta: acordar entre as 3h e as 5h da manhã em alerta; ciclos mais curtos, mais longos ou mais imprevisíveis; uma SPM que piorou, com a semana antes do período a tornar-se difícil; ansiedade que não existia; calores e suores noturnos; névoa mental e memória que falha; peso que não mexe apesar de comeres como sempre; e cansaço que o sono não resolve. Juntam-se por vezes libido em baixo, pele seca, queda de cabelo e dores articulares matinais. Nenhum sintoma isolado define a fase: é o conjunto, e a idade, que contam a história.",
+      },
+      {
+        q: "Preciso de medir as hormonas para confirmar?",
+        a: "Na maioria dos casos, depois dos 45 anos, não: o diagnóstico é clínico, feito pela história e pelos sintomas, como recomenda a guideline NICE NG23. Medições hormonais pontuais podem ter interesse em situações específicas, por exemplo antes dos 45 anos ou para excluir outras causas, mas um valor isolado de FSH ou estradiol num único dia não confirma nem exclui a perimenopausa. Mais útil do que perseguir um número hormonal é avaliar o que explica os sintomas: ferritina, função tiroideia, glicemia e insulina, vitamina D, sono e carga de stress, lidos em conjunto.",
+      },
+      {
+        q: "Quando devo falar com um médico em vez de esperar?",
+        a: "Sempre que houver sinais que exigem avaliação médica: sangramentos muito abundantes ou prolongados, sangramento depois de mais de um ano sem menstruação, dor incaracterística ou qualquer sintoma agudo que te preocupe. O trabalho de medicina funcional integrativa é complementar ao acompanhamento médico, não substituto: não inclui diagnóstico nem prescrição, e as situações que exigem médico são sinalizadas e encaminhadas com clareza.",
+      },
+    ],
+  },
   {
     path: "/fadiga-exames-normais",
     title:

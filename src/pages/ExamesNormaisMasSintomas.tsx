@@ -356,6 +356,46 @@ const ExamesNormaisMasSintomas = () => {
         </p>
       </SEOContentSection>
 
+      {/* Hub da intenção "exames normais" (auditoria 2026-08-24): esta é a
+          página pilar; as quatro páginas-satélite deixam de competir e passam
+          a aprofundamentos ligados daqui. Prosa, não cards, para os
+          extratores de IA lerem o texto todo. */}
+      <SEOContentSection
+        label="Aprofundar"
+        title="O teu sintoma principal tem página própria"
+      >
+        <p>
+          Se o que mais te pesa é o cansaço, escrevi um guia sobre{" "}
+          <Link to="/fadiga-exames-normais">
+            fadiga com exames normais: a quem recorrer e o que investigar
+          </Link>
+          . Se acordas sistematicamente a meio da noite, começa por{" "}
+          <Link to="/blog/acordar-as-4-da-manha-perimenopausa">
+            porque acordas sempre às 4h da manhã
+          </Link>
+          . Se tens entre 38 e 52 anos e vários sintomas ao mesmo tempo, o
+          quadro completo está em{" "}
+          <Link to="/perimenopausa-sintomas">sintomas da perimenopausa</Link>.
+        </p>
+        <p>
+          Para perceberes o que os teus valores podem estar a esconder,
+          tens{" "}
+          <Link to="/blog/biomarcadores-analises-normais-mulher">
+            os biomarcadores que merecem uma segunda leitura
+          </Link>{" "}
+          e{" "}
+          <Link to="/blog/analises-normais-sintomas-persistentes">
+            análises normais com sintomas persistentes
+          </Link>
+          . E se já tens análises e queres outra leitura das mesmas, é para
+          isso que existe a{" "}
+          <Link to="/segunda-opiniao-analises-normais">
+            segunda opinião sobre análises normais
+          </Link>
+          .
+        </p>
+      </SEOContentSection>
+
       <SEOContentSection
         label="Quem escreve"
         title="Sobre Catarina Veiga"
