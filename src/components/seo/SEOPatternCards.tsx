@@ -30,7 +30,7 @@ const SEOPatternCards = ({ label, title, patterns, bg = "light" }: SEOPatternCar
           {patterns.map((p, i) => (
             <div key={i} className="border-l-2 border-matcha/40 pl-6">
               <p className="font-sans font-normal text-foreground text-[15px] mb-2">{p.title}</p>
-              <p className="font-sans font-light text-foreground/50 text-sm leading-relaxed">{p.desc}</p>
+              <p className="font-sans font-normal text-foreground/50 text-sm leading-relaxed">{p.desc}</p>
             </div>
           ))}
         </div>

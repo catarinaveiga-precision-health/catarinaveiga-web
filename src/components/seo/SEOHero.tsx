@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { useFadeUp } from "@/hooks/useFadeUp";
 
 interface SEOHeroProps {
@@ -10,8 +11,27 @@ interface SEOHeroProps {
 
 const SEOHero = ({ label, title, intro, breadcrumb }: SEOHeroProps) => {
   const ref = useFadeUp();
+  /* BreadcrumbList gerado do mesmo array que desenha o breadcrumb visível:
+     uma fonte, dois usos, sem risco de divergirem (auditoria 2026-08-24). */
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumb.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.label,
+      ...(item.to
+        ? { item: `https://www.catarinaveiga.com${item.to === "/" ? "" : item.to}` }
+        : {}),
+    })),
+  };
   return (
     <section ref={ref} className="bg-almond/20 pt-28 pb-32 md:pb-40 px-6">
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbLd)}
+        </script>
+      </Helmet>
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="max-w-3xl mx-auto mb-16 md:mb-20">
         <ol className="flex gap-2 text-xs font-sans text-foreground/40">
@@ -21,7 +41,7 @@ const SEOHero = ({ label, title, intro, breadcrumb }: SEOHeroProps) => {
               {item.to ? (
                 <Link to={item.to} className="hover:text-foreground transition-colors">{item.label}</Link>
               ) : (
-                <span className="text-foreground/60">{item.label}</span>
+                <span className="text-foreground/75">{item.label}</span>
               )}
             </li>
           ))}
@@ -40,7 +60,7 @@ const SEOHero = ({ label, title, intro, breadcrumb }: SEOHeroProps) => {
         </h1>
 
         {/* Intro line */}
-        <p className="font-sans font-light text-lg md:text-xl text-foreground/60 leading-relaxed max-w-2xl">
+        <p className="font-sans font-normal text-lg md:text-xl text-foreground/75 leading-relaxed max-w-2xl">
           {intro}
         </p>
       </div>

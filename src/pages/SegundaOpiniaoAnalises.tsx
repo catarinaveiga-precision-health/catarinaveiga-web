@@ -81,7 +81,7 @@ const FAQSection = () => {
               <h3 className="font-sans font-normal text-foreground text-[17px] mb-3">
                 {faq.q}
               </h3>
-              <p className="font-sans font-light text-foreground/70 text-[15px] leading-[1.85]">
+              <p className="font-sans font-normal text-foreground/85 text-[16px] leading-[1.85]">
                 {faq.a}
               </p>
             </div>

@@ -800,6 +800,18 @@ function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, 
     `<link rel="canonical" href="${canonical}">`
   );
 
+  // hreflang: so no par PT/EN real (homepage <-> english-consultations).
+  // As restantes paginas nao tem equivalente noutra lingua, e hreflang
+  // parcial errado e pior que nenhum (auditoria 2026-08-24).
+  if (path === "/" || path === "/english-consultations") {
+    const hreflang =
+      `<link rel="alternate" hreflang="pt-PT" href="https://www.catarinaveiga.com/">` +
+      `<link rel="alternate" hreflang="en" href="https://www.catarinaveiga.com/english-consultations">` +
+      `<link rel="alternate" hreflang="x-default" href="https://www.catarinaveiga.com/">`;
+    html = html.replace(`<link rel="canonical" href="${canonical}">`,
+      `<link rel="canonical" href="${canonical}">` + hreflang);
+  }
+
   // Noindex pages (previews, drafts): substituir a meta robots do template
   if (noindex) {
     html = html.replace(

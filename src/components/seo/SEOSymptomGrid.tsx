@@ -26,7 +26,7 @@ const SEOSymptomGrid = ({ label, title, symptoms }: SEOSymptomGridProps) => {
               <span className="font-serif text-2xl text-matcha/60 leading-none mt-0.5 shrink-0">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <p className="font-sans font-light text-foreground/80 text-[15px] leading-relaxed">
+              <p className="font-sans font-normal text-foreground/80 text-[15px] leading-relaxed">
                 {s}
               </p>
             </div>

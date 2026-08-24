@@ -24,7 +24,7 @@ const SEOCTA = ({
           {title}
         </h2>
         {subtitle && (
-          <p className="font-sans font-light text-white/50 text-lg leading-relaxed mb-12 max-w-2xl mx-auto">
+          <p className="font-sans font-normal text-white/50 text-lg leading-relaxed mb-12 max-w-2xl mx-auto">
             {subtitle}
           </p>
         )}

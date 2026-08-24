@@ -28,7 +28,7 @@ const SEOLeadMagnetCTA = ({
         <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-8">
           {title}
         </h2>
-        <p className="font-sans font-light text-foreground/70 text-[17px] leading-[1.85] mb-12 max-w-2xl">
+        <p className="font-sans font-normal text-foreground/85 text-[17px] leading-[1.85] mb-12 max-w-2xl">
           {body}
         </p>
         <Link

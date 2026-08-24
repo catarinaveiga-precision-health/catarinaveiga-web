@@ -45,7 +45,7 @@ const SEOCalculator = ({ label, title, intro, fields, onCalculate, bg = "light" 
         <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-4">
           {title}
         </h2>
-        <p className="font-sans font-light text-foreground/60 text-[17px] leading-relaxed mb-12">
+        <p className="font-sans font-normal text-foreground/75 text-[17px] leading-relaxed mb-12">
           {intro}
         </p>
 
@@ -53,7 +53,7 @@ const SEOCalculator = ({ label, title, intro, fields, onCalculate, bg = "light" 
           <div className="space-y-5 mb-8">
             {fields.map((f, i) => (
               <div key={i}>
-                <label className="block font-sans text-sm text-foreground/70 mb-2">
+                <label className="block font-sans text-sm text-foreground/85 mb-2">
                   {f.label}{f.optional && <span className="text-foreground/30 ml-1">— opcional</span>}
                 </label>
                 <input
@@ -65,7 +65,7 @@ const SEOCalculator = ({ label, title, intro, fields, onCalculate, bg = "light" 
                     setValues(next);
                   }}
                   placeholder={f.placeholder}
-                  className="w-full border-b border-foreground/15 bg-transparent px-0 py-3 font-sans font-light text-foreground placeholder:text-foreground/25 focus:outline-none focus:border-matcha transition-colors"
+                  className="w-full border-b border-foreground/15 bg-transparent px-0 py-3 font-sans font-normal text-foreground placeholder:text-foreground/25 focus:outline-none focus:border-matcha transition-colors"
                 />
               </div>
             ))}
@@ -80,12 +80,12 @@ const SEOCalculator = ({ label, title, intro, fields, onCalculate, bg = "light" 
 
           {result && (
             <div className="mt-10 border-l-2 border-matcha pl-6 space-y-3">
-              <p className="font-sans font-light text-foreground/80 text-[15px] leading-relaxed">
+              <p className="font-sans font-normal text-foreground/80 text-[15px] leading-relaxed">
                 <span className="text-lg mr-2">{result.icon}</span>
                 {result.text}
               </p>
               {result.note && (
-                <p className="font-sans font-light text-matcha text-sm leading-relaxed">{result.note}</p>
+                <p className="font-sans font-normal text-matcha text-sm leading-relaxed">{result.note}</p>
               )}
               <Link to="/avaliacao" className="inline-block font-sans text-sm text-matcha hover:underline mt-2">
                 Ver avaliação completa →

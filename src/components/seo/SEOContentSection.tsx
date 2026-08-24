@@ -21,7 +21,7 @@ const SEOContentSection = ({ label, title, children, bg = "light" }: SEOContentS
         <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-10">
           {title}
         </h2>
-        <div className="space-y-6 font-sans font-light text-foreground/70 text-[17px] leading-[1.85]">
+        <div className="space-y-6 font-sans font-normal text-foreground/85 text-[17px] leading-[1.85]">
           {children}
         </div>
       </div>

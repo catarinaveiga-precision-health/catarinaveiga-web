@@ -146,7 +146,7 @@ const BlogPage = () => {
                           {featured.title}
                         </h2>
                         {featured.excerpt && (
-                          <p className="text-white/70 text-sm md:text-base line-clamp-2 font-sans font-light">
+                          <p className="text-white/70 text-sm md:text-base line-clamp-2 font-sans font-normal">
                             {featured.excerpt}
                           </p>
                         )}
@@ -198,7 +198,7 @@ const BlogPage = () => {
                                 {post.title}
                               </h3>
                               {post.excerpt && (
-                                <p className="text-white/60 text-xs md:text-sm font-sans font-light mt-1.5 line-clamp-2">
+                                <p className="text-white/60 text-xs md:text-sm font-sans font-normal mt-1.5 line-clamp-2">
                                   {post.excerpt}
                                 </p>
                               )}

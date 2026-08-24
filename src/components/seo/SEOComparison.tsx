@@ -28,10 +28,10 @@ const SEOComparison = ({ label, title, conventional, functional, source }: SEOCo
             <p className="font-sans text-[11px] font-normal tracking-[0.25em] uppercase text-foreground/40 mb-2">
               O que os exames dizem
             </p>
-            <p className="font-serif text-2xl font-light text-foreground/70 mb-6">{conventional.range}</p>
+            <p className="font-serif text-2xl font-light text-foreground/85 mb-6">{conventional.range}</p>
             <div className="space-y-4">
               {conventional.items.map((item, i) => (
-                <p key={i} className="font-sans font-light text-foreground/50 text-[15px] leading-relaxed border-l border-foreground/10 pl-5">
+                <p key={i} className="font-sans font-normal text-foreground/50 text-[15px] leading-relaxed border-l border-foreground/10 pl-5">
                   {item}
                 </p>
               ))}
@@ -46,7 +46,7 @@ const SEOComparison = ({ label, title, conventional, functional, source }: SEOCo
             <p className="font-serif text-2xl font-light text-foreground mb-6">{functional.range}</p>
             <div className="space-y-4">
               {functional.items.map((item, i) => (
-                <p key={i} className="font-sans font-light text-foreground/80 text-[15px] leading-relaxed border-l-2 border-matcha pl-5">
+                <p key={i} className="font-sans font-normal text-foreground/80 text-[15px] leading-relaxed border-l-2 border-matcha pl-5">
                   {item}
                 </p>
               ))}

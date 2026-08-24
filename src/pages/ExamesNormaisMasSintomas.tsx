@@ -62,7 +62,7 @@ const HeroManifesto = () => {
         <h1 className="font-serif text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-light text-foreground leading-[1.1] mb-8">
           Os teus exames estão normais. O teu corpo não.
         </h1>
-        <p className="font-sans font-light text-lg md:text-xl text-foreground/60 leading-relaxed max-w-2xl mb-12">
+        <p className="font-sans font-normal text-lg md:text-xl text-foreground/60 leading-relaxed max-w-2xl mb-12">
           Fadiga persistente. Alterações hormonais. Sono fragmentado. Ansiedade
           nova. Sintomas que afetam a qualidade de vida, mesmo quando os exames
           são considerados normais.
@@ -106,7 +106,7 @@ const FrasesSection = () => {
             </div>
           ))}
         </div>
-        <div className="space-y-6 font-sans font-light text-foreground/70 text-[17px] leading-[1.85]">
+        <div className="space-y-6 font-sans font-normal text-foreground/85 text-[17px] leading-[1.85]">
           <p>
             Muitas mulheres chegam à consulta depois de anos a ouvir versões
             destas respostas.
@@ -132,7 +132,7 @@ const PuzzleSection = () => {
         <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-8">
           Quando olhamos apenas para uma peça do puzzle.
         </h2>
-        <p className="font-sans font-light text-foreground/70 text-[17px] leading-[1.85] mb-16 max-w-2xl">
+        <p className="font-sans font-normal text-foreground/85 text-[17px] leading-[1.85] mb-16 max-w-2xl">
           Cada especialidade olha para a sua peça. Mas um sintoma raramente
           pertence a uma peça só: vive nas ligações entre elas.
         </p>
@@ -154,7 +154,7 @@ const PuzzleSection = () => {
                   key={i}
                   className="aspect-square rounded-sm border border-foreground/15 bg-background/60 flex items-center justify-center px-2"
                 >
-                  <span className="font-sans text-xs md:text-sm font-light text-foreground/70 text-center leading-tight">
+                  <span className="font-sans text-xs md:text-sm font-light text-foreground/85 text-center leading-tight">
                     {peca}
                   </span>
                 </div>
@@ -216,7 +216,7 @@ const ProximosPassos = () => {
               <h3 className="font-serif text-xl font-light text-foreground leading-snug mb-4">
                 {c.title}
               </h3>
-              <p className="font-sans font-light text-foreground/60 text-[15px] leading-[1.8] mb-8 flex-1">
+              <p className="font-sans font-normal text-foreground/60 text-[15px] leading-[1.8] mb-8 flex-1">
                 {c.desc}
               </p>
               <Link

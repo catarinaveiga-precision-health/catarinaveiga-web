@@ -24,7 +24,7 @@ const TestemunhosGrid = () => {
             <figure key={i} className="border-l border-almond pl-6 md:pl-8">
               <blockquote
                 lang={t.idioma === "en" ? "en" : "pt"}
-                className="font-sans font-light text-foreground/80 text-[15px] md:text-[16px] leading-[1.9]"
+                className="font-sans font-normal text-foreground/80 text-[15px] md:text-[16px] leading-[1.9]"
               >
                 {t.texto}
               </blockquote>
