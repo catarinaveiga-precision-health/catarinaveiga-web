@@ -87,7 +87,11 @@ const PerimenopausaSintomas = () => {
           <Link to="/blog/acordar-as-4-da-manha-perimenopausa">
             porque acordas sempre às 4h da manhã
           </Link>
-          .
+          , e um{" "}
+          <Link to="/guia-sono">
+            guia gratuito de 18 páginas com um protocolo de reset circadiano
+          </Link>{" "}
+          de 4 semanas.
         </p>
         <p>
           <strong>Ciclos que mudaram.</strong> Mais curtos, mais longos, mais
@@ -206,7 +210,10 @@ const PerimenopausaSintomas = () => {
           ritmo do cortisol; 25 a 30 g de proteína ao pequeno-almoço, para
           estabilizar a glicemia desde a primeira refeição; reduzir o álcool
           durante duas a três semanas e observar o efeito nas noites; e
-          horários de sono consistentes, fim de semana incluído.
+          horários de sono consistentes, fim de semana incluído. Se o sono é
+          a tua queixa principal, o{" "}
+          <Link to="/guia-sono">guia gratuito de higiene de sono</Link>{" "}
+          organiza tudo isto num protocolo de 4 semanas.
         </p>
         <p>
           Depois, investigar em vez de adivinhar: rever a ferritina, a

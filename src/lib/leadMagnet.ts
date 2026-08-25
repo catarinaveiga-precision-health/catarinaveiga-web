@@ -101,3 +101,49 @@ export function isDismissedRecently(): boolean {
     return false;
   }
 }
+
+/* ── Segundo lead magnet · Guia "Achas que tens insónia. Não tens." ──
+   Higiene de Sono · Edição I (Ciência Fêmea), 18 páginas, protocolo de
+   reset circadiano de 4 semanas. Destinado à porta de pesquisa nº 1
+   (artigo das 4h, +186% cliques no GSC de 2026-08-25) e ao pilar
+   /perimenopausa-sintomas. Mesmo pipeline do guia da saciedade. */
+
+export const GUIA_SONO_TAG = "lead-magnet-guia-sono";
+export const GUIA_SONO_PDF_URL = "/guia-sono.pdf";
+export const GUIA_SONO_LANDING_URL = "/guia-sono";
+
+export async function submitGuiaSono(
+  nome: string,
+  email: string,
+  origem: LeadMagnetOrigem,
+): Promise<{ ok: boolean; error?: string }> {
+  const cleanNome = nome.trim();
+  const cleanEmail = email.trim();
+
+  if (!cleanNome || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+    return { ok: false, error: "Nome e email válido são obrigatórios." };
+  }
+
+  const { error } = await supabase.from("leads_avaliacao").insert([
+    {
+      nome: cleanNome,
+      email: cleanEmail,
+      objetivos: [GUIA_SONO_TAG, `origem:${origem}`],
+      follow_up_sent: true,
+    } as any,
+  ]);
+
+  notificarLead({
+    nome: cleanNome,
+    email: cleanEmail,
+    origem: `guia-sono (${origem})`,
+    notas: error ? "NOTA: a gravacao na base de dados falhou; este lead so existe aqui." : "",
+  });
+
+  if (error) {
+    console.error("leadMagnet guia-sono submit error", error);
+    return { ok: false, error: "Erro ao guardar. Tenta novamente." };
+  }
+
+  return { ok: true };
+}

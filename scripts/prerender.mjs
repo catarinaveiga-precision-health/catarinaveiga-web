@@ -701,6 +701,15 @@ const pages = [
       "Como são recolhidos, tratados e protegidos os teus dados pessoais neste website, em conformidade com o Regulamento Geral de Protecção de Dados.",
   },
   {
+    path: "/guia-sono",
+    title: "Guia Gratuito: Achas Que Tens Insónia. Não Tens. | Catarina Veiga",
+    description:
+      "Protocolo clínico de reset circadiano para mulheres em perimenopausa. Os 3 erros que confundem higiene de sono com insónia, autoavaliação e protocolo de 4 semanas. 18 páginas, gratuito.",
+    h1: "Achas que tens insónia. Não tens.",
+    intro:
+      "Um protocolo clínico de reset circadiano para mulheres em perimenopausa. Os três erros que confundem higiene de sono com insónia, e o que fazer em vez disso. 18 páginas, sintetizadas a partir de mais de 200 consultas reais. Gratuito, em troca do email.",
+  },
+  {
     path: "/termos-utilizacao",
     title: "Termos de Utilização · Catarina Veiga",
     description:

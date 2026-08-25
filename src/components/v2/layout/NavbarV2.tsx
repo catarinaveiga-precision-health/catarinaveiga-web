@@ -47,11 +47,13 @@ export const NavbarV2 = () => {
           : "border-b border-transparent",
       )}
     >
-      {/* Regra absoluta da skill de monetização: uma só CTA por página de
-          conversão. Na homepage a barra do guia gratuito competia com a
-          marcação da consulta, e era a primeira coisa da página. Continua
-          em todas as outras páginas do site. */}
-      {!isHome && <LeadMagnetTopBar />}
+      {/* Uma só oferta por página: a barra do guia da saciedade não aparece
+          na homepage (compete com a consulta), em /consulta-inicial, nem em
+          /guia-sono (não se anuncia um guia em cima da landing de outro). */}
+      {!isHome &&
+        !["/consulta-inicial", "/guia-sono"].includes(location.pathname) && (
+          <LeadMagnetTopBar />
+        )}
       <div className="mx-auto max-w-[1280px] px-6 md:px-8 lg:px-12 h-20 flex items-center justify-between gap-8">
         {/* Logo */}
         <Link
