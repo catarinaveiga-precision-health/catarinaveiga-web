@@ -32,7 +32,7 @@ const Footer = () => {
 
   const navItems = [
     { label: t("nav.sobre"), href: "/sobre" },
-    { label: t("nav.programa"), href: "/programa-fundacao" },
+    { label: t("nav.programa"), href: "/consulta-inicial" },
     { label: "Aletheia", href: "/aletheia" },
     { label: t("nav.biblioteca"), href: "/recursos" },
     { label: t("nav.avaliacao"), href: "/avaliacao" },

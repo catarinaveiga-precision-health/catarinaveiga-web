@@ -188,11 +188,11 @@ const ProximosPassos = () => {
       cta: "Conhecer a Avaliação",
     },
     {
-      eyebrow: "Acompanhamento estruturado",
-      title: "Programa Fundação",
-      desc: "12 semanas, três fases: investigar, intervir, consolidar. Para quadros que precisam de tempo e método, não de mais um exame isolado.",
-      to: "/programa-fundacao",
-      cta: "Ver o programa",
+      eyebrow: "O passo a sério",
+      title: "Consulta Inicial",
+      desc: "90 minutos, online, 120 euros. A tua história completa e as tuas análises lidas em conjunto, com um plano escrito no fim que fica contigo.",
+      to: "/consulta-inicial",
+      cta: "Conhecer a consulta",
     },
   ];
   return (

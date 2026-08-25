@@ -95,7 +95,7 @@
     },
     {
       "source": "/programa-3m",
-      "destination": "/programa-fundacao",
+      "destination": "/consulta-inicial",
       "permanent": true
     },
     {
@@ -121,6 +121,11 @@
     {
       "source": "/smoothie-golden-milk-vegan-conforto-anti-inflamatorio-digestivo",
       "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/programa-fundacao",
+      "destination": "/consulta-inicial",
       "permanent": true
     }
   ],

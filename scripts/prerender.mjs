@@ -631,15 +631,6 @@ const pages = [
       "Preenche o formulário para seres avaliada para uma consulta de medicina funcional integrativa.",
   },
   {
-    path: "/programa-fundacao",
-    title: "Programa Fundação · 12 Semanas · Catarina Veiga",
-    description:
-      "Acompanhamento estruturado de 12 semanas para mulheres que sabem que algo não está certo, mesmo quando os exames parecem normais. Investigar, intervir, consolidar.",
-    h1: "Há uma diferença entre estar dentro dos valores de referência e sentir-se verdadeiramente bem.",
-    intro:
-      "O Programa Fundação foi criado para mulheres que sabem que algo não está certo, mesmo quando os exames parecem normais. Três fases ao longo de 12 semanas: investigar, intervir, consolidar. 4 consultas individuais, plano clínico escrito e atualizado, interpretação integrada dos exames existentes, suporte entre consultas e plano de manutenção final. €800. Entrada após consulta inicial.",
-  },
-  {
     path: "/v2",
     title: "Catarina Veiga | Saúde Feminina Integrada",
     description:

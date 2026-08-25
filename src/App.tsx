@@ -13,7 +13,6 @@ import TermosUtilizacao from "./pages/TermosUtilizacao";
 import BlogPage from "./pages/BlogPage";
 import BlogArticle from "./pages/BlogArticle";
 import Candidatura from "./pages/Candidatura";
-import ProgramaFundacao from "./pages/ProgramaFundacao";
 import Metodo from "./pages/Metodo";
 import Sobre from "./pages/Sobre";
 import Avaliacao from "./pages/Avaliacao";
@@ -52,7 +51,6 @@ const App = () => (
             <Route path="/v2" element={<IndexV2 />} />
             <Route path="/consulta-inicial" element={<ConsultaInicial />} />
             <Route path="/candidatura" element={<Candidatura />} />
-            <Route path="/programa-fundacao" element={<ProgramaFundacao />} />
             <Route path="/metodo" element={<Metodo />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/avaliacao" element={<Avaliacao />} />

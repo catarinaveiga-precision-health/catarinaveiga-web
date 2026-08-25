@@ -454,7 +454,7 @@ const Sobre = () => {
             <FadeUp delay={0.2} className="mt-12">
               <ButtonV2
                 as="Link"
-                to="/programa-fundacao"
+                to="/consulta-inicial"
                 variant="ghost"
                 className="text-v2-paper border-v2-paper/30 hover:border-v2-paper/70"
               >

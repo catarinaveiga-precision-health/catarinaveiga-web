@@ -951,7 +951,7 @@ const Avaliacao = () => {
                   asChild
                   className="border-ivory/30 text-v2-paper hover:bg-v2-paper/10"
                 >
-                  <a href="/programa-fundacao">Conhecer o Programa Fundação</a>
+                  <a href="/consulta-inicial">Conhecer a consulta inicial</a>
                 </Button>
               </div>
             </div>
