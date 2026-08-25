@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Link2, Facebook, Linkedin } from "lucide-react";
 import { NavbarV2 } from "@/components/v2/layout/NavbarV2";
 import { ArticleLeadMagnetCTA } from "@/components/v2/leadmagnet/ArticleLeadMagnetCTA";
+import guiaSonoCapa from "@/assets/guia-sono-capa.jpg";
 import LegalBand from "@/components/LegalBand";
 import { FooterV2 } from "@/components/v2/layout/FooterV2";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -287,6 +288,37 @@ const BlogArticle = () => {
         <div className="text-v2-ink-mute text-[16px] leading-relaxed mb-16">
           {post.body && <PortableText value={post.body} components={portableTextComponents} />}
         </div>
+
+        {/* Guia do sono · cartão contextual no fim dos artigos de sono
+            (2026-08-25): a ligação entre a porta de pesquisa nº 1 e o
+            lead magnet certo, feita por código, sem depender do CMS. */}
+        {["acordar-as-4-da-manha-perimenopausa"].includes(slug || "") && (
+          <Link
+            to="/guia-sono"
+            className="mb-16 flex flex-col sm:flex-row items-center gap-6 rounded-2xl bg-v2-paper-deep ring-1 ring-v2-sage/25 p-6 md:p-8 hover:ring-v2-sage/50 transition-all group"
+          >
+            <img
+              src={guiaSonoCapa}
+              alt='Capa do guia "Achas que tens insónia. Não tens."'
+              className="w-24 h-auto rounded-sm shadow-[0_12px_28px_-12px_rgba(22,53,44,0.45)] shrink-0"
+            />
+            <div className="text-center sm:text-left">
+              <p className="font-sans text-[11px] uppercase tracking-[0.18em] text-v2-sage">
+                Guia gratuito · 18 páginas
+              </p>
+              <p className="mt-2 font-serif text-xl md:text-2xl text-v2-ink leading-[1.2]">
+                Achas que tens insónia. Não tens.
+              </p>
+              <p className="mt-2 font-sans text-sm text-v2-ink-mute leading-[1.55]">
+                Tudo o que leste neste artigo, organizado num protocolo de
+                reset circadiano de 4 semanas, com autoavaliação e tracker.
+              </p>
+              <p className="mt-3 font-sans text-[12px] uppercase tracking-[0.14em] text-v2-sage-deep group-hover:text-v2-ink transition-colors">
+                Receber o guia ›
+              </p>
+            </div>
+          </Link>
+        )}
 
         {/* Newsletter CTA */}
         <div className="mb-16 rounded-2xl bg-v2-paper-deep p-8 md:p-12 text-center">

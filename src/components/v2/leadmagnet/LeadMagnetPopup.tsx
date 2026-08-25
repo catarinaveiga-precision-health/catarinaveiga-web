@@ -2,14 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import {
   submitGuiaSaciedade,
+  submitGuiaSono,
   isDone,
   isDismissedRecently,
   markDismissed,
   GUIA_PDF_URL,
   GUIA_LANDING_URL,
+  GUIA_SONO_PDF_URL,
+  GUIA_SONO_LANDING_URL,
 } from "@/lib/leadMagnet";
 import { ButtonV2 } from "../ui/ButtonV2";
 import guiaCapa from "@/assets/guia-capa.jpg";
+import guiaSonoCapa from "@/assets/guia-sono-capa.jpg";
 
 /* Popup global do guia de saciedade.
    Dispara aos 45 s OU aos 50% de scroll (o que ocorrer primeiro).
@@ -18,11 +22,44 @@ import guiaCapa from "@/assets/guia-capa.jpg";
    Layout: capa do PDF como âncora visual (40%) + conteúdo (60%).
    Em mobile: imagem → copy → formulário. */
 
-const beneficios = [
-  "Explicação simples da fisiologia da saciedade",
-  "Os erros mais comuns que aumentam a fome",
-  "Estratégias práticas para energia e controlo alimentar",
-  "29 receitas ricas em proteína",
+/* Duas variantes, uma mecânica: a oferta do popup alinha com o que a
+   página fala (2026-08-25). Artigos de sono mostram o guia do sono; o
+   resto do site mantém o da saciedade. Um popup por página, sempre. */
+const VARIANTES = {
+  saciedade: {
+    capa: guiaCapa,
+    capaAlt: 'Capa do guia "Tens fome pouco depois de comer?"',
+    titulo: "Tem fome pouco depois de comer?",
+    sub: "Receba o guia completo e descubra porque continua com fome pouco depois de comer.",
+    beneficios: [
+      "Explicação simples da fisiologia da saciedade",
+      "Os erros mais comuns que aumentam a fome",
+      "Estratégias práticas para energia e controlo alimentar",
+      "29 receitas ricas em proteína",
+    ],
+    pdf: GUIA_PDF_URL,
+    submit: submitGuiaSaciedade,
+  },
+  sono: {
+    capa: guiaSonoCapa,
+    capaAlt: 'Capa do guia "Achas que tens insónia. Não tens."',
+    titulo: "Achas que tens insónia. Não tens.",
+    sub: "Um protocolo de reset circadiano de 4 semanas para mulheres em perimenopausa, com autoavaliação e tracker.",
+    beneficios: [
+      "Os 3 erros que confundem higiene de sono com insónia",
+      "A regra dos 20 minutos e o controlo de estímulo",
+      "Protocolo de 4 semanas, passo a passo",
+      "Autoavaliação de 10 perguntas com leitura clínica",
+    ],
+    pdf: GUIA_SONO_PDF_URL,
+    submit: submitGuiaSono,
+  },
+} as const;
+
+/* Rotas onde a variante do sono manda (a porta de pesquisa nº 1) */
+const ROTAS_SONO = [
+  "/blog/acordar-as-4-da-manha-perimenopausa",
+  "/perimenopausa-sintomas",
 ];
 
 const Check = () => (
@@ -49,8 +86,13 @@ export const LeadMagnetPopup = () => {
      com uma oferta gratuita é a mais agressiva das CTAs concorrentes. */
   const SEM_POPUP = ["/", "/consulta-inicial", "/guia-sono"];
 
+  const variante = ROTAS_SONO.includes(location.pathname)
+    ? VARIANTES.sono
+    : VARIANTES.saciedade;
+
   const blocked =
     location.pathname === GUIA_LANDING_URL ||
+    location.pathname === GUIA_SONO_LANDING_URL ||
     SEM_POPUP.includes(location.pathname) ||
     isDone() ||
     isDismissedRecently();
@@ -88,7 +130,7 @@ export const LeadMagnetPopup = () => {
     e.preventDefault();
     setError(null);
     setSaving(true);
-    const r = await submitGuiaSaciedade(nome, email, "popup");
+    const r = await variante.submit(nome, email, "popup");
     setSaving(false);
     if (!r.ok) {
       setError(r.error || "Erro ao guardar. Tenta novamente.");
@@ -135,7 +177,7 @@ export const LeadMagnetPopup = () => {
             <div className="mt-9">
               <ButtonV2
                 as="a"
-                href={GUIA_PDF_URL}
+                href={variante.pdf}
                 target="_blank"
                 rel="noopener"
                 size="lg"
@@ -149,8 +191,8 @@ export const LeadMagnetPopup = () => {
             {/* Capa do PDF · âncora visual · 40% */}
             <div className="md:col-span-2 relative bg-v2-moss">
               <img
-                src={guiaCapa}
-                alt='Capa do guia "Tens fome pouco depois de comer?"'
+                src={variante.capa}
+                alt={variante.capaAlt}
                 className="w-full h-28 md:h-full object-cover object-top md:object-center"
               />
               <div
@@ -165,15 +207,14 @@ export const LeadMagnetPopup = () => {
                 Guia gratuito
               </p>
               <h2 className="mt-3 font-serif text-h3-v2 md:text-[26px] text-v2-ink leading-[1.18] tracking-[-0.01em]">
-                Tem fome pouco depois de comer?
+                {variante.titulo}
               </h2>
               <p className="mt-3 font-serif italic text-[16px] text-v2-ink leading-[1.45]">
-                Receba o guia completo e descubra porque continua com fome
-                pouco depois de comer.
+                {variante.sub}
               </p>
 
               <ul className="mt-5 space-y-2">
-                {beneficios.map((b) => (
+                {variante.beneficios.map((b) => (
                   <li
                     key={b}
                     className="flex items-start gap-2.5 font-sans text-[13px] text-v2-ink leading-[1.45]"

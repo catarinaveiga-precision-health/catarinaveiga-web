@@ -959,7 +959,12 @@ async function main() {
       continue;
     }
 
-    const bodyHtml = portableTextToHtml(post.body);
+    let bodyHtml = portableTextToHtml(post.body);
+    // Guia do sono no fim do artigo das 4h, tambem no HTML estatico:
+    // a mesma ligacao que o React faz, visivel para crawlers sem JS.
+    if (slug === "acordar-as-4-da-manha-perimenopausa") {
+      bodyHtml += `<p style="margin-top:32px;padding:20px;border:1px solid #dfe5e2;border-radius:12px"><strong>Guia gratuito:</strong> tudo o que leste neste artigo, organizado num protocolo de reset circadiano de 4 semanas, com autoavaliacao e tracker. <a href="/guia-sono" style="color:#4A5957">Achas que tens insonia. Nao tens. · Receber o guia</a></p>`;
+    }
     const description =
       post.excerpt ||
       portableTextToPlain(post.body, 155) ||
