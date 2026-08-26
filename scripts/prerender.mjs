@@ -951,6 +951,20 @@ async function main() {
   const posts = await fetchSanityPosts();
   console.log(`  Found ${posts.length} published posts`);
 
+  // Titulos <title> curtos para artigos cujo titulo editorial e longo demais.
+  // O Google corta o <title> por volta dos 60 caracteres; o h1 fica intacto,
+  // porque para quem le a pagina o titulo longo funciona melhor.
+  //
+  // acordar-as-4-da-manha-perimenopausa: o titulo tinha 107 caracteres e
+  // aparecia truncado em "Porque acordo sempre as 4h da manha? O que vejo ...".
+  // A palavra que a distingue de todos os concorrentes, perimenopausa, era
+  // precisamente a que desaparecia. Linha de base a 26 ago 2026, 28 dias:
+  // 1280 impressoes, 21 cliques, CTR 1,6%, posicao media 7,8. Medir a 30 dias.
+  const SEO_TITLE_CURTO = {
+    "acordar-as-4-da-manha-perimenopausa":
+      "Acordar às 4 da manhã na perimenopausa: porquê",
+  };
+
   let blogCount = 0;
   for (const post of posts) {
     const slug = post.slug?.current;
@@ -973,7 +987,7 @@ async function main() {
 
     const pageData = {
       path: `/blog/${slug}`,
-      title: `${post.title} | Catarina Veiga`,
+      title: `${SEO_TITLE_CURTO[slug] || post.title} | Catarina Veiga`,
       description,
       h1: post.title,
       intro: post.excerpt || "",
