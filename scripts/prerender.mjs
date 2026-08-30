@@ -963,6 +963,8 @@ async function main() {
   const SEO_TITLE_CURTO = {
     "acordar-as-4-da-manha-perimenopausa":
       "Acordar às 4 da manhã na perimenopausa: porquê",
+    // publicado 2026-08-30 via API (newsletter #1); titulo editorial tem 78 chars
+    "cansaco-em-setembro": "Cansaço em setembro: porquê e o que fazer",
   };
 
   let blogCount = 0;
