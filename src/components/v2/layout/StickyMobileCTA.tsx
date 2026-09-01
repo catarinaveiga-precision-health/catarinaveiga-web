@@ -23,7 +23,7 @@ export const StickyMobileCTA = () => {
         size="lg"
         className="w-full"
       >
-        Marcar consulta inicial · 120 €
+        Marcar consulta inicial
       </ButtonV2>
     </div>
   );

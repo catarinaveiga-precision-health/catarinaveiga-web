@@ -27,7 +27,7 @@ export const FinalCTA = () => (
           href={acuityUrl("fecho")}
           size="lg"
         >
-          Marcar consulta inicial · 120 €
+          Marcar consulta inicial
         </ButtonV2>
         <p className="mt-6 font-sans text-mono-v2 uppercase tracking-[0.12em] text-v2-paper/60">
           90 min · online · resposta em 48 horas úteis

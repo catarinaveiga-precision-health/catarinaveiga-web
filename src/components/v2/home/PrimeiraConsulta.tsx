@@ -26,7 +26,7 @@ export const PrimeiraConsulta = () => (
     <Container size="default">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
         <FadeUp className="lg:col-span-5">
-          <Eyebrow>Consulta inicial · 120 €</Eyebrow>
+          <Eyebrow>Consulta inicial</Eyebrow>
           <h2 className="mt-6 font-serif text-display-2 text-v2-ink leading-[1.1] tracking-[-0.015em]">
             O que acontece na primeira consulta.
           </h2>
@@ -86,7 +86,7 @@ export const PrimeiraConsulta = () => (
               href={acuityUrl("primeira-consulta")}
               size="lg"
             >
-              Marcar consulta inicial · 120 €
+              Marcar consulta inicial
             </ButtonV2>
           </div>
         </FadeUp>

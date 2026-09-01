@@ -38,7 +38,7 @@ export const Hero = () => (
               página tem um objetivo único. A ferramenta continua no menu. */}
           <div className="mt-12 flex flex-col items-start gap-4">
             <ButtonV2 as="a" href={acuityUrl("hero")} size="lg">
-              Marcar consulta inicial · 120 €
+              Marcar consulta inicial
             </ButtonV2>
             <p className="font-sans text-body-sm-v2 text-v2-ink-mute">
               90 minutos, online. Resposta em 48 horas úteis.

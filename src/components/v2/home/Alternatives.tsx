@@ -7,7 +7,7 @@ import { ButtonV2 } from "../ui/ButtonV2";
 const cards = [
   {
     label: "Consulta inicial",
-    price: "€120",
+    price: "",
     body: "90 minutos de anamnese aprofundada, leitura de exames anteriores e hipóteses clínicas escritas. Sem compromisso de continuidade.",
     cta: { label: "Marcar consulta", href: "https://catarinaveigaagendamento.as.me/" },
   },
@@ -34,7 +34,7 @@ export const Alternatives = () => (
           <FadeUp key={c.label} delay={i * 0.08}>
             <div className="border-t border-v2-paper-line pt-10">
               <p className="font-mono text-mono-v2 uppercase tracking-[0.14em] text-v2-sage">
-                {c.label}  ·  {c.price}
+                {c.label}{c.price ? `  ·  ${c.price}` : ""}
               </p>
               <p className="mt-8 font-body text-body-v2 text-v2-ink leading-[1.7] max-w-[44ch]">
                 {c.body}

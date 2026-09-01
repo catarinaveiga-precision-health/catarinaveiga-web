@@ -436,7 +436,6 @@ const ConsultaInicial = () => (
         <h2 style={{ marginTop: 18 }}>
           A pergunta não é o que tem. <em>É porquê.</em>
         </h2>
-        <p className="money">120 €</p>
         <p>
           Consulta inicial de 90 minutos, online. Traga as análises que já tem.
           Se não tiver, começamos à mesma.

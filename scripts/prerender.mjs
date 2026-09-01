@@ -261,7 +261,7 @@ const pages = [
       "Medicina funcional integrativa para mulheres cujos exames dão normais mas o corpo não. Fadiga, hormonas, tiroide e perimenopausa, investigadas à causa, quando a medicina convencional não deu respostas.",
     h1: "Os teus exames estão normais. O teu corpo não.",
     intro:
-      "Para mulheres em perimenopausa, com fadiga persistente, alterações hormonais, digestivas ou metabólicas que continuam sem explicação clara. Não é sobre fazer mais exames: é sobre ler bem os que já tens. Na consulta inicial olhamos histórico clínico detalhado, sono, digestão, energia, ciclo, sintomas e exames anteriores. Sais com hipóteses claras, prioridades definidas e próximos passos concretos. 90 minutos em telemedicina, €120.",
+      "Para mulheres em perimenopausa, com fadiga persistente, alterações hormonais, digestivas ou metabólicas que continuam sem explicação clara. Não é sobre fazer mais exames: é sobre ler bem os que já tens. Na consulta inicial olhamos histórico clínico detalhado, sono, digestão, energia, ciclo, sintomas e exames anteriores. Sais com hipóteses claras, prioridades definidas e próximos passos concretos. 90 minutos em telemedicina.",
     // FONTE UNICA: src/data/faq-home.json, o mesmo ficheiro que alimenta o
     // acordeao em src/components/v2/home/FAQ.tsx. Este e o unico FAQPage do
     // site (as perguntas viviam num FAQPage global do index.html, repetido em

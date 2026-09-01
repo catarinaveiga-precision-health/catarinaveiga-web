@@ -193,7 +193,7 @@ const Candidatura = () => {
             {[
               { num: 1, title: "Preenches", desc: "5 minutos. Respondo pessoalmente." },
               { num: 2, title: "Avaliação", desc: "Analiso o teu caso em 48h úteis." },
-              { num: 3, title: "Se houver fit", desc: "Marcamos consulta inicial (€120)." },
+              { num: 3, title: "Se houver fit", desc: "Marcamos consulta inicial." },
             ].map((s) => (
               <div key={s.num} className="flex-1 text-center relative z-10">
                 <div className="w-10 h-10 rounded-full bg-v2-golden text-primary-foreground flex items-center justify-center mx-auto font-serif text-lg">

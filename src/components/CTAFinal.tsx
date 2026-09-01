@@ -16,7 +16,7 @@ const CTAFinal = () => {
         <div className="fade-up mb-4">
           <Button variant="heroAccent" size="lg" asChild>
             <a href="https://catarinaveigaagendamento.as.me/" target="_blank" rel="noopener noreferrer">
-              Marcar Consulta Inicial — €120
+              Marcar Consulta Inicial
             </a>
           </Button>
         </div>

@@ -99,7 +99,7 @@ const faqs = [
   },
   {
     q: "Posso entrar sem fazer a consulta inicial?",
-    a: "Não. A consulta inicial (€120) é o critério de admissão.",
+    a: "Não. A consulta inicial é o critério de admissão.",
   },
   {
     q: "As consultas são presenciais?",

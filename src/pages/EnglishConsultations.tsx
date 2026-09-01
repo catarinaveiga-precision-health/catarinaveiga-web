@@ -307,7 +307,6 @@ const Consultations = () => {
             <span className="block font-sans text-xs tracking-[0.16em] uppercase text-v2-golden mb-4">
               90 minutes
             </span>
-            <p className="font-serif text-3xl text-v2-ink mb-4">€120</p>
             <p className="text-v2-ink-mute text-[15px]">
               Comprehensive review of symptoms, history and available laboratory data.
             </p>
