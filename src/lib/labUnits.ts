@@ -22,6 +22,9 @@ export interface MarkerUnitConfig {
 
 // Chaves correspondentes a LabValues no formulário.
 export type LabKey =
+  | "hemoglobina"
+  | "glicose"
+  | "insulina"
   | "tsh"
   | "t3_livre"
   | "t4_livre"
@@ -39,6 +42,42 @@ export type LabKey =
   | "estradiol";
 
 export const LAB_UNIT_CONFIG: Record<LabKey, MarkerUnitConfig> = {
+  hemoglobina: {
+    marker: "Hemoglobina",
+    units: [
+      { value: "g/dL", label: "g/dL" },
+      { value: "g/L", label: "g/L" },
+    ],
+    defaultUnit: "g/dL",
+    plausibleRanges: {
+      "g/dL": [4, 22],
+      "g/L": [40, 220],
+    },
+  },
+  glicose: {
+    marker: "Glicose em jejum",
+    units: [
+      { value: "mg/dL", label: "mg/dL" },
+      { value: "mmol/L", label: "mmol/L" },
+    ],
+    defaultUnit: "mg/dL",
+    plausibleRanges: {
+      "mg/dL": [40, 400],
+      "mmol/L": [2.2, 22],
+    },
+  },
+  insulina: {
+    marker: "Insulina em jejum",
+    units: [
+      { value: "µUI/mL", label: "µUI/mL" },
+      { value: "mUI/L", label: "mUI/L" },
+    ],
+    defaultUnit: "µUI/mL",
+    plausibleRanges: {
+      "µUI/mL": [0.5, 100],
+      "mUI/L": [0.5, 100],
+    },
+  },
   tsh: {
     marker: "TSH",
     units: [

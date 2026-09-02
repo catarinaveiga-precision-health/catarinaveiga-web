@@ -11,6 +11,7 @@ import { notificarLead } from "@/lib/notificarLead";
 // para evitar 599 KB no bundle inicial.
 import AcuityModal from "@/components/AcuityModal";
 import { LAB_UNIT_CONFIG, LabKey, getDefaultUnit, isImplausible } from "@/lib/labUnits";
+import { track } from "@/lib/analytics";
 
 const OBJECTIVES = [
   "Fadiga persistente",
@@ -24,6 +25,9 @@ const OBJECTIVES = [
 ];
 
 interface LabValues {
+  hemoglobina?: string;
+  glicose?: string;
+  insulina?: string;
   tsh?: string;
   t3_livre?: string;
   t4_livre?: string;
@@ -45,6 +49,7 @@ type LabUnits = Partial<Record<keyof LabValues, string>>;
 
 interface FormState {
   objetivos: string[];
+  consentimento: boolean;
   sexo: string;
   idade: string;
   labValues: LabValues;
@@ -61,6 +66,7 @@ const initialUnits: LabUnits = (Object.keys(LAB_UNIT_CONFIG) as LabKey[]).reduce
 
 const initialForm: FormState = {
   objetivos: [],
+  consentimento: false,
   sexo: "",
   idade: "",
   labValues: {},
@@ -72,11 +78,10 @@ const initialForm: FormState = {
 const STEP_TITLES = [
   "Objetivos",
   "Perfil",
-  "Tiróide",
-  "Ferro",
-  "Inflamação",
-  "Metabolismo",
-  "Pré-resultado",
+  "O teu relatório",
+  "Análises",
+  "Mais valores",
+  "Score",
   "Relatório",
   "Próximos passos",
 ];
@@ -84,12 +89,16 @@ const STEP_TITLES = [
 // Step icons removed — using numbered tabs instead
 
 const SYSTEM_LABELS: Record<string, string> = {
+  Hemoglobina: "Ferro e Energia",
+  "Glicose em jejum": "Metabolismo Glicémico",
+  "Insulina em jejum": "Metabolismo Glicémico",
   TSH: "Tiróide",
   "T3 Livre": "Tiróide",
   "T4 Livre": "Tiróide",
   Ferritina: "Ferro e Energia",
   "Ferro Sérico": "Ferro e Energia",
   Transferrina: "Ferro e Energia",
+  "Saturação de Transferrina": "Ferro e Energia",
   PCR: "Inflamação",
   "Homocisteína": "Inflamação",
   VS: "Inflamação",
@@ -101,97 +110,417 @@ const SYSTEM_LABELS: Record<string, string> = {
 };
 
 const FUNCTIONAL_RANGES: Record<string, string> = {
-  TSH: "Intervalo funcional: 0.5–2.0 mUI/L",
-  Ferritina: "Intervalo funcional: 40–100 ng/mL",
+  Hemoglobina: "Intervalo funcional: 13.5–14.5 g/dL (mulher)",
+  "Glicose em jejum": "Intervalo funcional: 75–86 mg/dL",
+  "Insulina em jejum": "Intervalo funcional: 2–5 µUI/mL",
+  TSH: "Intervalo funcional: 1.0–2.0 mUI/L",
+  "T3 Livre": "Intervalo funcional: 3.0–3.5 pg/mL",
+  "T4 Livre": "Intervalo funcional: 1.0–1.5 ng/dL",
+  Ferritina: "Intervalo funcional: 30–100 ng/mL",
+  "Ferro Sérico": "Intervalo funcional: 85–130 µg/dL",
+  "Saturação de Transferrina": "Intervalo funcional: 24–35%",
   PCR: "Intervalo funcional: < 1.0 mg/L",
-  "Vitamina D": "Intervalo funcional: 50–80 ng/mL",
-  "Vitamina B12": "Intervalo funcional: 500–900 pg/mL",
+  VS: "Intervalo funcional: < 10 mm/h",
+  "Vitamina D": "Intervalo funcional: 50–90 ng/mL",
+  "Vitamina B12": "Intervalo funcional: 545–1100 pg/mL",
+  "Ácido Fólico": "Intervalo funcional: 15–27 ng/mL",
   "Homocisteína": "Intervalo funcional: < 7 µmol/L",
-  "Cortisol (manhã)": "Intervalo funcional: 10–18 µg/dL",
+  "Cortisol (manhã)": "Intervalo funcional: 10–15 µg/dL",
+  "DHEA-S": "Intervalo funcional: 275–390 µg/dL (mulher)",
 };
 
 const SYSTEM_EXPLANATIONS: Record<string, string> = {
-  "Tiróide": "A tiróide regula o metabolismo, energia e temperatura corporal. Valores sub-óptimos de TSH, T3 ou T4 podem explicar fadiga, ganho de peso e dificuldade de concentração — mesmo quando estão dentro do 'normal' laboratorial.",
+  "Tiróide": "A tiróide regula o metabolismo, energia e temperatura corporal. Valores sub-óptimos de TSH, T3 ou T4 podem explicar fadiga, ganho de peso e dificuldade de concentração, mesmo quando estão dentro do 'normal' laboratorial.",
   "Ferro e Energia": "O ferro é essencial para o transporte de oxigénio e produção de energia celular. Ferritina funcionalmente baixa (< 40 ng/mL) é uma das causas mais comuns de fadiga crónica, queda de cabelo e intolerância ao frio.",
-  "Inflamação": "A inflamação crónica de baixo grau está na base de muitas patologias modernas. PCR elevada e homocisteína alta são sinais precoces que o corpo está sob stress — antes de qualquer diagnóstico convencional.",
+  "Inflamação": "A inflamação crónica de baixo grau está na base de muitas patologias modernas. PCR elevada e homocisteína alta são sinais precoces que o corpo está sob stress, antes de qualquer diagnóstico convencional.",
   "Metabolismo": "Vitamina D e B12 são cofactores essenciais para centenas de reações metabólicas, desde a imunidade à saúde neurológica. Níveis 'normais' podem ser insuficientes para um funcionamento óptimo.",
   "Eixo HPA": "O eixo hipotálamo-hipófise-adrenal regula a resposta ao stress. Cortisol desregulado pode causar insónia, ansiedade, fadiga matinal e dificuldade de recuperação.",
+  "Metabolismo Glicémico": "A insulina sobe anos antes da glicose. Valores de insulina em jejum acima do óptimo funcional, mesmo com glicose 'normal', são um sinal precoce de perda de sensibilidade à insulina, associada a fadiga pós-refeição e dificuldade em perder peso.",
 };
 
-function evaluateResults(labValues: LabValues, labUnits: LabUnits) {
-  const findings: { marker: string; value: string; unit: string; status: "optimal" | "suboptimal" | "flag"; note: string; implausible?: boolean }[] = [];
+type FindingStatus = "optimal" | "suboptimal" | "flag" | "info";
 
-  const v = (key: keyof LabValues) => {
-    const raw = labValues[key];
-    return raw ? parseFloat(raw.replace(",", ".")) : null;
+interface EvalFinding {
+  marker: string;
+  value: string;
+  unit: string;
+  status: FindingStatus;
+  direction?: "low" | "high";
+  note: string;
+  implausible?: boolean;
+}
+
+// Conversão de unidades alternativas para a unidade base de cada marcador.
+// A avaliação é sempre feita na unidade base; o valor mostrado é o introduzido.
+const UNIT_TO_BASE: Partial<Record<LabKey, Record<string, number>>> = {
+  hemoglobina: { "g/dL": 1, "g/L": 0.1 },
+  glicose: { "mg/dL": 1, "mmol/L": 18.016 },
+  insulina: { "µUI/mL": 1, "mUI/L": 1 },
+  t3_livre: { "pg/mL": 1, "pmol/L": 1 / 1.536 },
+  t4_livre: { "ng/dL": 1, "pmol/L": 1 / 12.87 },
+  ferro_serico: { "µg/dL": 1, "µmol/L": 5.587 },
+  transferrina: { "mg/dL": 1, "g/L": 100 },
+  pcr: { "mg/L": 1, "mg/dL": 10 },
+  vitamina_d: { "ng/mL": 1, "nmol/L": 1 / 2.5 },
+  vitamina_b12: { "pg/mL": 1, "pmol/L": 1.355 },
+  acido_folico: { "ng/mL": 1, "nmol/L": 1 / 2.266 },
+  cortisol: { "µg/dL": 1, "nmol/L": 1 / 27.59 },
+  dhea: { "µg/dL": 1, "µmol/L": 1 / 0.02714 },
+};
+
+function toBase(key: LabKey, value: number, unit: string): number {
+  const factors = UNIT_TO_BASE[key];
+  if (!factors) return value;
+  const f = factors[unit];
+  return f === undefined ? value : value * f;
+}
+
+// Bandas por marcador, na unidade base, do mais baixo para o mais alto:
+// [flagLow, subLow, optimalMin, optimalMax, subHigh, flagHigh]
+// (limites abertos com null quando a banda não se aplica)
+interface Bands {
+  marker: string;
+  flagLow?: number; // abaixo disto: flag (direção low)
+  subLow?: number; // abaixo disto (e acima de flagLow): suboptimal low
+  optMin: number;
+  optMax: number;
+  subHigh?: number; // acima de optMax até isto: suboptimal high; acima: flag high
+  notes: Partial<Record<"optimal" | "subLow" | "subHigh" | "flagLow" | "flagHigh", string>>;
+}
+
+const MARKER_BANDS: Partial<Record<LabKey, Bands>> = {
+  hemoglobina: {
+    marker: "Hemoglobina",
+    flagLow: 12,
+    subLow: 13.5,
+    optMin: 13.5,
+    optMax: 14.5,
+    subHigh: 16,
+    notes: {
+      optimal: "Dentro do intervalo funcional óptimo (mulher).",
+      subLow: "Sem anemia laboratorial, mas abaixo do óptimo funcional (13.5–14.5). Interpretar com a ferritina.",
+      subHigh: "Acima do óptimo funcional.",
+      flagLow: "Abaixo do intervalo de referência. Vale a pena explorar com o teu médico.",
+      flagHigh: "Acima do intervalo de referência. Vale a pena explorar com o teu médico.",
+    },
+  },
+  glicose: {
+    marker: "Glicose em jejum",
+    flagLow: 65,
+    subLow: 75,
+    optMin: 75,
+    optMax: 86,
+    subHigh: 99,
+    notes: {
+      optimal: "Dentro do intervalo funcional óptimo.",
+      subLow: "Abaixo do óptimo funcional (75–86).",
+      subHigh: "Dentro do 'normal' laboratorial, mas acima do óptimo funcional (75–86). Interpretar com a insulina.",
+      flagLow: "Baixa. Vale a pena explorar com o teu médico.",
+      flagHigh: "Acima do intervalo de referência. Vale a pena explorar com o teu médico.",
+    },
+  },
+  insulina: {
+    marker: "Insulina em jejum",
+    optMin: 2,
+    optMax: 5,
+    subHigh: 19,
+    notes: {
+      optimal: "Dentro do intervalo funcional óptimo.",
+      subLow: "Abaixo do intervalo funcional. Interpretar em contexto.",
+      subHigh: "Dentro do intervalo laboratorial, mas acima do óptimo funcional (2–5). Interpretar com a glicose.",
+      flagHigh: "Elevada. Vale a pena explorar com o teu médico.",
+    },
+  },
+  tsh: {
+    marker: "TSH",
+    flagLow: 0.45,
+    subLow: 1.0,
+    optMin: 1.0,
+    optMax: 2.0,
+    subHigh: 4.5,
+    notes: {
+      optimal: "Dentro do intervalo funcional óptimo.",
+      subLow: "Abaixo do óptimo funcional (1.0–2.0). Interpretar com T3 e T4 livres.",
+      subHigh: "Dentro do intervalo convencional, mas acima do óptimo funcional (1.0–2.0).",
+      flagLow: "Abaixo do intervalo de referência. Vale a pena explorar com o teu médico.",
+      flagHigh: "Fora do intervalo de referência. Vale a pena explorar com o teu médico.",
+    },
+  },
+  t3_livre: {
+    marker: "T3 Livre",
+    flagLow: 2.3,
+    subLow: 3.0,
+    optMin: 3.0,
+    optMax: 3.5,
+    subHigh: 4.2,
+    notes: {
+      optimal: "Dentro do intervalo funcional óptimo.",
+      subLow: "Na metade inferior do intervalo convencional. Avaliar conversão T4 para T3.",
+      subHigh: "Acima do óptimo funcional.",
+      flagLow: "Abaixo do intervalo de referência. Vale a pena explorar com o teu médico.",
+      flagHigh: "Acima do intervalo de referência. Vale a pena explorar com o teu médico.",
+    },
+  },
+  t4_livre: {
+    marker: "T4 Livre",
+    flagLow: 0.8,
+    subLow: 1.0,
+    optMin: 1.0,
+    optMax: 1.5,
+    subHigh: 1.8,
+    notes: {
+      optimal: "Dentro do intervalo funcional óptimo.",
+      subLow: "Abaixo do óptimo funcional (1.0–1.5).",
+      subHigh: "Acima do óptimo funcional.",
+      flagLow: "Abaixo do intervalo de referência. Vale a pena explorar com o teu médico.",
+      flagHigh: "Acima do intervalo de referência. Vale a pena explorar com o teu médico.",
+    },
+  },
+  ferritina: {
+    marker: "Ferritina",
+    flagLow: 12,
+    subLow: 30,
+    optMin: 30,
+    optMax: 100,
+    subHigh: 300,
+    notes: {
+      optimal: "Nível óptimo para energia e função tiroideia.",
+      subLow: "Dentro do 'normal' laboratorial, mas funcionalmente baixa.",
+      subHigh: "Elevada. Pode refletir inflamação; interpretar com PCR.",
+      flagLow: "Reservas de ferro muito baixas. Vale a pena explorar com o teu médico.",
+      flagHigh: "Muito elevada. Vale a pena explorar com o teu médico.",
+    },
+  },
+  ferro_serico: {
+    marker: "Ferro Sérico",
+    flagLow: 65,
+    subLow: 85,
+    optMin: 85,
+    optMax: 130,
+    subHigh: 175,
+    notes: {
+      optimal: "Dentro do intervalo funcional óptimo.",
+      subLow: "Abaixo do óptimo funcional (85–130 µg/dL). Interpretar com ferritina e saturação.",
+      subHigh: "Acima do óptimo funcional.",
+      flagLow: "Abaixo do intervalo de referência. Vale a pena explorar com o teu médico.",
+      flagHigh: "Acima do intervalo de referência. Vale a pena explorar com o teu médico.",
+    },
+  },
+  pcr: {
+    marker: "PCR",
+    optMin: 0,
+    optMax: 1,
+    subHigh: 3,
+    notes: {
+      optimal: "Sem inflamação sistémica detectável.",
+      subHigh: "Inflamação de baixo grau. Investigar causa.",
+      flagHigh: "Inflamação elevada. Vale a pena explorar com o teu médico.",
+    },
+  },
+  homocisteina: {
+    marker: "Homocisteína",
+    optMin: 0,
+    optMax: 7,
+    subHigh: 10,
+    notes: {
+      optimal: "Nível óptimo.",
+      subHigh: "Ligeiramente elevada. Verificar B12, B6 e folato.",
+      flagHigh: "Elevada. Vale a pena explorar com o teu médico.",
+    },
+  },
+  vsg: {
+    marker: "VS",
+    optMin: 0,
+    optMax: 10,
+    subHigh: 20,
+    notes: {
+      optimal: "Dentro do intervalo funcional.",
+      subHigh: "Acima do óptimo funcional. Interpretar com PCR.",
+      flagHigh: "Elevada. Vale a pena explorar com o teu médico.",
+    },
+  },
+  vitamina_d: {
+    marker: "Vitamina D",
+    flagLow: 30,
+    subLow: 50,
+    optMin: 50,
+    optMax: 90,
+    notes: {
+      optimal: "Nível óptimo funcional.",
+      subLow: "Suficiente mas abaixo do óptimo funcional (50–90).",
+      subHigh: "Acima do intervalo óptimo. Rever dose de suplementação.",
+      flagLow: "Insuficiência de vitamina D.",
+    },
+  },
+  vitamina_b12: {
+    marker: "Vitamina B12",
+    flagLow: 200,
+    subLow: 545,
+    optMin: 545,
+    optMax: 1100,
+    notes: {
+      optimal: "Nível óptimo funcional.",
+      subLow: "Normal laboratorial mas funcionalmente insuficiente.",
+      subHigh: "Acima do intervalo funcional. Rever suplementação.",
+      flagLow: "Deficiência de B12. Vale a pena explorar com o teu médico.",
+    },
+  },
+  acido_folico: {
+    marker: "Ácido Fólico",
+    flagLow: 5.5,
+    subLow: 15,
+    optMin: 15,
+    optMax: 27,
+    notes: {
+      optimal: "Nível óptimo funcional.",
+      subLow: "Dentro do 'normal' laboratorial, mas abaixo do óptimo funcional (15–27).",
+      subHigh: "Acima do intervalo funcional. Interpretar com B12.",
+      flagLow: "Baixo. Vale a pena explorar com o teu médico.",
+    },
+  },
+  cortisol: {
+    marker: "Cortisol (manhã)",
+    flagLow: 4,
+    subLow: 10,
+    optMin: 10,
+    optMax: 15,
+    subHigh: 22,
+    notes: {
+      optimal: "Dentro do intervalo funcional.",
+      subLow: "Abaixo do óptimo funcional. Avaliar eixo HPA.",
+      subHigh: "Acima do óptimo funcional. Avaliar eixo HPA.",
+      flagLow: "Baixo. Vale a pena explorar com o teu médico.",
+      flagHigh: "Elevado. Vale a pena explorar com o teu médico.",
+    },
+  },
+  dhea: {
+    marker: "DHEA-S",
+    optMin: 275,
+    optMax: 390,
+    notes: {
+      optimal: "Dentro do intervalo funcional (mulher).",
+      subLow: "Abaixo do óptimo funcional (275–390 µg/dL, mulher). Declina com a idade.",
+      subHigh: "Acima do intervalo funcional. Vale a pena explorar com o teu médico.",
+    },
+  },
+};
+
+function classify(bands: Bands, x: number): { status: FindingStatus; direction?: "low" | "high"; note: string } {
+  if (bands.flagLow !== undefined && x < bands.flagLow)
+    return { status: "flag", direction: "low", note: bands.notes.flagLow || "Abaixo do intervalo de referência." };
+  if (x < bands.optMin)
+    return { status: "suboptimal", direction: "low", note: bands.notes.subLow || "Abaixo do óptimo funcional." };
+  if (x <= bands.optMax)
+    return { status: "optimal", note: bands.notes.optimal || "Dentro do intervalo funcional." };
+  if (bands.subHigh === undefined || x <= bands.subHigh)
+    return { status: "suboptimal", direction: "high", note: bands.notes.subHigh || "Acima do óptimo funcional." };
+  return { status: "flag", direction: "high", note: bands.notes.flagHigh || "Acima do intervalo de referência." };
+}
+
+export function evaluateResults(labValues: LabValues, labUnits: LabUnits) {
+  const findings: EvalFinding[] = [];
+
+  const raw = (key: keyof LabValues) => {
+    const r = labValues[key];
+    return r ? parseFloat(r.replace(",", ".")) : null;
   };
   const u = (key: keyof LabValues) => labUnits[key] || getDefaultUnit(key as LabKey) || "";
-  const flag = (key: keyof LabValues, raw: string | undefined, unit: string) =>
-    raw ? isImplausible(key as LabKey, raw, unit) : false;
+  const implausibleFor = (key: keyof LabValues, unit: string) =>
+    labValues[key] ? isImplausible(key as LabKey, labValues[key] as string, unit) : false;
 
-  const tsh = v("tsh");
-  if (tsh !== null) {
-    const unit = u("tsh");
-    const implausible = flag("tsh", labValues.tsh, unit);
-    if (tsh >= 0.5 && tsh <= 2.0) findings.push({ marker: "TSH", value: `${tsh}`, unit, status: "optimal", note: "Dentro do intervalo funcional óptimo.", implausible });
-    else if (tsh > 2.0 && tsh <= 4.5) findings.push({ marker: "TSH", value: `${tsh}`, unit, status: "suboptimal", note: "Dentro do intervalo convencional, mas acima do óptimo funcional (0.5–2.0).", implausible });
-    else findings.push({ marker: "TSH", value: `${tsh}`, unit, status: "flag", note: "Fora do intervalo de referência. Vale a pena explorar com o teu médico.", implausible });
+  const evaluatedKeys: LabKey[] = [
+    "hemoglobina",
+    "glicose",
+    "insulina",
+    "tsh",
+    "t3_livre",
+    "t4_livre",
+    "ferritina",
+    "ferro_serico",
+    "pcr",
+    "homocisteina",
+    "vsg",
+    "vitamina_d",
+    "vitamina_b12",
+    "acido_folico",
+    "cortisol",
+    "dhea",
+  ];
+
+  evaluatedKeys.forEach((key) => {
+    const value = raw(key);
+    if (value === null || Number.isNaN(value)) return;
+    const unit = u(key);
+    const bands = MARKER_BANDS[key];
+    if (!bands) return;
+    const base = toBase(key, value, unit);
+    const { status, direction, note } = classify(bands, base);
+    findings.push({
+      marker: bands.marker,
+      value: `${value}`,
+      unit,
+      status,
+      direction,
+      note,
+      implausible: implausibleFor(key, unit),
+    });
+  });
+
+  // Transferrina: sem intervalo funcional próprio; entra no cálculo da saturação.
+  const transferrina = raw("transferrina");
+  const ferro = raw("ferro_serico");
+  if (transferrina !== null && !Number.isNaN(transferrina)) {
+    const unit = u("transferrina");
+    const transferrinaBase = toBase("transferrina", transferrina, unit); // mg/dL
+    if (ferro !== null && !Number.isNaN(ferro)) {
+      const ferroBase = toBase("ferro_serico", ferro, u("ferro_serico")); // µg/dL
+      // TIBC (µg/dL) ≈ transferrina (mg/dL) × 1.389; saturação = ferro / TIBC
+      const tibc = transferrinaBase * 1.389;
+      if (tibc > 0) {
+        const sat = Math.round((ferroBase / tibc) * 1000) / 10;
+        let satResult: { status: FindingStatus; direction?: "low" | "high"; note: string };
+        if (sat < 20) satResult = { status: "flag", direction: "low", note: "Saturação baixa. Interpretar com ferritina; vale a pena explorar com o teu médico." };
+        else if (sat < 24) satResult = { status: "suboptimal", direction: "low", note: "Abaixo do óptimo funcional (24–35%)." };
+        else if (sat <= 35) satResult = { status: "optimal", note: "Dentro do intervalo funcional." };
+        else if (sat <= 48) satResult = { status: "suboptimal", direction: "high", note: "Acima do óptimo funcional (24–35%)." };
+        else satResult = { status: "flag", direction: "high", note: "Saturação elevada. Vale a pena explorar com o teu médico." };
+        findings.push({
+          marker: "Saturação de Transferrina",
+          value: `${sat}`,
+          unit: "%",
+          status: satResult.status,
+          direction: satResult.direction,
+          note: `Calculada a partir do ferro sérico e da transferrina. ${satResult.note}`,
+        });
+      }
+      findings.push({
+        marker: "Transferrina",
+        value: `${transferrina}`,
+        unit,
+        status: "info",
+        note: "Usada no cálculo da saturação de transferrina (acima).",
+      });
+    } else {
+      findings.push({
+        marker: "Transferrina",
+        value: `${transferrina}`,
+        unit,
+        status: "info",
+        note: "Registada. Para calcular a saturação de transferrina, preenche também o ferro sérico.",
+      });
+    }
   }
 
-  const ferritina = v("ferritina");
-  if (ferritina !== null) {
-    const unit = u("ferritina");
-    const implausible = flag("ferritina", labValues.ferritina, unit);
-    if (ferritina >= 40 && ferritina <= 100) findings.push({ marker: "Ferritina", value: `${ferritina}`, unit, status: "optimal", note: "Nível óptimo para energia e função tiroideia.", implausible });
-    else if (ferritina >= 12 && ferritina < 40) findings.push({ marker: "Ferritina", value: `${ferritina}`, unit, status: "suboptimal", note: "Dentro do 'normal' laboratorial, mas funcionalmente baixa.", implausible });
-    else if (ferritina < 12) findings.push({ marker: "Ferritina", value: `${ferritina}`, unit, status: "flag", note: "Depleção de ferro. Requer intervenção.", implausible });
-    else findings.push({ marker: "Ferritina", value: `${ferritina}`, unit, status: "suboptimal", note: "Elevada — pode indicar inflamação.", implausible });
-  }
-
-  const pcr = v("pcr");
-  if (pcr !== null) {
-    const unit = u("pcr");
-    const implausible = flag("pcr", labValues.pcr, unit);
-    if (pcr < 1) findings.push({ marker: "PCR", value: `${pcr}`, unit, status: "optimal", note: "Sem inflamação sistémica detectável.", implausible });
-    else if (pcr >= 1 && pcr <= 3) findings.push({ marker: "PCR", value: `${pcr}`, unit, status: "suboptimal", note: "Inflamação de baixo grau. Investigar causa.", implausible });
-    else findings.push({ marker: "PCR", value: `${pcr}`, unit, status: "flag", note: "Inflamação elevada. Vale a pena explorar com o teu médico.", implausible });
-  }
-
-  const vitD = v("vitamina_d");
-  if (vitD !== null) {
-    const unit = u("vitamina_d");
-    const implausible = flag("vitamina_d", labValues.vitamina_d, unit);
-    if (vitD >= 50 && vitD <= 80) findings.push({ marker: "Vitamina D", value: `${vitD}`, unit, status: "optimal", note: "Nível óptimo funcional.", implausible });
-    else if (vitD >= 30 && vitD < 50) findings.push({ marker: "Vitamina D", value: `${vitD}`, unit, status: "suboptimal", note: "Suficiente mas abaixo do óptimo funcional (50–80).", implausible });
-    else if (vitD < 30) findings.push({ marker: "Vitamina D", value: `${vitD}`, unit, status: "flag", note: "Insuficiência de vitamina D.", implausible });
-    else findings.push({ marker: "Vitamina D", value: `${vitD}`, unit, status: "suboptimal", note: "Acima do intervalo óptimo.", implausible });
-  }
-
-  const b12 = v("vitamina_b12");
-  if (b12 !== null) {
-    const unit = u("vitamina_b12");
-    const implausible = flag("vitamina_b12", labValues.vitamina_b12, unit);
-    if (b12 >= 500 && b12 <= 900) findings.push({ marker: "Vitamina B12", value: `${b12}`, unit, status: "optimal", note: "Nível óptimo funcional.", implausible });
-    else if (b12 >= 200 && b12 < 500) findings.push({ marker: "Vitamina B12", value: `${b12}`, unit, status: "suboptimal", note: "Normal laboratorial mas funcionalmente insuficiente.", implausible });
-    else if (b12 < 200) findings.push({ marker: "Vitamina B12", value: `${b12}`, unit, status: "flag", note: "Deficiência de B12. Requer suplementação.", implausible });
-    else findings.push({ marker: "Vitamina B12", value: `${b12}`, unit, status: "optimal", note: "Nível adequado.", implausible });
-  }
-
-  const hom = v("homocisteina");
-  if (hom !== null) {
-    const unit = u("homocisteina");
-    const implausible = flag("homocisteina", labValues.homocisteina, unit);
-    if (hom < 7) findings.push({ marker: "Homocisteína", value: `${hom}`, unit, status: "optimal", note: "Nível óptimo.", implausible });
-    else if (hom >= 7 && hom <= 10) findings.push({ marker: "Homocisteína", value: `${hom}`, unit, status: "suboptimal", note: "Ligeiramente elevada. Verificar B12, B6 e folato.", implausible });
-    else findings.push({ marker: "Homocisteína", value: `${hom}`, unit, status: "flag", note: "Elevada — risco cardiovascular e neuroinflamatório.", implausible });
-  }
-
-  const cortisol = v("cortisol");
-  if (cortisol !== null) {
-    const unit = u("cortisol");
-    const implausible = flag("cortisol", labValues.cortisol, unit);
-    if (cortisol >= 10 && cortisol <= 18) findings.push({ marker: "Cortisol (manhã)", value: `${cortisol}`, unit, status: "optimal", note: "Dentro do intervalo funcional.", implausible });
-    else findings.push({ marker: "Cortisol (manhã)", value: `${cortisol}`, unit, status: "suboptimal", note: "Fora do intervalo óptimo. Avaliar eixo HPA.", implausible });
+  // Estradiol: varia com a fase do ciclo e o estado hormonal; não é avaliado automaticamente.
+  const estradiol = raw("estradiol");
+  if (estradiol !== null && !Number.isNaN(estradiol)) {
+    findings.push({
+      marker: "Estradiol",
+      value: `${estradiol}`,
+      unit: u("estradiol"),
+      status: "info",
+      note: "Varia com a fase do ciclo e o estado hormonal; é interpretado em consulta, não automaticamente.",
+    });
   }
 
   return findings;
@@ -200,13 +529,92 @@ function evaluateResults(labValues: LabValues, labUnits: LabUnits) {
 function getSystemSummary(results: ReturnType<typeof evaluateResults>) {
   const systemMap = new Map<string, "optimal" | "suboptimal" | "flag">();
   results.forEach((r) => {
+    if (r.status === "info") return;
     const sys = SYSTEM_LABELS[r.marker] || r.marker;
     const current = systemMap.get(sys);
     if (!current || r.status === "flag" || (r.status === "suboptimal" && current === "optimal")) {
-      systemMap.set(sys, r.status);
+      systemMap.set(sys, r.status as "optimal" | "suboptimal" | "flag");
     }
   });
   return Array.from(systemMap.entries());
+}
+
+// ─── Score do check-up ───────────────────────────────────────────────
+// O score NÃO avalia a saúde da pessoa: mede quanto do painel funcional
+// relevante para os objetivos dela está coberto pelas análises que tem.
+// RASCUNHO CLÍNICO: os painéis por objetivo são propostos a partir do guia
+// de intervalos funcionais e devem ser validados pela Catarina antes de
+// publicar.
+
+const ALL_MARKER_KEYS: LabKey[] = [
+  "hemoglobina", "ferritina", "ferro_serico", "transferrina", "tsh",
+  "t4_livre", "t3_livre", "vitamina_b12", "acido_folico", "vitamina_d",
+  "pcr", "vsg", "homocisteina", "cortisol", "dhea", "glicose", "insulina",
+];
+
+const IDEAL_PANELS: Record<string, LabKey[]> = {
+  "Fadiga persistente": ["hemoglobina", "ferritina", "ferro_serico", "transferrina", "tsh", "t4_livre", "t3_livre", "vitamina_b12", "acido_folico", "vitamina_d", "pcr"],
+  "Energia e metabolismo": ["glicose", "insulina", "tsh", "ferritina", "vitamina_d"],
+  "Alterações hormonais": ["tsh", "t4_livre", "t3_livre", "dhea", "cortisol"],
+  "Digestão e bem-estar intestinal": ["pcr", "vsg", "ferritina", "vitamina_b12", "acido_folico", "vitamina_d"],
+  "Imunidade e inflamação": ["vitamina_d", "pcr", "vsg", "ferritina", "hemoglobina"],
+  "Perda de peso": ["glicose", "insulina", "tsh", "t4_livre", "t3_livre", "cortisol"],
+  "Equilíbrio emocional e sono": ["cortisol", "dhea", "tsh", "vitamina_b12", "homocisteina", "vitamina_d"],
+  "Optimização geral": ALL_MARKER_KEYS,
+};
+
+// Porquê de cada marcador em falta, em linguagem de leitora.
+const WHY_MISSING: Partial<Record<LabKey, string>> = {
+  hemoglobina: "Base do transporte de oxigénio; sem ela não se lê energia.",
+  ferritina: "Hemoglobina normal não exclui reservas de ferro baixas; a ferritina mede as reservas.",
+  ferro_serico: "Com a transferrina, permite calcular a saturação: o ferro realmente disponível.",
+  transferrina: "Com o ferro sérico, permite calcular a saturação de transferrina.",
+  tsh: "O sinal da hipófise para a tiróide; o ponto de partida do painel tiroideu.",
+  t4_livre: "A forma de reserva da hormona tiroideia. O TSH sozinho não a mostra.",
+  t3_livre: "A hormona tiroideia ativa. Sem T4L e T3L não se vê se a conversão está a acontecer.",
+  vitamina_b12: "Essencial para energia e sistema nervoso; níveis 'normais' podem ser insuficientes.",
+  acido_folico: "Trabalha em par com a B12 na metilação.",
+  vitamina_d: "Atua como hormona em múltiplos sistemas; défice funcional é muito comum.",
+  pcr: "Inflamação de baixo grau; também contextualiza uma ferritina 'boa demais'.",
+  vsg: "Segundo marcador de inflamação, complementa a PCR.",
+  homocisteina: "Mostra se a B12 e o folato estão a funcionar dentro das células.",
+  cortisol: "O eixo do stress não aparece no check-up standard; só se vê medindo-o.",
+  dhea: "A hormona adrenal que equilibra o cortisol; declina com a idade.",
+  glicose: "O ponto de partida do metabolismo dos açúcares.",
+  insulina: "Sobe anos antes da glicose; só as duas juntas mostram a sensibilidade à insulina.",
+};
+
+interface CheckupScore {
+  score: number;
+  tier: "baixo" | "medio" | "alto";
+  needed: LabKey[];
+  have: LabKey[];
+  missing: LabKey[];
+  categorias: { nome: string; total: number; cobertos: number }[];
+}
+
+function computeCheckupScore(objetivos: string[], labValues: LabValues): CheckupScore {
+  const needed = new Set<LabKey>();
+  objetivos.forEach((o) => (IDEAL_PANELS[o] || []).forEach((k) => needed.add(k)));
+  if (needed.size === 0) ALL_MARKER_KEYS.forEach((k) => needed.add(k));
+
+  const neededArr = Array.from(needed);
+  const have = neededArr.filter((k) => ((labValues as Record<string, string | undefined>)[k] || "").trim() !== "");
+  const missing = neededArr.filter((k) => !have.includes(k));
+  const score = Math.round((have.length / neededArr.length) * 100);
+  const tier: CheckupScore["tier"] = score < 40 ? "baixo" : score <= 70 ? "medio" : "alto";
+
+  const catMap = new Map<string, { total: number; cobertos: number }>();
+  neededArr.forEach((k) => {
+    const nome = SYSTEM_LABELS[LAB_UNIT_CONFIG[k].marker] || "Outros";
+    const cur = catMap.get(nome) || { total: 0, cobertos: 0 };
+    cur.total += 1;
+    if (have.includes(k)) cur.cobertos += 1;
+    catMap.set(nome, cur);
+  });
+  const categorias = Array.from(catMap.entries()).map(([nome, c]) => ({ nome, ...c }));
+
+  return { score, tier, needed: neededArr, have, missing, categorias };
 }
 
 const LabInput = ({
@@ -354,9 +762,10 @@ const Avaliacao = () => {
   const canProceed = () => {
     if (step === 0) return form.objetivos.length > 0;
     if (step === 1) return form.sexo !== "";
-    // Steps 2–5 = painéis laboratoriais. Bloquear avanço se houver valor sem unidade.
-    if (step >= 2 && step <= 5 && missingUnits.length > 0) return false;
-    if (step === 6) return form.nome.trim() !== "" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email);
+    // Step 2 = captura: nome, email e consentimento RGPD (dados de saúde).
+    if (step === 2) return form.nome.trim() !== "" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) && form.consentimento;
+    // Steps 3–4 = painéis laboratoriais. Bloquear avanço se houver valor sem unidade.
+    if (step >= 3 && step <= 4 && missingUnits.length > 0) return false;
     return true;
   };
 
@@ -365,14 +774,16 @@ const Avaliacao = () => {
     if (!canProceed()) {
       if (step === 0) setError("Seleciona pelo menos um objetivo.");
       else if (step === 1) setError("Seleciona o sexo biológico.");
-      else if (step >= 2 && step <= 5 && missingUnits.length > 0) setError("Indica em que unidade está cada valor preenchido.");
-      else if (step === 6) setError("Nome e email válido são obrigatórios.");
+      else if (step === 2 && !form.consentimento) setError("Para continuar é necessário o teu consentimento para tratar os dados.");
+      else if (step === 2) setError("Nome e email válido são obrigatórios.");
+      else if (step >= 3 && step <= 4 && missingUnits.length > 0) setError("Indica em que unidade está cada valor preenchido.");
       return;
     }
 
-    if (step === 6) {
+    if (step === 5) {
       setSaving(true);
       const evalResults = evaluateResults(form.labValues, form.labUnits);
+      const checkupData = computeCheckupScore(form.objetivos, form.labValues);
       const localeCountryCode = typeof navigator !== "undefined" && navigator.language.includes("-")
         ? navigator.language.split("-")[1]?.toUpperCase() ?? null
         : null;
@@ -391,7 +802,12 @@ const Avaliacao = () => {
         pais: localeCountryCode,
         sexo: form.sexo || null,
         objetivos: form.objetivos,
-        valores_laboratoriais: JSON.parse(JSON.stringify({ values: form.labValues, units: form.labUnits })),
+        valores_laboratoriais: JSON.parse(JSON.stringify({
+          values: form.labValues,
+          units: form.labUnits,
+          consentimento_rgpd: form.consentimento,
+          checkup: { score: checkupData.score, tier: checkupData.tier, em_falta: checkupData.missing },
+        })),
         resultados: JSON.parse(JSON.stringify(evalResults)),
         tem_exames: temExames,
       };
@@ -433,7 +849,7 @@ const Avaliacao = () => {
           objetivos: insertData.objetivos,
           valores_laboratoriais: insertData.valores_laboratoriais,
           resultados: insertData.resultados,
-          rgpd_aceite: true,
+          rgpd_aceite: form.consentimento,
         }]),
       ]);
 
@@ -445,12 +861,24 @@ const Avaliacao = () => {
       }
       setSaved(true);
 
+      // Key event: o lead só conta depois de a gravação passar. com_analises
+      // separa o segmento A do B, que é a distinção que muda a sequência de
+      // emails e o valor real do lead.
+      track("autoavaliacao_lead", {
+        com_analises: temExames,
+        marcadores_preenchidos: evalResults.length,
+        score_checkup: checkupData.score,
+      });
+
       // Generate PDF base64 for email attachment
       const systemSummary = getSystemSummary(evalResults);
       let pdfBase64: string | undefined;
       try {
         const { generatePDFBase64 } = await import("@/lib/generatePDF");
-        pdfBase64 = await generatePDFBase64(form.nome.trim(), systemSummary, evalResults);
+        pdfBase64 = await generatePDFBase64(form.nome.trim(), systemSummary, evalResults, {
+          score: checkupData.score,
+          missing: checkupData.missing.map((k) => ({ marker: LAB_UNIT_CONFIG[k].marker, why: WHY_MISSING[k] || "" })),
+        });
       } catch (e) {
         console.error('PDF generation error:', e);
       }
@@ -484,7 +912,7 @@ const Avaliacao = () => {
       }).catch((err) => console.error('Email send error:', err));
     }
 
-    setStep((s) => Math.min(s + 1, 8));
+    setStep((s) => Math.min(s + 1, 7));
   };
 
   const goBack = () => {
@@ -494,13 +922,17 @@ const Avaliacao = () => {
 
   const results = evaluateResults(form.labValues, form.labUnits);
   const systems = getSystemSummary(results);
+  const checkup = computeCheckupScore(form.objetivos, form.labValues);
   const hasAnyLabValue = Object.values(form.labValues).some((v) => v && v.trim() !== "");
   const optimalCount = systems.filter(([, s]) => s === "optimal").length;
   const flagCount = systems.filter(([, s]) => s !== "optimal").length;
 
   const handleExportPDF = async () => {
     const { downloadPDF } = await import("@/lib/generatePDF");
-    await downloadPDF(form.nome || "utilizador", systems, results);
+    await downloadPDF(form.nome || "utilizador", systems, results, {
+      score: checkup.score,
+      missing: checkup.missing.map((k) => ({ marker: LAB_UNIT_CONFIG[k].marker, why: WHY_MISSING[k] || "" })),
+    });
   };
 
   return (
@@ -526,7 +958,7 @@ const Avaliacao = () => {
         <div className="max-w-2xl mx-auto">
           {/* Tabs */}
           <div className="flex items-end gap-0 overflow-x-auto pb-0 mb-3">
-            {STEP_TITLES.slice(0, 7).map((title, i) => {
+            {STEP_TITLES.slice(0, 6).map((title, i) => {
               const isActive = i === step;
               const isPast = i < step;
               return (
@@ -637,118 +1069,16 @@ const Avaliacao = () => {
             </div>
           )}
 
-          {/* Step 2: Thyroid */}
+          {/* Step 2: CAPTURA — nome, email, consentimento RGPD */}
           {step === 2 && (
-            <div className="space-y-8">
-              <div>
-                <h2 className="font-serif text-3xl text-v2-ink">Painel Tiroideu</h2>
-                <p className="text-sm text-v2-ink-mute font-sans mt-2">Preenche apenas os valores que tens disponíveis.</p>
+            <div className="space-y-8 max-w-md mx-auto">
+              <div className="text-center">
+                <h2 className="font-serif text-3xl text-v2-ink">Onde enviamos o teu relatório?</h2>
+                <p className="text-sm text-v2-ink-mute font-sans mt-2">
+                  No fim recebes o score do teu check-up, a leitura funcional dos valores que tiveres e a lista do que ainda falta medir, em PDF, no teu email.
+                </p>
               </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <LabInput label="TSH" labKey="tsh" value={form.labValues.tsh || ""} unit={form.labUnits.tsh || ""} onChange={(v) => updateLab("tsh", v)} onUnitChange={(u) => updateUnit("tsh", u)} placeholder="Ex: 2.5" />
-                <LabInput label="T3 Livre" labKey="t3_livre" value={form.labValues.t3_livre || ""} unit={form.labUnits.t3_livre || ""} onChange={(v) => updateLab("t3_livre", v)} onUnitChange={(u) => updateUnit("t3_livre", u)} placeholder="Ex: 3.1" />
-                <LabInput label="T4 Livre" labKey="t4_livre" value={form.labValues.t4_livre || ""} unit={form.labUnits.t4_livre || ""} onChange={(v) => updateLab("t4_livre", v)} onUnitChange={(u) => updateUnit("t4_livre", u)} placeholder="Ex: 1.2" />
-              </div>
-            </div>
-          )}
-
-          {/* Step 3: Iron */}
-          {step === 3 && (
-            <div className="space-y-8">
-              <div>
-                <h2 className="font-serif text-3xl text-v2-ink">Painel de Ferro</h2>
-                <p className="text-sm text-v2-ink-mute font-sans mt-2">Preenche apenas os valores que tens disponíveis.</p>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <LabInput label="Ferritina" labKey="ferritina" value={form.labValues.ferritina || ""} unit={form.labUnits.ferritina || ""} onChange={(v) => updateLab("ferritina", v)} onUnitChange={(u) => updateUnit("ferritina", u)} placeholder="Ex: 45" />
-                <LabInput label="Ferro Sérico" labKey="ferro_serico" value={form.labValues.ferro_serico || ""} unit={form.labUnits.ferro_serico || ""} onChange={(v) => updateLab("ferro_serico", v)} onUnitChange={(u) => updateUnit("ferro_serico", u)} placeholder="Ex: 80" />
-                <LabInput label="Transferrina" labKey="transferrina" value={form.labValues.transferrina || ""} unit={form.labUnits.transferrina || ""} onChange={(v) => updateLab("transferrina", v)} onUnitChange={(u) => updateUnit("transferrina", u)} placeholder="Ex: 250" />
-              </div>
-            </div>
-          )}
-
-          {/* Step 4: Inflammation */}
-          {step === 4 && (
-            <div className="space-y-8">
-              <div>
-                <h2 className="font-serif text-3xl text-v2-ink">Marcadores Inflamatórios</h2>
-                <p className="text-sm text-v2-ink-mute font-sans mt-2">Preenche apenas os valores que tens disponíveis.</p>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <LabInput label="PCR (Proteína C-Reactiva)" labKey="pcr" value={form.labValues.pcr || ""} unit={form.labUnits.pcr || ""} onChange={(v) => updateLab("pcr", v)} onUnitChange={(u) => updateUnit("pcr", u)} placeholder="Ex: 0.5" />
-                <LabInput label="Homocisteína" labKey="homocisteina" value={form.labValues.homocisteina || ""} unit={form.labUnits.homocisteina || ""} onChange={(v) => updateLab("homocisteina", v)} onUnitChange={(u) => updateUnit("homocisteina", u)} placeholder="Ex: 8" />
-                <LabInput label="VS (Velocidade de Sedimentação)" labKey="vsg" value={form.labValues.vsg || ""} unit={form.labUnits.vsg || ""} onChange={(v) => updateLab("vsg", v)} onUnitChange={(u) => updateUnit("vsg", u)} placeholder="Ex: 10" />
-              </div>
-            </div>
-          )}
-
-          {/* Step 5: Metabolism */}
-          {step === 5 && (
-            <div className="space-y-8">
-              <div>
-                <h2 className="font-serif text-3xl text-v2-ink">Metabolismo e Hormonas</h2>
-                <p className="text-sm text-v2-ink-mute font-sans mt-2">Preenche apenas os valores que tens disponíveis.</p>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <LabInput label="Vitamina D" labKey="vitamina_d" value={form.labValues.vitamina_d || ""} unit={form.labUnits.vitamina_d || ""} onChange={(v) => updateLab("vitamina_d", v)} onUnitChange={(u) => updateUnit("vitamina_d", u)} placeholder="Ex: 35" />
-                <LabInput label="Vitamina B12" labKey="vitamina_b12" value={form.labValues.vitamina_b12 || ""} unit={form.labUnits.vitamina_b12 || ""} onChange={(v) => updateLab("vitamina_b12", v)} onUnitChange={(u) => updateUnit("vitamina_b12", u)} placeholder="Ex: 400" />
-                <LabInput label="Ácido Fólico" labKey="acido_folico" value={form.labValues.acido_folico || ""} unit={form.labUnits.acido_folico || ""} onChange={(v) => updateLab("acido_folico", v)} onUnitChange={(u) => updateUnit("acido_folico", u)} placeholder="Ex: 8" />
-                <LabInput label="Cortisol (manhã)" labKey="cortisol" value={form.labValues.cortisol || ""} unit={form.labUnits.cortisol || ""} onChange={(v) => updateLab("cortisol", v)} onUnitChange={(u) => updateUnit("cortisol", u)} placeholder="Ex: 15" />
-                <LabInput label="DHEA-S" labKey="dhea" value={form.labValues.dhea || ""} unit={form.labUnits.dhea || ""} onChange={(v) => updateLab("dhea", v)} onUnitChange={(u) => updateUnit("dhea", u)} placeholder="Ex: 200" />
-              </div>
-            </div>
-          )}
-
-          {/* Step 6: PRÉ-RESULTADO + Lead capture */}
-          {step === 6 && (
-            <div className="space-y-8">
-              {/* Summary card */}
-              <div className="bg-v2-paper rounded-2xl p-8 border border-v2-paper-line space-y-6">
-                <h2 className="font-serif text-3xl md:text-4xl text-v2-ink text-center">
-                  A tua leitura funcional
-                </h2>
-
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  <div className="bg-v2-paper-deep/50 rounded-xl py-4 px-2">
-                    <p className="font-serif text-3xl text-v2-ink">{systems.length}</p>
-                    <p className="text-xs text-v2-ink-mute font-sans mt-1">Sistemas avaliados</p>
-                  </div>
-                  <div className="bg-v2-paper-deep/50 rounded-xl py-4 px-2">
-                    <p className="font-serif text-3xl text-v2-ink">{optimalCount}</p>
-                    <p className="text-xs text-v2-ink-mute font-sans mt-1">No intervalo funcional</p>
-                  </div>
-                  <div className="bg-v2-paper-deep/50 rounded-xl py-4 px-2">
-                    <p className="font-serif text-3xl text-v2-ink">{flagCount}</p>
-                    <p className="text-xs text-v2-ink-mute font-sans mt-1">Padrões a investigar</p>
-                  </div>
-                </div>
-
-                {/* System list with status dots only */}
-                <div className="space-y-2">
-                  {systems.map(([name, status]) => (
-                    <div key={name} className="flex items-center gap-3 py-2.5 px-4 rounded-lg bg-v2-paper/60">
-                      <span className="text-sm font-sans font-medium text-v2-ink mr-1">
-                        {status === "optimal" ? "\u25CF" : status === "suboptimal" ? "\u26A0" : "\u2193"}
-                      </span>
-                      <span className="text-sm font-sans text-v2-ink">{name}</span>
-                    </div>
-                  ))}
-                  {systems.length === 0 && (
-                    <p className="text-sm text-v2-ink-mute font-sans text-center py-4">
-                      Nenhum valor laboratorial foi introduzido.
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              {/* Information gap message */}
-              <p className="text-sm font-sans text-v2-ink-mute italic text-center leading-relaxed max-w-[480px] mx-auto">
-                "Identificámos alguns padrões nos teus biomarcadores. Para ver a interpretação completa de cada marcador, os rácios calculados e os próximos passos possíveis, introduz o teu email."
-              </p>
-
-              {/* Lead capture form */}
-              <div className="space-y-4 max-w-sm mx-auto">
+              <div className="space-y-4">
                 <div>
                   <label className="text-sm font-sans text-v2-ink-mute mb-1 block">Nome</label>
                   <Input
@@ -768,31 +1098,127 @@ const Avaliacao = () => {
                     className="bg-transparent border-v2-sage/30 focus:border-v2-sage"
                   />
                 </div>
-                <Button
-                  variant="hero"
-                  size="lg"
-                  className="w-full"
-                  onClick={goNext}
-                  disabled={saving}
-                >
-                  {saving ? "A guardar..." : "Ver relatório completo →"}
+                <label className="flex items-start gap-3 text-xs text-v2-ink-mute font-sans leading-relaxed cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={form.consentimento}
+                    onChange={(e) => setForm((prev) => ({ ...prev, consentimento: e.target.checked }))}
+                    className="mt-0.5 accent-v2-sage"
+                  />
+                  <span>
+                    Autorizo o tratamento dos dados que introduzir neste questionário, incluindo valores de análises (dados de saúde), para gerar o meu relatório educativo e receber a comunicação associada. Posso retirar o consentimento a qualquer momento.{" "}
+                    <a href="/politica-privacidade" target="_blank" rel="noopener noreferrer" className="underline hover:text-v2-ink">Política de Privacidade</a>.
+                  </span>
+                </label>
+                <p className="text-xs text-v2-ink-mute font-sans text-center">Sem spam. Apenas a tua leitura.</p>
+              </div>
+            </div>
+          )}
+
+          {/* Step 3: ANÁLISES COMUNS — o que quase toda a gente tem */}
+          {step === 3 && (
+            <div className="space-y-8">
+              <div>
+                <h2 className="font-serif text-3xl text-v2-ink">As tuas análises</h2>
+                <p className="text-sm text-v2-ink-mute font-sans mt-2">
+                  Preenche os valores que tens à mão. Não tens análises? Segue em frente: o teu relatório mostra exatamente o que vale a pena medir.
+                </p>
+                <p className="text-xs text-v2-ink-mute font-sans mt-1 italic">
+                  Intervalos aplicáveis a mulheres adultas, não grávidas.
+                </p>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <LabInput label="Hemoglobina" labKey="hemoglobina" value={form.labValues.hemoglobina || ""} unit={form.labUnits.hemoglobina || ""} onChange={(v) => updateLab("hemoglobina", v)} onUnitChange={(u) => updateUnit("hemoglobina", u)} placeholder="Ex: 13.8" />
+                <LabInput label="Ferritina" labKey="ferritina" value={form.labValues.ferritina || ""} unit={form.labUnits.ferritina || ""} onChange={(v) => updateLab("ferritina", v)} onUnitChange={(u) => updateUnit("ferritina", u)} placeholder="Ex: 45" />
+                <LabInput label="TSH" labKey="tsh" value={form.labValues.tsh || ""} unit={form.labUnits.tsh || ""} onChange={(v) => updateLab("tsh", v)} onUnitChange={(u) => updateUnit("tsh", u)} placeholder="Ex: 2.5" />
+                <LabInput label="Vitamina B12" labKey="vitamina_b12" value={form.labValues.vitamina_b12 || ""} unit={form.labUnits.vitamina_b12 || ""} onChange={(v) => updateLab("vitamina_b12", v)} onUnitChange={(u) => updateUnit("vitamina_b12", u)} placeholder="Ex: 400" />
+                <LabInput label="Ácido Fólico" labKey="acido_folico" value={form.labValues.acido_folico || ""} unit={form.labUnits.acido_folico || ""} onChange={(v) => updateLab("acido_folico", v)} onUnitChange={(u) => updateUnit("acido_folico", u)} placeholder="Ex: 8" />
+                <LabInput label="Vitamina D" labKey="vitamina_d" value={form.labValues.vitamina_d || ""} unit={form.labUnits.vitamina_d || ""} onChange={(v) => updateLab("vitamina_d", v)} onUnitChange={(u) => updateUnit("vitamina_d", u)} placeholder="Ex: 35" />
+                <LabInput label="PCR (Proteína C-Reactiva)" labKey="pcr" value={form.labValues.pcr || ""} unit={form.labUnits.pcr || ""} onChange={(v) => updateLab("pcr", v)} onUnitChange={(u) => updateUnit("pcr", u)} placeholder="Ex: 0.5" />
+                <LabInput label="Glicose em jejum" labKey="glicose" value={form.labValues.glicose || ""} unit={form.labUnits.glicose || ""} onChange={(v) => updateLab("glicose", v)} onUnitChange={(u) => updateUnit("glicose", u)} placeholder="Ex: 88" />
+                <LabInput label="Insulina em jejum" labKey="insulina" value={form.labValues.insulina || ""} unit={form.labUnits.insulina || ""} onChange={(v) => updateLab("insulina", v)} onUnitChange={(u) => updateUnit("insulina", u)} placeholder="Ex: 6" />
+              </div>
+            </div>
+          )}
+
+          {/* Step 4: TENS MAIS VALORES? — marcadores menos comuns */}
+          {step === 4 && (
+            <div className="space-y-8">
+              <div>
+                <h2 className="font-serif text-3xl text-v2-ink">Tens mais valores?</h2>
+                <p className="text-sm text-v2-ink-mute font-sans mt-2">
+                  Estes marcadores são menos comuns nas análises de rotina. Se não os tens, é normal, e é exatamente isso que o teu score vai mostrar.
+                </p>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <LabInput label="T3 Livre" labKey="t3_livre" value={form.labValues.t3_livre || ""} unit={form.labUnits.t3_livre || ""} onChange={(v) => updateLab("t3_livre", v)} onUnitChange={(u) => updateUnit("t3_livre", u)} placeholder="Ex: 3.1" />
+                <LabInput label="T4 Livre" labKey="t4_livre" value={form.labValues.t4_livre || ""} unit={form.labUnits.t4_livre || ""} onChange={(v) => updateLab("t4_livre", v)} onUnitChange={(u) => updateUnit("t4_livre", u)} placeholder="Ex: 1.2" />
+                <LabInput label="Ferro Sérico" labKey="ferro_serico" value={form.labValues.ferro_serico || ""} unit={form.labUnits.ferro_serico || ""} onChange={(v) => updateLab("ferro_serico", v)} onUnitChange={(u) => updateUnit("ferro_serico", u)} placeholder="Ex: 80" />
+                <LabInput label="Transferrina" labKey="transferrina" value={form.labValues.transferrina || ""} unit={form.labUnits.transferrina || ""} onChange={(v) => updateLab("transferrina", v)} onUnitChange={(u) => updateUnit("transferrina", u)} placeholder="Ex: 250" />
+                <LabInput label="VS (Velocidade de Sedimentação)" labKey="vsg" value={form.labValues.vsg || ""} unit={form.labUnits.vsg || ""} onChange={(v) => updateLab("vsg", v)} onUnitChange={(u) => updateUnit("vsg", u)} placeholder="Ex: 10" />
+                <LabInput label="Homocisteína" labKey="homocisteina" value={form.labValues.homocisteina || ""} unit={form.labUnits.homocisteina || ""} onChange={(v) => updateLab("homocisteina", v)} onUnitChange={(u) => updateUnit("homocisteina", u)} placeholder="Ex: 8" />
+                <LabInput label="Cortisol (manhã)" labKey="cortisol" value={form.labValues.cortisol || ""} unit={form.labUnits.cortisol || ""} onChange={(v) => updateLab("cortisol", v)} onUnitChange={(u) => updateUnit("cortisol", u)} placeholder="Ex: 15" />
+                <LabInput label="DHEA-S" labKey="dhea" value={form.labValues.dhea || ""} unit={form.labUnits.dhea || ""} onChange={(v) => updateLab("dhea", v)} onUnitChange={(u) => updateUnit("dhea", u)} placeholder="Ex: 200" />
+              </div>
+            </div>
+          )}
+
+          {/* Step 5: SCORE DO CHECK-UP — pré-resultado */}
+          {step === 5 && (
+            <div className="space-y-8">
+              <div className="bg-v2-paper rounded-2xl p-8 border border-v2-paper-line space-y-6">
+                <div className="text-center space-y-3">
+                  <p className="text-xs font-sans uppercase tracking-widest text-v2-sage">O score do teu check-up</p>
+                  <p className="font-serif text-6xl text-v2-ink leading-none">
+                    {checkup.score}<span className="text-2xl text-v2-ink-mute">/100</span>
+                  </p>
+                  <p className="text-sm text-v2-ink-mute font-sans max-w-[46ch] mx-auto leading-relaxed">
+                    Este número não avalia a tua saúde. Mede quanto as análises que tens conseguem ver dos sistemas relevantes para os teus objetivos.
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  {checkup.categorias.map((c) => (
+                    <div key={c.nome} className="flex items-center justify-between py-2.5 px-4 rounded-lg bg-v2-paper/60 border border-v2-paper-line">
+                      <span className="text-sm font-sans text-v2-ink">{c.nome}</span>
+                      <span className={`text-xs font-sans px-2 py-0.5 rounded-full ${
+                        c.cobertos === c.total ? "bg-green-100 text-green-800" :
+                        c.cobertos > 0 ? "bg-amber-100 text-amber-800" :
+                        "bg-v2-paper-deep text-v2-ink-mute"
+                      }`}>
+                        {c.cobertos === c.total ? "Coberto" : c.cobertos > 0 ? `Parcial (${c.cobertos}/${c.total})` : "Sem dados"}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="space-y-3 max-w-sm mx-auto">
+                <Button variant="hero" size="lg" className="w-full" onClick={goNext} disabled={saving}>
+                  {saving ? "A preparar o teu relatório..." : "Ver o relatório completo →"}
                 </Button>
                 <p className="text-xs text-v2-ink-mute font-sans text-center">
-                  Sem spam. Apenas a tua leitura.
+                  Recebes também o PDF em {form.email || "no teu email"}.
                 </p>
               </div>
             </div>
           )}
 
-          {/* Step 7: RESULTADO COMPLETO */}
-          {step === 7 && (
+          {/* Step 6: RESULTADO COMPLETO */}
+          {step === 6 && (
             <div className="space-y-8">
               <div className="text-center">
                 <div className="w-14 h-14 rounded-full bg-v2-golden/10 flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="w-7 h-7 text-v2-golden" />
                 </div>
-                <h2 className="font-serif text-3xl text-v2-ink">A tua leitura — para levares à consulta.</h2>
-                <p className="text-v2-ink-mute font-sans mt-2">Análise baseada em intervalos funcionais — não apenas de referência.</p>
+                <h2 className="font-serif text-3xl text-v2-ink">A tua leitura, para levares à consulta.</h2>
+                <p className="text-v2-ink-mute font-sans mt-2">Análise baseada em intervalos funcionais, não apenas de referência.</p>
+              </div>
+
+              {/* Score do check-up */}
+              <div className="flex items-center justify-center gap-4 bg-v2-paper border border-v2-paper-line rounded-2xl px-6 py-4 max-w-md mx-auto">
+                <p className="font-serif text-4xl text-v2-ink leading-none">{checkup.score}<span className="text-base text-v2-ink-mute">/100</span></p>
+                <p className="text-xs text-v2-ink-mute font-sans leading-relaxed">
+                  Score do teu check-up: quanto as tuas análises conseguem ver dos sistemas relevantes para os teus objetivos.
+                </p>
               </div>
 
               {!hasAnyLabValue ? (
@@ -826,9 +1252,9 @@ const Avaliacao = () => {
 
                   <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 space-y-4">
                     <p className="text-sm font-sans text-v2-ink leading-relaxed">
-                      Se preferes ir directamente para uma avaliação clínica completa — onde cruzamos sintomas, história e exames — podes agendar a consulta inicial.
+                      Se preferes ir directamente para uma avaliação clínica completa, onde cruzamos sintomas, história e exames, podes agendar a consulta inicial.
                     </p>
-                    <Button variant="hero" size="sm" onClick={() => setAcuityOpen(true)}>
+                    <Button variant="hero" size="sm" onClick={() => { track("marcar_consulta", { origem: "avaliacao-sem-analises" }); setAcuityOpen(true); }}>
                       Agendar consulta inicial →
                     </Button>
                   </div>
@@ -843,21 +1269,23 @@ const Avaliacao = () => {
                       <div key={i} className={`rounded-xl p-5 border ${
                         r.status === "optimal" ? "bg-green-50 border-green-200" :
                         r.status === "suboptimal" ? "bg-amber-50 border-amber-200" :
+                        r.status === "info" ? "bg-v2-paper border-v2-paper-line" :
                         "bg-red-50 border-red-200"
                       }`}>
                         <div className="flex items-center justify-between mb-1">
                           <div className="flex items-center gap-2">
                             <span className="text-sm font-sans font-bold">
-                              {r.status === "optimal" ? "\u25CF" : r.status === "suboptimal" ? "\u26A0" : "\u2193"}
+                              {r.status === "optimal" ? "\u25CF" : r.status === "suboptimal" ? "\u26A0" : r.status === "info" ? "\u00B7" : "\u2193"}
                             </span>
                             <span className="font-sans font-medium text-v2-ink text-sm">{r.marker}</span>
                           </div>
                           <span className={`text-xs font-sans px-2 py-0.5 rounded-full ${
                             r.status === "optimal" ? "bg-green-100 text-green-800" :
                             r.status === "suboptimal" ? "bg-amber-100 text-amber-800" :
+                            r.status === "info" ? "bg-v2-paper-deep text-v2-ink-mute" :
                             "bg-red-100 text-red-800"
                           }`}>
-                            {r.status === "optimal" ? "Funcional" : r.status === "suboptimal" ? "Sub-óptimo" : "Atenção"}
+                            {r.status === "optimal" ? "Funcional" : r.status === "suboptimal" ? "Sub-óptimo" : r.status === "info" ? "Registado" : "Atenção"}
                           </span>
                         </div>
                         <p className="text-xs text-v2-ink-mute font-sans">
@@ -897,7 +1325,7 @@ const Avaliacao = () => {
                       <p className="text-sm font-sans text-v2-ink leading-relaxed">
                         Encontrámos <strong>{flagCount}</strong> biomarcador{flagCount > 1 ? "es" : ""} fora do intervalo funcional. Estes padrões podem associar-se a sintomas como fadiga, alterações hormonais ou dificuldade de recuperação. Uma consulta clínica permite interpretar estes padrões no seu contexto individual.
                       </p>
-                      <Button variant="hero" size="sm" onClick={() => setAcuityOpen(true)}>
+                      <Button variant="hero" size="sm" onClick={() => { track("marcar_consulta", { origem: "avaliacao-com-flags" }); setAcuityOpen(true); }}>
                         Agendar consulta inicial →
                       </Button>
                     </div>
@@ -913,10 +1341,31 @@ const Avaliacao = () => {
                 </>
               )}
 
+              {/* O teu próximo painel — análises em falta para os objetivos marcados */}
+              {checkup.missing.length > 0 && (
+                <div className="bg-v2-paper border border-v2-paper-line rounded-2xl p-8 space-y-4">
+                  <p className="text-xs font-sans uppercase tracking-widest text-v2-sage">O teu próximo painel</p>
+                  <p className="text-sm font-sans text-v2-ink/85 leading-relaxed">
+                    Para os objetivos que marcaste, estas são as análises que ainda faltam ao teu check-up. Leva esta lista à próxima consulta: é o teu médico quem avalia e prescreve.
+                  </p>
+                  <ul className="space-y-3">
+                    {checkup.missing.map((k) => (
+                      <li key={k} className="flex items-start gap-3">
+                        <span className="text-v2-golden mt-1 leading-none">◆</span>
+                        <div>
+                          <p className="text-sm font-sans font-medium text-v2-ink">{LAB_UNIT_CONFIG[k].marker}</p>
+                          {WHY_MISSING[k] && <p className="text-xs font-sans text-v2-ink-mute leading-relaxed">{WHY_MISSING[k]}</p>}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               {/* Disclaimer */}
               <div className="bg-v2-paper-deep rounded-xl p-6 text-center space-y-4">
                 <p className="text-sm font-sans text-v2-ink/85 leading-relaxed max-w-[60ch] mx-auto">
-                  Para além dos intervalos de referência laboratoriais, vale a pena olhar para intervalos funcionais — uma leitura complementar usada por laboratórios portugueses (como o Joaquim Chaves) e pela literatura científica internacional. Não substitui a interpretação clínica do médico.
+                  Para além dos intervalos de referência laboratoriais, vale a pena olhar para intervalos funcionais, uma leitura complementar usada por laboratórios portugueses (como o Joaquim Chaves) e pela literatura científica internacional. Não substitui a interpretação clínica do médico.
                 </p>
                 <p className="text-xs text-v2-ink-mute font-sans">
                   Esta autoavaliação é uma ferramenta educativa. Para diagnóstico, interpretação clínica de análises, prescrição ou tratamento médico, consulta o teu médico. Se quiseres acompanhamento de medicina funcional integrativa em complemento, podes marcar uma consulta comigo.
@@ -925,15 +1374,15 @@ const Avaliacao = () => {
 
               {/* Next step button */}
               <div className="flex justify-center pt-4">
-                <Button variant="hero" size="lg" onClick={() => setStep(8)}>
+                <Button variant="hero" size="lg" onClick={() => setStep(7)}>
                   Ver próximos passos →
                 </Button>
               </div>
             </div>
           )}
 
-          {/* Step 8: CONFIRMAÇÃO — Dark CTA */}
-          {step === 8 && (
+          {/* Step 7: CONFIRMAÇÃO — Dark CTA */}
+          {step === 7 && (
             <div className="bg-v2-moss rounded-2xl p-10 md:p-14 text-center space-y-6">
               <h2 className="font-serif text-3xl md:text-4xl text-v2-paper italic leading-tight">
                 Os teus exames contam uma história.<br />Queres ouvi-la?
@@ -957,8 +1406,8 @@ const Avaliacao = () => {
             </div>
           )}
 
-          {/* Navigation buttons (steps 0–5 only, step 6 has its own button) */}
-          {step < 6 && (
+          {/* Navigation buttons (steps 0–4 only, step 5 has botão próprio) */}
+          {step < 5 && (
             <div className="flex justify-between pt-8">
               {step > 0 ? (
                 <Button variant="outline" onClick={goBack}>
