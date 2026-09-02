@@ -1365,7 +1365,7 @@ const Avaliacao = () => {
               {/* Disclaimer */}
               <div className="bg-v2-paper-deep rounded-xl p-6 text-center space-y-4">
                 <p className="text-sm font-sans text-v2-ink/85 leading-relaxed max-w-[60ch] mx-auto">
-                  Para além dos intervalos de referência laboratoriais, vale a pena olhar para intervalos funcionais, uma leitura complementar usada por laboratórios portugueses (como o Joaquim Chaves) e pela literatura científica internacional. Não substitui a interpretação clínica do médico.
+                  Para além dos intervalos de referência laboratoriais, vale a pena olhar para intervalos funcionais, uma leitura complementar descrita na literatura científica internacional. Não substitui a interpretação clínica do médico.
                 </p>
                 <p className="text-xs text-v2-ink-mute font-sans">
                   Esta autoavaliação é uma ferramenta educativa. Para diagnóstico, interpretação clínica de análises, prescrição ou tratamento médico, consulta o teu médico. Se quiseres acompanhamento de medicina funcional integrativa em complemento, podes marcar uma consulta comigo.
