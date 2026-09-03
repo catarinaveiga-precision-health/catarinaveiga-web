@@ -283,6 +283,8 @@ const pages = [
       <p>O corpo não trata todos os tecidos por igual. Quando as reservas de ferro começam a descer, entra num modo de racionamento: retira ferro dos músculos, da tiroide, do folículo piloso e do cérebro para proteger uma única função, a produção de glóbulos vermelhos. É por isso que o hemograma continua a dar normal enquanto tudo o resto começa a falhar. A anemia é o último degrau, não o primeiro.</p>
       <h2>Intervalo laboratorial e intervalo funcional</h2>
       <p>O laboratório considera normal qualquer valor acima de 10 ng/mL. Esse limiar foi definido para identificar anemia, não para garantir função. O intervalo funcional que uso na prática clínica é de 70 a 120 ng/mL. Entre 50 e 70 muitas mulheres já têm sintomas, abaixo de 50 o défice funcional é comum, e abaixo de 30 as reservas são insuficientes.</p>
+      <h2>Porquê 70, e não 30</h2>
+      <p>O limite inferior de 70 não é arbitrário. Vem de um trabalho de Rushton, publicado em 2002 no Clinical and Experimental Dermatology: abaixo de 70 ng/mL, o limite de confiança de 99 por cento deixa de garantir que existe ferro corado nas reservas da medula óssea. Com 45 ou 60 podes já ter as reservas vazias sem que o valor o diga. Outras escolas funcionais usam intervalos mais baixos: a Optimal DX publica 45 a 79 ng/mL, e há clínicas que trabalham com 50 a 100. O tecto de 120 vem da prática clínica, não de um estudo.</p>
       <h2>A ferritina sozinha não chega</h2>
       <p>A ferritina é uma proteína de fase aguda: sobe com inflamação, infecção ou excesso de peso, e pode dar um valor tranquilizador com as reservas vazias. A saturação de transferrina mostra que percentagem do ferro está a ser efectivamente transportada: abaixo de 20 por cento, os tecidos já estão em falta. A PCR diz se a ferritina está inflada. O hemograma com VGM mostra se o défice já afectou a produção.</p>
       <h2>Porque é que a ferritina baixa imita o hipotiroidismo</h2>
@@ -301,7 +303,7 @@ const pages = [
       },
       {
         q: "Qual é o valor ideal de ferritina para uma mulher?",
-        a: "O intervalo funcional que uso na prática clínica situa-se entre 70 e 120 ng/mL. O laboratório considera normal qualquer valor acima de 10 ng/mL, o que é um limiar de ausência de anemia e não de suficiência. Entre 50 e 70 muitas mulheres já têm sintomas, abaixo de 50 o défice funcional é comum, e abaixo de 30 as reservas são insuficientes.",
+        a: "O intervalo funcional que uso na prática clínica situa-se entre 70 e 120 ng/mL. O limite inferior vem de Rushton (Clin Exp Dermatol, 2002): abaixo de 70 ng/mL, o limite de confiança de 99 por cento deixa de garantir que existe ferro nas reservas da medula óssea. O laboratório considera normal qualquer valor acima de 10 ng/mL, o que é um limiar de ausência de anemia e não de suficiência. Entre 50 e 70 muitas mulheres já têm sintomas, abaixo de 50 o défice funcional é comum, e abaixo de 30 as reservas são insuficientes.",
       },
       {
         q: "Porque é que tenho ferritina baixa se como bem?",

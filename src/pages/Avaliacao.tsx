@@ -277,15 +277,19 @@ const MARKER_BANDS: Partial<Record<LabKey, Bands>> = {
     },
   },
   ferritina: {
+    // 70 a 120: intervalo da pratica clinica da Catarina, confirmado 26 ago 2026.
+    // O piso de 70 tem fonte: Rushton, Clin Exp Dermatol 2002, abaixo de 70 ng/mL
+    // o limite de confianca de 99% deixa de garantir ferro na medula ossea.
+    // Antes estava 30 a 100 e contradizia a pagina /ferritina-baixa-sintomas.
     marker: "Ferritina",
     flagLow: 12,
-    subLow: 30,
-    optMin: 30,
-    optMax: 100,
+    subLow: 70,
+    optMin: 70,
+    optMax: 120,
     subHigh: 300,
     notes: {
       optimal: "Nível óptimo para energia e função tiroideia.",
-      subLow: "Dentro do 'normal' laboratorial, mas funcionalmente baixa.",
+      subLow: "Dentro do 'normal' laboratorial, mas abaixo do intervalo funcional (70 a 120). Abaixo de 70 deixa de haver garantia de ferro nas reservas da medula.",
       subHigh: "Elevada. Pode refletir inflamação; interpretar com PCR.",
       flagLow: "Reservas de ferro muito baixas. Vale a pena explorar com o teu médico.",
       flagHigh: "Muito elevada. Vale a pena explorar com o teu médico.",
@@ -564,7 +568,7 @@ const IDEAL_PANELS: Record<string, LabKey[]> = {
 };
 
 // Porquê de cada marcador em falta, em linguagem de leitora.
-const WHY_MISSING: Partial<Record<LabKey, string>> = {
+export const WHY_MISSING: Partial<Record<LabKey, string>> = {
   hemoglobina: "Base do transporte de oxigénio; sem ela não se lê energia.",
   ferritina: "Hemoglobina normal não exclui reservas de ferro baixas; a ferritina mede as reservas.",
   ferro_serico: "Com a transferrina, permite calcular a saturação: o ferro realmente disponível.",
@@ -593,7 +597,7 @@ interface CheckupScore {
   categorias: { nome: string; total: number; cobertos: number }[];
 }
 
-function computeCheckupScore(objetivos: string[], labValues: LabValues): CheckupScore {
+export function computeCheckupScore(objetivos: string[], labValues: LabValues): CheckupScore {
   const needed = new Set<LabKey>();
   objetivos.forEach((o) => (IDEAL_PANELS[o] || []).forEach((k) => needed.add(k)));
   if (needed.size === 0) ALL_MARKER_KEYS.forEach((k) => needed.add(k));

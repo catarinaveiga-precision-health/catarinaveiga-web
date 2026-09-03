@@ -214,13 +214,39 @@ const FerritinaBaixa = () => {
         functional={{
           range: "70 a 120 ng/mL",
           items: [
-            "Valores abaixo de 70 podem associar-se a défice funcional",
+            "Abaixo de 70 deixa de haver garantia de ferro nas reservas da medula",
             "Intervalo associado a energia, cabelo e cognição óptimos",
             "Considera as necessidades fisiológicas individuais",
           ],
         }}
-        source="Soppi ET. Iron deficiency without anemia. Clin Case Rep. 2018. PMID: 29468045"
+        source="Rushton DH. Nutritional factors and hair loss. Clin Exp Dermatol. 2002;27(5):396-404. Soppi ET. Iron deficiency without anemia. Clin Case Rep. 2018. PMID: 29468045"
       />
+
+      <SEOContentSection
+        label="De onde vem o número"
+        title="Porquê 70, e não 30"
+      >
+        <p>
+          O limite inferior de 70 não é arbitrário nem é uma preferência
+          minha. Vem de um trabalho de Rushton, publicado em 2002 no Clinical
+          and Experimental Dermatology: abaixo de 70 ng/mL, o limite de
+          confiança de 99 por cento deixa de garantir que existe ferro corado
+          nas reservas da medula óssea. Ou seja, com 45 ou 60 podes já ter as
+          reservas vazias sem que o valor o diga.
+        </p>
+        <p>
+          É por isso que uso 70 como piso e não 30, que é o número a partir do
+          qual o laboratório deixa de sinalizar. Entre esses dois valores há
+          uma faixa enorme de mulheres a quem foi dito que estava tudo bem.
+        </p>
+        <p>
+          Sou transparente sobre o resto: outras escolas funcionais usam
+          intervalos mais baixos. A Optimal DX publica 45 a 79 ng/mL, e há
+          clínicas que trabalham com 50 a 100. O tecto de 120 que uso vem da
+          minha prática clínica, não de um estudo. Onde há evidência, digo qual
+          é. Onde é experiência, digo que é experiência.
+        </p>
+      </SEOContentSection>
 
       <SEOContentSection
         label="O que pedir"
