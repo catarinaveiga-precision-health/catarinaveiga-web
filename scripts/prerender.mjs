@@ -278,6 +278,18 @@ const pages = [
     h1: "Ferritina baixa com hemoglobina normal: sintomas e causas",
     intro:
       "Muitas mulheres têm ferritina dentro dos valores de referência e hemoglobina normal, e ainda assim apresentam fadiga persistente, queda de cabelo e dificuldade de recuperação. É défice de ferro sem anemia: a hemoglobina mede o ferro em circulação, a ferritina mede as reservas.",
+    extraHtml: `
+      <h2>Porque é que a hemoglobina continua normal</h2>
+      <p>O corpo não trata todos os tecidos por igual. Quando as reservas de ferro começam a descer, entra num modo de racionamento: retira ferro dos músculos, da tiroide, do folículo piloso e do cérebro para proteger uma única função, a produção de glóbulos vermelhos. É por isso que o hemograma continua a dar normal enquanto tudo o resto começa a falhar. A anemia é o último degrau, não o primeiro.</p>
+      <h2>Intervalo laboratorial e intervalo funcional</h2>
+      <p>O laboratório considera normal qualquer valor acima de 10 ng/mL. Esse limiar foi definido para identificar anemia, não para garantir função. O intervalo funcional que uso na prática clínica é de 70 a 120 ng/mL. Entre 50 e 70 muitas mulheres já têm sintomas, abaixo de 50 o défice funcional é comum, e abaixo de 30 as reservas são insuficientes.</p>
+      <h2>A ferritina sozinha não chega</h2>
+      <p>A ferritina é uma proteína de fase aguda: sobe com inflamação, infecção ou excesso de peso, e pode dar um valor tranquilizador com as reservas vazias. A saturação de transferrina mostra que percentagem do ferro está a ser efectivamente transportada: abaixo de 20 por cento, os tecidos já estão em falta. A PCR diz se a ferritina está inflada. O hemograma com VGM mostra se o défice já afectou a produção.</p>
+      <h2>Porque é que a ferritina baixa imita o hipotiroidismo</h2>
+      <p>A tiroide produz sobretudo T4, a forma de reserva, e o corpo tem de a converter em T3, a forma activa. Essa conversão precisa de ferro, e a própria peroxidase tiroideia é uma enzima que depende de ferro. Com ferritina baixa a conversão fica comprometida: frio, cansaço, queda de cabelo, obstipação e pensamento lento, com um TSH perfeitamente normal.</p>
+      <h2>Quando a ferritina não sobe com suplementação</h2>
+      <p>Fazer suplementação correctamente durante três meses ou mais e a ferritina não subir raramente é falta de ferro na alimentação. Ou há uma perda contínua que ninguém contabilizou, e nas mulheres a causa mais frequente é ginecológica (miomas, pólipos, endometriose), ou há um problema de absorção. Este é um ponto em que o meu trabalho para e começa o de um médico: não diagnostico nem prescrevo, reconheço o padrão e encaminho.</p>
+    `,
     faq: [
       {
         q: "Posso ter sintomas de ferritina baixa com hemoglobina normal?",
@@ -289,11 +301,27 @@ const pages = [
       },
       {
         q: "Qual é o valor ideal de ferritina para uma mulher?",
-        a: "O intervalo funcional associado a energia, cabelo e cognição óptimos situa-se entre 50 e 100 ng/mL. O laboratório considera normal qualquer valor acima de 10 ng/mL, mas valores abaixo de 50 podem associar-se a défice funcional, e abaixo de 30 as reservas são insuficientes.",
+        a: "O intervalo funcional que uso na prática clínica situa-se entre 70 e 120 ng/mL. O laboratório considera normal qualquer valor acima de 10 ng/mL, o que é um limiar de ausência de anemia e não de suficiência. Entre 50 e 70 muitas mulheres já têm sintomas, abaixo de 50 o défice funcional é comum, e abaixo de 30 as reservas são insuficientes.",
       },
       {
         q: "Porque é que tenho ferritina baixa se como bem?",
         a: "As causas mais comuns em mulheres incluem perdas menstruais abundantes, absorção reduzida (permeabilidade intestinal, hipocloridria ou dieta pobre em ferro biodisponível), stress crónico (o cortisol interfere com a absorção e utilização do ferro), inflamação crónica (a hepcidina sequestra o ferro nos depósitos), gravidez e pós-parto, e dietas restritivas.",
+      },
+      {
+        q: "Que outros valores devo pedir além da ferritina?",
+        a: "A saturação de transferrina é o mais importante e o que mais falta nas análises que recebo: abaixo de 20 por cento, os tecidos já estão em falta mesmo com ferritina aparentemente aceitável. Vale também pedir PCR, porque a inflamação faz a ferritina subir e pode dar um valor falsamente tranquilizador, e o hemograma completo com VGM.",
+      },
+      {
+        q: "Porque é que a ferritina baixa causa sintomas se a hemoglobina está normal?",
+        a: "Porque o corpo raciona. Quando as reservas descem, retira ferro dos músculos, da tiroide, do folículo piloso e do cérebro para proteger a produção de glóbulos vermelhos. O hemograma continua normal enquanto tudo o resto começa a falhar. A anemia é o último degrau, não o primeiro.",
+      },
+      {
+        q: "Porque é que a ferritina baixa imita o hipotiroidismo?",
+        a: "A tiroide produz sobretudo T4, a forma de reserva, e o corpo tem de a converter em T3, a forma activa. Essa conversão precisa de ferro, e a própria peroxidase tiroideia depende de ferro para funcionar. Com ferritina baixa, a conversão fica comprometida: frio, cansaço, queda de cabelo, obstipação e pensamento lento, com TSH normal.",
+      },
+      {
+        q: "E se a ferritina não subir com suplementação?",
+        a: "Se fizeres suplementação correctamente durante três meses ou mais e a ferritina não subir de forma significativa, raramente é falta de ferro na alimentação. Ou há uma perda contínua que ninguém contabilizou, e nas mulheres a causa mais frequente é ginecológica (miomas, pólipos, endometriose), ou há um problema de absorção. Este é um cenário que exige investigação médica.",
       },
       {
         q: "A ferritina baixa pode afectar a tiróide?",

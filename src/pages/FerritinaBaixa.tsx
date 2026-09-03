@@ -45,18 +45,20 @@ const ferritinCalc = (values: string[]) => {
 
   let icon = "", text = "";
   if (f > 150) {
-    icon = "⚠️"; text = "Ferritina elevada — valores elevados podem associar-se a inflamação, sobrecarga de ferro ou outras condições que merecem avaliação.";
+    icon = "◆"; text = "Ferritina elevada. Valores elevados podem associar-se a inflamação, sobrecarga de ferro ou outras condições que merecem avaliação.";
+  } else if (f >= 70) {
+    icon = "✓"; text = "Ferritina dentro do intervalo funcional (70 a 120 ng/mL). As reservas de ferro parecem adequadas.";
   } else if (f >= 50) {
-    icon = "🟢"; text = "Ferritina dentro do intervalo funcional (≥50 ng/mL). As reservas de ferro parecem adequadas.";
+    icon = "◐"; text = "Ferritina abaixo do intervalo funcional (50 a 69 ng/mL). O laboratório considera normal, mas pode não ser suficiente para energia, cabelo e cognição.";
   } else if (f >= 30) {
-    icon = "🟡"; text = "Ferritina limítrofe (30–49 ng/mL). Pode associar-se a fadiga, queda de cabelo ou dificuldade de concentração.";
+    icon = "◐"; text = "Ferritina limítrofe (30 a 49 ng/mL). Pode associar-se a fadiga, queda de cabelo ou dificuldade de concentração.";
   } else {
-    icon = "🔴"; text = "Ferritina baixa (<30 ng/mL). Reservas de ferro insuficientes — merece investigação clínica.";
+    icon = "◇"; text = "Ferritina baixa (abaixo de 30 ng/mL). Reservas de ferro insuficientes: merece investigação clínica.";
   }
 
   let note: string | undefined;
-  if (!isNaN(h) && h >= 12 && f < 50) {
-    note = "Hemoglobina normal com ferritina abaixo do intervalo funcional — padrão compatível com défice de ferro sem anemia.";
+  if (!isNaN(h) && h >= 12 && f < 70) {
+    note = "Hemoglobina normal com ferritina abaixo do intervalo funcional: padrão compatível com défice de ferro sem anemia. Vale a pena pedir também a saturação de transferrina.";
   }
 
   return { icon, text, note };
@@ -75,11 +77,23 @@ const FAQSection = () => {
     },
     {
       q: "Qual é o valor ideal de ferritina para uma mulher?",
-      a: "O intervalo funcional associado a energia, cabelo e cognição óptimos situa-se entre 50 e 100 ng/mL. O laboratório considera normal qualquer valor acima de 10 ng/mL, mas valores abaixo de 50 podem associar-se a défice funcional, e abaixo de 30 as reservas são insuficientes.",
+      a: "O intervalo funcional que uso na prática clínica situa-se entre 70 e 120 ng/mL. O laboratório considera normal qualquer valor acima de 10 ng/mL, o que é um limiar de ausência de anemia e não de suficiência. Entre 50 e 70 muitas mulheres já têm sintomas, abaixo de 50 o défice funcional é comum, e abaixo de 30 as reservas são insuficientes.",
     },
     {
       q: "Porque é que tenho ferritina baixa se como bem?",
       a: "As causas mais comuns em mulheres incluem perdas menstruais abundantes, absorção reduzida (permeabilidade intestinal, hipocloridria ou dieta pobre em ferro biodisponível), stress crónico (o cortisol interfere com a absorção e utilização do ferro), inflamação crónica (a hepcidina sequestra o ferro nos depósitos), gravidez e pós-parto, e dietas restritivas.",
+    },
+    {
+      q: "Que outros valores devo pedir além da ferritina?",
+      a: "A saturação de transferrina é o mais importante e o que mais falta nas análises que recebo: abaixo de 20 por cento, os tecidos já estão em falta mesmo com ferritina aparentemente aceitável. Vale também pedir PCR, porque a inflamação faz a ferritina subir e pode dar um valor falsamente tranquilizador, e o hemograma completo com VGM.",
+    },
+    {
+      q: "Porque é que a ferritina baixa causa sintomas se a hemoglobina está normal?",
+      a: "Porque o corpo raciona. Quando as reservas descem, retira ferro dos músculos, da tiroide, do folículo piloso e do cérebro para proteger a produção de glóbulos vermelhos. O hemograma continua normal enquanto tudo o resto começa a falhar. A anemia é o último degrau, não o primeiro.",
+    },
+    {
+      q: "E se a ferritina não subir com suplementação?",
+      a: "Se fizeres suplementação correctamente durante três meses ou mais e a ferritina não subir de forma significativa, raramente é falta de ferro na alimentação. Ou há uma perda contínua que ninguém contabilizou, e nas mulheres a causa mais frequente é ginecológica (miomas, pólipos, endometriose), ou há um problema de absorção. Este é um cenário que exige investigação médica.",
     },
     {
       q: "A ferritina baixa pode afectar a tiróide?",
@@ -131,7 +145,7 @@ const FerritinaBaixa = () => {
     "description": "Ferritina baixa com hemoglobina normal? Sintomas, causas e a diferença entre valores laboratoriais e funcionais: porque há défice de ferro sem anemia.",
     "url": "https://www.catarinaveiga.com/ferritina-baixa-sintomas",
     "inLanguage": "pt",
-    "publisher": { "@type": "Organization", "name": "Catarina Veiga — Medicina Funcional Integrativa", "url": "https://www.catarinaveiga.com" },
+    "publisher": { "@type": "Organization", "name": "Catarina Veiga · Medicina Funcional Integrativa", "url": "https://www.catarinaveiga.com" },
   };
 
   return (
@@ -144,7 +158,7 @@ const FerritinaBaixa = () => {
       <SEOHero
         label="Medicina Funcional · Ferro"
         title="Ferritina baixa com hemoglobina normal: sintomas e causas"
-        intro="Muitas mulheres têm ferritina dentro dos valores de referência e hemoglobina normal — e ainda assim apresentam fadiga persistente, queda de cabelo e dificuldade de recuperação. É défice de ferro sem anemia."
+        intro="Muitas mulheres têm ferritina dentro dos valores de referência e hemoglobina normal, e ainda assim apresentam fadiga persistente, queda de cabelo e dificuldade de recuperação. É défice de ferro sem anemia."
         breadcrumb={[
           { label: "Início", to: "/" },
           { label: "Recursos", to: "/recursos" },
@@ -154,14 +168,31 @@ const FerritinaBaixa = () => {
 
       <SEOContentSection label="O essencial" title="O que é a ferritina e porque importa">
         <p>
-          A ferritina é a principal proteína de armazenamento de ferro no organismo. Ao contrário da hemoglobina — que mede o ferro em circulação — a ferritina mede as reservas disponíveis para uso celular.
+          A ferritina é a principal proteína de armazenamento de ferro no organismo. Ao contrário da hemoglobina, que mede o ferro em circulação, a ferritina mede as reservas disponíveis para uso celular.
         </p>
         <p>
-          O ferro é necessário para produção de energia mitocondrial, síntese de neurotransmissores, função tiroideia e manutenção do folículo piloso. Quando as reservas são insuficientes, estes processos são os primeiros a ser comprometidos — mesmo antes de a hemoglobina descer.
+          O ferro é necessário para produção de energia mitocondrial, síntese de neurotransmissores, função tiroideia e manutenção do folículo piloso. Quando as reservas são insuficientes, estes processos são os primeiros a ser comprometidos, mesmo antes de a hemoglobina descer.
         </p>
       </SEOContentSection>
 
-      <SEOImpactQuote quote="É possível ter hemoglobina normal e ferritina baixa. Os exames convencionais não identificam anemia — mas o corpo já está a funcionar com reservas insuficientes." />
+      <SEOContentSection
+        label="O mecanismo"
+        title="Porque é que a hemoglobina continua normal"
+      >
+        <p>
+          O corpo não trata todos os tecidos por igual. Quando as reservas de
+          ferro começam a descer, entra num modo de racionamento: retira ferro
+          dos músculos, da tiroide, do folículo piloso e do cérebro para
+          proteger uma única função, a produção de glóbulos vermelhos.
+        </p>
+        <p>
+          É por isso que o hemograma continua a dar normal enquanto tudo o
+          resto começa a falhar. A anemia é o último degrau, não o primeiro. Se
+          esperares por ela para agir, esperaste anos a mais.
+        </p>
+      </SEOContentSection>
+
+      <SEOImpactQuote quote="É possível ter hemoglobina normal e ferritina baixa. Os exames convencionais não identificam anemia, mas o corpo já está a funcionar com reservas insuficientes." />
 
       <SEOSymptomGrid
         label="Reconheces isto?"
@@ -173,7 +204,7 @@ const FerritinaBaixa = () => {
         label="A diferença que importa"
         title="Valores laboratoriais vs valores funcionais"
         conventional={{
-          range: "10–150 ng/mL",
+          range: "10 a 150 ng/mL",
           items: [
             "Qualquer valor acima de 10 é considerado normal",
             "Intervalo baseado na distribuição estatística da população",
@@ -181,15 +212,94 @@ const FerritinaBaixa = () => {
           ],
         }}
         functional={{
-          range: "50–100 ng/mL",
+          range: "70 a 120 ng/mL",
           items: [
-            "Valores abaixo de 50 podem associar-se a défice funcional",
+            "Valores abaixo de 70 podem associar-se a défice funcional",
             "Intervalo associado a energia, cabelo e cognição óptimos",
             "Considera as necessidades fisiológicas individuais",
           ],
         }}
         source="Soppi ET. Iron deficiency without anemia. Clin Case Rep. 2018. PMID: 29468045"
       />
+
+      <SEOContentSection
+        label="O que pedir"
+        title="A ferritina sozinha não chega"
+      >
+        <p>
+          A ferritina é uma proteína de fase aguda: sobe com inflamação,
+          infecção ou excesso de peso. Isso significa que pode dar um valor
+          tranquilizador enquanto as reservas estão de facto vazias. Para saber
+          o que se passa a sério, há três valores que fazem a diferença.
+        </p>
+        <p>
+          <strong>Saturação de transferrina.</strong> Mostra que percentagem do
+          ferro está a ser efectivamente transportada. Abaixo de 20 por cento,
+          os tecidos já estão em falta, mesmo com ferritina aparentemente
+          aceitável. É o valor que mais falta nas análises que recebo.
+        </p>
+        <p>
+          <strong>PCR ou proteína C reactiva.</strong> Se estiver elevada, a
+          ferritina está inflada e não pode ser lida à letra. Uma ferritina de
+          80 com PCR alta pode corresponder a reservas muito mais baixas.
+        </p>
+        <p>
+          <strong>Hemograma completo, incluindo VGM.</strong> Um volume
+          globular médio no limite inferior sugere que o défice já começou a
+          afectar a produção. Um VGM aumentado ao mesmo tempo que a ferritina
+          está baixa levanta outra hipótese: défice simultâneo de B12 ou
+          folato, que mascara os dois.
+        </p>
+      </SEOContentSection>
+
+      <SEOContentSection
+        label="Ferritina e tiroide"
+        title="Porque é que a ferritina baixa imita o hipotiroidismo"
+      >
+        <p>
+          Esta é a ligação que explica muitas consultas. A tiroide produz
+          sobretudo T4, que é a forma de reserva. Para funcionar, o corpo tem
+          de a converter em T3, a forma activa. Essa conversão precisa de
+          ferro, e a própria peroxidase tiroideia, a enzima que fabrica as
+          hormonas, é uma enzima que depende de ferro.
+        </p>
+        <p>
+          Com ferritina baixa, essa conversão fica comprometida. O resultado é
+          uma mulher com frio, cansaço, queda de cabelo, obstipação e
+          pensamento lento, com um TSH perfeitamente normal. É-lhe dito que a
+          tiroide está bem, e está: o problema é o ferro que ela precisa para
+          trabalhar.
+        </p>
+        <p>
+          É por isso que a combinação de ferritina baixa com TSH no limite
+          superior é um dos padrões que mais procuro. Tratar só a tiroide, com
+          uma ferritina de 25, costuma dar mau resultado.
+        </p>
+      </SEOContentSection>
+
+      <SEOContentSection
+        label="O sinal que não se deve ignorar"
+        title="Quando a ferritina não sobe, mesmo com suplementação"
+      >
+        <p>
+          Há um cenário que merece atenção diferente de todos os outros: fazer
+          suplementação de ferro correctamente, durante três meses ou mais, e a
+          ferritina não subir de forma significativa.
+        </p>
+        <p>
+          Quando isso acontece, raramente é falta de ferro na alimentação. Ou
+          há uma perda contínua que ninguém contabilizou, ou há um problema de
+          absorção. Nas mulheres, a causa mais frequente de perda contínua é
+          ginecológica: miomas, pólipos ou endometriose, muitas vezes com
+          ciclos que a própria considera normais porque sempre foram assim.
+        </p>
+        <p>
+          Este é um ponto em que o meu trabalho para e começa o de um médico.
+          Não diagnostico nem prescrevo. O que faço é reconhecer o padrão, dizer
+          com clareza o que está a acontecer, e encaminhar para investigação
+          médica com a pergunta certa já formulada.
+        </p>
+      </SEOContentSection>
 
       <SEOContentSection label="Tens um valor concreto?" title="Se já sabes o teu número de ferritina">
         <p>
@@ -232,7 +342,7 @@ const FerritinaBaixa = () => {
 
       <SEOCTA
         title="Os teus exames podem estar normais. Mas o teu corpo pode estar a pedir atenção."
-        subtitle="A avaliação funcional analisa ferritina em conjunto com outros 14 biomarcadores — e mostra padrões que os intervalos convencionais não identificam."
+        subtitle="A avaliação funcional analisa ferritina em conjunto com outros 14 biomarcadores, e mostra padrões que os intervalos convencionais não identificam."
       />
     </SEOPageLayout>
   );
