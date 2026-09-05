@@ -203,6 +203,13 @@ const TshNormal = () => {
         <p>
           A função tiroideia é influenciada por estrogénio, cortisol, ferro, vitamina D e estado inflamatório — todos factores que flutuam significativamente em mulheres ao longo do ciclo menstrual, gravidez, pós-parto e perimenopausa.
         </p>
+        <p>
+          Um dos mecanismos mais subestimados é a conversão de T4 em T3: podes ter TSH e T4 normais e ainda assim pouca hormona ativa nas células.{" "}
+          <a href="/blog/conversao-t4-t3-tsh-normal-cansada" className="text-matcha underline underline-offset-4">
+            Explico o mecanismo completo neste artigo
+          </a>
+          , incluindo o papel do selénio, do ferro e do T3 reverso.
+        </p>
       </SEOContentSection>
 
       <FAQSection />

@@ -404,6 +404,7 @@ const pages = [
     h1: "Tiroide com TSH normal mas com sintomas: o que a leitura funcional explica",
     intro:
       "O intervalo laboratorial aceita valores até 4.5 mUI/L como normais. Em medicina funcional, valores acima de 2.0 já podem associar-se a lentificação metabólica.",
+    extraHtml: `<p style="margin-top:24px;line-height:1.6">Um dos mecanismos mais subestimados é a conversão de T4 em T3: podes ter TSH e T4 normais e ainda assim pouca hormona ativa nas células. <a href="/blog/conversao-t4-t3-tsh-normal-cansada" style="color:#4A5957">Explico o mecanismo completo neste artigo</a>, incluindo o papel do selénio, do ferro e do T3 reverso.</p>`,
     faq: [
       {
         q: "TSH normal exclui problemas de tiroide?",
@@ -995,6 +996,31 @@ async function main() {
       "Acordar às 4 da manhã na perimenopausa: porquê",
     // publicado 2026-08-30 via API (newsletter #1); titulo editorial tem 78 chars
     "cansaco-em-setembro": "Cansaço em setembro: porquê e o que fazer",
+    "conversao-t4-t3-tsh-normal-cansada":
+      "Conversão T4 em T3: porque estás cansada com TSH normal",
+  };
+
+  // FAQPage JSON-LD por slug. As respostas replicam frases visiveis no corpo
+  // do artigo (obrigatorio: o LD tem de refletir conteudo visivel na pagina).
+  const BLOG_FAQ = {
+    "conversao-t4-t3-tsh-normal-cansada": [
+      {
+        q: "Posso ter sintomas de tiroide com o TSH normal?",
+        a: "Sim. O TSH mede o sinal de comando entre o cérebro e a tiroide, não a quantidade de T3 ativa que chega às células. Podes ter TSH e T4 normais e ainda assim pouca T3, porque a conversão de T4 em T3 acontece sobretudo fora da tiroide e pode estar comprometida.",
+      },
+      {
+        q: "Que análises mostram a conversão de T4 em T3?",
+        a: "TSH, T4 livre e T3 livre pedidos no mesmo dia, com a ferritina ao lado. Um T3 livre encostado ao fundo do intervalo com um T4 livre confortável é a assinatura clássica de conversão fraca.",
+      },
+      {
+        q: "O que trava a conversão de T4 em T3?",
+        a: "Défice de selénio, zinco ou ferro, stress fisiológico prolongado e restrição calórica agressiva. Na perimenopausa, estas três forças aparecem frequentemente ao mesmo tempo.",
+      },
+      {
+        q: "Devo tomar selénio para melhorar a conversão?",
+        a: "Não sem medir primeiro. O selénio tem uma janela estreita entre a dose útil e o excesso, e se o travão for o ferro, o cortisol ou a restrição calórica, o selénio não resolve nada.",
+      },
+    ],
   };
 
   let blogCount = 0;
@@ -1030,6 +1056,7 @@ async function main() {
         description,
         datePublished: post.publishedAt || undefined,
       },
+      faq: BLOG_FAQ[slug],
     };
 
     const html = generatePage(pageData);
