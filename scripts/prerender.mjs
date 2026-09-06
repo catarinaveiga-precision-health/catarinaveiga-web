@@ -38,7 +38,7 @@ async function fetchSanityPosts() {
     tags,
     mainImage { asset->{ url }, alt },
     excerpt,
-    body,
+    body[]{ ..., _type == "image" => { ..., asset->{ url } } },
     "author": author->{ name }
   }`;
 
@@ -75,7 +75,7 @@ async function fetchSanityPostsWithToken() {
     tags,
     mainImage { asset->{ url }, alt },
     excerpt,
-    body,
+    body[]{ ..., _type == "image" => { ..., asset->{ url } } },
     "author": author->{ name }
   }`;
 

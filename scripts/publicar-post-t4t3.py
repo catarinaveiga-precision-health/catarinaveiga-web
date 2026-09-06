@@ -81,7 +81,7 @@ body.append({"_key": k(), "_type": "block", "style": "normal", "listItem": "bull
 body.append({"_key": k(), "_type": "block", "style": "normal", "listItem": "bullet", "level": 1,
              "children": [span("Energia disponível. ", ["strong"]), span("Dietas muito restritivas e perda de peso rápida baixam a conversão de T4 em T3. É um mecanismo de poupança: o corpo interpreta a restrição como escassez e desliga aquecedores.")], "markDefs": []})
 body.append({"_key": k(), "_type": "image",
-             "asset": {"url": "https://cdn.sanity.io/images/3zvde3ro/production/d81028c72b9ba5e9c60d7c58bad2d81df260b03c-2800x1560.png"},
+             "asset": {"_type": "reference", "_ref": "image-d81028c72b9ba5e9c60d7c58bad2d81df260b03c-2800x1560-png"},
              "alt": "Diagrama da conversão: TSH, T4, desiodases com selénio, zinco e ferro, T3 livre, e o desvio para rT3"})
 
 body.append(h2("O desvio: T3 reverso"))

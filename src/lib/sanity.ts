@@ -51,7 +51,7 @@ export const POST_BY_SLUG_QUERY = `*[_type == "post" && slug.current == $slug &&
   tags,
   mainImage { asset->{ url }, alt },
   excerpt,
-  body,
+  body[]{ ..., _type == "image" => { ..., asset->{ url } } },
   "author": author->{ name }
 }`;
 
