@@ -529,7 +529,7 @@ const pages = [
       "Avaliacoes reais de mulheres acompanhadas em medicina funcional integrativa. Fadiga, sono, hormonas e exames normais: o que mudou, por palavras delas.",
     h1: "O que dizem as mulheres que ja passaram por aqui",
     intro:
-      "Avaliacoes reais, publicadas no Google, reproduzidas aqui sem alteracoes. A maioria descreve a mesma coisa: anos a ouvir que estava tudo normal, ate alguem olhar para o conjunto. O tratamento por \u0022Dra.\u0022 e a forma como as pacientes escrevem; Catarina Veiga e especialista em medicina funcional integrativa, nao e medica.",
+      "Avaliacoes reais, publicadas no Google, reproduzidas aqui sem alteracoes. A maioria descreve a mesma coisa: anos a ouvir que estava tudo normal, ate alguem olhar para o conjunto. O tratamento por \u0022Dra.\u0022 e a forma como as pacientes escrevem; Catarina Veiga e especialista em medicina funcional integrativa, com cedula profissional da ACSS ao abrigo da Lei n.º 71/2013, em complemento ao acompanhamento medico, e nao medica.",
     extraHtml: testemunhosHtml,
   },
   {
@@ -1019,6 +1019,100 @@ async function main() {
       {
         q: "Devo tomar selénio para melhorar a conversão?",
         a: "Não sem medir primeiro. O selénio tem uma janela estreita entre a dose útil e o excesso, e se o travão for o ferro, o cortisol ou a restrição calórica, o selénio não resolve nada.",
+      },
+    ],
+    // As entradas seguintes replicam VERBATIM as FAQ ja visiveis no corpo
+    // dos artigos no Sanity (nao inventar nem editar aqui sem editar la).
+    "ferritina-baixa": [
+      {
+        q: "A minha ferritina está em 25 ng/mL e o laboratório diz que é normal. E agora?",
+        a: "25 ng/mL está dentro do intervalo de referência mas abaixo do funcional (50-70 ng/mL). Se tens fadiga, queda de cabelo, brain fog ou intolerância ao frio, a ferritina merece atenção clínica. O contexto tem mais peso do que o número isolado.",
+      },
+      {
+        q: "Qual é o valor para parar a queda de cabelo?",
+        a: "A literatura aponta para melhoria acima dos 40-50 ng/mL, com estabilização mais consistente acima dos 70. Mas o ciclo do folículo demora 3 a 6 meses. Melhoria visível raramente aparece antes dos 4 a 6 meses de suplementação.",
+      },
+      {
+        q: "Posso ter ferritina baixa mesmo comendo carne?",
+        a: "Sim. A absorção comprometida (hipocloridria, inflamação, disbiose) pode resultar em défice mesmo com ingestão adequada. E perdas menstruais aumentadas superam o que a dieta repõe.",
+      },
+      {
+        q: "A ferritina pode estar normal mas o ferro em falta?",
+        a: "Sim. A ferritina sobe com a inflamação, independentemente das reservas. Ferritina de 40-80 ng/mL com CRP elevada pode mascarar um défice real. Saturação de transferrina e receptor solúvel de transferrina são mais fiáveis nestes casos.",
+      },
+      {
+        q: "O cansaço por ferritina baixa acontece sem anemia?",
+        a: "Acontece. Verdon et al. (2003, BMJ) e Vaucher et al. (2012, CMAJ) demonstraram-no em ensaios randomizados. Mulheres não-anémicas com ferritina abaixo de 50 ng/mL melhoraram com ferro.",
+      },
+      {
+        q: "Quanto tempo demora a subir?",
+        a: "Parcialmente, 3 a 4 meses. Se a absorção está comprometida ou há perdas contínuas, 6 meses ou mais. Controlo ao fim de 3 a 4 meses.",
+      },
+    ],
+    "jejum-intermitente-perimenopausa": [
+      {
+        q: "Posso fazer 16:8 na perimenopausa?",
+        a: "Algumas mulheres podem, especialmente as que dormem bem, têm stress controlado e sintomas ligeiros. Mas para a maioria, 16:8 é demasiado agressivo como ponto de partida. A recomendação clínica: começar com 12:12, avaliar a resposta durante 4-6 semanas, e alargar apenas se os sintomas melhorarem. Nunca saltar o pequeno-almoço como primeira estratégia.",
+      },
+      {
+        q: "O jejum piora os afrontamentos?",
+        a: "Há um mecanismo biológico plausível (o cortisol baixa o limiar termorregulador) e observação clínica consistente de que os afrontamentos aumentam em frequência e intensidade com o jejum em algumas mulheres. Se notou que os afrontamentos pioraram desde que começou o jejum, esse é um sinal para modificar o protocolo.",
+      },
+      {
+        q: "Jejum intermitente engorda na menopausa?",
+        a: "Não universalmente, mas o ganho de peso paradoxal está documentado em mulheres na perimenopausa com protocolos agressivos. O mecanismo é a deposição de gordura visceral mediada pelo cortisol e o catabolismo muscular. Se está a ganhar peso apesar de comer menos, especialmente na zona abdominal, o protocolo está a produzir o oposto do efeito pretendido.",
+      },
+      {
+        q: "Qual o melhor regime alimentar na perimenopausa?",
+        a: "A evidência actual apoia: comer nos primeiros 60 minutos após acordar com 30-40g de proteína; três refeições com proteína adequada em cada uma; hidratos complexos permitidos ao jantar para apoiar o sono; janela alimentar de 10-12 horas alinhada com a luz do dia; densidade nutricional sobre restrição calórica.",
+      },
+    ],
+    "nervo-vago-como-ativar-mulher": [
+      {
+        q: "Como activar o nervo vago de forma eficaz?",
+        a: "As técnicas com mais evidência são respiração diafragmática lenta (expiração mais longa que a inspiração), humming ou canto, gargarejar com água, e exposição ao frio. Mas se houver uma causa fisiológica subjacente (hormonal, tiroideia ou inflamatória) estas técnicas têm efeito limitado sem investigar o terreno.",
+      },
+      {
+        q: "O que causa baixo tónus vagal?",
+        a: "Stress crónico, cortisol desregulado, inflamação sistémica de baixo grau, disfunção tiroideia subclínica, défice de ferritina e desequilíbrios hormonais são as causas mais frequentes em mulheres. É raro ter baixo tónus vagal por uma causa isolada.",
+      },
+      {
+        q: "O nervo vago afecta a digestão?",
+        a: "Sim, directamente. O nervo vago inerva o estômago e o intestino e regula a motilidade, a produção de ácido gástrico e a comunicação do eixo intestino-cérebro. Baixo tónus vagal contribui para digestão lenta, obstipação e intestino irritável.",
+      },
+      {
+        q: "Existe relação entre nervo vago e perimenopausa?",
+        a: "Sim. A queda de estrogénio na perimenopausa afecta directamente a regulação do sistema nervoso autónomo e reduz o tónus vagal. Muitas mulheres descrevem o início da perimenopausa como não se reconhecerem; parte desse padrão tem base fisiológica no nervo vago.",
+      },
+      {
+        q: "O nervo vago pode ser treinado?",
+        a: "O tónus vagal é mensurável, através da variabilidade da frequência cardíaca, e pode melhorar com intervenções consistentes. Mas o treino é mais eficaz quando as causas fisiológicas subjacentes são identificadas e abordadas em simultâneo.",
+      },
+    ],
+    "glicemia-normal-resistencia-insulina": [
+      {
+        q: "A insulina em jejum faz parte das análises de rotina?",
+        a: "Não. Na maioria dos pedidos de rotina consta a glicose em jejum e, por vezes, a HbA1c. A insulina tem de ser pedida especificamente.",
+      },
+      {
+        q: "Se a glicémia estiver normal, ainda assim vale a pena medir a insulina?",
+        a: "É exactamente aí que faz mais sentido. A glicémia normal é o que se espera encontrar durante todo o período em que a compensação ainda funciona, que é o período em que há mais margem para intervir.",
+      },
+      {
+        q: "Que valores de insulina em jejum se consideram elevados?",
+        a: "O intervalo de referência laboratorial é largo e varia entre laboratórios, porque os doseamentos não estão padronizados. Em medicina funcional usa-se uma janela óptima entre 2 e 5 µU/mL. Valores acima dessa janela, com glicémia normal, sugerem compensação em curso e devem ser interpretados com o restante painel.",
+      },
+      {
+        q: "O HOMA-IR substitui a insulina em jejum?",
+        a: "Não substitui, deriva dela. O HOMA-IR calcula-se a partir da glicose e da insulina em jejum, pelo que é preciso doseá-las na mesma colheita.",
+      },
+      {
+        q: "A resistência à insulina causa sintomas antes de haver diabetes?",
+        a: "É frequente haver queda de energia a meio da manhã ou depois das refeições, vontade de doce ao fim da tarde e dificuldade de concentração. Nenhum destes sintomas é específico, e nenhum substitui a análise.",
+      },
+      {
+        q: "Isto aplica-se a quem não tem excesso de peso?",
+        a: "Sim. O conceito de limiar individual de gordura tolerada explica precisamente os casos de disfunção metabólica sem excesso de peso aparente.",
       },
     ],
   };
