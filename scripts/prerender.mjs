@@ -1011,7 +1011,7 @@ async function main() {
       },
       {
         q: "Que análises mostram a conversão de T4 em T3?",
-        a: "TSH, T4 livre e T3 livre pedidos no mesmo dia, com a ferritina ao lado. Um T3 livre encostado ao fundo do intervalo com um T4 livre confortável é a assinatura clássica de conversão fraca.",
+        a: "TSH, T4 livre e T3 livre pedidos no mesmo dia, com a ferritina ao lado. Um T3 livre encostado ao fundo do intervalo com um T4 livre confortável é o padrão que, na leitura funcional, aponta para conversão reduzida.",
       },
       {
         q: "O que trava a conversão de T4 em T3?",

@@ -142,7 +142,7 @@ FAQ = [
     ("Posso ter sintomas de tiroide com o TSH normal?",
      "Sim. O TSH mede o sinal de comando entre o cérebro e a tiroide, não a quantidade de T3 ativa que chega às células. Podes ter TSH e T4 normais e ainda assim pouca T3, porque a conversão de T4 em T3 acontece sobretudo fora da tiroide e pode estar comprometida."),
     ("Que análises mostram a conversão de T4 em T3?",
-     "TSH, T4 livre e T3 livre pedidos no mesmo dia, com a ferritina ao lado. Um T3 livre encostado ao fundo do intervalo com um T4 livre confortável é a assinatura clássica de conversão fraca."),
+     "TSH, T4 livre e T3 livre pedidos no mesmo dia, com a ferritina ao lado. Um T3 livre encostado ao fundo do intervalo com um T4 livre confortável é o padrão que, na leitura funcional, aponta para conversão reduzida."),
     ("O que trava a conversão de T4 em T3?",
      "Défice de selénio, zinco ou ferro, stress fisiológico prolongado e restrição calórica agressiva. Na perimenopausa, estas três forças aparecem frequentemente ao mesmo tempo."),
     ("Devo tomar selénio para melhorar a conversão?",
