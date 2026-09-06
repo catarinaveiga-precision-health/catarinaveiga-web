@@ -190,7 +190,7 @@ const ProximosPassos = () => {
     {
       eyebrow: "O passo a sério",
       title: "Consulta Inicial",
-      desc: "90 minutos, online, 120 euros. A tua história completa e as tuas análises lidas em conjunto, com um plano escrito no fim que fica contigo.",
+      desc: "90 minutos, online. A tua história completa e as tuas análises lidas em conjunto, com um plano escrito no fim que fica contigo.",
       to: "/consulta-inicial",
       cta: "Conhecer a consulta",
     },

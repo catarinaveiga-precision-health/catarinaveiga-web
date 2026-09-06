@@ -142,7 +142,7 @@ const ConsultaInicial = () => (
             Marcar consulta inicial
           </a>
           <p className="fine">
-            120 euros · 90 minutos · Portugal e estrangeiro.
+            90 minutos · online · Portugal e estrangeiro.
             Não precisa de ter análises feitas.
           </p>
           <p className="cred-line">
@@ -366,7 +366,7 @@ const ConsultaInicial = () => (
           <a className="btn" href={acuityUrl("qualificacao")}>
             Marcar consulta inicial
           </a>
-          <p className="fine">120 euros · 90 minutos · online</p>
+          <p className="fine">90 minutos · online · Portugal e estrangeiro</p>
         </div>
       </div>
     </section>

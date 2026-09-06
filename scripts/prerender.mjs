@@ -559,7 +559,7 @@ const pages = [
       },
       {
         q: "Quanto custa uma consulta de medicina funcional?",
-        a: "A consulta inicial custa 120 euros e dura 90 minutos, em telemedicina. Inclui revisão do histórico clínico e dos exames que já tens, com hipóteses, prioridades e próximos passos concretos no final.",
+        a: "A consulta inicial dura 90 minutos, em telemedicina, e o valor é indicado na página de marcação. Inclui revisão do histórico clínico e dos exames que já tens, com hipóteses, prioridades e próximos passos concretos no final.",
       },
     ],
   },
@@ -604,6 +604,7 @@ const pages = [
     h1: "Talvez tenha chegado aqui porque está cansada de ouvir que está tudo normal.",
     intro:
       "Mulheres entre os 35 e os 55 anos. Fadiga, brain fog, ansiedade nova, alterações intestinais, perimenopausa, sono fragmentado. Sintomas reais, exames normais. Uma leitura integrada do corpo feminino, com vinte anos de prática clínica e em colaboração com médica inscrita na Ordem dos Médicos. Telemedicina, em Portugal e no estrangeiro.",
+    extraHtml: `<p style="margin-top:24px;line-height:1.6">Catarina Veiga acompanha em medicina funcional integrativa, com cédula profissional da ACSS ao abrigo da Lei n.º 71/2013, em complemento ao acompanhamento médico. Quando existe necessidade de avaliação médica, prescrição ou diagnóstico, há referenciação para médico ou para outras especialidades.</p>`,
   },
   {
     // Página da consulta inicial. Sem entrada aqui o Vercel serve o 404
@@ -611,10 +612,10 @@ const pages = [
     path: "/consulta-inicial",
     title: "Consulta inicial · Catarina Veiga · A pergunta não é o que tem, é porquê",
     description:
-      "Consulta inicial de 90 minutos, online, 120 euros. Para mulheres que já contaram esta história a várias pessoas, ouviram que está tudo normal, e saíram sem explicação nenhuma. Não precisa de ter análises feitas.",
+      "Consulta inicial de 90 minutos, online. Para mulheres que já contaram esta história a várias pessoas, ouviram que está tudo normal, e saíram sem explicação nenhuma. Não precisa de ter análises feitas.",
     h1: "A pergunta não é o que tem. É porquê.",
     intro:
-      "Para mulheres que já contaram esta história a várias pessoas, ouviram que está tudo normal, e saíram sem explicação nenhuma. Em 90 minutos sai a saber o que se está a passar e por que ordem tratar. Consulta inicial de 90 minutos, online, 120 euros, em Portugal e no estrangeiro.",
+      "Para mulheres que já contaram esta história a várias pessoas, ouviram que está tudo normal, e saíram sem explicação nenhuma. Em 90 minutos sai a saber o que se está a passar e por que ordem tratar. Consulta inicial de 90 minutos, online, em Portugal e no estrangeiro.",
   },
   {
     path: "/metodo",
