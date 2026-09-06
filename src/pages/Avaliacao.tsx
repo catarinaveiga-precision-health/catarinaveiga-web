@@ -1372,7 +1372,7 @@ const Avaliacao = () => {
                   Para além dos intervalos de referência laboratoriais, vale a pena olhar para intervalos funcionais, uma leitura complementar descrita na literatura científica internacional. Não substitui a interpretação clínica do médico.
                 </p>
                 <p className="text-xs text-v2-ink-mute font-sans">
-                  Esta autoavaliação é uma ferramenta educativa. Para diagnóstico, interpretação clínica de análises, prescrição ou tratamento médico, consulta o teu médico. Se quiseres acompanhamento de medicina funcional integrativa em complemento, podes marcar uma consulta comigo.
+                  Esta autoavaliação é uma ferramenta educativa. Para diagnóstico, interpretação clínica de análises, prescrição ou tratamento médico, consulta o teu médico. Se quiseres acompanhamento de medicina funcional integrativa em articulação com o teu médico, podes marcar uma consulta comigo.
                 </p>
               </div>
 

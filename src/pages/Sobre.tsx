@@ -334,7 +334,7 @@ const Sobre = () => {
               <p className="mt-14 font-sans text-body-v2 text-v2-ink-mute leading-[1.7] text-center max-w-[52ch] mx-auto">
                 Acompanho em medicina funcional integrativa, com cédula
                 profissional da ACSS ao abrigo da Lei n.º 71/2013, em
-                complemento ao acompanhamento médico. Quando existe
+                articulação com o acompanhamento médico. Quando existe
                 necessidade de avaliação médica, prescrição ou diagnóstico,
                 há referenciação para médico ou para outras especialidades.
               </p>

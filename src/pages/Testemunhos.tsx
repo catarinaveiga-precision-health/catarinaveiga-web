@@ -73,7 +73,7 @@ const Testemunhos = () => {
 
       <SEOContentSection label="Contexto" title="Porque estão aqui">
         <p>
-          Estas avaliações foram escritas por pacientes no perfil Google da consulta, onde a média é de {avaliacaoGlobal.media} em {avaliacaoGlobal.total} avaliações. Estão reproduzidas tal como foram escritas, incluindo o tratamento por "Dra.", que é a forma como as pacientes escrevem e não uma descrição da minha profissão: sou especialista em medicina funcional integrativa, com cédula profissional da ACSS ao abrigo da Lei n.º 71/2013, em complemento ao acompanhamento médico, e não médica.
+          Estas avaliações foram escritas por pacientes no perfil Google da consulta, onde a média é de {avaliacaoGlobal.media} em {avaliacaoGlobal.total} avaliações. Estão reproduzidas tal como foram escritas, incluindo o tratamento por "Dra.", que é a forma como as pacientes escrevem e não uma descrição da minha profissão: sou especialista em medicina funcional integrativa, com cédula profissional da ACSS ao abrigo da Lei n.º 71/2013, em articulação com o acompanhamento médico, e não médica.
         </p>
         <p>
           Algumas descrevem melhorias concretas em situações clínicas específicas. São a experiência de cada uma delas, não uma previsão do que acontece a outra pessoa: cada caso é um caso, e nada aqui substitui avaliação médica.

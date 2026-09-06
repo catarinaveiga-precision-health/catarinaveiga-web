@@ -529,7 +529,7 @@ const pages = [
       "Avaliacoes reais de mulheres acompanhadas em medicina funcional integrativa. Fadiga, sono, hormonas e exames normais: o que mudou, por palavras delas.",
     h1: "O que dizem as mulheres que ja passaram por aqui",
     intro:
-      "Avaliacoes reais, publicadas no Google, reproduzidas aqui sem alteracoes. A maioria descreve a mesma coisa: anos a ouvir que estava tudo normal, ate alguem olhar para o conjunto. O tratamento por \u0022Dra.\u0022 e a forma como as pacientes escrevem; Catarina Veiga e especialista em medicina funcional integrativa, com cedula profissional da ACSS ao abrigo da Lei n.º 71/2013, em complemento ao acompanhamento medico, e nao medica.",
+      "Avaliacoes reais, publicadas no Google, reproduzidas aqui sem alteracoes. A maioria descreve a mesma coisa: anos a ouvir que estava tudo normal, ate alguem olhar para o conjunto. O tratamento por \u0022Dra.\u0022 e a forma como as pacientes escrevem; Catarina Veiga e especialista em medicina funcional integrativa, com cedula profissional da ACSS ao abrigo da Lei n.º 71/2013, em articulacao com o acompanhamento medico, e nao medica.",
     extraHtml: testemunhosHtml,
   },
   {
@@ -604,7 +604,7 @@ const pages = [
     h1: "Talvez tenha chegado aqui porque está cansada de ouvir que está tudo normal.",
     intro:
       "Mulheres entre os 35 e os 55 anos. Fadiga, brain fog, ansiedade nova, alterações intestinais, perimenopausa, sono fragmentado. Sintomas reais, exames normais. Uma leitura integrada do corpo feminino, com vinte anos de prática clínica e em colaboração com médica inscrita na Ordem dos Médicos. Telemedicina, em Portugal e no estrangeiro.",
-    extraHtml: `<p style="margin-top:24px;line-height:1.6">Catarina Veiga acompanha em medicina funcional integrativa, com cédula profissional da ACSS ao abrigo da Lei n.º 71/2013, em complemento ao acompanhamento médico. Quando existe necessidade de avaliação médica, prescrição ou diagnóstico, há referenciação para médico ou para outras especialidades.</p>`,
+    extraHtml: `<p style="margin-top:24px;line-height:1.6">Catarina Veiga acompanha em medicina funcional integrativa, com cédula profissional da ACSS ao abrigo da Lei n.º 71/2013, em articulação com o acompanhamento médico. Quando existe necessidade de avaliação médica, prescrição ou diagnóstico, há referenciação para médico ou para outras especialidades.</p>`,
   },
   {
     // Página da consulta inicial. Sem entrada aqui o Vercel serve o 404

@@ -101,7 +101,7 @@ const ContrastBlock = () => {
           </div>
         </div>
         <p className="fade-up text-center text-v2-ink-mute text-[15px] italic">
-          Trabalho sempre em complemento com o teu médico — nunca em substituição.
+          Trabalho sempre em articulação com o teu médico, nunca em substituição.
         </p>
       </div>
     </section>
@@ -293,12 +293,12 @@ const faqItems = [
     a: "Sim. Baseia-se em fisiologia, bioquímica e endocrinologia — as mesmas disciplinas da medicina convencional. A diferença está nos intervalos de referência e na abordagem sistémica.",
   },
   {
-    q: "Trabalha em complemento com o meu médico?",
-    a: "Sim, sempre. Não substituo cuidados médicos. Complemento com investigação funcional que o sistema convencional não tem capacidade de fazer com o detalhe que o teu caso requer.",
+    q: "Trabalha em articulação com o meu médico?",
+    a: "Sim, sempre. Não substituo cuidados médicos. Acrescento investigação funcional que o sistema convencional não tem capacidade de fazer com o detalhe que o teu caso requer.",
   },
   {
     q: "O que são intervalos de referência funcionais?",
-    a: "Os intervalos laboratoriais convencionais são calculados a partir da população geral, incluindo pessoas doentes. Os intervalos funcionais (ODX) representam a faixa onde o organismo funciona de forma óptima.",
+    a: "Os intervalos laboratoriais convencionais são calculados a partir da população geral, incluindo pessoas doentes. Os intervalos funcionais representam a faixa onde o organismo funciona de forma óptima.",
   },
   {
     q: "Quais as condições que acompanha?",
