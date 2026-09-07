@@ -18,6 +18,7 @@ import Sobre from "./pages/Sobre";
 import Avaliacao from "./pages/Avaliacao";
 import FerritinaBaixa from "./pages/FerritinaBaixa";
 import Recursos from "./pages/Recursos";
+import Links from "./pages/Links";
 import VitaminaD from "./pages/VitaminaD";
 import InsulinaJejum from "./pages/InsulinaJejum";
 import FadigaExamesNormais from "./pages/FadigaExamesNormais";
@@ -62,6 +63,7 @@ const App = () => (
             <Route path="/blog/:slug" element={<BlogArticle />} />
             <Route path="/ferritina-baixa-sintomas" element={<FerritinaBaixa />} />
             <Route path="/recursos" element={<Recursos />} />
+            <Route path="/links" element={<Links />} />
             <Route path="/vitamina-d-valores-funcionais" element={<VitaminaD />} />
             <Route path="/vitamina-d" element={<Navigate to="/vitamina-d-valores-funcionais" replace />} />
             <Route path="/insulina-jejum-o-que-significa" element={<InsulinaJejum />} />
