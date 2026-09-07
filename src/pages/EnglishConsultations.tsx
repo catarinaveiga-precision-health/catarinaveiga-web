@@ -259,9 +259,38 @@ const About = () => {
           <p className="fade-up text-v2-ink-mute mb-4">
             My work combines a functional perspective with a personalised and practical approach.
           </p>
-          <p className="fade-up text-v2-ink-mute mb-6">
+          <p className="fade-up text-v2-ink-mute mb-4">
             I offer consultations in both English and Portuguese.
           </p>
+          <p className="fade-up text-v2-ink-mute mb-2">
+            I spent four years in the Microbiome Department of a UK clinical laboratory, training
+            health professionals across Europe in functional test interpretation. You can watch some
+            of that work:
+          </p>
+          <ul className="fade-up mb-6 space-y-1">
+            <li>
+              <a
+                href="https://www.youtube.com/watch?v=EcqdiVZ_2Us"
+                target="_blank"
+                rel="noopener"
+                className="text-v2-ink underline underline-offset-4 decoration-v2-sage/60 hover:decoration-v2-sage"
+              >
+                Understanding the Omnos Microbiome Test
+              </a>
+              <span className="text-v2-ink-mute text-sm"> · webinar, as speaker</span>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/watch?v=WJ3_sOhijOs"
+                target="_blank"
+                rel="noopener"
+                className="text-v2-ink underline underline-offset-4 decoration-v2-sage/60 hover:decoration-v2-sage"
+              >
+                Women, Health &amp; Tech
+              </a>
+              <span className="text-v2-ink-mute text-sm"> · Omnos Webinar Series</span>
+            </li>
+          </ul>
           <p className="fade-up font-serif italic text-xl text-v2-sage">Catarina Veiga</p>
         </div>
       </div>

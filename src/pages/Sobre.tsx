@@ -317,6 +317,57 @@ const Sobre = () => {
                 </ul>
               </FadeUp>
             </div>
+
+            <FadeUp delay={0.15}>
+              <div className="mt-20 lg:grid lg:grid-cols-12 lg:gap-8">
+                <div className="lg:col-span-4">
+                  <Eyebrow>Em vídeo</Eyebrow>
+                  <p className="mt-4 font-sans text-body-v2 text-v2-ink-mute leading-[1.65] max-w-[38ch]">
+                    Conversas e webinars públicos onde este percurso se ouve em
+                    voz alta. Formei equipas clínicas num dos laboratórios
+                    europeus de referência em testes funcionais; os webinars
+                    estão em inglês.
+                  </p>
+                </div>
+                <ul className="mt-8 lg:mt-0 lg:col-span-7 lg:col-start-6 space-y-5">
+                  {[
+                    {
+                      t: "O papel do ritmo circadiano na saúde",
+                      d: "Podcast Osteotalks · em português · 1h13",
+                      href: "https://www.youtube.com/watch?v=8O_Xs66lKF4",
+                    },
+                    {
+                      t: "Understanding the Omnos Microbiome Test",
+                      d: "Webinar Omnos, Reino Unido · como oradora · 53 min",
+                      href: "https://www.youtube.com/watch?v=EcqdiVZ_2Us",
+                    },
+                    {
+                      t: "Women, Health & Tech",
+                      d: "Omnos Webinar Series, Reino Unido",
+                      href: "https://www.youtube.com/watch?v=WJ3_sOhijOs",
+                    },
+                  ].map((v) => (
+                    <li key={v.href} className="relative pl-7">
+                      <span
+                        aria-hidden
+                        className="absolute left-0 top-[0.7em] w-3 h-px bg-v2-sage"
+                      />
+                      <a
+                        href={v.href}
+                        target="_blank"
+                        rel="noopener"
+                        className="font-sans text-body-lg-v2 text-v2-ink underline underline-offset-4 decoration-v2-sage/60 hover:decoration-v2-sage"
+                      >
+                        {v.t}
+                      </a>
+                      <p className="font-sans text-mono-v2 uppercase tracking-[0.14em] text-v2-sage mt-1">
+                        {v.d}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeUp>
           </Container>
         </Section>
 

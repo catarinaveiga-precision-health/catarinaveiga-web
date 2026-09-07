@@ -77,6 +77,9 @@ const Links = () => (
           <p className="mx-auto mt-4" style={{ fontSize: 15, lineHeight: 1.6, color: "#4a5350", maxWidth: 320 }}>
             Sintomas reais, análises "normais". É aqui que o meu trabalho começa.
           </p>
+          <p className="mx-auto mt-3" style={{ fontSize: 13, lineHeight: 1.55, color: "#718281", maxWidth: 330 }}>
+            Passei 4 anos a formar profissionais de saúde no departamento de microbioma de um laboratório clínico do Reino Unido. A mesma ciência que hoje aplico ao teu caso.
+          </p>
         </div>
 
         <nav className="mt-9 flex flex-col gap-3.5">
