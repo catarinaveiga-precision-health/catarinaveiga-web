@@ -607,6 +607,15 @@ const pages = [
     extraHtml: `<p style="margin-top:24px;line-height:1.6">Catarina Veiga acompanha em medicina funcional integrativa, com cédula profissional da ACSS ao abrigo da Lei n.º 71/2013, em articulação com o acompanhamento médico. Quando existe necessidade de avaliação médica, prescrição ou diagnóstico, há referenciação para médico ou para outras especialidades.</p>`,
   },
   {
+    // Pagina de links da bio do Instagram. noindex: e so para a bio.
+    path: "/links",
+    title: "Links · Catarina Veiga",
+    description: "Links de Catarina Veiga: autoavaliação, guias e consulta.",
+    h1: "Catarina Veiga",
+    intro: "Medicina Funcional · Saúde da Mulher",
+    noindex: true,
+  },
+  {
     // Página da consulta inicial. Sem entrada aqui o Vercel serve o 404
     // estatico, porque o prerender gera um ficheiro por rota conhecida.
     path: "/consulta-inicial",
