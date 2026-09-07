@@ -77,6 +77,10 @@ const percurso = [
     text: "Webinários e formação para profissionais de saúde, Reino Unido e Portugal.",
   },
   {
+    period: "2022",
+    text: "Publicada na IHCAN Magazine (Reino Unido), edição de setembro de 2022, sobre estroboloma, β-glucuronidase e metabolismo de estrogénios.",
+  },
+  {
     period: "2024",
     text: "Oradora no Longevity Med Summit, com a apresentação “Oestrogen-Related Conditions and Gut Microbiota”.",
   },

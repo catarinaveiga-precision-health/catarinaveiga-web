@@ -1,46 +1,47 @@
 import { Helmet } from "react-helmet-async";
+import blogTiroide from "@/assets/blog-tiroide.jpg";
+import catarinaAbout from "@/assets/catarina-about.jpeg";
+
+const capaGuia = "/guia/mockup-capa.jpg";
 
 /* Página de links para a bio do Instagram (substitui um Linktree).
-   Todo o tráfego chega em browser interno do IG, quase sempre mobile:
-   layout de coluna única, botões grandes, UTM embutido em cada destino
-   para o GA4 atribuir corretamente a origem instagram/bio. */
+   Referência visual aprovada (06/09): estilo Linktree premium, botões
+   pílula com miniatura circular à esquerda, foto grande, credenciais
+   sob o nome. Tráfego chega do browser interno do IG, quase sempre
+   mobile. UTM embutido em cada destino para atribuição instagram/bio. */
 
 const UTM = "?utm_source=instagram&utm_medium=bio";
 
-const LINKS = [
+const LINKS: { title: string; href: string; img?: string; primary?: boolean }[] = [
   {
     title: "Autoavaliação gratuita das tuas análises",
-    desc: "17 biomarcadores lidos com intervalos funcionais, resultado imediato",
     href: `/avaliacao${UTM}`,
     primary: true,
   },
   {
-    title: "TSH normal mas exausta? O artigo novo",
-    desc: "Onde a conversão de T4 em T3 falha na perimenopausa",
+    title: "TSH normal mas exausta? O artigo",
     href: `/blog/conversao-t4-t3-tsh-normal-cansada${UTM}`,
+    img: blogTiroide,
   },
   {
-    title: "Achas que tens insónia. Não tens.",
-    desc: "Guia gratuito: reset circadiano de 4 semanas",
+    title: "Guia do sono · Achas que tens insónia",
     href: `/guia-sono${UTM}`,
+    img: "/catarina-hero-mobile.jpg",
   },
   {
-    title: "Fome constante? O guia da saciedade",
-    desc: "Guia gratuito: porque tens fome 2 horas depois de comer",
+    title: "Guia da saciedade · Fome constante",
     href: `/guia-saciedade${UTM}`,
+    img: capaGuia,
   },
   {
     title: "Marcar consulta inicial",
-    desc: "90 minutos, online, com plano escrito em 48h",
     href: `/consulta-inicial${UTM}`,
+    img: "/catarina-hero-recorte.webp",
   },
-];
-
-const CONVERSAS = [
   {
-    title: "O papel do ritmo circadiano na saúde",
-    desc: "Conversa no podcast Osteotalks · 1h13",
+    title: "Podcast · O ritmo circadiano na saúde",
     href: "https://www.youtube.com/watch?v=8O_Xs66lKF4",
+    img: catarinaAbout,
   },
 ];
 
@@ -51,95 +52,117 @@ const Links = () => (
       <meta name="robots" content="noindex, nofollow" />
     </Helmet>
     <main
-      className="min-h-screen px-5 py-12"
-      style={{ background: "#FAF9F7", fontFamily: "-apple-system, 'Segoe UI', Roboto, Arial, sans-serif" }}
+      className="min-h-screen px-5 pb-16 pt-14"
+      style={{
+        background: "linear-gradient(175deg, #EFF1EF 0%, #FAF9F7 34%, #F3EFE8 100%)",
+        fontFamily: "-apple-system, 'Segoe UI', Roboto, Arial, sans-serif",
+      }}
     >
-      <div className="mx-auto w-full" style={{ maxWidth: 420 }}>
+      <div className="mx-auto w-full" style={{ maxWidth: 460 }}>
         <div className="text-center">
           <img
             src="/catarina-hero-recorte.webp"
             alt="Catarina Veiga"
             className="mx-auto rounded-full object-cover"
-            style={{ width: 96, height: 96, objectPosition: "top", border: "2px solid #16352C" }}
+            style={{
+              width: 148,
+              height: 148,
+              objectPosition: "top",
+              border: "3px solid #FFFFFF",
+              boxShadow: "0 10px 30px rgba(22,53,44,0.18)",
+            }}
           />
           <h1
-            className="mt-5"
-            style={{ fontFamily: "Georgia, serif", fontSize: 26, color: "#16352C", letterSpacing: "0.02em" }}
+            className="mt-6"
+            style={{
+              fontFamily: "Georgia, serif",
+              fontSize: 34,
+              fontWeight: 400,
+              color: "#16352C",
+              letterSpacing: "0.01em",
+              lineHeight: 1.15,
+            }}
           >
             Catarina Veiga
           </h1>
-          <p
-            className="mt-1"
-            style={{ fontSize: 11, letterSpacing: "0.24em", textTransform: "uppercase", color: "#718281" }}
+          <div
+            className="mx-auto mt-4"
+            style={{
+              fontFamily: "Georgia, serif",
+              fontSize: 18.5,
+              lineHeight: 1.5,
+              color: "#2e4038",
+              maxWidth: 380,
+            }}
           >
-            Medicina Funcional · Saúde da Mulher
-          </p>
-          <p className="mx-auto mt-4" style={{ fontSize: 15, lineHeight: 1.6, color: "#4a5350", maxWidth: 320 }}>
-            Sintomas reais, análises "normais". É aqui que o meu trabalho começa.
-          </p>
-          <p className="mx-auto mt-3" style={{ fontSize: 13, lineHeight: 1.55, color: "#718281", maxWidth: 330 }}>
-            Passei 4 anos a formar profissionais de saúde no departamento de microbioma de um laboratório clínico do Reino Unido. A mesma ciência que hoje aplico ao teu caso.
-          </p>
+            <p>Medicina Funcional Integrativa.</p>
+            <p>Microbioma e bioquímica clínica</p>
+            <p>aplicados à saúde da mulher.</p>
+            <p style={{ marginTop: 10, fontSize: 16, color: "#5c6a64" }}>
+              20+ anos de prática clínica · 4 anos no
+            </p>
+            <p style={{ fontSize: 16, color: "#5c6a64" }}>laboratório Omnos, Londres</p>
+          </div>
         </div>
 
-        <nav className="mt-9 flex flex-col gap-3.5">
+        <nav className="mt-10 flex flex-col gap-4">
           {LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="block rounded-2xl px-5 py-4 text-left transition-transform duration-150 active:scale-[0.98]"
-              style={
-                l.primary
-                  ? { background: "#16352C", color: "#FAF9F7", boxShadow: "0 6px 18px rgba(22,53,44,0.22)" }
-                  : { background: "#FFFFFF", color: "#16352C", border: "1.5px solid #DFE5E2" }
-              }
+              {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})}
+              className="relative flex items-center transition-transform duration-150 active:scale-[0.985]"
+              style={{
+                background: l.primary ? "#16352C" : "#FFFFFF",
+                color: l.primary ? "#FAF9F7" : "#33443d",
+                borderRadius: 999,
+                minHeight: 76,
+                padding: "12px 56px 12px 14px",
+                boxShadow: l.primary
+                  ? "0 10px 26px rgba(22,53,44,0.30)"
+                  : "0 6px 20px rgba(22,53,44,0.10)",
+              }}
             >
-              <span style={{ fontFamily: "Georgia, serif", fontSize: 17, display: "block", lineHeight: 1.3 }}>
-                {l.title}
-              </span>
+              {l.img ? (
+                <img
+                  src={l.img}
+                  alt=""
+                  className="rounded-full object-cover"
+                  style={{ width: 52, height: 52, objectPosition: "top", flexShrink: 0 }}
+                />
+              ) : (
+                <span
+                  className="flex items-center justify-center rounded-full"
+                  style={{
+                    width: 52,
+                    height: 52,
+                    flexShrink: 0,
+                    background: "rgba(250,249,247,0.14)",
+                    border: "1.5px solid rgba(250,249,247,0.45)",
+                    fontFamily: "Georgia, serif",
+                    fontSize: 22,
+                  }}
+                >
+                  ✓
+                </span>
+              )}
               <span
+                className="flex-1 text-center"
                 style={{
-                  fontSize: 13,
-                  display: "block",
-                  marginTop: 4,
-                  lineHeight: 1.45,
-                  color: l.primary ? "rgba(250,249,247,0.75)" : "#718281",
+                  fontFamily: "Georgia, serif",
+                  fontSize: 17.5,
+                  lineHeight: 1.3,
+                  padding: "0 4px 0 8px",
                 }}
               >
-                {l.desc}
-              </span>
-            </a>
-          ))}
-        </nav>
-
-        <p
-          className="mt-10 mb-3 text-center"
-          style={{ fontSize: 11, letterSpacing: "0.24em", textTransform: "uppercase", color: "#718281" }}
-        >
-          Conversas
-        </p>
-        <nav className="flex flex-col gap-3.5">
-          {CONVERSAS.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              target="_blank"
-              rel="noopener"
-              className="block rounded-2xl px-5 py-4 text-left transition-transform duration-150 active:scale-[0.98]"
-              style={{ background: "#FFFFFF", color: "#16352C", border: "1.5px solid #DFE5E2" }}
-            >
-              <span style={{ fontFamily: "Georgia, serif", fontSize: 17, display: "block", lineHeight: 1.3 }}>
                 {l.title}
               </span>
-              <span style={{ fontSize: 13, display: "block", marginTop: 4, lineHeight: 1.45, color: "#718281" }}>
-                {l.desc}
-              </span>
             </a>
           ))}
         </nav>
 
-        <p className="mt-9 text-center" style={{ fontSize: 12, color: "#9aa4a0" }}>
-          <a href={`/${UTM}`} style={{ color: "#718281" }}>
+        <p className="mt-10 text-center" style={{ fontSize: 13 }}>
+          <a href={`/${UTM}`} style={{ color: "#718281", textDecoration: "none", letterSpacing: "0.06em" }}>
             catarinaveiga.com
           </a>
         </p>
