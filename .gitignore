@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Variaveis de ambiente. O .env chegou a estar commitado num repositorio
+# publico. As chaves VITE_* ja sao publicas por irem dentro do bundle, mas
+# basta alguem acrescentar aqui uma SERVICE_ROLE para deixar de ser inofensivo.
+.env
+.env.*
+!.env.example
