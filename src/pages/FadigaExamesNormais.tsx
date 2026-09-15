@@ -169,7 +169,7 @@ const FadigaExamesNormais = () => {
         title="Os teus exames estão normais. O teu corpo não."
         subtitle="Esta é a frase que define a medicina funcional. E é exactamente o que a ferramenta de avaliação foi desenhada para investigar."
         buttonText="Começar avaliação funcional"
-        note="Gratuita · 14 biomarcadores · leitura imediata"
+        note="Gratuita · 17 biomarcadores · leitura imediata"
       />
     </SEOPageLayout>
   );

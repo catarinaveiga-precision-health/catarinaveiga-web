@@ -84,7 +84,7 @@ export const LeadMagnetPopup = () => {
   /* Páginas de conversão onde o pop-up não pode aparecer: a regra da skill
      de monetização é uma CTA por página, e um modal que tapa o ecrã inteiro
      com uma oferta gratuita é a mais agressiva das CTAs concorrentes. */
-  const SEM_POPUP = ["/", "/consulta-inicial", "/guia-sono"];
+  const SEM_POPUP = ["/", "/consulta-inicial", "/guia-sono", "/ferritina-baixa-sintomas"];
 
   const variante = ROTAS_SONO.includes(location.pathname)
     ? VARIANTES.sono

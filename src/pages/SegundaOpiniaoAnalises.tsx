@@ -195,7 +195,7 @@ const SegundaOpiniaoAnalises = () => {
         title="Os teus exames estão normais. O teu corpo não."
         subtitle="Uma segunda leitura começa pelas análises que já tens. A ferramenta de avaliação é o primeiro passo dessa releitura."
         buttonText="Começar avaliação funcional"
-        note="Gratuita · 14 biomarcadores · leitura imediata"
+        note="Gratuita · 17 biomarcadores · leitura imediata"
       />
     </SEOPageLayout>
   );

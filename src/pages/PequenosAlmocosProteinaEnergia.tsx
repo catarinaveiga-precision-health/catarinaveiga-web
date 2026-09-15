@@ -366,7 +366,7 @@ const PequenosAlmocosProteinaEnergia = () => {
 
       <SEOCTA
         title="A sua energia e as suas hormonas merecem atenção — não apenas exames de rotina."
-        subtitle="A avaliação funcional analisa 14 biomarcadores — incluindo insulina, ferritina, vitamina D e marcadores tiroideus — e identifica padrões que orientam intervenções concretas."
+        subtitle="A avaliação funcional analisa 17 biomarcadores — incluindo insulina, ferritina, vitamina D e marcadores tiroideus — e identifica padrões que orientam intervenções concretas."
       />
     </SEOPageLayout>
   );

@@ -441,7 +441,7 @@ const Recursos = () => {
             </h2>
             <p className="font-sans text-[15px] text-white/50 leading-[1.8] mb-12 max-w-2xl mx-auto">
               Os resultados laboratoriais podem parecer normais enquanto os
-              sintomas persistem. A avaliação funcional analisa 14 biomarcadores
+              sintomas persistem. A avaliação funcional analisa 17 biomarcadores
               através de intervalos funcionais — não apenas os intervalos de
               referência convencionais.
             </p>
@@ -452,7 +452,7 @@ const Recursos = () => {
               Interpretar as minhas análises
             </Link>
             <p className="font-sans text-white/25 text-[11px] mt-6">
-              Gratuita · 14 biomarcadores · leitura imediata
+              Gratuita · 17 biomarcadores · leitura imediata
             </p>
             <p className="font-sans text-white/15 text-[11px] mt-10 max-w-xl mx-auto leading-relaxed">
               Esta página tem fins educativos e não constitui diagnóstico médico.

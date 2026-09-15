@@ -368,7 +368,7 @@ const FerritinaBaixa = () => {
 
       <SEOCTA
         title="Os teus exames podem estar normais. Mas o teu corpo pode estar a pedir atenção."
-        subtitle="A avaliação funcional analisa ferritina em conjunto com outros 14 biomarcadores, e mostra padrões que os intervalos convencionais não identificam."
+        subtitle="A avaliação funcional analisa ferritina em conjunto com outros 16 biomarcadores, e mostra padrões que os intervalos convencionais não identificam."
       />
     </SEOPageLayout>
   );

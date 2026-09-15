@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { GUIA_LANDING_URL, isDone } from "@/lib/leadMagnet";
 
 /* Barra discreta no topo do site, acima da navegação.
@@ -7,7 +7,12 @@ import { GUIA_LANDING_URL, isDone } from "@/lib/leadMagnet";
 
 const HIDE_KEY = "lm_guia_topbar_hidden";
 
+// Páginas clínicas de marcador onde a oferta da fome é desalinhada: a oferta
+// certa lá é a própria avaliação, que a página já tem como CTA.
+const SEM_TOPBAR = ["/ferritina-baixa-sintomas"];
+
 export const LeadMagnetTopBar = () => {
+  const location = useLocation();
   const [hidden, setHidden] = useState(() => {
     try {
       return sessionStorage.getItem(HIDE_KEY) === "1" || isDone();
@@ -16,7 +21,7 @@ export const LeadMagnetTopBar = () => {
     }
   });
 
-  if (hidden) return null;
+  if (hidden || SEM_TOPBAR.includes(location.pathname)) return null;
 
   const hide = () => {
     try {
@@ -32,7 +37,7 @@ export const LeadMagnetTopBar = () => {
       <div className="mx-auto max-w-[1280px] px-6 md:px-8 lg:px-12 h-10 flex items-center justify-center gap-3 relative">
         <p className="font-sans text-[12px] md:text-[13px] tracking-[0.02em] truncate">
           <span className="hidden sm:inline">Guia gratuito: </span>
-          Porque tem fome pouco depois de comer?
+          Porque tens fome pouco depois de comer?
         </p>
         <Link
           to={GUIA_LANDING_URL}

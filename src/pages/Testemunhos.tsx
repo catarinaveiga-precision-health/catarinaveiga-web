@@ -103,7 +103,7 @@ const Testemunhos = () => {
         title="Os teus exames estão normais. O teu corpo não."
         subtitle="A consulta inicial começa exactamente onde estas mulheres começaram: pelo histórico e pelas análises que já tens."
         buttonText="Começar avaliação funcional"
-        note="Gratuita · 14 biomarcadores · leitura imediata"
+        note="Gratuita · 17 biomarcadores · leitura imediata"
       />
     </SEOPageLayout>
   );

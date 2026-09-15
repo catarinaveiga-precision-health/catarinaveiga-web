@@ -14,7 +14,7 @@ const SEOCTA = ({
   subtitle,
   buttonText = "Começar avaliação funcional",
   buttonTo = "/avaliacao",
-  note = "Gratuita · 14 biomarcadores · leitura imediata",
+  note = "Gratuita · 17 biomarcadores · leitura imediata",
 }: SEOCTAProps) => {
   const ref = useFadeUp();
   return (

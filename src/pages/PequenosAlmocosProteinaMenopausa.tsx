@@ -125,7 +125,7 @@ const PequenosAlmocosProteinaMenopausa = () => {
 
       <SEOCTA
         title="Queres perceber como o teu corpo está a responder às mudanças hormonais?"
-        subtitle="A avaliação funcional analisa 14 biomarcadores — incluindo insulina, cortisol e marcadores inflamatórios — e mostra padrões que os exames convencionais não captam."
+        subtitle="A avaliação funcional analisa 17 biomarcadores — incluindo insulina, cortisol e marcadores inflamatórios — e mostra padrões que os exames convencionais não captam."
       />
     </SEOPageLayout>
   );
