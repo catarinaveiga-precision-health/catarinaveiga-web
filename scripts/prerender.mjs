@@ -224,6 +224,9 @@ const comparacaoHtml =
         `<tr><th scope="row" style="text-align:left;vertical-align:top;border-bottom:1px solid #e8e2d9;padding:12px 12px 12px 0">${escapeHtml(r[0])}</th><td style="vertical-align:top;border-bottom:1px solid #e8e2d9;padding:12px 12px 12px 0">${escapeHtml(r[1])}</td><td style="vertical-align:top;border-bottom:1px solid #e8e2d9;padding:12px 0">${escapeHtml(r[2])}</td></tr>`
     )
     .join("")}</tbody></table>` +
+  `<h2 style="font-size:1.4rem;line-height:1.3;margin:40px 0 8px">${escapeHtml(comparacao.howTitle)}</h2><ol style="line-height:1.7;padding-left:20px">${comparacao.steps
+    .map((s) => `<li style="margin-bottom:12px"><strong>${escapeHtml(s.title)}.</strong> ${escapeHtml(s.text)}</li>`)
+    .join("")}</ol>` +
   `<h2 style="font-size:1.4rem;line-height:1.3;margin:40px 0 8px">${escapeHtml(comparacao.evidenceTitle)}</h2>` +
   comparacao.evidence.map((p) => `<p style="line-height:1.7">${escapeHtml(p)}</p>`).join("") +
   `<h2 style="font-size:1.4rem;line-height:1.3;margin:40px 0 8px">${escapeHtml(comparacao.whenConventionalTitle)}</h2><p style="line-height:1.7">${escapeHtml(comparacao.whenConventional)}</p>` +

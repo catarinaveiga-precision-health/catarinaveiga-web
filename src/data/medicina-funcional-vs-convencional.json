@@ -11,6 +11,25 @@
     ["Acompanhamento", "Reavaliação conforme a doença e o plano do médico.", "Reavaliação analítica às 6 a 8 semanas, com biomarcadores comparados e protocolo ajustado."],
     ["Diagnóstico e prescrição", "Decididos pelo médico.", "Não faço diagnóstico nem prescrevo. Encaminho para o médico quando é necessário."]
   ],
+  "howTitle": "O que recebes quando marcas consulta",
+  "steps": [
+    {
+      "title": "Assim que marcas",
+      "text": "Recebes de imediato as boas-vindas da clínica, um questionário com mais de 100 perguntas e um endereço de email para onde podes enviar os exames que já tenhas feitos."
+    },
+    {
+      "title": "Primeira consulta, 90 minutos",
+      "text": "Exploramos juntos toda a tua história, nas suas várias vertentes. A consulta termina com um plano o mais adaptado possível à tua realidade. Não te peço o impossível, mas o plano mexe sempre a agulha."
+    },
+    {
+      "title": "O que o plano pode incluir",
+      "text": "Suplementos, alterações na alimentação (maiores ou menores, conforme a tua disponibilidade), recomendações de exercício físico e técnicas de regulação do sistema nervoso. Se for preciso, também exames complementares: análises clínicas, teste de microbioma, ácidos orgânicos ou teste Dutch, consoante o que o teu caso pedir."
+    },
+    {
+      "title": "Segunda consulta, 60 minutos",
+      "text": "Vemos juntos o resultado dos exames e como correu o mês. Não há fórmulas feitas nem um método igual para todos: o plano vai-se adaptando e evoluindo conforme respondes. O plano alimentar de alguém em burnout é diferente do de uma pessoa que está bem e quer ganhar massa muscular."
+    }
+  ],
   "evidenceTitle": "O que a evidência diz, e o que não diz",
   "evidence": [
     "Faltam ensaios clínicos controlados que testem a abordagem funcional como um todo. O que existe são sobretudo estudos observacionais, com melhorias descritas em quem passa por estes programas, mas sem grupo de comparação.",
@@ -28,6 +47,10 @@
     {
       "q": "A medicina funcional tem base científica?",
       "a": "Usa os mesmos exames e princípios fisiológicos da medicina convencional. Como modelo completo, tem evidência clínica limitada: faltam ensaios controlados. A evidência varia muito consoante a intervenção."
+    },
+    {
+      "q": "O que acontece depois de marcar a consulta?",
+      "a": "Recebes as boas-vindas da clínica, um questionário com mais de 100 perguntas e um email para enviares os exames que já tenhas. A primeira consulta dura 90 minutos e termina com um plano adaptado à tua realidade. A segunda dura 60 minutos e serve para ver os resultados e ajustar o plano."
     },
     {
       "q": "Preciso de ter médico para marcar consulta?",

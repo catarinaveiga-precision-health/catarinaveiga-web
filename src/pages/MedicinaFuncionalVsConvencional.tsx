@@ -58,6 +58,35 @@ const ComparisonTable = () => {
   );
 };
 
+const HowItWorks = () => {
+  const ref = useFadeUp();
+  return (
+    <section ref={ref} className="bg-background py-28 md:py-36 px-6">
+      <div className="max-w-3xl mx-auto fade-up">
+        <p className="font-sans text-[11px] font-normal tracking-[0.25em] uppercase text-matcha mb-6">
+          O método
+        </p>
+        <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-14">
+          {dados.howTitle}
+        </h2>
+        <ol className="space-y-10">
+          {dados.steps.map((s, i) => (
+            <li key={i} className="flex gap-6">
+              <span className="font-serif text-4xl font-light text-matcha leading-none shrink-0 w-10">
+                {i + 1}
+              </span>
+              <div>
+                <h3 className="font-serif text-xl font-normal text-foreground mb-2">{s.title}</h3>
+                <p className="font-sans text-[16px] leading-[1.8] text-foreground/85">{s.text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+};
+
 const FAQSection = () => {
   const ref = useFadeUp();
   return (
@@ -120,6 +149,8 @@ const MedicinaFuncionalVsConvencional = () => {
       />
 
       <ComparisonTable />
+
+      <HowItWorks />
 
       <SEOContentSection label="Honestidade" title={dados.evidenceTitle}>
         {dados.evidence.map((p, i) => (
