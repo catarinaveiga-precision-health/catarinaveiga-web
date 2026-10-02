@@ -588,15 +588,6 @@ const pages = [
     ],
   },
   {
-    path: "/medicina-funcional-vs-convencional",
-    title: comparacao.title,
-    description: comparacao.description,
-    h1: comparacao.h1,
-    intro: comparacao.shortAnswer,
-    extraHtml: comparacaoHtml,
-    faq: comparacao.faq,
-  },
-  {
     path: "/pequenos-almocos-ricos-em-proteina",
     title:
       "Pequeno-Almoço Proteico: Porquê, Quanto e O Que Comer | Catarina Veiga",

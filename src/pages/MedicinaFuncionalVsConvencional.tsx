@@ -3,6 +3,7 @@ import SEOPageLayout from "@/components/seo/SEOPageLayout";
 import SEOHero from "@/components/seo/SEOHero";
 import SEOContentSection from "@/components/seo/SEOContentSection";
 import SEOCTA from "@/components/seo/SEOCTA";
+import MethodAnimation from "@/components/seo/MethodAnimation";
 import { useFadeUp } from "@/hooks/useFadeUp";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import dados from "@/data/medicina-funcional-vs-convencional.json";
@@ -69,19 +70,7 @@ const HowItWorks = () => {
         <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-14">
           {dados.howTitle}
         </h2>
-        <ol className="space-y-10">
-          {dados.steps.map((s, i) => (
-            <li key={i} className="flex gap-6">
-              <span className="font-serif text-4xl font-light text-matcha leading-none shrink-0 w-10">
-                {i + 1}
-              </span>
-              <div>
-                <h3 className="font-serif text-xl font-normal text-foreground mb-2">{s.title}</h3>
-                <p className="font-sans text-[16px] leading-[1.8] text-foreground/85">{s.text}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <MethodAnimation steps={dados.steps} />
       </div>
     </section>
   );
