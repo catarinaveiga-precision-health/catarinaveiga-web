@@ -25,6 +25,7 @@ import FadigaExamesNormais from "./pages/FadigaExamesNormais";
 import PerimenopausaSintomas from "./pages/PerimenopausaSintomas";
 import TshNormal from "./pages/TshNormal";
 import MedicinaFuncional from "./pages/MedicinaFuncional";
+import MedicinaFuncionalVsConvencional from "./pages/MedicinaFuncionalVsConvencional";
 import PequenosAlmocosRicosProteina from "./pages/PequenosAlmocosRicosProteina";
 import ExamesNormaisMasSintomas from "./pages/ExamesNormaisMasSintomas";
 import SegundaOpiniaoAnalises from "./pages/SegundaOpiniaoAnalises";
@@ -73,6 +74,7 @@ const App = () => (
             <Route path="/testemunhos" element={<Testemunhos />} />
             <Route path="/tsh-normal-mas-com-sintomas" element={<TshNormal />} />
             <Route path="/medicina-funcional" element={<MedicinaFuncional />} />
+            <Route path="/medicina-funcional-vs-convencional" element={<MedicinaFuncionalVsConvencional />} />
             <Route path="/pequenos-almocos-ricos-em-proteina" element={<PequenosAlmocosRicosProteina />} />
             <Route path="/exames-normais-mas-sintomas" element={<ExamesNormaisMasSintomas />} />
             <Route path="/pequenos-almocos-com-proteina-energia-equilibrio-hormonal-e-simplicidade-para-mulheres-em-peri-e-menopausa" element={<Navigate to="/pequenos-almocos-ricos-em-proteina" replace />} />

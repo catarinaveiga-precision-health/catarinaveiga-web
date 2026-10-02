@@ -208,6 +208,27 @@ const faqHomeData = JSON.parse(
   readFileSync(new URL("../src/data/faq-home.json", import.meta.url), "utf-8")
 );
 const faqHome = faqHomeData.map(({ q, a }) => ({ q, a: a.join(" ") }));
+
+// Comparacao funcional vs convencional: fonte unica partilhada com
+// src/pages/MedicinaFuncionalVsConvencional.tsx. A tabela e os blocos de texto
+// vao no HTML estatico para o crawler ler a pagina sem executar JavaScript.
+const comparacao = JSON.parse(
+  readFileSync(new URL("../src/data/medicina-funcional-vs-convencional.json", import.meta.url), "utf-8")
+);
+const comparacaoHtml =
+  `<table style="width:100%;border-collapse:collapse;margin-top:32px;font-size:0.95rem;line-height:1.6"><thead><tr>${comparacao.tableHead
+    .map((h) => `<th scope="col" style="text-align:left;border-bottom:1px solid #e8e2d9;padding:10px 12px 10px 0">${escapeHtml(h)}</th>`)
+    .join("")}</tr></thead><tbody>${comparacao.rows
+    .map(
+      (r) =>
+        `<tr><th scope="row" style="text-align:left;vertical-align:top;border-bottom:1px solid #e8e2d9;padding:12px 12px 12px 0">${escapeHtml(r[0])}</th><td style="vertical-align:top;border-bottom:1px solid #e8e2d9;padding:12px 12px 12px 0">${escapeHtml(r[1])}</td><td style="vertical-align:top;border-bottom:1px solid #e8e2d9;padding:12px 0">${escapeHtml(r[2])}</td></tr>`
+    )
+    .join("")}</tbody></table>` +
+  `<h2 style="font-size:1.4rem;line-height:1.3;margin:40px 0 8px">${escapeHtml(comparacao.evidenceTitle)}</h2>` +
+  comparacao.evidence.map((p) => `<p style="line-height:1.7">${escapeHtml(p)}</p>`).join("") +
+  `<h2 style="font-size:1.4rem;line-height:1.3;margin:40px 0 8px">${escapeHtml(comparacao.whenConventionalTitle)}</h2><p style="line-height:1.7">${escapeHtml(comparacao.whenConventional)}</p>` +
+  `<h2 style="font-size:1.4rem;line-height:1.3;margin:40px 0 8px">${escapeHtml(comparacao.framingTitle)}</h2><p style="line-height:1.7">${escapeHtml(comparacao.framing)}</p>` +
+  `<p style="margin-top:24px;line-height:1.6"><a href="/medicina-funcional" style="color:#4A5957">O que é a medicina funcional</a> · <a href="/metodo" style="color:#4A5957">O método</a> · <a href="/consulta-inicial" style="color:#4A5957">Marcar consulta inicial</a></p>`;
 const testemunhosHtml =
   `<p style="color:#666;font-size:1.1rem;line-height:1.6">Avaliacoes publicadas no perfil Google da consulta (media ${testemunhosData.avaliacaoGlobal.media} em ${testemunhosData.avaliacaoGlobal.total} avaliacoes), reproduzidas sem alteracoes. Algumas descrevem melhorias concretas em situacoes clinicas especificas: sao a experiencia de cada uma, nao uma previsao do que acontece a outra pessoa, e nada aqui substitui avaliacao medica.</p>` +
   testemunhosData.testemunhos
@@ -562,6 +583,15 @@ const pages = [
         a: "A consulta inicial dura 90 minutos, em telemedicina, e o valor é indicado na página de marcação. Inclui revisão do histórico clínico e dos exames que já tens, com hipóteses, prioridades e próximos passos concretos no final.",
       },
     ],
+  },
+  {
+    path: "/medicina-funcional-vs-convencional",
+    title: comparacao.title,
+    description: comparacao.description,
+    h1: comparacao.h1,
+    intro: comparacao.shortAnswer,
+    extraHtml: comparacaoHtml,
+    faq: comparacao.faq,
   },
   {
     path: "/pequenos-almocos-ricos-em-proteina",

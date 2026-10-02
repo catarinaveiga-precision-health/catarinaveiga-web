@@ -1,0 +1,45 @@
+{
+  "title": "Medicina funcional vs medicina convencional | Catarina Veiga",
+  "description": "O que muda entre medicina funcional e medicina convencional: como se leem as análises, o que a evidência diz e quando o teu médico é o caminho certo.",
+  "h1": "Medicina funcional vs medicina convencional: qual é a diferença",
+  "shortAnswer": "A medicina funcional e a medicina convencional usam os mesmos exames laboratoriais e a mesma fisiologia. Muda a forma de organizar o caso: a convencional tende a organizar-se por diagnóstico e por especialidade, a funcional olha para vários sistemas em conjunto quando os sintomas persistem. Como modelo completo, a abordagem funcional tem evidência clínica limitada, e em Portugal não é uma especialidade médica. Por isso trabalho sempre em articulação com o teu médico.",
+  "tableHead": ["", "Medicina convencional", "Medicina funcional"],
+  "rows": [
+    ["Ponto de partida", "Organiza-se por diagnóstico e por especialidade.", "Olha para vários sistemas em conjunto: eixo HPA, tiroide, estado nutricional, microbioma, metabolismo hormonal."],
+    ["Análises", "Compara com o intervalo de referência: a faixa onde cai 95% de uma população de referência saudável.", "Usa os mesmos exames e lê-os também face a faixas mais estreitas, usadas como alvo. Não são um padrão consensual e a evidência varia por biomarcador."],
+    ["Intervenções", "Medicamentos, procedimentos e cirurgia, com ensaios clínicos sólidos para muitas condições.", "Nutrição, ritmo circadiano e suplementação baseada em análises. O nível de evidência varia consoante a intervenção."],
+    ["Acompanhamento", "Reavaliação conforme a doença e o plano do médico.", "Reavaliação analítica às 6 a 8 semanas, com biomarcadores comparados e protocolo ajustado."],
+    ["Diagnóstico e prescrição", "Decididos pelo médico.", "Não faço diagnóstico nem prescrevo. Encaminho para o médico quando é necessário."]
+  ],
+  "evidenceTitle": "O que a evidência diz, e o que não diz",
+  "evidence": [
+    "Faltam ensaios clínicos controlados que testem a abordagem funcional como um todo. O que existe são sobretudo estudos observacionais, com melhorias descritas em quem passa por estes programas, mas sem grupo de comparação.",
+    "A evidência é muito diferente de intervenção para intervenção. Corrigir um défice confirmado, regular o sono ou ajustar a alimentação têm estudos próprios. É por isso que cada recomendação deve ser lida pelo que tem de evidência, e não pelo nome da abordagem."
+  ],
+  "whenConventionalTitle": "Quando a medicina convencional é o caminho",
+  "whenConventional": "Se tens sintomas súbitos, intensos ou que te preocupam, fala primeiro com o teu médico, ou liga 112 numa emergência. Se tens uma doença diagnosticada ou medicação em curso, o teu médico continua a decidir. Não substituo cuidados médicos: trabalho em articulação com o teu médico e levo-te perguntas concretas para essa consulta.",
+  "framingTitle": "Enquadramento",
+  "framing": "Catarina Veiga acompanha em medicina funcional integrativa, com cédula profissional da ACSS ao abrigo da Lei n.º 71/2013, em articulação com o acompanhamento médico. Quando existe necessidade de avaliação médica, prescrição ou diagnóstico, há referenciação para médico ou para outras especialidades. Em Portugal, medicina funcional não é uma especialidade médica reconhecida pela Ordem dos Médicos.",
+  "faq": [
+    {
+      "q": "Qual é a diferença entre medicina funcional e medicina convencional?",
+      "a": "Usam os mesmos exames e a mesma fisiologia. A convencional organiza-se por diagnóstico e por especialidade. A funcional olha para vários sistemas em conjunto quando os sintomas persistem, e lê as análises também face a faixas mais estreitas. Têm níveis de evidência diferentes, e trabalham melhor em articulação."
+    },
+    {
+      "q": "A medicina funcional tem base científica?",
+      "a": "Usa os mesmos exames e princípios fisiológicos da medicina convencional. Como modelo completo, tem evidência clínica limitada: faltam ensaios controlados. A evidência varia muito consoante a intervenção."
+    },
+    {
+      "q": "Tenho de deixar o meu médico?",
+      "a": "Não. Não substituo cuidados médicos. Trabalho em articulação com o teu médico, e quando é preciso diagnóstico ou prescrição, encaminho-te."
+    },
+    {
+      "q": "O que são intervalos funcionais?",
+      "a": "São faixas mais estreitas do que o intervalo de referência do laboratório, usadas por alguns clínicos como alvo. O intervalo de referência cobre 95% de uma população de referência saudável. As faixas funcionais não são um padrão consensual e a evidência varia por biomarcador."
+    },
+    {
+      "q": "A medicina funcional é uma especialidade médica?",
+      "a": "Não. Em Portugal não existe uma especialidade médica com este nome, e a Ordem dos Médicos não a reconhece como tal."
+    }
+  ]
+}
