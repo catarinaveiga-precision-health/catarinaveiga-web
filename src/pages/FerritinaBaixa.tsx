@@ -320,10 +320,9 @@ const FerritinaBaixa = () => {
           ciclos que a própria considera normais porque sempre foram assim.
         </p>
         <p>
-          Este é um ponto em que o meu trabalho para e começa o de um médico.
-          Não diagnostico nem prescrevo. O que faço é reconhecer o padrão, dizer
-          com clareza o que está a acontecer, e encaminhar para investigação
-          médica com a pergunta certa já formulada.
+          Este é um ponto em que a investigação médica entra primeiro. O que
+          faço é reconhecer o padrão, dizer com clareza o que está a acontecer, e
+          encaminhar para investigação médica com a pergunta certa já formulada.
         </p>
       </SEOContentSection>
 

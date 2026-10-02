@@ -83,14 +83,14 @@ const passos = [
   ["Passo 2", "A consulta", "90 minutos. Histórico, sono, digestão, energia, ciclo e contexto."],
   ["Passo 3", "A leitura", "Os seus valores relidos com intervalos funcionais e cruzados entre si. Se faltar um painel que o laboratório de rotina não faz, como microbioma, hormonas ou ácidos orgânicos, sou praticante registada na Regenerus Labs e na Nordic Labs e é por aí que se pede."],
   ["Passo 4", "O plano", "Hipóteses, prioridades e próximos passos, por escrito."],
-  ["Passo 5", "Encaminhamento", "Se o quadro exigir diagnóstico ou receita, digo-o e encaminho."],
+  ["Passo 5", "Segunda consulta", "60 minutos para ver os resultados dos exames e como correu o mês. O plano vai-se adaptando a si."],
 ];
 
 const matriz = [
   ["Tempo consigo", "15 a 20 minutos", "nenhum", "90 minutos"],
   ["Como lê os valores", "um a um, contra o intervalo do laboratório", "relatório automático", "cruzados entre si, com intervalos funcionais"],
   ["Usa as análises antigas", "raramente", "não", "sim, quanto mais antigas melhor"],
-  ["Diagnóstico e receita", "sim", "não", "não, encaminha"],
+  ["Exames complementares", "os de rotina", "um painel fixo", "os que o seu caso pedir: microbioma, ácidos orgânicos, teste Dutch"],
   ["Plano escrito no fim", "nem sempre", "não", "sim"],
 ];
 
@@ -103,7 +103,6 @@ const paraSi = [
 ];
 
 const naoParaSi = [
-  "Precisa de diagnóstico médico ou de prescrição",
   "Procura resolver tudo numa consulta só",
   "Tem uma situação aguda que exige urgência",
   "Não está disponível para ajustar hábitos ao longo de meses",

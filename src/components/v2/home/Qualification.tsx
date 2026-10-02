@@ -12,7 +12,6 @@ const eParaTi = [
 ];
 
 const naoEParaTi = [
-  "Procuras um diagnóstico médico ou uma receita",
   "Tens uma situação aguda que precisa de urgência",
   "Queres um resultado garantido em duas semanas",
   "Preferes um protocolo igual para toda a gente",

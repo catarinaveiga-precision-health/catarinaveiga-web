@@ -39,8 +39,8 @@ const passos = [
   },
   {
     k: "Depois",
-    t: "Se for preciso médico, digo-o",
-    d: "Não diagnostico nem prescrevo. Quando o quadro exige uma dessas coisas, digo-o com clareza e encaminho.",
+    t: "Segunda consulta, 60 minutos",
+    d: "Vemos juntos o resultado dos exames e como correu o mês. Não há fórmulas feitas: o plano vai-se adaptando e evoluindo conforme respondes.",
   },
 ];
 

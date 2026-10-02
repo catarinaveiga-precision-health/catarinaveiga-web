@@ -197,9 +197,7 @@ const PerimenopausaSintomas = () => {
           que exigem avaliação médica, não funcional: sangramentos muito
           abundantes ou prolongados, sangramento depois de mais de um ano
           sem menstruação, dor incaracterística, ou qualquer sintoma que te
-          preocupe de forma aguda. Eu não diagnostico nem prescrevo: quando
-          o quadro exige médico, digo-o com clareza e encaminho. O trabalho
-          que faço é complementar, nunca substituto.
+          preocupe de forma aguda. Nestes casos, fala primeiro com um médico.
         </p>
       </SEOContentSection>
 

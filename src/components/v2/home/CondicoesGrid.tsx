@@ -129,18 +129,18 @@ export const CondicoesGrid = () => (
 
     {/* grelha em desktop, carrossel com snap em mobile */}
     <Container size="wide" className="mt-14">
-      <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 -mx-6 px-6 lg:mx-0 lg:px-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:pb-0">
+      <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
         {condicoes.map((c, i) => (
           <FadeUp
             key={c.nome}
             delay={(i % 4) * 0.06}
-            className="snap-start shrink-0 w-[78vw] max-w-[300px] lg:w-auto lg:max-w-none"
+            className="min-w-0"
           >
             <Link
               to={c.href}
-              className="group flex flex-col h-full rounded-2xl bg-white border border-v2-paper-line px-7 pt-8 pb-7 shadow-[0_14px_36px_-20px_rgba(22,53,44,0.35)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_48px_-18px_rgba(22,53,44,0.5)] hover:-translate-y-1"
+              className="group flex flex-col h-full rounded-2xl bg-white border border-v2-paper-line px-4 pt-5 pb-5 sm:px-7 sm:pt-8 sm:pb-7 shadow-[0_14px_36px_-20px_rgba(22,53,44,0.35)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_24px_48px_-18px_rgba(22,53,44,0.5)] hover:-translate-y-1"
             >
-              <span className="block w-24 h-24 rounded-full overflow-hidden ring-1 ring-v2-paper-line">
+              <span className="block w-16 h-16 sm:w-24 sm:h-24 rounded-full overflow-hidden ring-1 ring-v2-paper-line">
                 <img
                   src={c.img}
                   alt={c.alt}
@@ -151,13 +151,13 @@ export const CondicoesGrid = () => (
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </span>
-              <h3 className="mt-6 font-serif text-h3-v2 text-v2-ink leading-[1.25]">
+              <h3 className="mt-4 sm:mt-6 font-serif text-[19px] sm:text-h3-v2 text-v2-ink leading-[1.25]">
                 {c.nome}
               </h3>
-              <p className="mt-3 font-sans text-body-sm-v2 text-v2-ink-mute leading-[1.6] flex-1">
+              <p className="mt-2 sm:mt-3 font-sans text-[12.5px] sm:text-body-sm-v2 text-v2-ink-mute leading-[1.55] flex-1">
                 {c.sintomas}
               </p>
-              <span className="mt-6 inline-flex items-center gap-1.5 font-sans text-mono-v2 uppercase tracking-[0.14em] text-v2-sage-deep border-b border-v2-sage/40 self-start pb-1 transition-colors group-hover:text-v2-ink group-hover:border-v2-ink">
+              <span className="mt-4 sm:mt-6 inline-flex items-center gap-1.5 font-sans text-[11px] sm:text-mono-v2 uppercase tracking-[0.14em] text-v2-sage-deep border-b border-v2-sage/40 self-start pb-1 transition-colors group-hover:text-v2-ink group-hover:border-v2-ink">
                 Como abordo
                 <span
                   aria-hidden

@@ -23,8 +23,12 @@ const linhas: { criterio: string; celulas: string[] }[] = [
     celulas: ["raramente", "não", "sim, são as mais úteis"],
   },
   {
-    criterio: "Diagnóstico e receita",
-    celulas: ["sim", "não", "não, encaminho"],
+    criterio: "Exames complementares",
+    celulas: [
+      "os de rotina",
+      "um painel fixo",
+      "os que o teu caso pedir: microbioma, ácidos orgânicos, teste Dutch",
+    ],
   },
   {
     criterio: "Plano escrito no fim",

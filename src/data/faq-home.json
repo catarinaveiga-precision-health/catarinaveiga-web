@@ -1,19 +1,5 @@
 [
   {
-    "q": "És médica?",
-    "a": [
-      "Não. Sou especialista em medicina funcional integrativa, com 21 anos de prática clínica em saúde da mulher, acreditada como Functional Medicine Practitioner pela Regenerus Labs e pela Nordic Labs, no Reino Unido.",
-      "Não diagnostico doenças nem prescrevo medicação: isso é ato médico. O que faço é investigar o que está por trás dos sintomas e ler as tuas análises em conjunto. Esse trabalho é feito para funcionar ao lado do teu médico, não em vez dele."
-    ]
-  },
-  {
-    "q": "A consulta substitui o meu médico?",
-    "a": [
-      "Não, e nunca substitui. Isto é complementar.",
-      "Quando o teu quadro exige diagnóstico, prescrição ou uma avaliação que é ato médico, digo-o com clareza e encaminho. O que faço é ler as tuas análises em conjunto e procurar a causa, que é trabalho que a consulta de rotina não tem tempo para fazer."
-    ]
-  },
-  {
     "q": "Tenho de estar em perimenopausa para marcar?",
     "a": [
       "Não. Acompanho mulheres em várias fases, e muitas chegam sem saber se o que sentem é perimenopausa ou outra coisa. Perceber isso é parte do trabalho, não um pré-requisito para o começar."
@@ -55,7 +41,7 @@
   {
     "q": "Vou ter de tomar hormonas?",
     "a": [
-      "Não prescrevo hormonas nem medicação, porque isso é ato médico. Se a reposição hormonal fizer sentido para ti, essa conversa é com um médico, e digo-to."
+      "A reposição hormonal é uma decisão médica. Se fizer sentido para ti, digo-to e falamos de como levar essa conversa ao teu médico."
     ]
   },
   {
@@ -85,6 +71,20 @@
     "a": [
       "São 90 minutos de consulta, mais a preparação, a releitura de todas as análises que enviares, e o documento escrito que recebes até 48 horas depois da consulta. O valor atual está indicado na página de marcação.",
       "É consulta única, não é avença nem tem fidelização."
+    ]
+  },
+  {
+    "q": "Preciso de deixar o meu médico?",
+    "a": [
+      "Não. Podes fazer este acompanhamento ao lado do teu médico, ou sem médico assistente.",
+      "O que faço é ler as tuas análises em conjunto e procurar a causa, que é trabalho que a consulta de rotina não tem tempo para fazer."
+    ]
+  },
+  {
+    "q": "És médica?",
+    "a": [
+      "Sou especialista em medicina funcional integrativa, com 21 anos de prática clínica em saúde da mulher, acreditada como Functional Medicine Practitioner pela Regenerus Labs e pela Nordic Labs, no Reino Unido, e com cédula profissional da ACSS ao abrigo da Lei n.º 71/2013.",
+      "O meu trabalho é investigar o que está por trás dos sintomas e ler as tuas análises em conjunto, com um plano à tua medida."
     ]
   }
 ]

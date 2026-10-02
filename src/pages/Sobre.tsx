@@ -86,14 +86,6 @@ const percurso = [
   },
 ];
 
-const transparencia = [
-  "Não sou médica. Não estou inscrita na Ordem dos Médicos.",
-  "Não sou nutricionista.",
-  "Não prescrevo medicamentos.",
-  "Não faço diagnósticos médicos.",
-  "Não substituo acompanhamento médico.",
-];
-
 const faqs = [
   {
     q: "O que acontece na primeira consulta?",
@@ -381,36 +373,17 @@ const Sobre = () => {
             <FadeUp className="text-center">
               <Eyebrow>Transparência</Eyebrow>
               <h2 className="mt-6 font-serif text-h2-v2 text-v2-ink leading-[1.15] tracking-[-0.01em]">
-                O que faço e o que não faço.
+                Enquadramento profissional.
               </h2>
             </FadeUp>
 
             <FadeUp delay={0.1}>
               <p className="mt-14 font-sans text-body-v2 text-v2-ink-mute leading-[1.7] text-center max-w-[52ch] mx-auto">
                 Acompanho em medicina funcional integrativa, com cédula
-                profissional da ACSS ao abrigo da Lei n.º 71/2013, em
-                articulação com o acompanhamento médico. Quando existe
-                necessidade de avaliação médica, prescrição ou diagnóstico,
-                há referenciação para médico ou para outras especialidades.
+                profissional da ACSS ao abrigo da Lei n.º 71/2013.
               </p>
             </FadeUp>
 
-            <FadeUp delay={0.15}>
-              <ul className="mt-14 max-w-[480px] mx-auto space-y-5">
-                {transparencia.map((t) => (
-                  <li
-                    key={t}
-                    className="font-sans text-body-lg-v2 text-v2-ink leading-[1.55] pl-7 relative"
-                  >
-                    <span
-                      aria-hidden
-                      className="absolute left-0 top-[0.7em] w-3 h-px bg-v2-sage"
-                    />
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </FadeUp>
 
             <FadeUp delay={0.2}>
               <p className="mt-8 font-serif italic text-body-lg-v2 text-v2-ink text-center max-w-[44ch] mx-auto leading-[1.5]">

@@ -7,8 +7,7 @@ import retrato from "@/assets/catarina-retrato-creme.jpg";
 /* Rigor clínico com rosto, adaptado da secção "Clinical rigor and
    root-cause depth, without compromise" da Parsley (retrato da
    fundadora + lista dura de credenciais). Todos os factos já estão
-   verificados no schema do site; o último ponto transforma o limite
-   legal (não é médica) em prova de rigor, como o resto da página faz. */
+   verificados no schema do site; o último ponto é a cédula profissional. */
 
 const credenciais = [
   "21 anos de prática clínica em saúde da mulher",
@@ -16,7 +15,7 @@ const credenciais = [
   "Equipa fundadora da Omnos, hoje parte da Regenerus Labs, onde liderou o departamento de microbioma",
   "Oradora no Longevity Med Summit 2024",
   "Autora na IHCAN Magazine, setembro de 2022",
-  "Não diagnostica nem prescreve: quando o quadro exige médico, di-lo e encaminha",
+  "Cédula profissional da ACSS, ao abrigo da Lei n.º 71/2013",
 ];
 
 export const RigorClinico = () => (

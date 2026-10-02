@@ -12,8 +12,8 @@ import { FadeUp } from "../motion/FadeUp";
  * devolver dinheiro nem a prometer cura.
  *
  * Duas adaptações obrigatórias face ao original:
- * - "a clear diagnosis" NÃO pode ser usado: diagnóstico é ato médico e a
- *   Catarina não é médica. Passa a hipótese de trabalho, dito por extenso.
+ * - "a clear diagnosis" passa a "hipótese clara". A Catarina pediu (02/10)
+ *   para tirar da página todas as negações sobre diagnóstico e prescrição.
  * - "an expected timeframe for recovery" também não: implica prometer
  *   recuperação. Passa a ordem de prioridades e reavaliação.
  * Mantém-se a frase mais forte do original, "no vague answers, no false
@@ -22,7 +22,7 @@ import { FadeUp } from "../motion/FadeUp";
 const coisas = [
   {
     t: "Uma leitura do que se está a passar contigo",
-    d: "Não um diagnóstico, que isso é ato médico e não é o meu trabalho. Uma hipótese explicada por palavras que percebes, e o que a sustenta.",
+    d: "Uma hipótese clara, explicada por palavras que percebes, e o que a sustenta.",
   },
   {
     t: "Porque é que chegaste aqui",
