@@ -1,111 +1,132 @@
-import { Link } from "react-router-dom";
-import SEOPageLayout from "@/components/seo/SEOPageLayout";
-import SEOHero from "@/components/seo/SEOHero";
-import SEOContentSection from "@/components/seo/SEOContentSection";
-import SEOCTA from "@/components/seo/SEOCTA";
-import MethodAnimation from "@/components/seo/MethodAnimation";
-import { useFadeUp } from "@/hooks/useFadeUp";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { MotionConfig } from "framer-motion";
+import { NavbarV2 } from "@/components/v2/layout/NavbarV2";
+import { FooterV2 } from "@/components/v2/layout/FooterV2";
+import { StickyMobileCTA } from "@/components/v2/layout/StickyMobileCTA";
+import { Section } from "@/components/v2/ui/Section";
+import { Container } from "@/components/v2/ui/Container";
+import { Eyebrow } from "@/components/v2/ui/Eyebrow";
+import { ButtonV2 } from "@/components/v2/ui/ButtonV2";
+import { FadeUp } from "@/components/v2/motion/FadeUp";
+import { StatsRow } from "@/components/v2/home/StatsRow";
+import { ImageBand } from "@/components/v2/home/ImageBand";
+import { SocialProof } from "@/components/v2/home/SocialProof";
+import { FinalCTA } from "@/components/v2/home/FinalCTA";
+import { ComparacaoPares } from "@/components/v2/comparacao/ComparacaoPares";
+import { JornadaMetodo } from "@/components/v2/comparacao/JornadaMetodo";
+import { acuityUrl } from "@/lib/acuity";
+import { cn } from "@/lib/utils";
 import dados from "@/data/medicina-funcional-vs-convencional.json";
 
-const ComparisonTable = () => {
-  const ref = useFadeUp();
+const Hero = () => (
+  <Section bg="paper" tight className="pt-40 md:pt-48 lg:pt-52 pb-24 md:pb-32">
+    <Container size="default">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <FadeUp className="lg:col-span-7">
+          <Eyebrow>Medicina funcional integrativa</Eyebrow>
+          <h1 className="mt-8 font-serif text-display-1 text-v2-ink leading-[1.05] tracking-[-0.02em]">
+            Medicina funcional
+            <br />
+            <span className="italic text-v2-ink-mute">vs medicina convencional.</span>
+          </h1>
+          <p className="mt-8 font-sans text-body-lg-v2 text-v2-ink-mute max-w-[52ch] leading-[1.55]">
+            {dados.shortAnswer}
+          </p>
+          <div className="mt-12 flex flex-col items-start gap-4">
+            <ButtonV2 as="a" href={acuityUrl("funcional-vs-convencional")} size="lg">
+              Marcar consulta inicial
+            </ButtonV2>
+            <p className="font-sans text-body-sm-v2 text-v2-ink-mute">
+              90 minutos, online. Resposta em 48 horas úteis. Não precisas de ter exames feitos.
+            </p>
+          </div>
+        </FadeUp>
+
+        <FadeUp className="lg:col-span-5 lg:col-start-8" delay={0.15}>
+          <div className="relative flex items-end justify-center">
+            <div
+              aria-hidden
+              className="absolute inset-x-0 top-6 bottom-0 [background:radial-gradient(75%_62%_at_50%_38%,rgba(113,130,129,0.18),transparent_75%)]"
+            />
+            <img
+              src="/catarina-hero-recorte.webp"
+              alt="Catarina Veiga"
+              width={800}
+              height={1200}
+              className="relative w-full max-w-[420px] lg:max-w-[460px] h-auto [mask-image:linear-gradient(to_bottom,black_86%,transparent_99%)] [-webkit-mask-image:linear-gradient(to_bottom,black_86%,transparent_99%)]"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        </FadeUp>
+      </div>
+    </Container>
+  </Section>
+);
+
+const FAQComparacao = () => {
+  const [open, setOpen] = useState<number | null>(0);
   return (
-    <section ref={ref} className="bg-almond/20 py-28 md:py-36 px-6">
-      <div className="max-w-4xl mx-auto fade-up">
-        <p className="font-sans text-[11px] font-normal tracking-[0.25em] uppercase text-matcha mb-6">
-          Lado a lado
-        </p>
-        <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-10">
-          As diferenças, ponto a ponto
-        </h2>
-        <div className="md:hidden space-y-8">
-          {dados.rows.map((row, i) => (
-            <div key={i} className="border-b border-border pb-8">
-              <h3 className="font-serif text-xl font-normal text-foreground mb-4">{row[0]}</h3>
-              <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-matcha mb-1">{dados.tableHead[1]}</p>
-              <p className="font-sans text-[15px] leading-relaxed text-foreground/85 mb-4">{row[1]}</p>
-              <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-matcha mb-1">{dados.tableHead[2]}</p>
-              <p className="font-sans text-[15px] leading-relaxed text-foreground/85">{row[2]}</p>
+    <Section bg="paper-deep">
+      <Container size="default">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          <FadeUp className="lg:col-span-4">
+            <div className="lg:sticky lg:top-32">
+              <Eyebrow>Antes de marcares</Eyebrow>
+              <h2 className="mt-6 font-serif text-h2-v2 text-v2-ink leading-[1.15] tracking-[-0.01em]">
+                Perguntas frequentes.
+              </h2>
             </div>
-          ))}
+          </FadeUp>
+          <FadeUp className="lg:col-span-7 lg:col-start-6" delay={0.1}>
+            <ul className="divide-y divide-v2-paper-line border-y border-v2-paper-line">
+              {dados.faq.map((f, i) => {
+                const isOpen = open === i;
+                return (
+                  <li key={f.q}>
+                    <button
+                      onClick={() => setOpen(isOpen ? null : i)}
+                      className="w-full text-left py-7 flex items-start justify-between gap-8 group"
+                      aria-expanded={isOpen}
+                    >
+                      <span className="font-serif text-body-lg-v2 text-v2-ink group-hover:text-v2-ink-mute transition-colors leading-[1.4]">
+                        {f.q}
+                      </span>
+                      <span
+                        className={cn(
+                          "shrink-0 mt-2 font-sans text-mono-v2 text-v2-sage transition-transform duration-300",
+                          isOpen ? "rotate-45" : "",
+                        )}
+                      >
+                        +
+                      </span>
+                    </button>
+                    <div
+                      className={cn(
+                        "grid transition-[grid-template-rows] duration-300 ease-out",
+                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+                      )}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="pb-8 font-sans text-body-v2 text-v2-ink-mute leading-[1.7] max-w-[64ch]">
+                          {f.a}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </FadeUp>
         </div>
-        <div className="hidden md:block">
-          <table className="w-full border-collapse text-left font-sans text-[15px] leading-relaxed">
-            <thead>
-              <tr>
-                {dados.tableHead.map((h, i) => (
-                  <th key={i} scope="col" className="border-b border-border py-4 pr-6 font-normal text-[11px] tracking-[0.2em] uppercase text-matcha align-bottom">
-                    {h}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {dados.rows.map((row, i) => (
-                <tr key={i} className="align-top">
-                  <th scope="row" className="border-b border-border py-5 pr-6 font-serif text-lg font-normal text-foreground">
-                    {row[0]}
-                  </th>
-                  <td className="border-b border-border py-5 pr-6 text-foreground/85">{row[1]}</td>
-                  <td className="border-b border-border py-5 text-foreground/85">{row[2]}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const HowItWorks = () => {
-  const ref = useFadeUp();
-  return (
-    <section ref={ref} className="bg-background py-28 md:py-36 px-6">
-      <div className="max-w-3xl mx-auto fade-up">
-        <p className="font-sans text-[11px] font-normal tracking-[0.25em] uppercase text-matcha mb-6">
-          O método
-        </p>
-        <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-14">
-          {dados.howTitle}
-        </h2>
-        <MethodAnimation steps={dados.steps} />
-      </div>
-    </section>
-  );
-};
-
-const FAQSection = () => {
-  const ref = useFadeUp();
-  return (
-    <section ref={ref} className="bg-background py-28 md:py-36 px-6">
-      <div className="max-w-3xl mx-auto fade-up">
-        <p className="font-sans text-[11px] font-normal tracking-[0.25em] uppercase text-matcha mb-6">
-          Perguntas frequentes
-        </p>
-        <h2 className="font-serif text-3xl md:text-[2.75rem] font-light text-foreground leading-tight mb-16">
-          Medicina funcional e convencional
-        </h2>
-        <Accordion type="single" collapsible className="space-y-2">
-          {dados.faq.map((faq, i) => (
-            <AccordionItem key={i} value={`faq-${i}`} className="border-b border-border">
-              <AccordionTrigger className="text-left font-sans font-normal text-foreground py-5 hover:no-underline">
-                {faq.q}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground text-[15px] pb-5">
-                {faq.a}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 
 const MedicinaFuncionalVsConvencional = () => {
-  const structuredData = {
+  const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: dados.h1,
@@ -120,62 +141,29 @@ const MedicinaFuncionalVsConvencional = () => {
   };
 
   return (
-    <SEOPageLayout
-      title={dados.title}
-      description={dados.description}
-      canonical="https://www.catarinaveiga.com/medicina-funcional-vs-convencional"
-      structuredData={structuredData}
-    >
-      <SEOHero
-        label="Medicina funcional integrativa"
-        title={dados.h1}
-        intro={dados.shortAnswer}
-        breadcrumb={[
-          { label: "Início", to: "/" },
-          { label: "Medicina funcional", to: "/medicina-funcional" },
-          { label: "Funcional vs convencional" },
-        ]}
-      />
-
-      <ComparisonTable />
-
-      <HowItWorks />
-
-      <SEOContentSection label="Honestidade" title={dados.evidenceTitle}>
-        {dados.evidence.map((p, i) => (
-          <p key={i}>{p}</p>
-        ))}
-        <p>
-          Para a explicação geral da abordagem, vê{" "}
-          <Link to="/medicina-funcional" className="underline underline-offset-4">
-            O que é a medicina funcional
-          </Link>{" "}
-          e{" "}
-          <Link to="/metodo" className="underline underline-offset-4">
-            o método
-          </Link>
-          .
-        </p>
-      </SEOContentSection>
-
-      <SEOContentSection label="Segurança" title={dados.whenConventionalTitle} bg="almond">
-        <p>{dados.whenConventional}</p>
-      </SEOContentSection>
-
-      <SEOContentSection label="Transparência" title={dados.framingTitle}>
-        <p>{dados.framing}</p>
-      </SEOContentSection>
-
-      <FAQSection />
-
-      <SEOCTA
-        title="Por onde começar"
-        subtitle="Se os teus sintomas persistem e as análises estão dentro do normal, a consulta inicial serve para organizar o que já tens e definir os próximos passos."
-        buttonText="Marcar consulta inicial"
-        buttonTo="/consulta-inicial"
-        note=""
-      />
-    </SEOPageLayout>
+    <MotionConfig reducedMotion="user">
+      <Helmet>
+        <title>{dados.title}</title>
+        <meta name="description" content={dados.description} />
+        <link rel="canonical" href="https://www.catarinaveiga.com/medicina-funcional-vs-convencional" />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      </Helmet>
+      <div className="min-h-screen bg-v2-paper text-v2-ink font-sans antialiased selection:bg-v2-sage/20">
+        <NavbarV2 />
+        <main className="overflow-hidden">
+          <Hero />
+          <StatsRow />
+          <ComparacaoPares head={dados.tableHead} pairs={dados.pairs} />
+          <ImageBand />
+          <JornadaMetodo title={dados.howTitle} steps={dados.steps} />
+          <SocialProof />
+          <FAQComparacao />
+          <FinalCTA />
+        </main>
+        <FooterV2 />
+        <StickyMobileCTA />
+      </div>
+    </MotionConfig>
   );
 };
 

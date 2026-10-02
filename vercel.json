@@ -8,11 +8,6 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/medicina-funcional-vs-convencional",
-      "destination": "/medicina-funcional",
-      "permanent": false
-    },
-    {
       "source": "/:path*",
       "has": [
         {
