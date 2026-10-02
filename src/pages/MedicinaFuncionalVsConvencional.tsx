@@ -150,7 +150,7 @@ const MedicinaFuncionalVsConvencional = () => {
 
       <SEOCTA
         title="Por onde começar"
-        subtitle="Se os teus sintomas persistem e as análises estão dentro do normal, a consulta inicial serve para organizar o que já tens e definir os próximos passos, em articulação com o teu médico."
+        subtitle="Se os teus sintomas persistem e as análises estão dentro do normal, a consulta inicial serve para organizar o que já tens e definir os próximos passos."
         buttonText="Marcar consulta inicial"
         buttonTo="/consulta-inicial"
         note=""

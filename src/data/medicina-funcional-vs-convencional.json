@@ -1,8 +1,8 @@
 {
   "title": "Medicina funcional vs medicina convencional | Catarina Veiga",
-  "description": "O que muda entre medicina funcional e medicina convencional: como se leem as análises, o que a evidência diz e quando o teu médico é o caminho certo.",
+  "description": "O que muda entre medicina funcional e medicina convencional: como se leem as análises, o que a evidência diz e quando a medicina convencional é o caminho certo.",
   "h1": "Medicina funcional vs medicina convencional: qual é a diferença",
-  "shortAnswer": "A medicina funcional e a medicina convencional usam os mesmos exames laboratoriais e a mesma fisiologia. Muda a forma de organizar o caso: a convencional tende a organizar-se por diagnóstico e por especialidade, a funcional olha para vários sistemas em conjunto quando os sintomas persistem. Como modelo completo, a abordagem funcional tem evidência clínica limitada, e em Portugal não é uma especialidade médica. Por isso trabalho sempre em articulação com o teu médico.",
+  "shortAnswer": "A medicina funcional e a medicina convencional usam os mesmos exames laboratoriais e a mesma fisiologia. Muda a forma de organizar o caso: a convencional tende a organizar-se por diagnóstico e por especialidade, a funcional olha para vários sistemas em conjunto quando os sintomas persistem. Como modelo completo, a abordagem funcional tem evidência clínica limitada, e em Portugal não é uma especialidade médica. Trabalho a partir das tuas análises e do teu histórico e, quando é preciso diagnóstico ou prescrição, encaminho-te para o médico.",
   "tableHead": ["", "Medicina convencional", "Medicina funcional"],
   "rows": [
     ["Ponto de partida", "Organiza-se por diagnóstico e por especialidade.", "Olha para vários sistemas em conjunto: eixo HPA, tiroide, estado nutricional, microbioma, metabolismo hormonal."],
@@ -17,7 +17,7 @@
     "A evidência é muito diferente de intervenção para intervenção. Corrigir um défice confirmado, regular o sono ou ajustar a alimentação têm estudos próprios. É por isso que cada recomendação deve ser lida pelo que tem de evidência, e não pelo nome da abordagem."
   ],
   "whenConventionalTitle": "Quando a medicina convencional é o caminho",
-  "whenConventional": "Se tens sintomas súbitos, intensos ou que te preocupam, fala primeiro com o teu médico, ou liga 112 numa emergência. Se tens uma doença diagnosticada ou medicação em curso, o teu médico continua a decidir. Não substituo cuidados médicos: trabalho em articulação com o teu médico e levo-te perguntas concretas para essa consulta.",
+  "whenConventional": "Se tens sintomas súbitos, intensos ou que te preocupam, fala primeiro com um médico, ou liga 112 numa emergência. Quando são precisos diagnóstico ou prescrição, encaminho-te. Se já tens uma doença diagnosticada ou medicação em curso, o médico que te acompanha continua a decidir sobre isso.",
   "framingTitle": "Enquadramento",
   "framing": "Catarina Veiga acompanha em medicina funcional integrativa, com cédula profissional da ACSS ao abrigo da Lei n.º 71/2013, em articulação com o acompanhamento médico. Quando existe necessidade de avaliação médica, prescrição ou diagnóstico, há referenciação para médico ou para outras especialidades. Em Portugal, medicina funcional não é uma especialidade médica reconhecida pela Ordem dos Médicos.",
   "faq": [
@@ -30,8 +30,8 @@
       "a": "Usa os mesmos exames e princípios fisiológicos da medicina convencional. Como modelo completo, tem evidência clínica limitada: faltam ensaios controlados. A evidência varia muito consoante a intervenção."
     },
     {
-      "q": "Tenho de deixar o meu médico?",
-      "a": "Não. Não substituo cuidados médicos. Trabalho em articulação com o teu médico, e quando é preciso diagnóstico ou prescrição, encaminho-te."
+      "q": "Preciso de ter médico para marcar consulta?",
+      "a": "Não. Se tens médico, não tens de o deixar: trabalho a par dele. Se não tens, trabalho a partir das tuas análises e do teu histórico e, quando é preciso diagnóstico ou prescrição, encaminho-te."
     },
     {
       "q": "O que são intervalos funcionais?",
