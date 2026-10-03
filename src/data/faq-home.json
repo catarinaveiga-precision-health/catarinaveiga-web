@@ -81,6 +81,27 @@
     ]
   },
   {
+    "q": "Devo esperar mais tempo antes de marcar?",
+    "a": [
+      "A maioria das mulheres que me procura adiou a consulta durante meses, à espera de um sinal mais claro. O sinal costuma ser o que já tem: sintomas que duram, que não cedem com descanso, e uma explicação que ainda não apareceu.",
+      "Esperar faz sentido quando alguma coisa mudou há poucas semanas e pode ser passageiro. Deixa de fazer sentido quando já contou a mesma história a várias pessoas e continua no mesmo sítio."
+    ]
+  },
+  {
+    "q": "Vale a pena marcar se já fui a vários profissionais?",
+    "a": [
+      "É precisamente esse o ponto de partida mais comum. O que costuma faltar não é mais um exame, é alguém que leia em conjunto o que já existe: o histórico, os sintomas, o contexto e as análises, incluindo as antigas.",
+      "Se saiu de várias consultas sem explicação, o trabalho aqui começa por aí."
+    ]
+  },
+  {
+    "q": "Quanto tempo têm de durar os sintomas?",
+    "a": [
+      "Não há um número. O que pesa não é a duração exata, é a persistência: sintomas que não cedem com descanso, com férias ou com mudanças pontuais na alimentação.",
+      "Também conta o que mudou. Uma alteração recente que não consegue explicar é motivo suficiente para olhar."
+    ]
+  },
+  {
     "q": "És médica?",
     "a": [
       "Sou especialista em medicina funcional integrativa, com 21 anos de prática clínica em saúde da mulher, acreditada como Functional Medicine Practitioner pela Regenerus Labs e pela Nordic Labs, no Reino Unido, e com cédula profissional da ACSS ao abrigo da Lei n.º 71/2013.",

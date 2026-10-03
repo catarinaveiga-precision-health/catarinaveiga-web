@@ -94,6 +94,19 @@ const matriz = [
   ["Plano escrito no fim", "nem sempre", "não", "sim"],
 ];
 
+// "Quando faz sentido marcar": responde ao momento, nao ao perfil. O bloco
+// "Para quem e" diz se serve; este diz se e agora. Nenhum criterio clinico
+// novo: sao os sintomas e as situacoes que ja estavam na pagina e na FAQ,
+// reenquadrados no tempo. Sem condicionar a ter medico, por decisao dela.
+const quandoMarcar = [
+  "Já ouviu que está tudo normal mais do que uma vez, e continua sem explicação",
+  "Os sintomas duram há meses, e não cedem com descanso nem com férias",
+  "Alguma coisa mudou no último ano e não consegue apontar o quê",
+  "Tem análises feitas e ninguém as leu em conjunto",
+  "Já tentou coisas isoladas, suplementos ou mudanças na alimentação, e nada durou",
+  "Quer perceber o que se passa antes de mudar seja o que for",
+];
+
 const paraSi = [
   "Tem sintomas persistentes e exames considerados normais",
   "Já passou por várias consultas sem obter explicação",
@@ -327,6 +340,38 @@ const ConsultaInicial = () => (
             </tbody>
           </table>
         </div>
+      </div>
+    </section>
+
+    {/* Quando faz sentido marcar · a pergunta que a pessoa exausta faz de
+        madrugada, e que a pagina nao respondia. Vem antes da qualificacao:
+        primeiro "e agora?", depois "serve-me?". */}
+    <section>
+      <div className="page">
+        <p className="lab">Quando faz sentido marcar</p>
+        <h2 style={{ marginTop: 18, maxWidth: "20ch" }}>
+          Não é quando piora. <em>É quando já dura.</em>
+        </h2>
+        <p style={{ marginTop: 20, color: "var(--ink-soft)", maxWidth: "54ch" }}>
+          A maioria das mulheres que me procura adiou esta consulta durante
+          meses, à espera de um sinal mais claro. O sinal costuma ser este:
+          já contou a história a várias pessoas e continua sem resposta.
+        </p>
+
+        <div className="sy" style={{ marginTop: "var(--s7)" }}>
+          {quandoMarcar.map((t) => (
+            <div className="i" key={t}>
+              <h3>{t}</h3>
+            </div>
+          ))}
+        </div>
+
+        <p style={{ marginTop: "var(--s6)", color: "var(--ink-soft)", maxWidth: "54ch" }}>
+          Não precisa de se reconhecer em todos. Basta que um ou dois sejam
+          persistentes ou tenham mudado recentemente. Se nada disto se parece
+          consigo, provavelmente ainda não é agora, e isso também é uma
+          resposta útil.
+        </p>
       </div>
     </section>
 

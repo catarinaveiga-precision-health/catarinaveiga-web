@@ -655,6 +655,27 @@ const pages = [
     h1: "A pergunta não é o que tem. É porquê.",
     intro:
       "Para mulheres que já contaram esta história a várias pessoas, ouviram que está tudo normal, e saíram sem explicação nenhuma. Em 90 minutos sai a saber o que se está a passar e por que ordem tratar. Consulta inicial de 90 minutos, online, em Portugal e no estrangeiro.",
+  
+    // "Quando faz sentido marcar" tambem no HTML estatico: os rastreadores
+    // de IA muitas vezes nao executam JavaScript, e sem isto a seccao era
+    // invisivel para eles, como aconteceu com a pagina da ferritina.
+    // Sem FAQPage aqui: o schema das perguntas vive na homepage, que le o
+    // mesmo faq-home.json. Duplicar daria dois FAQPage com o mesmo conteudo.
+    extraHtml: `
+      <h2>Quando faz sentido marcar</h2>
+      <p>A maioria das mulheres que me procura adiou esta consulta durante meses, à espera de um sinal mais claro. O sinal costuma ser este: já contou a história a várias pessoas e continua sem resposta.</p>
+      <ul>
+        <li>Já ouviu que está tudo normal mais do que uma vez, e continua sem explicação</li>
+        <li>Os sintomas duram há meses, e não cedem com descanso nem com férias</li>
+        <li>Alguma coisa mudou no último ano e não consegue apontar o quê</li>
+        <li>Tem análises feitas e ninguém as leu em conjunto</li>
+        <li>Já tentou coisas isoladas, suplementos ou mudanças na alimentação, e nada durou</li>
+        <li>Quer perceber o que se passa antes de mudar seja o que for</li>
+      </ul>
+      <p>Não precisa de se reconhecer em todos. Basta que um ou dois sejam persistentes ou tenham mudado recentemente. Se nada disto se parece consigo, provavelmente ainda não é agora, e isso também é uma resposta útil.</p>
+      <h2>Devo esperar mais tempo antes de marcar?</h2>
+      <p>Esperar faz sentido quando alguma coisa mudou há poucas semanas e pode ser passageiro. Deixa de fazer sentido quando já contou a mesma história a várias pessoas e continua no mesmo sítio. Não há um número de meses: o que pesa é a persistência, sintomas que não cedem com descanso, com férias ou com mudanças pontuais na alimentação.</p>
+    `,
   },
   {
     path: "/metodo",
