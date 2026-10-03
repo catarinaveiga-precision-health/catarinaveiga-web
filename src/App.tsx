@@ -16,6 +16,7 @@ import BlogArticle from "./pages/BlogArticle";
 import Candidatura from "./pages/Candidatura";
 import Metodo from "./pages/Metodo";
 import Sobre from "./pages/Sobre";
+import SobreV2 from "./pages/SobreV2";
 import Avaliacao from "./pages/Avaliacao";
 import FerritinaBaixa from "./pages/FerritinaBaixa";
 import Recursos from "./pages/Recursos";
@@ -57,6 +58,7 @@ const App = () => (
             <Route path="/candidatura" element={<Candidatura />} />
             <Route path="/metodo" element={<Metodo />} />
             <Route path="/sobre" element={<Sobre />} />
+            <Route path="/sobre-nova" element={<SobreV2 />} />
             <Route path="/avaliacao" element={<Avaliacao />} />
             <Route path="/aviso-legal" element={<AvisoLegal />} />
             <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
