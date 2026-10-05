@@ -10,7 +10,7 @@ import SEOCTA from "@/components/seo/SEOCTA";
 import { useFadeUp } from "@/hooks/useFadeUp";
 
 const symptoms = [
-  "Fadiga pós-prandial — cansaço a seguir às refeições",
+  "Fadiga pós-prandial: cansaço a seguir às refeições",
   "Cravings intensos de açúcar ou hidratos de carbono",
   "Dificuldade em perder peso apesar de dieta controlada",
   "Peso concentrado na zona abdominal",
@@ -33,15 +33,15 @@ const insulinCalc = (values: string[]) => {
 
   let icon = "", text = "";
   if (v < 2) {
-    icon = "⚠️"; text = "Insulina muito baixa (<2 µIU/mL). Requer contexto clínico — pode indicar hipoinsulinemia.";
+    icon = "◆"; text = "Insulina muito baixa (abaixo de 2 µIU/mL). Requer contexto clínico: pode indicar hipoinsulinemia.";
   } else if (v <= 5) {
-    icon = "🟢"; text = "Insulina dentro do intervalo funcional (2–5 µIU/mL). Boa sensibilidade celular à insulina.";
+    icon = "✓"; text = "Insulina dentro do intervalo funcional (2 a 5 µIU/mL). Boa sensibilidade celular à insulina.";
   } else if (v <= 10) {
-    icon = "🟡"; text = "Insulina limítrofe (5–10 µIU/mL). O pâncreas pode já estar a compensar. Monitorização recomendada.";
+    icon = "◐"; text = "Insulina limítrofe (5 a 10 µIU/mL). O pâncreas pode já estar a compensar. Monitorização recomendada.";
   } else if (v <= 25) {
-    icon = "🔴"; text = "Insulina elevada (>10 µIU/mL). Padrão de hiperinsulinemia — resistência metabólica e risco cardiovascular.";
+    icon = "◇"; text = "Insulina elevada (acima de 10 µIU/mL). Padrão de hiperinsulinemia: resistência metabólica e risco cardiovascular.";
   } else {
-    icon = "⚠️"; text = "Insulina muito elevada (>25 µIU/mL). Avaliação clínica urgente — resistência à insulina significativa.";
+    icon = "◆"; text = "Insulina muito elevada (acima de 25 µIU/mL). Avaliação clínica urgente: resistência à insulina significativa.";
   }
 
   return { icon, text };
@@ -116,7 +116,7 @@ const InsulinaJejum = () => {
     "description": "Insulina em jejum elevada com glicose normal? Descobre o que a hiperinsulinemia significa antes de um diagnóstico de pré-diabetes.",
     "url": "https://www.catarinaveiga.com/insulina-jejum-o-que-significa",
     "inLanguage": "pt",
-    "publisher": { "@type": "Organization", "name": "Catarina Veiga — Medicina Funcional Integrativa", "url": "https://www.catarinaveiga.com" },
+    "publisher": { "@type": "Organization", "name": "Catarina Veiga · Medicina Funcional Integrativa", "url": "https://www.catarinaveiga.com" },
   };
 
   return (
@@ -139,11 +139,11 @@ const InsulinaJejum = () => {
 
       <SEOContentSection label="O essencial" title="O que é a insulina em jejum e o que mede">
         <p>
-          A insulina é a hormona produzida pelo pâncreas para transportar glicose para as células. Em jejum, os seus níveis devem ser baixos. Quando a insulina em jejum está elevada com glicose normal, o pâncreas está a compensar — e isto pode preceder um diagnóstico de diabetes tipo 2 por uma década.
+          A insulina é a hormona produzida pelo pâncreas para transportar glicose para as células. Em jejum, os seus níveis devem ser baixos. Quando a insulina em jejum está elevada com glicose normal, o pâncreas está a compensar, e isto pode preceder um diagnóstico de diabetes tipo 2 por uma década.
         </p>
       </SEOContentSection>
 
-      <SEOImpactQuote quote="A hiperinsulinemia é frequentemente invisível nos exames convencionais — porque a glicose ainda está normal. Mas o pâncreas já está a trabalhar em excesso." />
+      <SEOImpactQuote quote="A hiperinsulinemia é frequentemente invisível nos exames convencionais, porque a glicose ainda está normal. Mas o pâncreas já está a trabalhar em excesso." />
 
       <SEOSymptomGrid
         label="Reconheces isto?"
@@ -172,6 +172,76 @@ const InsulinaJejum = () => {
         }}
         source="Hanley AJ et al. Diabetes Care. 2002. PMID: 12145237"
       />
+
+      <SEOContentSection
+        label="O mecanismo"
+        title="Porque é que a glicose continua normal"
+      >
+        <p>
+          A glicose em jejum é o resultado, não a causa. Enquanto o pâncreas
+          conseguir produzir insulina suficiente, a glicose mantém-se dentro
+          do normal. O esforço não aparece no valor da glicose: aparece na
+          quantidade de insulina que foi precisa para o conseguir.
+        </p>
+        <p>
+          É por isso que a insulina sobe anos antes de a glicose se alterar.
+          Quando a glicose em jejum finalmente sai do intervalo, o pâncreas já
+          vinha a compensar há muito tempo. Medir só a glicose é olhar para o
+          fim da história.
+        </p>
+      </SEOContentSection>
+
+      <SEOContentSection
+        label="De onde vem o número"
+        title="Porquê 5, e não 25"
+      >
+        <p>
+          O laboratório considera normal qualquer valor entre 2 e 25 µIU/mL.
+          Esse limite superior foi definido para identificar doença, não para
+          identificar esforço metabólico.
+        </p>
+        <p>
+          O intervalo funcional que uso é de 2 a 5 µIU/mL. Há trabalho
+          publicado que o acompanha: abaixo de 5 µIU/mL associa-se a menor
+          risco cardiovascular e a menor mortalidade por todas as causas, e
+          descreve-se um aumento do risco de diabetes tipo 2 por cada unidade
+          acima de 5, mesmo dentro do intervalo laboratorial.
+        </p>
+        <p>
+          Sou transparente sobre as diferenças: há clínicas funcionais que
+          trabalham com 2 a 6 e outras com 2 a 8. Uso o limiar mais apertado
+          porque o objectivo aqui não é excluir doença, é apanhar o esforço
+          antes de ele virar diagnóstico.
+        </p>
+      </SEOContentSection>
+
+      <SEOContentSection
+        label="O que pedir"
+        title="A insulina sozinha não chega"
+      >
+        <p>
+          <strong>Glicose em jejum, pedida ao mesmo tempo.</strong> Sem as duas
+          no mesmo dia, não se consegue calcular nada. É o erro mais comum nas
+          análises que recebo: insulina sem glicose, ou com meses de diferença.
+        </p>
+        <p>
+          <strong>HOMA-IR.</strong> Cruza a glicose com a insulina em jejum e
+          traduz o esforço num só número. O limiar convencional de resistência
+          à insulina é 2,5; na leitura funcional procura-se bastante abaixo
+          disso. É um cálculo, não uma análise à parte: se tiver os dois
+          valores, já o tem.
+        </p>
+        <p>
+          <strong>Triglicéridos e HDL.</strong> Alteram-se em conjunto com a
+          insulina e costumam mexer-se antes da glicose. A relação entre os
+          dois diz mais do que cada um isolado.
+        </p>
+        <p>
+          <strong>HbA1c.</strong> Dá a média dos últimos três meses e serve de
+          contraponto: uma HbA1c tranquila com insulina alta é exactamente o
+          quadro que escapa nas análises de rotina.
+        </p>
+      </SEOContentSection>
 
       <SEOCalculator
         label="Ferramenta"
