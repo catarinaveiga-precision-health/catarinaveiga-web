@@ -34,6 +34,7 @@ async function fetchSanityPosts() {
     title,
     slug,
     publishedAt,
+    _updatedAt,
     category,
     tags,
     mainImage { asset->{ url }, alt },
@@ -71,6 +72,7 @@ async function fetchSanityPostsWithToken() {
     title,
     slug,
     publishedAt,
+    _updatedAt,
     category,
     tags,
     mainImage { asset->{ url }, alt },
@@ -984,6 +986,24 @@ function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, 
   return html;
 }
 
+// ── Datas de alteracao feitas no CODIGO ──────────────────────────
+// O Sanity so conhece edicoes feitas no Sanity. O que se muda aqui (titulos
+// SEO, extraHtml, paginas React) nao lhe chega, por isso o sitemap dizia ao
+// Google que o artigo das 4h nao mudava desde 11 jun, e o Google nunca voltou
+// a le-lo: 41 dias depois (6 out) ainda guardava o titulo antigo, confirmado
+// com intitle:. Estas datas sao as REAIS, tiradas dos commits. O Google ignora
+// o lastmod de sites que o inflacionam, por isso so se acrescenta aqui o que
+// mudou de facto, e com a data em que mudou.
+const LASTMOD_BLOG_CODIGO = {
+  "acordar-as-4-da-manha-perimenopausa": "2026-08-26", // titulo curto (f421e11)
+};
+const LASTMOD_ROTAS = {
+  "/ferritina-baixa-sintomas": "2026-09-03",
+  "/insulina-jejum-o-que-significa": "2026-10-05",
+  "/consulta-inicial": "2026-10-03",
+};
+const dataMaisRecente = (...ds) => ds.filter(Boolean).map((d) => String(d).split("T")[0]).sort().pop();
+
 // ── Generate sitemap.xml ─────────────────────────────────────────
 function generateSitemap(staticPages, blogPosts) {
   const today = new Date().toISOString().split("T")[0];
@@ -997,7 +1017,8 @@ function generateSitemap(staticPages, blogPosts) {
     const loc = `https://www.catarinaveiga.com${page.path === "/" ? "" : page.path}`;
     const priority = page.path === "/" ? "1.0" : page.path === "/blog" ? "0.7" : "0.8";
     const freq = page.path === "/" || page.path === "/blog" ? "weekly" : "monthly";
-    xml += `  <url>\n    <loc>${loc}</loc>\n    <changefreq>${freq}</changefreq>\n    <priority>${priority}</priority>\n  </url>\n`;
+    const lm = LASTMOD_ROTAS[page.path] ? `\n    <lastmod>${LASTMOD_ROTAS[page.path]}</lastmod>` : "";
+    xml += `  <url>\n    <loc>${loc}</loc>${lm}\n    <changefreq>${freq}</changefreq>\n    <priority>${priority}</priority>\n  </url>\n`;
   }
 
   // Blog posts
@@ -1005,7 +1026,7 @@ function generateSitemap(staticPages, blogPosts) {
     const slug = post.slug?.current;
     if (!slug) continue;
     const loc = `https://www.catarinaveiga.com/blog/${slug}`;
-    const lastmod = post.publishedAt ? post.publishedAt.split("T")[0] : today;
+    const lastmod = dataMaisRecente(post.publishedAt, post._updatedAt, LASTMOD_BLOG_CODIGO[slug]) || today;
     xml += `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
   }
 
