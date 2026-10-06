@@ -401,7 +401,7 @@ const Caminho = () => (
 
         <Marco
           quando="2022 a 2024"
-          lado="dir"
+          lado="esq"
           cartao={
             <CartaoFactos
               imagem={fotoLongevity}
@@ -436,7 +436,7 @@ const Caminho = () => (
 
         <Marco
           quando="Hoje"
-          lado="esq"
+          lado="dir"
           cartao={
             <CartaoFactos
               titulo="A minha clínica"
