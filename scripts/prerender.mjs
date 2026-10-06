@@ -271,7 +271,7 @@ const pages = [
       },
       {
         q: "Isto substitui o acompanhamento médico?",
-        a: "Não. A medicina funcional integrativa é complementar e trabalha em articulação com a medicina convencional. Não substitui diagnóstico médico nem prescrição, e as situações que exigem investigação médica são sinalizadas e encaminhadas.",
+        a: "Não. A medicina funcional integrativa é complementar e trabalha em articulação com a medicina convencional: o médico de família e os especialistas continuam a acompanhar, e a leitura funcional soma-se a esse acompanhamento.",
       },
     ],
   },
