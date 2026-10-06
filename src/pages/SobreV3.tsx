@@ -13,7 +13,6 @@ import { acuityUrl } from "@/lib/acuity";
 import retratoCamisa from "@/assets/catarina-retrato-camisa.jpg";
 import fotoChina from "@/assets/sobre-estagio-china.jpg";
 import fotoExpert from "@/assets/sobre-omnos-expert.jpg";
-import fotoOmnos from "@/assets/sobre-webinar-omnos.jpg";
 import fotoPainel from "@/assets/sobre-omnos-painel.jpg";
 import fotoLongevity from "@/assets/sobre-longevity.jpg";
 import fotoRio from "@/assets/sobre-rio-eucalipto.jpg";
@@ -67,9 +66,9 @@ const CartaoFoto = ({ src, alt, legenda, aspect = "4/5" }: { src: string; alt: s
 
 /* Cartão de factos: o destaque em bullets, com imagem opcional no topo */
 const CartaoFactos = ({ titulo, itens, imagem, alt }: { titulo: string; itens: ReactNode[]; imagem?: string; alt?: string }) => (
-  <div className={`w-full max-w-[400px] overflow-hidden rounded-[1.25rem] bg-v2-paper-deep ${sombra}`}>
+  <div className={`w-full max-w-[400px] md:min-h-[500px] overflow-hidden rounded-[1.25rem] bg-v2-paper-deep ${sombra}`}>
     {imagem && (
-      <div className="aspect-[4/3] overflow-hidden">
+      <div className="aspect-[16/9] overflow-hidden">
         <img src={imagem} alt={alt ?? ""} loading="lazy" decoding="async" className="h-full w-full object-cover object-top" />
       </div>
     )}
@@ -89,7 +88,7 @@ const CartaoFactos = ({ titulo, itens, imagem, alt }: { titulo: string; itens: R
 
 /* Cartão de citação, para o marco que tem a frase dela */
 const CartaoCitacao = ({ children }: { children: ReactNode }) => (
-  <div className={`w-full max-w-[400px] rounded-[1.25rem] bg-v2-sage ${sombra} p-9 md:p-10 flex items-center min-h-[280px]`}>
+  <div className={`w-full max-w-[400px] md:min-h-[500px] rounded-[1.25rem] bg-v2-sage ${sombra} p-9 md:p-10 flex items-center`}>
     <p className="font-serif italic text-[clamp(1.6rem,2.6vw,2rem)] leading-[1.25] text-v2-paper">{children}</p>
   </div>
 );
@@ -208,11 +207,25 @@ const Porque = () => (
             quase imobilizada, com uma cicatrização lentíssima.
           </P>
         </FadeUp>
-        <FadeUp delay={0.08}>
+        <FadeUp delay={0.06}>
           <P>
             Comecei a procurar respostas e encontrei a área pela qual me apaixonei: a bioquímica sanguínea, a linguagem das
             células. Aprender a ler e a cruzar biomarcadores, e não apenas a ver se estavam dentro do intervalo, foi o que me
             ajudou a recuperar.
+          </P>
+        </FadeUp>
+        <FadeUp delay={0.12}>
+          <P>
+            Por volta dos 40 anos comecei a ter sinais que me faziam sentir que não era eu. Achei que era passageiro. Não
+            era. Fui à procura de respostas e fui diagnosticada com TDAH, que se intensificou muito com a entrada na
+            perimenopausa.
+          </P>
+        </FadeUp>
+        <FadeUp delay={0.18}>
+          <P>
+            Foi aí que decidi sair do mundo corporativo e abrir a minha prática, online, com pessoas de todo o mundo. Quis
+            criar um espaço seguro para mulheres que não têm medo de questionar o convencional e procuram respostas mais
+            profundas.
           </P>
         </FadeUp>
       </div>
@@ -225,15 +238,11 @@ const Caminho = () => (
     <Container size="narrow">
       <FadeUp className="text-center">
         <h2 className="font-serif italic text-[clamp(2.2rem,4.4vw,3.4rem)] leading-[1.05] text-v2-ink">O meu caminho...</h2>
-        <p className="mx-auto mt-6 max-w-[48ch] font-sans text-[18px] leading-[1.6] text-v2-ink-mute">
-          Hoje trabalho com bioquímica sanguínea, nutrição funcional e testes de microbioma e de hormonas. O caminho até aqui
-          começou noutro sítio.
-        </p>
       </FadeUp>
     </Container>
 
     <Container size="wide">
-      <div className="relative mt-10 md:mt-16">
+      <div className="relative mt-6 md:mt-10">
         <span
           aria-hidden
           className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px border-l border-dashed [border-color:color-mix(in_srgb,var(--v2-sage)_45%,transparent)]"
@@ -313,58 +322,26 @@ const Caminho = () => (
         >
           <P>
             A Omnos era uma plataforma britânica, de Edimburgo, que dava acesso direto a testes laboratoriais normalmente
-            reservados aos clínicos e traduzia os resultados em linguagem simples. Em 2023 juntou-se à Regenerus Labs.
-          </P>
-          <P>
-            Vivi a fase de que mais gosto numa startup: a criação. Entrei como consultora científica, a validar todo o
-            conteúdo de saúde da plataforma. Em 2021 passei a Resident Microbiome Expert, com a palavra final sobre tudo o
-            que dizia respeito ao microbioma, a reportar diretamente ao CEO.
+            reservados aos clínicos. Entrei como consultora científica e, em 2021, passei a Resident Microbiome Expert, com
+            a palavra final sobre tudo o que dizia respeito ao microbioma, a reportar diretamente ao CEO.
           </P>
         </Marco>
 
         <Marco
           quando="Omnos · microbioma"
           lado="esq"
-          cartao={
-            <CartaoFoto
-              src={fotoOmnos}
-              alt="Catarina Veiga num webinar da Omnos por Zoom, em junho de 2021"
-              legenda="Webinar da Omnos, junho de 2021"
-            />
-          }
-        >
-          <P>
-            Trabalhei lado a lado com especialistas em hormonas, ácidos orgânicos e toxinas ambientais, e acompanhei centenas
-            de pessoas e médicos com testes de microbioma, em articulação com os testes hormonais (DUTCH) e de ácidos
-            orgânicos (OAT).
-          </P>
-          <P>
-            Escolhi e validei o GI360 e defendi essa escolha perante as equipas de produto, ciência e engenharia. Desenhei
-            protocolos de interpretação com critérios de decisão explícitos e preparei o lançamento do novo teste: seminário,
-            artigo e comunicado de imprensa.
-          </P>
-        </Marco>
-
-        <Marco
-          quando="Omnos · plataforma"
-          lado="dir"
           cartao={<CartaoCitacao>É no cruzamento dos dados que as respostas aparecem.</CartaoCitacao>}
         >
           <P>
-            A plataforma cruzava o microbioma com análises sanguíneas e genética, e foi aí que a minha forma de ver a saúde
-            se alargou.
-          </P>
-          <P>
-            Antes de existirem ferramentas de IA generativa, trabalhei com programadores e designers para transformar o
-            relatório do GI360 numa experiência interativa e em linguagem simples, revendo centenas de marcadores um a um,
-            com cada afirmação apoiada na literatura. Fiz também parte da equipa que desenvolveu o Wellness 360, um painel de
-            análises sanguíneas em versão feminina e masculina.
+            Acompanhei centenas de pessoas e médicos com testes de microbioma, em articulação com os testes hormonais (DUTCH)
+            e de ácidos orgânicos (OAT). Escolhi e validei o GI360. A plataforma cruzava o microbioma com análises sanguíneas
+            e genética, e foi aí que a minha forma de ver a saúde se alargou.
           </P>
         </Marco>
 
         <Marco
           quando="Omnos Academy · 2022"
-          lado="esq"
+          lado="dir"
           cartao={
             <CartaoFoto
               src={fotoPainel}
@@ -382,7 +359,7 @@ const Caminho = () => (
 
         <Marco
           quando="Webinars · 2022"
-          lado="dir"
+          lado="esq"
           cartao={
             <CartaoFactos
               titulo="Webinars que apresentei"
@@ -400,9 +377,30 @@ const Caminho = () => (
         >
           <P>
             Produzi 30 a 40 vídeos de formação, preparei e apresentei cerca de 20 seminários e co-apresentei a série de
-            webinars da Omnos com o Director of Product. Fiz a curadoria e a moderação de seminários técnicos com convidados
-            como a Davinia Taylor, no "Women, Health &amp; Tech", e comecei a desenhar o primeiro curso da Academy para
-            profissionais de saúde.
+            webinars da Omnos com o Director of Product, com convidados como a Davinia Taylor, no "Women, Health &amp;
+            Tech".
+          </P>
+        </Marco>
+
+        <Marco
+          quando="Artigos · 2022 a 2023"
+          lado="dir"
+          cartao={
+            <CartaoFactos
+              titulo="Artigos no omnos.me"
+              itens={[
+                <Arq url="https://web.archive.org/web/20240226203608/https://www.omnos.me/articles/how-oestrogen-can-be-connected-to-the-gut-microbiota-with-test-pairing">How Oestrogen Can Be Connected to The Gut Microbiota with Test Pairing (2022)</Arq>,
+                <Arq url="https://web.archive.org/web/20240226195929/https://www.omnos.me/articles/what-is-the-first-phase-of-detoxification">What is the first phase of detoxification?</Arq>,
+                <Arq url="https://web.archive.org/web/20240226200520/https://www.omnos.me/articles/detoxification-phase-2-what-is-conjugation">Detoxification Phase 2: what is Conjugation?</Arq>,
+                <Arq url="https://web.archive.org/web/20240522122620/https://www.omnos.me/articles/male-hormones">Male Hormones</Arq>,
+              ]}
+            />
+          }
+        >
+          <P>
+            Escrevi para o site da Omnos sobre hormonas, microbioma e desintoxicação. O artigo sobre estrogénios e
+            microbiota intestinal foi o que saiu na IHCAN Magazine. O site já não existe; os textos ficaram no arquivo da
+            web.
           </P>
         </Marco>
 
@@ -448,30 +446,8 @@ const Caminho = () => (
         </Marco>
 
         <Marco
-          quando="Artigos · 2022 a 2023"
-          lado="dir"
-          cartao={
-            <CartaoFactos
-              titulo="Artigos no omnos.me"
-              itens={[
-                <Arq url="https://web.archive.org/web/20240226203608/https://www.omnos.me/articles/how-oestrogen-can-be-connected-to-the-gut-microbiota-with-test-pairing">How Oestrogen Can Be Connected to The Gut Microbiota with Test Pairing (2022)</Arq>,
-                <Arq url="https://web.archive.org/web/20240226195929/https://www.omnos.me/articles/what-is-the-first-phase-of-detoxification">What is the first phase of detoxification?</Arq>,
-                <Arq url="https://web.archive.org/web/20240226200520/https://www.omnos.me/articles/detoxification-phase-2-what-is-conjugation">Detoxification Phase 2: what is Conjugation?</Arq>,
-                <Arq url="https://web.archive.org/web/20240522122620/https://www.omnos.me/articles/male-hormones">Male Hormones</Arq>,
-              ]}
-            />
-          }
-        >
-          <P>
-            Escrevi para o site da Omnos sobre hormonas, microbioma e desintoxicação. O artigo sobre estrogénios e
-            microbiota intestinal foi o que saiu na IHCAN Magazine. O site já não existe; os textos ficaram no arquivo da
-            web.
-          </P>
-        </Marco>
-
-        <Marco
           quando="Hoje"
-          lado="esq"
+          lado="dir"
           cartao={
             <CartaoFactos
               titulo="A minha clínica"
@@ -491,14 +467,9 @@ const Caminho = () => (
           }
         >
           <P>
-            Por volta dos 40 anos comecei a ter sinais que me faziam sentir que não era eu. Achei que era passageiro. Não
-            era. Fui à procura de respostas e fui diagnosticada com TDAH, que se intensificou muito com a entrada na
-            perimenopausa.
-          </P>
-          <P>
-            Foi aí que decidi sair do mundo corporativo e abrir a minha prática, online, com pessoas de todo o mundo.
-            Continuo a colaborar com algumas instituições, mas quis criar um espaço seguro para mulheres que não têm medo de
-            questionar o convencional e procuram respostas mais profundas.
+            Hoje trabalho com bioquímica sanguínea, nutrição funcional e testes de microbioma e de hormonas, em consulta
+            online e em Parede. Continuo a colaborar com algumas instituições, e a leitura das análises em conjunto, cruzada
+            com o que sentes, é o centro de tudo o que faço.
           </P>
         </Marco>
       </div>

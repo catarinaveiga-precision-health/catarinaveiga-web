@@ -654,6 +654,9 @@ const pages = [
     intro:
       "Leio dados biológicos complexos e transformo-os em decisões claras, para mulheres a quem disseram que está tudo normal. Fiz o caminho da medicina funcional primeiro como paciente, depois como estudante, e hoje como praticante.",
     extraHtml: `
+      <h2>O meu porquê</h2>
+      <p>Há uns anos parti um menisco e tive de ser operada. Nas análises da consulta de anestesiologia reparei que a minha ferritina estava extremamente baixa, e fiz a pergunta. O pós-operatório que devia durar 15 dias durou sete meses, quase imobilizada, com uma cicatrização lentíssima. Comecei a procurar respostas e encontrei a área pela qual me apaixonei: a bioquímica sanguínea, a linguagem das células.</p>
+      <p>Por volta dos 40 anos comecei a ter sinais que me faziam sentir que não era eu. Fui diagnosticada com TDAH, que se intensificou muito com a entrada na perimenopausa. Foi aí que decidi sair do mundo corporativo e abrir a minha prática, online, com pessoas de todo o mundo: um espaço seguro para mulheres que não têm medo de questionar o convencional e procuram respostas mais profundas.</p>
       <h2>Em resumo</h2>
       <p><strong>Prática.</strong> Medicina funcional integrativa, em consulta online e em Parede, Cascais. Primeira consulta de 90 minutos.</p>
       <p><strong>Formação.</strong> Pós-graduações em Bioquímica Sanguínea e em Nutrição Funcional (Faculdade de Saúde Avançada). Formação em Modulação Intestinal e Microbioma com o Prof. Murilo Pereira (2021). Neurobiologia e Neurociências (University of Chicago, curso online). Pós-graduação em Língua Gestual (NOVA Medical School, 2008 a 2009). Licenciatura de cinco anos em Medicina Tradicional Chinesa (Nanjing University of Chinese Medicine, com a ESMTC, 2000 a 2005).</p>
