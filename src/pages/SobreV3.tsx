@@ -202,9 +202,10 @@ const Porque = () => (
       <div className="mt-8 space-y-5">
         <FadeUp>
           <P>
-            Há uns anos parti um menisco e tive de ser operada. Nas análises da consulta de anestesiologia reparei que a minha
-            ferritina estava extremamente baixa, e fiz a pergunta. O pós-operatório que devia durar 15 dias durou sete meses,
-            quase imobilizada, com uma cicatrização lentíssima.
+            Há uns anos rompi um menisco e tive de ser operada. Nas análises da consulta de anestesiologia reparei que a minha
+            ferritina estava extremamente baixa, e fiz a pergunta. Disseram-me que não precisava de ferro, porque a hemoglobina
+            (11,5) estava boa. O pós-operatório que devia durar 15 dias durou sete meses, quase imobilizada, com uma
+            cicatrização lentíssima.
           </P>
         </FadeUp>
         <FadeUp delay={0.06}>
