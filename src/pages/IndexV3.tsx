@@ -28,16 +28,16 @@ import { acuityUrl } from "@/lib/acuity";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const HeroWC = () => (
-  <section className="relative bg-v2-paper pt-28 md:pt-32 overflow-hidden">
+  <section className="relative bg-v2-paper pt-24 md:pt-28 overflow-hidden">
     <Container size="wide">
-      <div className="grid grid-cols-1 md:grid-cols-12 items-end gap-8 md:gap-0 min-h-[78vh]">
+      <div className="grid grid-cols-1 md:grid-cols-12 items-end gap-8 md:gap-0">
         <motion.div
           className="md:col-span-6 relative flex justify-center md:justify-start"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease }}
         >
-          <div className="relative w-full max-w-[520px] h-[440px] md:h-[640px] overflow-hidden bg-v2-paper-deep">
+          <div className="relative w-full max-w-[520px] h-[400px] md:h-[600px] overflow-hidden bg-v2-paper-deep">
             <div
               aria-hidden
               className="absolute inset-0 [background:radial-gradient(70%_60%_at_50%_40%,rgba(113,130,129,0.22),transparent_75%)]"
@@ -57,7 +57,7 @@ const HeroWC = () => (
           </div>
         </motion.div>
 
-        <div className="md:col-span-6 md:pl-4 lg:pl-12 pb-16 md:pb-28 text-center md:text-left">
+        <div className="md:col-span-6 md:pl-4 lg:pl-12 pb-14 md:pb-20 text-center md:text-left">
           <motion.h1
             className="font-sans font-semibold uppercase text-[clamp(2.1rem,4.6vw,3.6rem)] leading-[1.05] tracking-[0.01em] text-v2-ink-mute"
             initial={{ opacity: 0, y: 24 }}

@@ -19,10 +19,10 @@ type BtnProps = { children: ReactNode; to?: string; href?: string; tone?: "beige
 
 export const WCButton = ({ children, to, href, tone = "beige", external }: BtnProps) => {
   const cls = [
-    "inline-flex items-center justify-center px-8 py-4 font-sans text-[13px] uppercase tracking-[0.18em] transition-colors duration-300",
+    "inline-flex items-center justify-center rounded-full px-7 py-3.5 font-sans text-[12px] uppercase tracking-[0.16em] transition-colors duration-300",
     tone === "beige" && "[background-color:color-mix(in_srgb,var(--v2-golden)_32%,var(--v2-paper))] text-v2-ink hover:[background-color:color-mix(in_srgb,var(--v2-golden)_50%,var(--v2-paper))]",
-    tone === "white" && "rounded-full bg-v2-paper text-v2-ink hover:bg-white",
-    tone === "ink" && "rounded-full bg-v2-ink text-v2-paper hover:[background-color:color-mix(in_srgb,var(--v2-ink)_85%,transparent)]",
+    tone === "white" && "bg-v2-paper text-v2-ink hover:bg-white",
+    tone === "ink" && "bg-v2-ink text-v2-paper hover:[background-color:color-mix(in_srgb,var(--v2-ink)_85%,transparent)]",
   ]
     .filter(Boolean)
     .join(" ");

@@ -20,7 +20,6 @@ export const StickyMobileCTA = () => {
       <ButtonV2
         as="a"
         href={acuityUrl("barra-mobile")}
-        size="lg"
         className="w-full"
       >
         Marcar consulta inicial

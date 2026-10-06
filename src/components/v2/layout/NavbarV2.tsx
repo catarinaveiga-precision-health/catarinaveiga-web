@@ -96,6 +96,7 @@ export const NavbarV2 = () => {
             as="a"
             href={acuityUrl("menu")}
             variant="primary"
+            size="sm"
             className="hidden sm:inline-flex"
           >
             Agendar consulta
@@ -153,7 +154,6 @@ export const NavbarV2 = () => {
               as="a"
               href={acuityUrl("menu")}
               variant="primary"
-              size="lg"
               className="w-full"
             >
               Agendar consulta
