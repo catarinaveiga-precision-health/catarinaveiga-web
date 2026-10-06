@@ -226,7 +226,7 @@ const Caminho = () => (
           todo o conteúdo público. Coordenei uma equipa de quatro pessoas entre marketing, redes sociais e produto, produzi
           30 a 40 vídeos de formação, preparei e apresentei cerca de 20 seminários e co-apresentei a série de webinars da
           Omnos com o Director of Product. Fiz a curadoria e a moderação de seminários técnicos com convidados como a
-          Davinia Taylor, no "Women, Health &amp; Tech", e comecei a desenhar o primeiro curso da Academy para profissionais
+          Davinia Taylor, no "Women, Health &amp; Tech" (maio de 2022), e comecei a desenhar o primeiro curso da Academy para profissionais
           de saúde.
         </P>
         <Figura
