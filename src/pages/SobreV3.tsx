@@ -16,6 +16,7 @@ import retratoCamisa from "@/assets/catarina-retrato-camisa.jpg";
 import fotoRio from "@/assets/sobre-rio-eucalipto.jpg";
 import fotoExpert from "@/assets/sobre-omnos-expert.jpg";
 import fotoPortatil from "@/assets/sobre-consulta-portatil.jpg";
+import fotoGravida from "@/assets/sobre-gravida.jpg";
 
 /*
   Página Sobre (publicada 06/10 em /sobre): cadência da aneuropsicologa.com/
@@ -315,6 +316,10 @@ const ForaDoConsultorio = () => (
       <p className="mt-6 font-sans text-[17px] leading-[1.75] text-v2-ink-mute max-w-[42ch]">
         Gosto de serra, de campo e de banhos de rio, de música, de dançar e de viagens sem destino.
       </p>
+      <figure className="mt-12 flex flex-col items-start gap-3 max-w-[240px]">
+        <Moldura src={fotoGravida} alt="Catarina Veiga grávida, ao espelho, em março de 2016" rotate={-2} />
+        <figcaption className="font-sans text-[11px] uppercase tracking-[0.2em] text-v2-sage">À espera do Alberto, 2016</figcaption>
+      </figure>
     </FadeUp>
   </section>
 );
