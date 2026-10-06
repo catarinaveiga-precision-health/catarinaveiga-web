@@ -99,7 +99,7 @@ export const NavbarV2 = () => {
             size="sm"
             className="hidden sm:inline-flex"
           >
-            Agendar consulta
+            Marcar consulta
           </ButtonV2>
 
           {/* Hambúrguer · só < lg */}
@@ -156,7 +156,7 @@ export const NavbarV2 = () => {
               variant="primary"
               className="w-full"
             >
-              Agendar consulta
+              Marcar consulta
             </ButtonV2>
           </div>
         </div>

@@ -21,7 +21,7 @@ const Hero = () => {
           <div className="hidden md:block w-[60px] h-[1px] bg-amber mb-10" />
           <div className="hidden md:flex flex-col items-start gap-3 mb-10">
             <Button variant="hero" size="lg" className="rounded-[4px] max-w-[280px] w-full" onClick={openAcuity}>
-              Agendar consulta inicial
+              Marcar consulta
             </Button>
             <p className="text-muted-foreground/60 text-xs font-sans tracking-wide">
               Telemedicina  ·  Portugal e estrangeiro
@@ -46,7 +46,7 @@ const Hero = () => {
 
         <div className="fade-up flex flex-col items-center gap-3 order-3 md:hidden">
           <Button variant="hero" size="lg" className="rounded-[4px] max-w-[320px] w-full" onClick={openAcuity}>
-            Agendar consulta inicial
+            Marcar consulta
           </Button>
           <p className="text-muted-foreground/60 text-xs font-sans tracking-wide">
             Telemedicina  ·  Portugal e estrangeiro

@@ -509,7 +509,7 @@ export async function generateFunctionalPDF(
 
   doc.setFontSize(13);
   doc.setTextColor(WHITE);
-  doc.textWithLink("Agendar consulta inicial", pageW / 2, y + 30, {
+  doc.textWithLink("Marcar consulta", pageW / 2, y + 30, {
     align: "center",
     url: "https://catarinaveigaagendamento.as.me/",
   });

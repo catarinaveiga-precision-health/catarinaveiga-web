@@ -86,7 +86,7 @@ export const PrimeiraConsulta = () => (
               href={acuityUrl("primeira-consulta")}
               size="lg"
             >
-              Marcar consulta inicial
+              Marcar consulta
             </ButtonV2>
           </div>
         </FadeUp>

@@ -1259,7 +1259,7 @@ const Avaliacao = () => {
                       Se preferes ir directamente para uma avaliação clínica completa, onde cruzamos sintomas, história e exames, podes agendar a consulta inicial.
                     </p>
                     <Button variant="hero" size="sm" onClick={() => { track("marcar_consulta", { origem: "avaliacao-sem-analises" }); setAcuityOpen(true); }}>
-                      Agendar consulta inicial →
+                      Marcar consulta →
                     </Button>
                   </div>
                 </div>
@@ -1330,7 +1330,7 @@ const Avaliacao = () => {
                         Encontrámos <strong>{flagCount}</strong> biomarcador{flagCount > 1 ? "es" : ""} fora do intervalo funcional. Estes padrões podem associar-se a sintomas como fadiga, alterações hormonais ou dificuldade de recuperação. Uma consulta clínica permite interpretar estes padrões no seu contexto individual.
                       </p>
                       <Button variant="hero" size="sm" onClick={() => { track("marcar_consulta", { origem: "avaliacao-com-flags" }); setAcuityOpen(true); }}>
-                        Agendar consulta inicial →
+                        Marcar consulta →
                       </Button>
                     </div>
                   )}

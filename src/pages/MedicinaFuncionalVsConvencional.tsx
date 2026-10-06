@@ -35,7 +35,7 @@ const Hero = () => (
           </p>
           <div className="mt-12 flex flex-col items-start gap-4">
             <ButtonV2 as="a" href={acuityUrl("funcional-vs-convencional")} size="lg">
-              Marcar consulta inicial
+              Marcar consulta
             </ButtonV2>
             <p className="font-sans text-body-sm-v2 text-v2-ink-mute">
               90 minutos, online. Resposta em 48 horas úteis. Não precisas de ter exames feitos.

@@ -33,7 +33,7 @@ const AcuityModal = ({ open, onClose }: AcuityModalProps) => {
         </button>
         <iframe
           src={ACUITY_URL}
-          title="Agendar consulta"
+          title="Marcar consulta"
           className="w-full h-full border-0"
         />
       </div>

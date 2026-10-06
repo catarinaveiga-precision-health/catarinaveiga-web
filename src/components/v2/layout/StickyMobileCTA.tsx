@@ -22,7 +22,7 @@ export const StickyMobileCTA = () => {
         href={acuityUrl("barra-mobile")}
         className="w-full"
       >
-        Marcar consulta inicial
+        Marcar consulta
       </ButtonV2>
     </div>
   );

@@ -34,7 +34,7 @@ const LINKS: { title: string; href: string; img?: string; primary?: boolean }[] 
     img: capaGuia,
   },
   {
-    title: "Marcar consulta inicial",
+    title: "Marcar consulta",
     href: `/consulta-inicial${UTM}`,
     img: "/catarina-hero-recorte.webp",
   },

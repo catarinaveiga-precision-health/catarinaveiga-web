@@ -229,7 +229,7 @@ const comparacaoHtml =
   `<h2 style="font-size:1.4rem;line-height:1.3;margin:40px 0 8px">${escapeHtml(comparacao.howTitle)}</h2><ol style="line-height:1.7;padding-left:20px">${comparacao.steps
     .map((s) => `<li style="margin-bottom:12px"><strong>${escapeHtml(s.title)}.</strong> ${escapeHtml(s.text)}</li>`)
     .join("")}</ol>` +
-  `<p style="margin-top:24px;line-height:1.6"><a href="/medicina-funcional" style="color:#4A5957">O que é a medicina funcional</a> · <a href="/metodo" style="color:#4A5957">O método</a> · <a href="/consulta-inicial" style="color:#4A5957">Marcar consulta inicial</a></p>`;
+  `<p style="margin-top:24px;line-height:1.6"><a href="/medicina-funcional" style="color:#4A5957">O que é a medicina funcional</a> · <a href="/metodo" style="color:#4A5957">O método</a> · <a href="/consulta-inicial" style="color:#4A5957">Marcar consulta</a></p>`;
 const testemunhosHtml =
   `<p style="color:#666;font-size:1.1rem;line-height:1.6">Avaliacoes publicadas no perfil Google da consulta (media ${testemunhosData.avaliacaoGlobal.media} em ${testemunhosData.avaliacaoGlobal.total} avaliacoes), reproduzidas sem alteracoes. Algumas descrevem melhorias concretas em situacoes clinicas especificas: sao a experiencia de cada uma, nao uma previsao do que acontece a outra pessoa, e nada aqui substitui avaliacao medica.</p>` +
   testemunhosData.testemunhos

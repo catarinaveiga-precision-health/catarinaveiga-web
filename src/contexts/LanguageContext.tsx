@@ -25,7 +25,7 @@ const translations: Record<string, Record<Language, string>> = {
   "nav.blog": { pt: "Blog", en: "Blog" },
   "nav.contacto": { pt: "Contacto", en: "Contact" },
   "nav.subtitle": { pt: "Medicina Funcional Integrativa · Saúde Hormonal Feminina", en: "Integrative Functional Medicine · Women’s Hormonal Health" },
-  "nav.cta": { pt: "Agendar Consulta", en: "Book Consultation" },
+  "nav.cta": { pt: "Marcar consulta", en: "Book Consultation" },
   "nav.home": { pt: "Início", en: "Home" },
   "nav.funcional": { pt: "Método", en: "Method" },
   "nav.programa": { pt: "Programa", en: "Program" },
@@ -240,7 +240,7 @@ const translations: Record<string, Record<Language, string>> = {
   "ctafinal.label": { pt: "Pronto/a para come\u00e7ar?", en: "Ready to start?" },
   "ctafinal.title1": { pt: "Pronta para perceber o que est\u00e1", en: "Ready to understand what\u2019s" },
   "ctafinal.title2": { pt: "por tr\u00e1s dos teus sintomas?", en: "behind your symptoms?" },
-  "ctafinal.cta": { pt: "Agendar consulta inicial", en: "Book initial consultation" },
+  "ctafinal.cta": { pt: "Marcar consulta", en: "Book initial consultation" },
   "ctafinal.cta2": { pt: "Candidatar-me ao Programa", en: "Apply to the Program" },
   "ctafinal.sublink": { pt: "Ou marcar consulta avulsa \u2014 \u20ac120", en: "Or book a single consultation \u2014 \u20ac120" },
 
@@ -265,7 +265,7 @@ const translations: Record<string, Record<Language, string>> = {
   "legal.complaints": { pt: "Livro de Reclama\u00e7\u00f5es", en: "Complaints Book" },
 
   // MobileCTA
-  "mobilecta.text": { pt: "Agendar consulta inicial", en: "Book initial consultation" },
+  "mobilecta.text": { pt: "Marcar consulta", en: "Book initial consultation" },
 
   // 404
   "notfound.title": { pt: "Página não encontrada", en: "Page not found" },

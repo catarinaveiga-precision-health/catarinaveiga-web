@@ -151,7 +151,7 @@ const ConsultaInicial = () => (
             Em 90 minutos sai a saber o que se está a passar e por que ordem tratar.
           </p>
           <a className="btn" href={acuityUrl("hero")}>
-            Marcar consulta inicial
+            Marcar consulta
           </a>
           <p className="fine">
             90 minutos · online · Portugal e estrangeiro.
@@ -408,7 +408,7 @@ const ConsultaInicial = () => (
             ela acaba de decidir que se reconhece. */}
         <div style={{ marginTop: "var(--s7)" }}>
           <a className="btn" href={acuityUrl("qualificacao")}>
-            Marcar consulta inicial
+            Marcar consulta
           </a>
           <p className="fine">90 minutos · online · Portugal e estrangeiro</p>
         </div>
@@ -485,7 +485,7 @@ const ConsultaInicial = () => (
           Se não tiver, começamos à mesma.
         </p>
         <a className="btn pale" href={acuityUrl("fecho")}>
-          Marcar consulta inicial
+          Marcar consulta
         </a>
         <p className="fine">
           Resposta em 48 horas úteis · português e inglês

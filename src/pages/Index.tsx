@@ -238,7 +238,7 @@ const TresFormas = () => {
                 {f.micro}
               </p>
               <Button variant="hero" size="default" onClick={openAcuity} className="w-full">
-                Agendar consulta inicial
+                Marcar consulta
               </Button>
             </div>
           ))}
@@ -299,7 +299,7 @@ const ProgramaFundacao = () => {
           Investimento discutido na consulta inicial em função do enquadramento do caso.
         </p>
         <Button variant="hero" size="lg" onClick={openAcuity}>
-          Agendar consulta inicial
+          Marcar consulta
         </Button>
       </div>
     </section>
@@ -417,7 +417,7 @@ const CTAFinalSection = () => {
           Consulta inicial · 90 min · telemedicina
         </p>
         <Button variant="hero" size="lg" onClick={openAcuity}>
-          Agendar consulta inicial
+          Marcar consulta
         </Button>
         <p className="font-sans text-xs text-muted-foreground/60 mt-5 tracking-wide">
           Recebes o questionário prévio por email. Resposta em 48h.
