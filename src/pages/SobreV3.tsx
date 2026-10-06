@@ -35,7 +35,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 const P = ({ children, claro }: { children: ReactNode; claro?: boolean }) => (
   <p
     className={`font-sans text-[18px] md:text-[19px] leading-[1.65] max-w-[52ch] ${
-      claro ? "[color:color-mix(in_srgb,var(--v2-paper)_92%,transparent)]" : "text-v2-ink"
+      claro ? "text-v2-paper" : "text-v2-ink"
     }`}
   >
     {children}
@@ -47,7 +47,7 @@ const Marcador = ({ quando }: { quando?: string }) => (
   <div className="flex items-center gap-3">
     <span aria-hidden className="h-px w-10 bg-v2-sage" />
     <span aria-hidden className="h-2.5 w-2.5 rounded-full bg-v2-golden" />
-    {quando && <span className="ml-1 font-sans text-[11px] uppercase tracking-[0.22em] text-v2-sage">{quando}</span>}
+    {quando && <span className="ml-1 font-sans text-[12px] uppercase tracking-[0.2em] text-v2-ink-mute">{quando}</span>}
   </div>
 );
 
@@ -60,7 +60,7 @@ const CartaoFoto = ({ src, alt, legenda, aspect = "4/5" }: { src: string; alt: s
       <img src={src} alt={alt} loading="lazy" decoding="async" className="h-full w-full object-cover object-top" />
     </div>
     {legenda && (
-      <figcaption className="mt-3 text-center font-sans text-[11px] uppercase tracking-[0.2em] text-v2-sage">{legenda}</figcaption>
+      <figcaption className="mt-3 text-center font-sans text-[12px] uppercase tracking-[0.18em] text-v2-ink-mute">{legenda}</figcaption>
     )}
   </figure>
 );
@@ -115,6 +115,13 @@ const Marco = ({ quando, lado, cartao, children }: { quando?: string; lado: "esq
 
 const ligacao = "underline underline-offset-4 decoration-v2-sage/50 hover:decoration-v2-sage text-v2-ink";
 
+/* Ligação a um artigo arquivado no Wayback Machine (o omnos.me já não existe) */
+const Arq = ({ url, children }: { url: string; children: ReactNode }) => (
+  <a href={url} target="_blank" rel="noopener noreferrer" className={ligacao}>
+    {children}
+  </a>
+);
+
 /* Ligação a um vídeo do canal da Omnos no YouTube */
 const Yt = ({ id, children }: { id: string; children: ReactNode }) => (
   <a href={`https://www.youtube.com/watch?v=${id}`} target="_blank" rel="noopener noreferrer" className={ligacao}>
@@ -128,7 +135,7 @@ const Hero = () => (
       <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10 items-center">
         <div className="md:col-span-7 md:pr-6">
           <motion.p
-            className="font-sans text-[11px] uppercase tracking-[0.22em] [color:color-mix(in_srgb,var(--v2-paper)_75%,transparent)]"
+            className="font-sans text-[12px] uppercase tracking-[0.2em] text-v2-paper"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.05 }}
@@ -316,7 +323,7 @@ const Caminho = () => (
         </Marco>
 
         <Marco
-          quando="Omnos"
+          quando="Omnos · microbioma"
           lado="esq"
           cartao={
             <CartaoFoto
@@ -339,7 +346,7 @@ const Caminho = () => (
         </Marco>
 
         <Marco
-          quando="Omnos"
+          quando="Omnos · plataforma"
           lado="dir"
           cartao={<CartaoCitacao>É no cruzamento dos dados que as respostas aparecem.</CartaoCitacao>}
         >
@@ -356,7 +363,7 @@ const Caminho = () => (
         </Marco>
 
         <Marco
-          quando="Omnos Academy"
+          quando="Omnos Academy · 2022"
           lado="esq"
           cartao={
             <CartaoFoto
@@ -374,7 +381,7 @@ const Caminho = () => (
         </Marco>
 
         <Marco
-          quando="Omnos Webinar Series"
+          quando="Webinars · 2022"
           lado="dir"
           cartao={
             <CartaoFactos
@@ -408,7 +415,13 @@ const Caminho = () => (
               alt="Gráfico do Longevity Med Summit 2024 com Catarina Veiga, Specialist in Microbiome and Integrative Functional Medicine, Portugal"
               titulo="Participações"
               itens={[
-                "IHCAN Magazine, Reino Unido, 2022: artigo sobre combinar testes hormonais e de microbioma",
+                <>
+                  IHCAN Magazine, Reino Unido, 2022: artigo sobre estrogénios e microbiota intestinal (o mesmo texto no{" "}
+                  <a href="https://web.archive.org/web/20240226203608/https://www.omnos.me/articles/how-oestrogen-can-be-connected-to-the-gut-microbiota-with-test-pairing" target="_blank" rel="noopener noreferrer" className={ligacao}>
+                    omnos.me
+                  </a>
+                  , 12 de agosto de 2022)
+                </>,
                 "Women, Health & Tech Panel, Omnos, maio de 2022: anfitriã, com Davinia Taylor",
                 <>
                   <a href="https://longevitymedsummit.com/catarina-veiga/" target="_blank" rel="noopener noreferrer" className={ligacao}>
@@ -435,8 +448,30 @@ const Caminho = () => (
         </Marco>
 
         <Marco
-          quando="Hoje"
+          quando="Artigos · 2022 a 2023"
           lado="dir"
+          cartao={
+            <CartaoFactos
+              titulo="Artigos no omnos.me"
+              itens={[
+                <Arq url="https://web.archive.org/web/20240226203608/https://www.omnos.me/articles/how-oestrogen-can-be-connected-to-the-gut-microbiota-with-test-pairing">How Oestrogen Can Be Connected to The Gut Microbiota with Test Pairing (2022)</Arq>,
+                <Arq url="https://web.archive.org/web/20240226195929/https://www.omnos.me/articles/what-is-the-first-phase-of-detoxification">What is the first phase of detoxification?</Arq>,
+                <Arq url="https://web.archive.org/web/20240226200520/https://www.omnos.me/articles/detoxification-phase-2-what-is-conjugation">Detoxification Phase 2: what is Conjugation?</Arq>,
+                <Arq url="https://web.archive.org/web/20240522122620/https://www.omnos.me/articles/male-hormones">Male Hormones</Arq>,
+              ]}
+            />
+          }
+        >
+          <P>
+            Escrevi para o site da Omnos sobre hormonas, microbioma e desintoxicação. O artigo sobre estrogénios e
+            microbiota intestinal foi o que saiu na IHCAN Magazine. O site já não existe; os textos ficaram no arquivo da
+            web.
+          </P>
+        </Marco>
+
+        <Marco
+          quando="Hoje"
+          lado="esq"
           cartao={
             <CartaoFactos
               titulo="A minha clínica"
@@ -591,34 +626,27 @@ const Perguntas = () => (
 );
 
 const Convite = () => (
-  <section className="bg-v2-paper py-24 md:py-32 text-center">
+  <section className="bg-v2-moss py-24 md:py-32 text-center">
     <Container size="narrow">
       <FadeUp>
-        <h2 className="font-serif text-[clamp(2.6rem,5.4vw,4.2rem)] leading-[1.02] text-v2-ink">Vamos trabalhar juntas?</h2>
-        <p className="mt-6 font-sans text-[17px] leading-[1.7] text-v2-ink-mute max-w-[44ch] mx-auto">
+        <p className="font-serif italic text-[clamp(1.7rem,3.2vw,2.4rem)] leading-[1.25] text-v2-paper max-w-[28ch] mx-auto">
+          “Um espaço seguro para mulheres que procuram respostas mais profundas.”
+        </p>
+        <h2 className="mt-10 font-serif text-[clamp(2.4rem,5vw,3.8rem)] leading-[1.02] text-v2-paper">Vamos trabalhar juntas?</h2>
+        <p className="mt-6 font-sans text-[18px] leading-[1.65] text-v2-paper max-w-[44ch] mx-auto">
           Se te disseram que está tudo normal e continuas sem respostas, podes começar por aqui.
         </p>
-        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center [&>a]:whitespace-nowrap">
-          <WCButton href={acuityUrl("sobre-convite")}>Marcar consulta</WCButton>
-          <WCButton to="/avaliacao">Autoavaliação gratuita</WCButton>
+        <div className="mt-10 flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <WCButton href={acuityUrl("sobre-convite")} tone="white">
+            Marcar consulta
+          </WCButton>
+          <a
+            href="/avaliacao"
+            className="font-sans text-[13px] uppercase tracking-[0.18em] text-v2-paper underline underline-offset-[6px] decoration-v2-paper/40 hover:decoration-v2-paper"
+          >
+            Autoavaliação gratuita
+          </a>
         </div>
-      </FadeUp>
-    </Container>
-  </section>
-);
-
-const Frase = () => (
-  <section className="bg-v2-moss py-24 md:py-28 text-center">
-    <Container size="narrow">
-      <FadeUp>
-        <p className="font-serif italic text-[clamp(1.9rem,3.8vw,3rem)] leading-[1.22] text-v2-paper max-w-[26ch] mx-auto">
-          "Um espaço seguro para mulheres que procuram respostas mais profundas."
-        </p>
-        <p className="mt-8 font-serif text-[22px] text-v2-paper">Catarina Veiga</p>
-        <p className="mt-10 font-sans text-[12px] uppercase tracking-[0.16em] leading-[1.8] [color:color-mix(in_srgb,var(--v2-paper)_60%,transparent)] max-w-[60ch] mx-auto">
-          Registered Functional Medicine Practitioner, Regenerus Labs · Registered Practitioner, Nordic Laboratories ·
-          Cédulas profissionais da ACSS n.º C-006754 e 0500786, Lei n.º 71/2013
-        </p>
       </FadeUp>
     </Container>
   </section>
@@ -644,7 +672,7 @@ const SobreV3 = () => (
             "@id": "https://www.catarinaveiga.com/#person",
             name: "Catarina Veiga",
             alternateName: "Ana Catarina Dourado dos Santos Veiga",
-            jobTitle: "Especialista em Medicina Funcional Integrativa",
+            jobTitle: "Functional Medicine Practitioner",
             hasCredential: [
               { "@type": "EducationalOccupationalCredential", name: "Pós-graduação em Bioquímica Sanguínea", recognizedBy: { "@type": "Organization", name: "Faculdade de Saúde Avançada" } },
               { "@type": "EducationalOccupationalCredential", name: "Pós-graduação em Nutrição Funcional", recognizedBy: { "@type": "Organization", name: "Faculdade de Saúde Avançada" } },
@@ -681,7 +709,6 @@ const SobreV3 = () => (
         <SocialProof />
         <Perguntas />
         <Convite />
-        <Frase />
       </main>
       <FooterV2 />
       <StickyMobileCTA />

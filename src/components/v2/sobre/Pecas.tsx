@@ -20,7 +20,7 @@ export const Falta = ({ children }: { children: string }) => (
 export const Pill = ({ children, light }: { children: string; light?: boolean }) => (
   <span
     className={cn(
-      "inline-block rounded-full px-3 py-1 font-sans text-[10px] font-medium uppercase tracking-[0.2em]",
+      "inline-block rounded-full px-3 py-1 font-sans text-[12px] font-medium uppercase tracking-[0.18em]",
       light
         ? "[background-color:color-mix(in_srgb,var(--v2-paper)_14%,transparent)] [color:color-mix(in_srgb,var(--v2-paper)_85%,transparent)]"
         : "[background-color:color-mix(in_srgb,var(--v2-sage)_12%,transparent)] text-v2-sage",
