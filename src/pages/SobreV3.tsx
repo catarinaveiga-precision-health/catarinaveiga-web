@@ -15,6 +15,7 @@ import { acuityUrl } from "@/lib/acuity";
 import retratoCamisa from "@/assets/catarina-retrato-camisa.jpg";
 import fotoRio from "@/assets/sobre-rio-eucalipto.jpg";
 import fotoExpert from "@/assets/sobre-omnos-expert.jpg";
+import fotoPortatil from "@/assets/sobre-consulta-portatil.jpg";
 
 /*
   Página Sobre (publicada 06/10 em /sobre): cadência da aneuropsicologa.com/
@@ -244,7 +245,16 @@ const Caminho = () => (
         />
         <P>
           Em 2022 escrevi para a IHCAN Magazine, no Reino Unido, sobre combinar testes hormonais e de microbioma. Em 2024 fui
-          oradora no Longevity Med Summit, sobre as condições relacionadas com os estrogénios e a microbiota intestinal, e
+          oradora no{" "}
+          <a
+            href="https://longevitymedsummit.com/catarina-veiga/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 decoration-v2-sage/50 hover:decoration-v2-sage text-v2-ink"
+          >
+            Longevity Med Summit
+          </a>
+          , sobre as condições relacionadas com os estrogénios e a microbiota intestinal, e
           dei uma live para a comunidade gcrew.life sobre como a saúde impacta as nossas conversas.
         </P>
         <P>
@@ -316,23 +326,30 @@ const consultas = [
 ];
 
 const Consultas = () => (
-  <section className="bg-v2-sage py-24 md:py-32">
-    <Container size="narrow">
-      <FadeUp>
-        <Pill light>Consultas</Pill>
-        <h2 className="mt-6 font-serif text-[clamp(2.2rem,4.4vw,3.4rem)] leading-[1.08] text-v2-paper">
-          O que podes esperar das minhas consultas?
-        </h2>
-      </FadeUp>
-      <div className="mt-12 space-y-7">
-        {consultas.map((c, i) => (
-          <FadeUp key={i} delay={i * 0.08}>
-            <p className="font-sans text-[17px] md:text-[18px] leading-[1.8] [color:color-mix(in_srgb,var(--v2-paper)_90%,transparent)]">{c}</p>
+  <section id="consultas" className="bg-v2-sage py-24 md:py-32">
+    <Container size="default">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_340px] gap-12 md:gap-16 items-start">
+        <div className="max-w-[62ch]">
+          <FadeUp>
+            <Pill light>Consultas</Pill>
+            <h2 className="mt-6 font-serif text-[clamp(2.2rem,4.4vw,3.4rem)] leading-[1.08] text-v2-paper">
+              O que podes esperar das minhas consultas?
+            </h2>
           </FadeUp>
-        ))}
-        <FadeUp delay={0.3}>
-          <p className="pt-4 font-serif italic text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.25] text-v2-paper">Não há fórmulas feitas.</p>
-        </FadeUp>
+          <div className="mt-12 space-y-7">
+            {consultas.map((c, i) => (
+              <FadeUp key={i} delay={i * 0.08}>
+                <p className="font-sans text-[17px] md:text-[18px] leading-[1.8] [color:color-mix(in_srgb,var(--v2-paper)_90%,transparent)]">{c}</p>
+              </FadeUp>
+            ))}
+            <FadeUp delay={0.3}>
+              <p className="pt-4 font-serif italic text-[clamp(1.6rem,3vw,2.2rem)] leading-[1.25] text-v2-paper">Não há fórmulas feitas.</p>
+            </FadeUp>
+          </div>
+        </div>
+        <div className="md:sticky md:top-32 flex justify-center">
+          <Moldura src={fotoPortatil} alt="Catarina Veiga ao portátil, em consulta online" rotate={2} />
+        </div>
       </div>
     </Container>
   </section>
