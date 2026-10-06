@@ -8,66 +8,127 @@ import { Container } from "@/components/v2/ui/Container";
 import { FadeUp } from "@/components/v2/motion/FadeUp";
 import { WCButton } from "@/components/v2/wc/BlocosWC";
 import { SocialProof } from "@/components/v2/home/SocialProof";
-import { GRAO, Pill, Moldura } from "@/components/v2/sobre/Pecas";
-import fotoChina from "@/assets/sobre-estagio-china.jpg";
-import fotoOmnos from "@/assets/sobre-webinar-omnos.jpg";
+import { GRAO, Pill } from "@/components/v2/sobre/Pecas";
 import { acuityUrl } from "@/lib/acuity";
 import retratoCamisa from "@/assets/catarina-retrato-camisa.jpg";
-import fotoRio from "@/assets/sobre-rio-eucalipto.jpg";
+import fotoChina from "@/assets/sobre-estagio-china.jpg";
 import fotoExpert from "@/assets/sobre-omnos-expert.jpg";
-import fotoGravida from "@/assets/sobre-gravida.jpg";
+import fotoOmnos from "@/assets/sobre-webinar-omnos.jpg";
 import fotoPainel from "@/assets/sobre-omnos-painel.jpg";
+import fotoLongevity from "@/assets/sobre-longevity.jpg";
+import fotoRio from "@/assets/sobre-rio-eucalipto.jpg";
+import fotoGravida from "@/assets/sobre-gravida.jpg";
 
 /*
-  Página Sobre (publicada 06/10 em /sobre): cadência da aneuropsicologa.com/
-  sobre-mim, a referência que a Catarina escolheu. Olá numa linha, porquê, o
-  caminho em texto corrido na primeira pessoa, ficha factual copiável, o que
-  esperar das consultas, testemunhos, perguntas, convite, frase assinada.
-  Cédulas: só números, lei e link do registo; as áreas (MTC, acupuntura) ficam
-  fora das frases copiáveis para a máquina não trocar o título profissional.
-  Fotografias: estágio na China (licenciatura) e webinar da Omnos (Academy).
+  Página Sobre (/sobre). Regra única, copiada da referência que a Catarina
+  escolheu (aneuropsicologa.com/sobre-mim): hero numa faixa de cor com
+  fotografia em cartão; "O meu caminho" com uma coluna central tracejada e
+  marcos iguais entre si: um parágrafo curto com marcador (traço + ponto) de
+  um lado, um cartão do mesmo tamanho do outro (fotografia, ou factos em
+  bullets onde não há fotografia), lados alternados. Texto dela, verbatim,
+  só dividido em parágrafos curtos. Cédulas só por número e lei.
 */
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-const P = ({ children, delay = 0 }: { children: ReactNode; delay?: number }) => (
-  <FadeUp delay={delay}>
-    <p className="font-sans text-[17px] md:text-[18px] leading-[1.8] text-v2-ink-mute">{children}</p>
-  </FadeUp>
+/* Parágrafo curto: letra maior e mais escura, medida de ~52 caracteres */
+const P = ({ children, claro }: { children: ReactNode; claro?: boolean }) => (
+  <p
+    className={`font-sans text-[18px] md:text-[19px] leading-[1.65] max-w-[52ch] ${
+      claro ? "[color:color-mix(in_srgb,var(--v2-paper)_92%,transparent)]" : "text-v2-ink"
+    }`}
+  >
+    {children}
+  </p>
+);
+
+/* Marcador da referência: traço, ponto, e a data */
+const Marcador = ({ quando }: { quando?: string }) => (
+  <div className="flex items-center gap-3">
+    <span aria-hidden className="h-px w-10 bg-v2-sage" />
+    <span aria-hidden className="h-2.5 w-2.5 rounded-full bg-v2-golden" />
+    {quando && <span className="ml-1 font-sans text-[11px] uppercase tracking-[0.22em] text-v2-sage">{quando}</span>}
+  </div>
+);
+
+const sombra = "shadow-[0_24px_48px_-28px_rgba(22,53,44,0.35)]";
+
+/* Cartão de fotografia: largura fixa, cantos redondos, sem rotação */
+const CartaoFoto = ({ src, alt, legenda, aspect = "4/5" }: { src: string; alt: string; legenda?: string; aspect?: "4/5" | "1/1" }) => (
+  <figure className="w-full max-w-[400px]">
+    <div className={`overflow-hidden rounded-[1.25rem] bg-v2-paper-deep ${sombra} ${aspect === "1/1" ? "aspect-square" : "aspect-[4/5]"}`}>
+      <img src={src} alt={alt} loading="lazy" decoding="async" className="h-full w-full object-cover object-top" />
+    </div>
+    {legenda && (
+      <figcaption className="mt-3 text-center font-sans text-[11px] uppercase tracking-[0.2em] text-v2-sage">{legenda}</figcaption>
+    )}
+  </figure>
+);
+
+/* Cartão de factos: o destaque em bullets, com imagem opcional no topo */
+const CartaoFactos = ({ titulo, itens, imagem, alt }: { titulo: string; itens: ReactNode[]; imagem?: string; alt?: string }) => (
+  <div className={`w-full max-w-[400px] overflow-hidden rounded-[1.25rem] bg-v2-paper-deep ${sombra}`}>
+    {imagem && (
+      <div className="aspect-[4/3] overflow-hidden">
+        <img src={imagem} alt={alt ?? ""} loading="lazy" decoding="async" className="h-full w-full object-cover object-top" />
+      </div>
+    )}
+    <div className="p-8 md:p-9">
+      <p className="font-serif text-[1.55rem] leading-[1.15] text-v2-ink">{titulo}</p>
+      <ul className="mt-5 space-y-3">
+        {itens.map((it, i) => (
+          <li key={i} className="flex gap-3 font-sans text-[15.5px] leading-[1.5] text-v2-ink">
+            <span aria-hidden className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-v2-sage" />
+            <span>{it}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+);
+
+/* Cartão de citação, para o marco que tem a frase dela */
+const CartaoCitacao = ({ children }: { children: ReactNode }) => (
+  <div className={`w-full max-w-[400px] rounded-[1.25rem] bg-v2-sage ${sombra} p-9 md:p-10 flex items-center min-h-[280px]`}>
+    <p className="font-serif italic text-[clamp(1.6rem,2.6vw,2rem)] leading-[1.25] text-v2-paper">{children}</p>
+  </div>
+);
+
+/* Marco: parágrafo de um lado, cartão do outro; lados alternados; igual em todos */
+const Marco = ({ quando, lado, cartao, children }: { quando?: string; lado: "esq" | "dir"; cartao: ReactNode; children: ReactNode }) => {
+  const texto = lado === "esq" ? "md:order-1 md:justify-end md:pr-14 lg:pr-20" : "md:order-2 md:justify-start md:pl-14 lg:pl-20";
+  const visual = lado === "esq" ? "md:order-2 md:justify-start md:pl-14 lg:pl-20" : "md:order-1 md:justify-end md:pr-14 lg:pr-20";
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0 py-10 md:py-14 items-center">
+      <div className={`flex ${texto}`}>
+        <FadeUp className="w-full max-w-[52ch]">
+          <Marcador quando={quando} />
+          <div className="mt-5 space-y-5">{children}</div>
+        </FadeUp>
+      </div>
+      <div className={`flex justify-center ${visual}`}>
+        <FadeUp className="w-full flex justify-center md:block md:w-auto">{cartao}</FadeUp>
+      </div>
+    </div>
+  );
+};
+
+const ligacao = "underline underline-offset-4 decoration-v2-sage/50 hover:decoration-v2-sage text-v2-ink";
+
+/* Ligação a um vídeo do canal da Omnos no YouTube */
+const Yt = ({ id, children }: { id: string; children: ReactNode }) => (
+  <a href={`https://www.youtube.com/watch?v=${id}`} target="_blank" rel="noopener noreferrer" className={ligacao}>
+    {children}
+  </a>
 );
 
 const Hero = () => (
-  <section className="relative bg-v2-paper pt-28 md:pt-36 pb-20 md:pb-28 overflow-hidden">
+  <section className="bg-v2-sage pt-28 md:pt-36 pb-16 md:pb-24">
     <Container size="wide">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-center">
-        <motion.div
-          className="md:col-span-5"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease }}
-        >
-          <div className="relative mx-auto max-w-[440px]">
-            <span
-              aria-hidden
-              className="absolute -inset-4 md:-inset-6 rounded-sm [background-color:color-mix(in_srgb,var(--v2-sage)_16%,var(--v2-paper))] md:rotate-[2deg]"
-            />
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-v2-paper-deep">
-              <motion.img
-                src={retratoCamisa}
-                alt="Catarina Veiga"
-                loading="eager"
-                decoding="async"
-                className="h-full w-full object-cover object-top"
-                initial={{ scale: 1.08 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 1.8, ease }}
-              />
-            </div>
-          </div>
-        </motion.div>
-        <div className="md:col-span-7 md:pl-10 lg:pl-20">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10 items-center">
+        <div className="md:col-span-7 md:pr-6">
           <motion.p
-            className="mb-6 font-sans text-[11px] uppercase tracking-[0.22em] text-v2-sage"
+            className="font-sans text-[11px] uppercase tracking-[0.22em] [color:color-mix(in_srgb,var(--v2-paper)_75%,transparent)]"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.05 }}
@@ -75,338 +136,377 @@ const Hero = () => (
             Medicina funcional integrativa · Parede, Cascais e online
           </motion.p>
           <motion.h1
-            className="font-serif text-[clamp(3rem,7vw,5.6rem)] leading-[0.98] tracking-[-0.01em] text-v2-ink"
+            className="mt-5 font-serif text-[clamp(2.8rem,6vw,4.8rem)] leading-[1] tracking-[-0.01em] text-v2-paper"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease, delay: 0.15 }}
           >
-            Olá, sou a <span className="italic text-v2-sage">Catarina Veiga.</span>
+            Olá, sou a <span className="italic">Catarina Veiga.</span>
           </motion.h1>
-          <motion.p
-            className="mt-8 font-sans text-[clamp(1.15rem,1.8vw,1.45rem)] leading-[1.6] text-v2-ink-mute max-w-[38ch]"
+          <motion.div
+            className="mt-8 space-y-5"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.32 }}
           >
-            Leio dados biológicos complexos e transformo-os em decisões claras, para mulheres a quem disseram que está tudo
-            normal.
-          </motion.p>
+            <P claro>
+              Leio dados biológicos complexos e transformo-os em decisões claras, para mulheres a quem disseram que está tudo
+              normal.
+            </P>
+            <P claro>Fiz o caminho da medicina funcional primeiro como paciente, depois como estudante, e hoje como praticante.</P>
+          </motion.div>
           <motion.div
-            className="mt-10"
+            className="mt-10 flex flex-col sm:flex-row sm:items-center gap-5"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.45 }}
           >
-            <div className="flex flex-col sm:flex-row gap-4 [&>a]:whitespace-nowrap">
-              <WCButton href={acuityUrl("sobre-hero")}>Marcar consulta</WCButton>
-              <WCButton to="/avaliacao" tone="white">Autoavaliação gratuita</WCButton>
-            </div>
+            <WCButton href={acuityUrl("sobre-hero")} tone="white">
+              Marcar consulta
+            </WCButton>
+            <a
+              href="/avaliacao"
+              className="font-sans text-[13px] uppercase tracking-[0.18em] text-v2-paper underline underline-offset-[6px] decoration-v2-paper/40 hover:decoration-v2-paper"
+            >
+              Autoavaliação gratuita
+            </a>
           </motion.div>
         </div>
+        <motion.div
+          className="md:col-span-5"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease, delay: 0.2 }}
+        >
+          <div className={`mx-auto md:ml-auto max-w-[420px] overflow-hidden rounded-[1.25rem] aspect-[4/5] bg-v2-paper-deep ${sombra}`}>
+            <img src={retratoCamisa} alt="Catarina Veiga" loading="eager" decoding="async" className="h-full w-full object-cover object-top" />
+          </div>
+        </motion.div>
       </div>
     </Container>
   </section>
 );
 
 const Porque = () => (
-  <section id="porque" className="bg-v2-paper-deep py-24 md:py-32">
+  <section id="porque" className="bg-v2-paper py-20 md:py-28">
     <Container size="narrow">
       <FadeUp>
         <Pill>O meu porquê</Pill>
-        <h2 className="mt-8 font-serif text-[clamp(1.8rem,3.4vw,2.6rem)] leading-[1.2] text-v2-ink">
-          Fiz o caminho da medicina funcional primeiro como paciente, depois como estudante, e hoje como praticante.
-        </h2>
       </FadeUp>
-      <div className="mt-10 space-y-6">
-        <P delay={0.08}>
-          Há uns anos parti um menisco e tive de ser operada. Nas análises da consulta de anestesiologia reparei que a minha
-          ferritina estava extremamente baixa, e fiz a pergunta. O pós-operatório que devia durar 15 dias durou sete meses,
-          quase imobilizada, com uma cicatrização lentíssima.
-        </P>
-        <P delay={0.12}>
-          Comecei a procurar respostas e encontrei a área pela qual me apaixonei: a bioquímica sanguínea, a linguagem das
-          células. Aprender a ler e a cruzar biomarcadores, e não apenas a ver se estavam dentro do intervalo, foi o que me
-          ajudou a recuperar.
-        </P>
+      <div className="mt-8 space-y-5">
+        <FadeUp>
+          <P>
+            Há uns anos parti um menisco e tive de ser operada. Nas análises da consulta de anestesiologia reparei que a minha
+            ferritina estava extremamente baixa, e fiz a pergunta. O pós-operatório que devia durar 15 dias durou sete meses,
+            quase imobilizada, com uma cicatrização lentíssima.
+          </P>
+        </FadeUp>
+        <FadeUp delay={0.08}>
+          <P>
+            Comecei a procurar respostas e encontrei a área pela qual me apaixonei: a bioquímica sanguínea, a linguagem das
+            células. Aprender a ler e a cruzar biomarcadores, e não apenas a ver se estavam dentro do intervalo, foi o que me
+            ajudou a recuperar.
+          </P>
+        </FadeUp>
       </div>
-    </Container>
-  </section>
-);
-
-/* Ficha factual, em frases curtas que um assistente de IA consegue copiar
-   para uma coluna "Perfil". Só factos que já existem nesta página ou no site. */
-const resumo: [string, string][] = [
-  ["Prática", "Medicina funcional integrativa, em consulta online e em Parede, Cascais. Primeira consulta de 90 minutos."],
-  [
-    "Formação",
-    "Pós-graduações em Bioquímica Sanguínea e em Nutrição Funcional (Faculdade de Saúde Avançada). Formação em Modulação Intestinal e Microbioma com o Prof. Murilo Pereira (2021). Neurobiologia e Neurociências (University of Chicago, curso online). Pós-graduação em Língua Gestual (NOVA Medical School, 2008 a 2009). Licenciatura de cinco anos em Medicina Tradicional Chinesa (Nanjing University of Chinese Medicine, com a ESMTC, 2000 a 2005).",
-  ],
-  [
-    "Acreditações",
-    "Registered Functional Medicine Practitioner (Regenerus Labs). Registered Practitioner (Nordic Laboratories). Cédulas profissionais da ACSS n.º C-006754 e 0500786, ao abrigo da Lei n.º 71/2013, consultáveis no registo público.",
-  ],
-  [
-    "Percurso",
-    "Omnos, Reino Unido, 2020 a 2024: consultora científica e, desde 2021, Resident Microbiome Expert; fundadora e Project Manager da Omnos Academy. A Omnos juntou-se à Regenerus Labs em 2023. Autora na IHCAN Magazine (2022). Oradora no Longevity Med Summit (2024) e na live Como é que a saúde impacta as nossas conversas, da gcrew.life (2024).",
-  ],
-  ["Ferramentas", "Leitura de análises com intervalos funcionais. Testes de microbioma (GI360), ácidos orgânicos e hormonas (DUTCH)."],
-];
-
-/* Capítulo do caminho: texto de um lado, fotografia do outro, lados alternados,
-   como na referência (aneuropsicologa.com/sobre-mim). Sem fotografia, o
-   capítulo é um bloco de texto estreito numa faixa de cor. */
-const Foto = ({ src, alt, legenda, rotate, aspect }: { src: string; alt: string; legenda: string; rotate: number; aspect?: "4/5" | "1/1" }) => (
-  <figure className="flex flex-col items-center gap-3">
-    <Moldura src={src} alt={alt} rotate={rotate} aspect={aspect} />
-    <figcaption className="font-sans text-[11px] uppercase tracking-[0.2em] text-v2-sage text-center">{legenda}</figcaption>
-  </figure>
-);
-
-const Capitulo = ({
-  quando,
-  titulo,
-  lado,
-  fotos,
-  children,
-}: {
-  quando: string;
-  titulo: string;
-  lado: "esq" | "dir";
-  fotos: ReactNode;
-  children: ReactNode;
-}) => (
-  <section className="bg-v2-paper py-16 md:py-24">
-    <Container size="wide">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10 items-center">
-        <div className={`md:col-span-5 flex flex-col items-center gap-8 ${lado === "dir" ? "md:order-2" : ""}`}>{fotos}</div>
-        <div className={`md:col-span-7 ${lado === "dir" ? "md:order-1 md:pr-12 lg:pr-20" : "md:pl-12 lg:pl-20"}`}>
-          <FadeUp>
-            <p className="font-sans text-[11px] uppercase tracking-[0.22em] text-v2-sage">{quando}</p>
-            <h3 className="mt-3 font-serif text-[clamp(1.8rem,3.2vw,2.5rem)] leading-[1.12] text-v2-ink">{titulo}</h3>
-          </FadeUp>
-          <div className="mt-7 space-y-6 max-w-[62ch]">{children}</div>
-        </div>
-      </div>
-    </Container>
-  </section>
-);
-
-const CapituloTexto = ({ quando, titulo, children, claro }: { quando: string; titulo: string; children: ReactNode; claro?: boolean }) => (
-  <section className={`${claro ? "bg-v2-paper" : "bg-v2-paper-deep"} py-16 md:py-24`}>
-    <Container size="narrow">
-      <FadeUp>
-        <p className="font-sans text-[11px] uppercase tracking-[0.22em] text-v2-sage">{quando}</p>
-        <h3 className="mt-3 font-serif text-[clamp(1.8rem,3.2vw,2.5rem)] leading-[1.12] text-v2-ink">{titulo}</h3>
-      </FadeUp>
-      <div className="mt-7 space-y-6">{children}</div>
     </Container>
   </section>
 );
 
 const Caminho = () => (
-  <>
-    <section id="caminho" className="bg-v2-paper pt-24 md:pt-32 pb-4">
-      <Container size="narrow">
-        <FadeUp>
-          <h2 className="font-serif italic text-[clamp(2.2rem,4.4vw,3.4rem)] leading-[1.05] text-v2-ink">O meu caminho...</h2>
-        </FadeUp>
-        <div className="mt-10">
-          <P>
-            Hoje trabalho com bioquímica sanguínea, nutrição funcional e testes de microbioma e de hormonas. O caminho até
-            aqui começou noutro sítio.
-          </P>
-        </div>
-      </Container>
-    </section>
-
-    <Capitulo
-      quando="2000 a 2005"
-      titulo="A formação"
-      lado="esq"
-      fotos={
-        <Foto
-          src={fotoChina}
-          alt="Catarina Veiga de bata branca da Nanjing University of Chinese Medicine, durante o estágio hospitalar na China"
-          legenda="Estágio hospitalar, China"
-          rotate={-2}
-        />
-      }
-    >
-      <P>
-        Comecei com cinco anos de Medicina Tradicional Chinesa, uma licenciatura da Nanjing University of Chinese Medicine
-        em parceria com a ESMTC, em Lisboa, entre 2000 e 2005: 5.013 horas de formação e 1.053 horas de estágio clínico.
-        Terminei com 18 valores e no quadro de honra.
-      </P>
-    </Capitulo>
-
-    <CapituloTexto quando="2005 a 2008" titulo="Corpo e mente">
-      <P>
-        O primeiro trabalho foi num consultório de psiquiatria e psicologia, a Carpe Diem Psicólogos, entre 2005 e 2008.
-        Foi aí que percebi muito cedo como o corpo e a mente estão ligados. Anos mais tarde, entrei no mestrado em
-        Psicologia da Faculdade de Psicologia da Universidade de Lisboa.
-      </P>
-      <P>
-        Depois do menisco veio a bioquímica: as pós-graduações em Bioquímica Sanguínea e em Nutrição Funcional na
-        Faculdade de Saúde Avançada e, em 2021, a formação em modulação intestinal e microbioma com o Prof. Murilo
-        Pereira.
-      </P>
-    </CapituloTexto>
-
-    <Capitulo
-      quando="2020 a 2024"
-      titulo="Do lado do laboratório"
-      lado="dir"
-      fotos={
-        <Foto
-          src={fotoExpert}
-          alt="Publicação da Omnos no Instagram: Meet our expert Catarina Veiga, our microbiome expert"
-          legenda="Expert Profiles, omnos.me, maio de 2023"
-          rotate={2}
-        />
-      }
-    >
-      <P>
-        A Omnos era uma plataforma britânica, de Edimburgo, que dava acesso direto a testes laboratoriais normalmente
-        reservados aos clínicos e traduzia os resultados em linguagem simples. Em 2023 juntou-se à Regenerus Labs. Vivi a
-        fase de que mais gosto numa startup: a criação. Entrei como consultora científica, a validar todo o conteúdo de
-        saúde da plataforma. Em 2021 passei a Resident Microbiome Expert, com a palavra final sobre tudo o que dizia
-        respeito ao microbioma, a reportar diretamente ao CEO.
-      </P>
-      <P>
-        Trabalhei lado a lado com especialistas em hormonas, ácidos orgânicos e toxinas ambientais, e acompanhei centenas
-        de pessoas e médicos com testes de microbioma, em articulação com os testes hormonais (DUTCH) e de ácidos
-        orgânicos (OAT). Escolhi e validei o GI360 e defendi essa escolha perante as equipas de produto, ciência e
-        engenharia. Desenhei protocolos de interpretação com critérios de decisão explícitos e preparei o lançamento do
-        novo teste: seminário, artigo e comunicado de imprensa.
-      </P>
-    </Capitulo>
-
-    <section className="bg-v2-paper-deep py-16 md:py-20 text-center px-6">
-      <FadeUp>
-        <p className="mx-auto max-w-[24ch] font-serif italic text-[clamp(1.8rem,3.6vw,2.8rem)] leading-[1.2] text-v2-sage">
-          É no cruzamento dos dados que as respostas aparecem.
+  <section id="caminho" className="bg-v2-paper pb-20 md:pb-28">
+    <Container size="narrow">
+      <FadeUp className="text-center">
+        <h2 className="font-serif italic text-[clamp(2.2rem,4.4vw,3.4rem)] leading-[1.05] text-v2-ink">O meu caminho...</h2>
+        <p className="mx-auto mt-6 max-w-[48ch] font-sans text-[18px] leading-[1.6] text-v2-ink-mute">
+          Hoje trabalho com bioquímica sanguínea, nutrição funcional e testes de microbioma e de hormonas. O caminho até aqui
+          começou noutro sítio.
         </p>
       </FadeUp>
-    </section>
+    </Container>
 
-    <Capitulo
-      quando="2021 a 2024"
-      titulo="A Omnos Academy"
-      lado="esq"
-      fotos={
-        <>
-          <Foto
-            src={fotoPainel}
-            alt="Gráfico da Omnos para o painel Women, Health and Tech, 31 de maio de 2022, com as anfitriãs e as quatro oradoras"
-            legenda="Women, Health & Tech, maio de 2022"
-            rotate={-2}
-            aspect="1/1"
-          />
-          <Foto
-            src={fotoOmnos}
-            alt="Catarina Veiga num webinar da Omnos por Zoom, em junho de 2021"
-            legenda="Webinar da Omnos, junho de 2021"
-            rotate={2}
-          />
-        </>
-      }
-    >
-      <P>
-        A plataforma cruzava o microbioma com análises sanguíneas e genética, e foi aí que a minha forma de ver a saúde se
-        alargou. Antes de existirem ferramentas de IA generativa, trabalhei com programadores e designers para transformar
-        o relatório do GI360 numa experiência interativa e em linguagem simples, revendo centenas de marcadores um a um,
-        com cada afirmação apoiada na literatura. Fiz também parte da equipa que desenvolveu o Wellness 360, um painel de
-        análises sanguíneas em versão feminina e masculina.
-      </P>
-      <P>
-        Criei e liderei a Omnos Academy, o braço educativo da empresa, com a palavra final editorial e científica sobre
-        todo o conteúdo público. Coordenei uma equipa de quatro pessoas entre marketing, redes sociais e produto, produzi
-        30 a 40 vídeos de formação, preparei e apresentei cerca de 20 seminários e co-apresentei a série de webinars da
-        Omnos com o Director of Product. Fiz a curadoria e a moderação de seminários técnicos com convidados como a
-        Davinia Taylor, no "Women, Health &amp; Tech" (maio de 2022), e comecei a desenhar o primeiro curso da Academy para
-        profissionais de saúde.
-      </P>
-    </Capitulo>
+    <Container size="wide">
+      <div className="relative mt-10 md:mt-16">
+        <span
+          aria-hidden
+          className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px border-l border-dashed [border-color:color-mix(in_srgb,var(--v2-sage)_45%,transparent)]"
+        />
 
-    <CapituloTexto quando="2022 e 2024" titulo="Reconhecimento">
-      <P>
-        Em 2022 escrevi para a IHCAN Magazine, no Reino Unido, sobre combinar testes hormonais e de microbioma. Em 2024 fui
-        oradora no{" "}
-        <a
-          href="https://longevitymedsummit.com/catarina-veiga/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline underline-offset-4 decoration-v2-sage/50 hover:decoration-v2-sage text-v2-ink"
+        <Marco
+          quando="2000 a 2005"
+          lado="esq"
+          cartao={
+            <CartaoFoto
+              src={fotoChina}
+              alt="Catarina Veiga de bata branca da Nanjing University of Chinese Medicine, durante o estágio hospitalar na China"
+              legenda="Estágio hospitalar, China"
+            />
+          }
         >
-          Longevity Med Summit
-        </a>
-        , sobre as condições relacionadas com os estrogénios e a microbiota intestinal, e dei uma live para a comunidade
-        gcrew.life sobre como a saúde impacta as nossas conversas.
-      </P>
-    </CapituloTexto>
+          <P>
+            Comecei com cinco anos de Medicina Tradicional Chinesa, uma licenciatura da Nanjing University of Chinese Medicine
+            em parceria com a ESMTC, em Lisboa: 5.013 horas de formação e 1.053 horas de estágio clínico. Terminei com 18
+            valores e no quadro de honra.
+          </P>
+        </Marco>
 
-    <CapituloTexto quando="Hoje" titulo="A minha clínica" claro>
-      <P>
-        Por volta dos 40 anos comecei a ter sinais que me faziam sentir que não era eu. Achei que era passageiro. Não era.
-        Fui à procura de respostas e fui diagnosticada com TDAH, que se intensificou muito com a entrada na perimenopausa.
-      </P>
-      <P>
-        Foi aí que decidi sair do mundo corporativo e abrir a minha prática, online, com pessoas de todo o mundo. Continuo
-        a colaborar com algumas instituições, mas quis criar um espaço seguro para mulheres que não têm medo de questionar
-        o convencional e procuram respostas mais profundas.
-      </P>
-      <P>
-        Já passei um mês num retiro num mosteiro, em voto de silêncio, na floresta amazónica. E já fui três semanas à
-        Grécia com cinco ou seis vestidos e um par de sandálias, sem nunca ter conhecido Atenas: fui para o norte, muito
-        menos conhecido.
-      </P>
-    </CapituloTexto>
+        <Marco
+          quando="2005 a 2008"
+          lado="dir"
+          cartao={
+            <CartaoFactos
+              titulo="Corpo e mente"
+              itens={[
+                "Consultório de psiquiatria e psicologia, Carpe Diem Psicólogos, 2005 a 2008",
+                "Mestrado em Psicologia, Faculdade de Psicologia da Universidade de Lisboa",
+                "Pós-graduação em Língua Gestual, NOVA Medical School, 2008 a 2009",
+                "Neurobiologia e Neurociências, University of Chicago, curso online",
+              ]}
+            />
+          }
+        >
+          <P>
+            O primeiro trabalho foi num consultório de psiquiatria e psicologia, a Carpe Diem Psicólogos. Foi aí que percebi
+            muito cedo como o corpo e a mente estão ligados. Anos mais tarde, entrei no mestrado em Psicologia da Faculdade de
+            Psicologia da Universidade de Lisboa.
+          </P>
+        </Marco>
 
-    <section className="bg-v2-paper-deep py-16 md:py-24">
-      <Container size="narrow">
-        <FadeUp>
-          <Pill>Em resumo</Pill>
-          <dl className="mt-6 divide-y [&>div]:py-5 [&>div]:grid [&>div]:grid-cols-1 [&>div]:gap-1 md:[&>div]:grid-cols-[9rem_1fr] md:[&>div]:gap-6 [--tw-divide-opacity:1] divide-[color:color-mix(in_srgb,var(--v2-sage)_18%,transparent)]">
-            {resumo.map(([k, v]) => (
-              <div key={k}>
-                <dt className="font-sans text-[11px] uppercase tracking-[0.18em] text-v2-sage pt-1">{k}</dt>
-                <dd className="font-sans text-[16px] leading-[1.7] text-v2-ink-mute">{v}</dd>
-              </div>
-            ))}
-          </dl>
-        </FadeUp>
-      </Container>
-    </section>
-  </>
+        <Marco
+          quando="Depois do menisco"
+          lado="esq"
+          cartao={
+            <CartaoFactos
+              titulo="Bioquímica e microbioma"
+              itens={[
+                "Pós-graduação em Bioquímica Sanguínea, Faculdade de Saúde Avançada",
+                "Pós-graduação em Nutrição Funcional, Faculdade de Saúde Avançada",
+                "Modulação Intestinal e Microbioma, Prof. Murilo Pereira, 2021",
+              ]}
+            />
+          }
+        >
+          <P>
+            Depois do menisco veio a bioquímica: as pós-graduações em Bioquímica Sanguínea e em Nutrição Funcional na
+            Faculdade de Saúde Avançada e, em 2021, a formação em modulação intestinal e microbioma com o Prof. Murilo
+            Pereira.
+          </P>
+        </Marco>
+
+        <Marco
+          quando="2020 a 2024"
+          lado="dir"
+          cartao={
+            <CartaoFoto
+              src={fotoExpert}
+              alt="Publicação da Omnos no Instagram: Meet our expert Catarina Veiga, our microbiome expert"
+              legenda="Expert Profiles, omnos.me, maio de 2023"
+            />
+          }
+        >
+          <P>
+            A Omnos era uma plataforma britânica, de Edimburgo, que dava acesso direto a testes laboratoriais normalmente
+            reservados aos clínicos e traduzia os resultados em linguagem simples. Em 2023 juntou-se à Regenerus Labs.
+          </P>
+          <P>
+            Vivi a fase de que mais gosto numa startup: a criação. Entrei como consultora científica, a validar todo o
+            conteúdo de saúde da plataforma. Em 2021 passei a Resident Microbiome Expert, com a palavra final sobre tudo o
+            que dizia respeito ao microbioma, a reportar diretamente ao CEO.
+          </P>
+        </Marco>
+
+        <Marco
+          quando="Omnos"
+          lado="esq"
+          cartao={
+            <CartaoFoto
+              src={fotoOmnos}
+              alt="Catarina Veiga num webinar da Omnos por Zoom, em junho de 2021"
+              legenda="Webinar da Omnos, junho de 2021"
+            />
+          }
+        >
+          <P>
+            Trabalhei lado a lado com especialistas em hormonas, ácidos orgânicos e toxinas ambientais, e acompanhei centenas
+            de pessoas e médicos com testes de microbioma, em articulação com os testes hormonais (DUTCH) e de ácidos
+            orgânicos (OAT).
+          </P>
+          <P>
+            Escolhi e validei o GI360 e defendi essa escolha perante as equipas de produto, ciência e engenharia. Desenhei
+            protocolos de interpretação com critérios de decisão explícitos e preparei o lançamento do novo teste: seminário,
+            artigo e comunicado de imprensa.
+          </P>
+        </Marco>
+
+        <Marco
+          quando="Omnos"
+          lado="dir"
+          cartao={<CartaoCitacao>É no cruzamento dos dados que as respostas aparecem.</CartaoCitacao>}
+        >
+          <P>
+            A plataforma cruzava o microbioma com análises sanguíneas e genética, e foi aí que a minha forma de ver a saúde
+            se alargou.
+          </P>
+          <P>
+            Antes de existirem ferramentas de IA generativa, trabalhei com programadores e designers para transformar o
+            relatório do GI360 numa experiência interativa e em linguagem simples, revendo centenas de marcadores um a um,
+            com cada afirmação apoiada na literatura. Fiz também parte da equipa que desenvolveu o Wellness 360, um painel de
+            análises sanguíneas em versão feminina e masculina.
+          </P>
+        </Marco>
+
+        <Marco
+          quando="Omnos Academy"
+          lado="esq"
+          cartao={
+            <CartaoFoto
+              src={fotoPainel}
+              alt="Gráfico da Omnos para o painel Women, Health and Tech, 31 de maio de 2022, com as anfitriãs e as quatro oradoras"
+              legenda="Women, Health & Tech, maio de 2022"
+              aspect="1/1"
+            />
+          }
+        >
+          <P>
+            Criei e liderei a Omnos Academy, o braço educativo da empresa, com a palavra final editorial e científica sobre
+            todo o conteúdo público. Coordenei uma equipa de quatro pessoas entre marketing, redes sociais e produto.
+          </P>
+        </Marco>
+
+        <Marco
+          quando="Omnos Webinar Series"
+          lado="dir"
+          cartao={
+            <CartaoFactos
+              titulo="Webinars que apresentei"
+              itens={[
+                <Yt id="RqAW98xlfe4">Thomas Olivier: Connecting the Dots, com o fundador da Omnos (fevereiro de 2022)</Yt>,
+                <Yt id="JJfqkvNWWdM">The glass ceiling within you, com Cristiana Santos (março de 2022)</Yt>,
+                <Yt id="WJ3_sOhijOs">Women, Health &amp; Tech Panel, com Davinia Taylor (junho de 2022)</Yt>,
+                <Yt id="EcqdiVZ_2Us">Understanding the Omnos Microbiome Test (julho de 2022)</Yt>,
+                <Yt id="9fkMLuwZK5s">Nutrition, Physiology, Function &amp; Perception of Health, com Sinead Roberts (julho de 2022)</Yt>,
+                <Yt id="G1e-zO9mFRA">What is vitamin D and what does it do for your body? (agosto de 2022)</Yt>,
+                <Yt id="blnXEICQcYY">Why men should talk, com Dr. Mark Cox (novembro de 2022)</Yt>,
+              ]}
+            />
+          }
+        >
+          <P>
+            Produzi 30 a 40 vídeos de formação, preparei e apresentei cerca de 20 seminários e co-apresentei a série de
+            webinars da Omnos com o Director of Product. Fiz a curadoria e a moderação de seminários técnicos com convidados
+            como a Davinia Taylor, no "Women, Health &amp; Tech", e comecei a desenhar o primeiro curso da Academy para
+            profissionais de saúde.
+          </P>
+        </Marco>
+
+        <Marco
+          quando="2022 a 2024"
+          lado="dir"
+          cartao={
+            <CartaoFactos
+              imagem={fotoLongevity}
+              alt="Gráfico do Longevity Med Summit 2024 com Catarina Veiga, Specialist in Microbiome and Integrative Functional Medicine, Portugal"
+              titulo="Participações"
+              itens={[
+                "IHCAN Magazine, Reino Unido, 2022: artigo sobre combinar testes hormonais e de microbioma",
+                "Women, Health & Tech Panel, Omnos, maio de 2022: anfitriã, com Davinia Taylor",
+                <>
+                  <a href="https://longevitymedsummit.com/catarina-veiga/" target="_blank" rel="noopener noreferrer" className={ligacao}>
+                    Longevity Med Summit
+                  </a>
+                  , Lisboa, 9 de maio de 2024: oradora, sobre condições relacionadas com os estrogénios e a microbiota intestinal
+                </>,
+                "gcrew.life, 2 de maio de 2024: live sobre como a saúde impacta as nossas conversas",
+                <>
+                  <a href="https://www.youtube.com/watch?v=8O_Xs66lKF4" target="_blank" rel="noopener noreferrer" className={ligacao}>
+                    osteotalks
+                  </a>
+                  , Osteoform, outubro de 2024: conversa sobre o papel do ritmo circadiano na saúde
+                </>,
+              ]}
+            />
+          }
+        >
+          <P>
+            Em 2022 escrevi para a IHCAN Magazine, no Reino Unido, sobre combinar testes hormonais e de microbioma. Em 2024
+            fui oradora no Longevity Med Summit, sobre as condições relacionadas com os estrogénios e a microbiota
+            intestinal, e dei uma live para a comunidade gcrew.life sobre como a saúde impacta as nossas conversas.
+          </P>
+        </Marco>
+
+        <Marco
+          quando="Hoje"
+          lado="esq"
+          cartao={
+            <CartaoFactos
+              titulo="A minha clínica"
+              itens={[
+                "Medicina funcional integrativa, em consulta online e em Parede, Cascais",
+                "Primeira consulta de 90 minutos",
+                "Registered Functional Medicine Practitioner, Regenerus Labs",
+                "Registered Practitioner, Nordic Laboratories",
+                <>
+                  Cédulas profissionais da ACSS n.º C-006754 e 0500786, Lei n.º 71/2013, no{" "}
+                  <a href="https://sgps.min-saude.pt/tnc/public-registry" target="_blank" rel="noopener noreferrer" className={ligacao}>
+                    registo público
+                  </a>
+                </>,
+              ]}
+            />
+          }
+        >
+          <P>
+            Por volta dos 40 anos comecei a ter sinais que me faziam sentir que não era eu. Achei que era passageiro. Não
+            era. Fui à procura de respostas e fui diagnosticada com TDAH, que se intensificou muito com a entrada na
+            perimenopausa.
+          </P>
+          <P>
+            Foi aí que decidi sair do mundo corporativo e abrir a minha prática, online, com pessoas de todo o mundo.
+            Continuo a colaborar com algumas instituições, mas quis criar um espaço seguro para mulheres que não têm medo de
+            questionar o convencional e procuram respostas mais profundas.
+          </P>
+        </Marco>
+      </div>
+    </Container>
+  </section>
 );
 
 const ForaDoConsultorio = () => (
-  <section className="grid grid-cols-1 md:grid-cols-2 [background:linear-gradient(120deg,hsl(var(--almond)/0.55),hsl(var(--almond)/0.15))]">
-    <div className="relative h-[360px] md:h-auto md:min-h-[540px] overflow-hidden">
-      <motion.img
-        src={fotoRio}
-        alt="Catarina Veiga sentada entre troncos de eucalipto, junto ao rio"
-        loading="lazy"
-        decoding="async"
-        className="absolute inset-0 h-full w-full object-cover object-[50%_60%]"
-        initial={{ scale: 1.1 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.6, ease }}
-      />
-    </div>
-    <FadeUp className="flex flex-col justify-center px-6 py-16 md:px-14 lg:px-20">
-      <p className="font-serif text-[clamp(1.6rem,2.8vw,2.2rem)] leading-[1.3] text-v2-ink max-w-[26ch]">
-        Sou mãe do Alberto, que tem dez anos.
-      </p>
-      <p className="mt-6 font-sans text-[17px] leading-[1.75] text-v2-ink-mute max-w-[42ch]">
-        Gosto de serra, de campo e de banhos de rio, de música, de dançar e de viagens sem destino.
-      </p>
-      <figure className="mt-12 flex flex-col items-start gap-3 max-w-[240px]">
-        <Moldura src={fotoGravida} alt="Catarina Veiga grávida, ao espelho, em março de 2016" rotate={-2} />
-        <figcaption className="font-sans text-[11px] uppercase tracking-[0.2em] text-v2-sage">À espera do Alberto, 2016</figcaption>
-      </figure>
-    </FadeUp>
+  <section id="fora" className="bg-v2-paper-deep py-20 md:py-28">
+    <Container size="wide">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10 items-center">
+        <div className="md:col-span-5">
+          <div className={`mx-auto max-w-[440px] overflow-hidden rounded-[1.25rem] aspect-[4/5] ${sombra}`}>
+            <img src={fotoRio} alt="Catarina Veiga sentada entre troncos de eucalipto, junto ao rio" loading="lazy" decoding="async" className="h-full w-full object-cover object-[50%_60%]" />
+          </div>
+        </div>
+        <div className="md:col-span-7 md:pl-8">
+          <FadeUp>
+            <Pill>Fora do consultório</Pill>
+            <h2 className="mt-6 font-serif text-[clamp(1.9rem,3.4vw,2.7rem)] leading-[1.15] text-v2-ink max-w-[22ch]">
+              Sou mãe do Alberto, que tem dez anos.
+            </h2>
+          </FadeUp>
+          <div className="mt-7 space-y-5">
+            <FadeUp>
+              <P>Gosto de serra, de campo e de banhos de rio, de música, de dançar e de viagens sem destino.</P>
+            </FadeUp>
+            <FadeUp delay={0.06}>
+              <P>
+                Já passei um mês num retiro num mosteiro, em voto de silêncio, na floresta amazónica. E já fui três semanas à
+                Grécia com cinco ou seis vestidos e um par de sandálias, sem nunca ter conhecido Atenas: fui para o norte,
+                muito menos conhecido.
+              </P>
+            </FadeUp>
+          </div>
+          <FadeUp className="mt-10">
+            <div className="max-w-[220px]">
+              <CartaoFoto src={fotoGravida} alt="Catarina Veiga grávida, ao espelho, em março de 2016" legenda="À espera do Alberto, 2016" />
+            </div>
+          </FadeUp>
+        </div>
+      </div>
+    </Container>
   </section>
 );
 
