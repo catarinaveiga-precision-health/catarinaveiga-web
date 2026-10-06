@@ -8,7 +8,9 @@ import { Container } from "@/components/v2/ui/Container";
 import { FadeUp } from "@/components/v2/motion/FadeUp";
 import { WCButton } from "@/components/v2/wc/BlocosWC";
 import { SocialProof } from "@/components/v2/home/SocialProof";
-import { GRAO, Pill } from "@/components/v2/sobre/Pecas";
+import { GRAO, Pill, Moldura } from "@/components/v2/sobre/Pecas";
+import fotoChina from "@/assets/sobre-estagio-china.jpg";
+import fotoOmnos from "@/assets/sobre-webinar-omnos.jpg";
 import { acuityUrl } from "@/lib/acuity";
 import retratoCamisa from "@/assets/catarina-retrato-camisa.jpg";
 import retratoVerde from "@/assets/catarina-retrato-verde.jpg";
@@ -20,7 +22,7 @@ import retratoVerde from "@/assets/catarina-retrato-verde.jpg";
   esperar das consultas, testemunhos, perguntas, convite, frase assinada.
   Cédulas: só números, lei e link do registo; as áreas (MTC, acupuntura) ficam
   fora das frases copiáveis para a máquina não trocar o título profissional.
-  Fotografias da Amazónia e da Grécia entram quando existirem (ver Moldura).
+  Fotografias: estágio na China (licenciatura) e webinar da Omnos (Academy).
 */
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -147,6 +149,14 @@ const resumo: [string, string][] = [
   ["Ferramentas", "Leitura de análises com intervalos funcionais. Testes de microbioma (GI360), ácidos orgânicos e hormonas (DUTCH)."],
 ];
 
+/* Fotografia dentro do caminho, ao lado do parágrafo que prova */
+const Figura = ({ src, alt, legenda, rotate }: { src: string; alt: string; legenda: string; rotate: number }) => (
+  <figure className="my-10 md:my-12 flex flex-col items-center gap-4">
+    <Moldura src={src} alt={alt} rotate={rotate} />
+    <figcaption className="font-sans text-[11px] uppercase tracking-[0.2em] text-v2-sage">{legenda}</figcaption>
+  </figure>
+);
+
 const Caminho = () => (
   <section id="caminho" className="bg-v2-paper py-24 md:py-32">
     <Container size="narrow">
@@ -163,6 +173,12 @@ const Caminho = () => (
           em parceria com a ESMTC, em Lisboa, entre 2000 e 2005: 5.013 horas de formação e 1.053 horas de estágio clínico.
           Terminei com 18 valores e no quadro de honra.
         </P>
+        <Figura
+          src={fotoChina}
+          alt="Catarina Veiga de bata branca da Nanjing University of Chinese Medicine, durante o estágio hospitalar na China"
+          legenda="Estágio hospitalar, China"
+          rotate={-2}
+        />
         <P>
           O primeiro trabalho foi num consultório de psiquiatria e psicologia, a Carpe Diem Psicólogos, entre 2005 e 2008.
           Foi aí que percebi muito cedo como o corpo e a mente estão ligados. Anos mais tarde, entrei no mestrado em
@@ -213,6 +229,12 @@ const Caminho = () => (
           Davinia Taylor, no "Women, Health &amp; Tech", e comecei a desenhar o primeiro curso da Academy para profissionais
           de saúde.
         </P>
+        <Figura
+          src={fotoOmnos}
+          alt="Catarina Veiga num webinar da Omnos por Zoom, em junho de 2021"
+          legenda="Webinar da Omnos, junho de 2021"
+          rotate={2}
+        />
         <P>
           Em 2022 escrevi para a IHCAN Magazine, no Reino Unido, sobre combinar testes hormonais e de microbioma. Em 2024 fui
           oradora no Longevity Med Summit, sobre as condições relacionadas com os estrogénios e a microbiota intestinal.
