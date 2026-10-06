@@ -78,7 +78,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="border-t border-ivory/10 pt-6">
-        <p className="text-center text-[11px] text-ivory/40 mb-4">Cédula provisória ACSS</p>
+        <p className="text-center text-[11px] text-ivory/40 mb-4">Cédula profissional ACSS</p>
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-ivory/40">
           <p>{t("footer.copyright")}</p>
           <div className="flex flex-wrap justify-center gap-4">

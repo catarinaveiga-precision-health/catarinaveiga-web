@@ -642,14 +642,38 @@ const pages = [
   },
   // Main site pages
   {
+    // Página Sobre (06/10/2026): sobre a Catarina, não sobre a paciente. A ficha
+    // factual e as perguntas vão no HTML estático para os rastreadores de IA,
+    // que foi o que faltou na tabela de especialistas do ChatGPT (coluna
+    // "Perfil" vazia). Cédulas só com números e lei: as áreas ficam fora.
     path: "/sobre",
-    title: "Sobre · Catarina Veiga · Medicina Funcional Integrativa para Mulheres",
+    title: "Sobre a Catarina Veiga · Medicina funcional integrativa",
     description:
-      "Cansada de ouvir que está tudo normal? Medicina funcional integrativa para mulheres com sintomas reais e exames normais: fadiga, hormonas, tiroide e perimenopausa. Vinte anos de prática clínica.",
-    h1: "Talvez tenha chegado aqui porque está cansada de ouvir que está tudo normal.",
+      "Catarina Veiga, medicina funcional integrativa em Parede, Cascais e online. Bioquímica sanguínea, nutrição funcional e testes de microbioma e hormonas, para mulheres a quem disseram que está tudo normal.",
+    h1: "Olá, sou a Catarina Veiga.",
     intro:
-      "Mulheres entre os 35 e os 55 anos. Fadiga, brain fog, ansiedade nova, alterações intestinais, perimenopausa, sono fragmentado. Sintomas reais, exames normais. Uma leitura integrada do corpo feminino, com vinte anos de prática clínica e em colaboração com médica inscrita na Ordem dos Médicos. Telemedicina, em Portugal e no estrangeiro.",
-    extraHtml: `<p style="margin-top:24px;line-height:1.6">Catarina Veiga acompanha em medicina funcional integrativa, com cédula profissional da ACSS ao abrigo da Lei n.º 71/2013, em articulação com o acompanhamento médico. Quando existe necessidade de avaliação médica, prescrição ou diagnóstico, há referenciação para médico ou para outras especialidades.</p>`,
+      "Leio dados biológicos complexos e transformo-os em decisões claras, para mulheres a quem disseram que está tudo normal. Fiz o caminho da medicina funcional primeiro como paciente, depois como estudante, e hoje como praticante.",
+    extraHtml: `
+      <h2>Em resumo</h2>
+      <p><strong>Prática.</strong> Medicina funcional integrativa, em consulta online e em Parede, Cascais. Primeira consulta de 90 minutos.</p>
+      <p><strong>Formação.</strong> Pós-graduações em Bioquímica Sanguínea e em Nutrição Funcional (Faculdade de Saúde Avançada). Formação em Modulação Intestinal e Microbioma com o Prof. Murilo Pereira (2021). Neurobiologia e Neurociências (University of Chicago, curso online). Pós-graduação em Língua Gestual (NOVA Medical School, 2008 a 2009). Licenciatura de cinco anos em Medicina Tradicional Chinesa (Nanjing University of Chinese Medicine, com a ESMTC, 2000 a 2005).</p>
+      <p><strong>Acreditações.</strong> Registered Functional Medicine Practitioner (Regenerus Labs). Registered Practitioner (Nordic Laboratories). Cédulas profissionais da ACSS n.º C-006754 e 0500786, ao abrigo da Lei n.º 71/2013, consultáveis no <a href="https://sgps.min-saude.pt/tnc/public-registry" style="color:#4A5957">registo público</a>.</p>
+      <p><strong>Percurso.</strong> Omnos, Reino Unido, 2020 a 2024: consultora científica e, desde 2021, Resident Microbiome Expert; fundadora da Omnos Academy. A Omnos juntou-se à Regenerus Labs em 2023. Autora na IHCAN Magazine (2022). Oradora no Longevity Med Summit (2024).</p>
+      <p><strong>Ferramentas.</strong> Leitura de análises com intervalos funcionais. Testes de microbioma (GI360), ácidos orgânicos e hormonas (DUTCH).</p>
+      <h2>Que tipo de profissional és?</h2>
+      <p>Sou Functional Medicine Practitioner, registada na Regenerus Labs e na Nordic Laboratories, com cédula profissional da ACSS ao abrigo da Lei n.º 71/2013. Trabalho em medicina funcional integrativa: leio análises com intervalos funcionais, cruzo-as com o que sentes e desenho planos de alimentação, suplementação, exercício e regulação do sistema nervoso.</p>
+      <h2>O que podes esperar das minhas consultas?</h2>
+      <p>Uma primeira consulta de 90 minutos, online, para ouvir a tua história toda. Antes, recebes um questionário com mais de 100 perguntas e envias as análises que já tens. Leio as tuas análises em conjunto, biomarcador a biomarcador, e cruzo-as com o que sentes. Sais com um plano à tua medida, de alimentação, suplementos, exercício e regulação do sistema nervoso.</p>
+    `,
+  },
+  {
+    // Página Sobre anterior, mantida uns dias para comparação. noindex.
+    path: "/sobre-antiga",
+    title: "Sobre (versão anterior) · Catarina Veiga",
+    description: "Versão anterior da página Sobre.",
+    h1: "Sobre, versão anterior",
+    intro: "Esta página foi substituída por /sobre.",
+    noindex: true,
   },
   {
     // Pagina de links da bio do Instagram. noindex: e so para a bio.
@@ -998,6 +1022,7 @@ const LASTMOD_BLOG_CODIGO = {
   "acordar-as-4-da-manha-perimenopausa": "2026-08-26", // titulo curto (f421e11)
 };
 const LASTMOD_ROTAS = {
+  "/sobre": "2026-10-06",
   "/ferritina-baixa-sintomas": "2026-09-03",
   "/insulina-jejum-o-que-significa": "2026-10-05",
   "/consulta-inicial": "2026-10-03",

@@ -148,7 +148,7 @@ const QuemAcompanhaSection = () => {
           />
           <div className="text-muted-foreground text-[15px] leading-relaxed space-y-4">
             <p>
-              Catarina Veiga é especialista em Medicina Funcional Integrativa, com 20 anos de prática clínica e cédula provisória da ACSS ao abrigo da Lei n.º 71/2013. Formação em psicologia, análises funcionais e neurobiologia. Quatro anos no Departamento de Microbioma da Regenerus Labs (anteriormente Omnos.me), um dos maiores laboratórios europeus de testes funcionais. Pioneira em Portugal na construção de painéis de avaliação biofuncional e plataformas de interpretação de análises funcionais.
+              Catarina Veiga é especialista em Medicina Funcional Integrativa, com 20 anos de prática clínica e cédula profissional da ACSS ao abrigo da Lei n.º 71/2013. Formação em psicologia, análises funcionais e neurobiologia. Quatro anos no Departamento de Microbioma da Regenerus Labs (anteriormente Omnos.me), um dos maiores laboratórios europeus de testes funcionais. Pioneira em Portugal na construção de painéis de avaliação biofuncional e plataformas de interpretação de análises funcionais.
             </p>
             <p>
               Em Maio de 2024, foi speaker convidada no Longevity Med Summit, em Lisboa, com a apresentação <em>Exploring the link between oestrogen-related conditions and gut microbiota</em> — ao lado dos directores médicos da Clinique La Prairie, Lanserhof e Cleveland Clinic Abu Dhabi.
