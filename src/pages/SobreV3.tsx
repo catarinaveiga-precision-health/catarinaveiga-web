@@ -15,7 +15,6 @@ import { acuityUrl } from "@/lib/acuity";
 import retratoCamisa from "@/assets/catarina-retrato-camisa.jpg";
 import fotoRio from "@/assets/sobre-rio-eucalipto.jpg";
 import fotoExpert from "@/assets/sobre-omnos-expert.jpg";
-import fotoPortatil from "@/assets/sobre-consulta-portatil.jpg";
 import fotoGravida from "@/assets/sobre-gravida.jpg";
 import fotoPainel from "@/assets/sobre-omnos-painel.jpg";
 
@@ -192,8 +191,8 @@ const Capitulo = ({
   </section>
 );
 
-const CapituloTexto = ({ quando, titulo, children }: { quando: string; titulo: string; children: ReactNode }) => (
-  <section className="bg-v2-paper-deep py-16 md:py-24">
+const CapituloTexto = ({ quando, titulo, children, claro }: { quando: string; titulo: string; children: ReactNode; claro?: boolean }) => (
+  <section className={`${claro ? "bg-v2-paper" : "bg-v2-paper-deep"} py-16 md:py-24`}>
     <Container size="narrow">
       <FadeUp>
         <p className="font-sans text-[11px] uppercase tracking-[0.22em] text-v2-sage">{quando}</p>
@@ -346,12 +345,7 @@ const Caminho = () => (
       </P>
     </CapituloTexto>
 
-    <Capitulo
-      quando="Hoje"
-      titulo="A minha clínica"
-      lado="dir"
-      fotos={<Foto src={fotoPortatil} alt="Catarina Veiga ao portátil, em consulta online" legenda="Em consulta, online" rotate={2} />}
-    >
+    <CapituloTexto quando="Hoje" titulo="A minha clínica" claro>
       <P>
         Por volta dos 40 anos comecei a ter sinais que me faziam sentir que não era eu. Achei que era passageiro. Não era.
         Fui à procura de respostas e fui diagnosticada com TDAH, que se intensificou muito com a entrada na perimenopausa.
@@ -366,9 +360,9 @@ const Caminho = () => (
         Grécia com cinco ou seis vestidos e um par de sandálias, sem nunca ter conhecido Atenas: fui para o norte, muito
         menos conhecido.
       </P>
-    </Capitulo>
+    </CapituloTexto>
 
-    <section className="bg-v2-paper py-16 md:py-24">
+    <section className="bg-v2-paper-deep py-16 md:py-24">
       <Container size="narrow">
         <FadeUp>
           <Pill>Em resumo</Pill>
