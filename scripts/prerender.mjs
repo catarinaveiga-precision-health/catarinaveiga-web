@@ -312,7 +312,7 @@ const pages = [
       <h2>Porque é que a ferritina baixa imita o hipotiroidismo</h2>
       <p>A tiroide produz sobretudo T4, a forma de reserva, e o corpo tem de a converter em T3, a forma activa. Essa conversão precisa de ferro, e a própria peroxidase tiroideia é uma enzima que depende de ferro. Com ferritina baixa a conversão fica comprometida: frio, cansaço, queda de cabelo, obstipação e pensamento lento, com um TSH perfeitamente normal.</p>
       <h2>Quando a ferritina não sobe com suplementação</h2>
-      <p>Fazer suplementação correctamente durante três meses ou mais e a ferritina não subir raramente é falta de ferro na alimentação. Ou há uma perda contínua que ninguém contabilizou, e nas mulheres a causa mais frequente é ginecológica (miomas, pólipos, endometriose), ou há um problema de absorção. Este é um ponto em que o meu trabalho para e começa o de um médico: não diagnostico nem prescrevo, reconheço o padrão e encaminho.</p>
+      <p>Fazer suplementação correctamente durante três meses ou mais e a ferritina não subir raramente é falta de ferro na alimentação. Ou há uma perda contínua que ninguém contabilizou, e nas mulheres a causa mais frequente é ginecológica (miomas, pólipos, endometriose), ou há um problema de absorção.</p>
     `,
     faq: [
       {
