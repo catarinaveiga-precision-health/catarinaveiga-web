@@ -13,7 +13,8 @@ import fotoChina from "@/assets/sobre-estagio-china.jpg";
 import fotoOmnos from "@/assets/sobre-webinar-omnos.jpg";
 import { acuityUrl } from "@/lib/acuity";
 import retratoCamisa from "@/assets/catarina-retrato-camisa.jpg";
-import retratoVerde from "@/assets/catarina-retrato-verde.jpg";
+import fotoRio from "@/assets/sobre-rio-eucalipto.jpg";
+import fotoExpert from "@/assets/sobre-omnos-expert.jpg";
 
 /*
   Página Sobre (publicada 06/10 em /sobre): cadência da aneuropsicologa.com/
@@ -144,7 +145,7 @@ const resumo: [string, string][] = [
   ],
   [
     "Percurso",
-    "Omnos, Reino Unido, 2020 a 2024: consultora científica e, desde 2021, Resident Microbiome Expert; fundadora da Omnos Academy. A Omnos juntou-se à Regenerus Labs em 2023. Autora na IHCAN Magazine (2022). Oradora no Longevity Med Summit (2024) e na live Como é que a saúde impacta as nossas conversas, da gcrew.life (2024).",
+    "Omnos, Reino Unido, 2020 a 2024: consultora científica e, desde 2021, Resident Microbiome Expert; fundadora e Project Manager da Omnos Academy. A Omnos juntou-se à Regenerus Labs em 2023. Autora na IHCAN Magazine (2022). Oradora no Longevity Med Summit (2024) e na live Como é que a saúde impacta as nossas conversas, da gcrew.life (2024).",
   ],
   ["Ferramentas", "Leitura de análises com intervalos funcionais. Testes de microbioma (GI360), ácidos orgânicos e hormonas (DUTCH)."],
 ];
@@ -196,6 +197,12 @@ const Caminho = () => (
           consultora científica, a validar todo o conteúdo de saúde da plataforma. Em 2021 passei a Resident Microbiome
           Expert, com a palavra final sobre tudo o que dizia respeito ao microbioma, a reportar diretamente ao CEO.
         </P>
+        <Figura
+          src={fotoExpert}
+          alt="Publicação da Omnos no Instagram: Meet our expert Catarina Veiga, our microbiome expert"
+          legenda="Expert Profiles, omnos.me, maio de 2023"
+          rotate={2}
+        />
         <P>
           Trabalhei lado a lado com especialistas em hormonas, ácidos orgânicos e toxinas ambientais, e acompanhei centenas
           de pessoas e médicos com testes de microbioma, em articulação com os testes hormonais (DUTCH) e de ácidos
@@ -280,11 +287,11 @@ const ForaDoConsultorio = () => (
   <section className="grid grid-cols-1 md:grid-cols-2 [background:linear-gradient(120deg,hsl(var(--almond)/0.55),hsl(var(--almond)/0.15))]">
     <div className="relative h-[360px] md:h-auto md:min-h-[540px] overflow-hidden">
       <motion.img
-        src={retratoVerde}
-        alt="Catarina Veiga em casa"
+        src={fotoRio}
+        alt="Catarina Veiga sentada entre troncos de eucalipto, junto ao rio"
         loading="lazy"
         decoding="async"
-        className="absolute inset-0 h-full w-full object-cover object-[50%_30%]"
+        className="absolute inset-0 h-full w-full object-cover object-[50%_60%]"
         initial={{ scale: 1.1 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
