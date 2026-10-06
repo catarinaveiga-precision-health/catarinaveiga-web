@@ -364,9 +364,9 @@ const Caminho = () => (
             <CartaoFactos
               titulo="Webinars que apresentei"
               itens={[
-                <Yt id="RqAW98xlfe4">Thomas Olivier: Connecting the Dots, com o fundador da Omnos (fevereiro de 2022)</Yt>,
+                <Yt id="RqAW98xlfe4">Connecting the Dots, com Thomas Olivier, fundador da Omnos (fevereiro de 2022)</Yt>,
                 <Yt id="JJfqkvNWWdM">The glass ceiling within you, com Cristiana Santos (março de 2022)</Yt>,
-                <Yt id="WJ3_sOhijOs">Women, Health &amp; Tech Panel, com Davinia Taylor (junho de 2022)</Yt>,
+                <Yt id="WJ3_sOhijOs">Women, Health &amp; Tech Panel, com Davinia Taylor (31 de maio de 2022)</Yt>,
                 <Yt id="EcqdiVZ_2Us">Understanding the Omnos Microbiome Test (julho de 2022)</Yt>,
                 <Yt id="9fkMLuwZK5s">Nutrition, Physiology, Function &amp; Perception of Health, com Sinead Roberts (julho de 2022)</Yt>,
                 <Yt id="G1e-zO9mFRA">What is vitamin D and what does it do for your body? (agosto de 2022)</Yt>,
@@ -420,7 +420,6 @@ const Caminho = () => (
                   </a>
                   , 12 de agosto de 2022)
                 </>,
-                "Women, Health & Tech Panel, Omnos, maio de 2022: anfitriã, com Davinia Taylor",
                 <>
                   <a href="https://longevitymedsummit.com/catarina-veiga/" target="_blank" rel="noopener noreferrer" className={ligacao}>
                     Longevity Med Summit
