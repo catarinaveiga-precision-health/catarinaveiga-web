@@ -254,7 +254,7 @@ const Porque = () => (
         </FadeUp>
         <FadeUp className="md:col-span-6 md:col-start-7 space-y-6 font-sans text-[17px] leading-[1.75] [color:color-mix(in_srgb,var(--v2-paper)_88%,transparent)]" delay={0.12}>
           <p>
-            Há uns anos parti um menisco e tive de ser operada. Nas análises pedidas pela anestesiologia reparei que a minha
+            Há uns anos rompi um menisco e tive de ser operada. Nas análises pedidas pela anestesiologia reparei que a minha
             ferritina estava extremamente baixa e perguntei o que isso significava. <Falta>o que te responderam</Falta> O
             pós-operatório, que devia durar 15 dias, durou sete meses, quase imobilizada, com uma cicatrização lentíssima.{" "}
             <Falta>quando e como percebeste que a ferritina explicava a cicatrização lenta</Falta>
