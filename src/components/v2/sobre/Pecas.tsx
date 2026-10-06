@@ -31,7 +31,7 @@ export const Pill = ({ children, light }: { children: string; light?: boolean })
 );
 
 /* Moldura dupla para fotografia: tabuleiro exterior e imagem interior */
-export const Moldura = ({ src, alt, rotate = 0, falta }: { src?: string; alt?: string; rotate?: number; falta?: string }) => {
+export const Moldura = ({ src, alt, rotate = 0, falta, aspect = "4/5" }: { src?: string; alt?: string; rotate?: number; falta?: string; aspect?: "4/5" | "1/1" }) => {
   const md = typeof window !== "undefined" && window.matchMedia("(min-width: 768px)").matches;
   return (
   <motion.div
@@ -42,7 +42,7 @@ export const Moldura = ({ src, alt, rotate = 0, falta }: { src?: string; alt?: s
     transition={{ duration: 0.9, ease }}
   >
     <div className="rounded-[1.25rem] p-2 ring-1 [--tw-ring-color:color-mix(in_srgb,var(--v2-sage)_18%,transparent)] [background-color:color-mix(in_srgb,var(--v2-golden)_30%,var(--v2-paper))] shadow-[0_30px_60px_-30px_rgba(22,53,44,0.35)]">
-      <div className="relative aspect-[4/5] overflow-hidden rounded-[calc(1.25rem-0.5rem)] bg-v2-paper-deep">
+      <div className={cn("relative overflow-hidden rounded-[calc(1.25rem-0.5rem)] bg-v2-paper-deep", aspect === "1/1" ? "aspect-square" : "aspect-[4/5]")}>
         {src ? (
           <img src={src} alt={alt ?? ""} loading="lazy" decoding="async" className="h-full w-full object-cover object-top" />
         ) : (
