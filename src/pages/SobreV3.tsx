@@ -144,7 +144,7 @@ const resumo: [string, string][] = [
   ],
   [
     "Percurso",
-    "Omnos, Reino Unido, 2020 a 2024: consultora científica e, desde 2021, Resident Microbiome Expert; fundadora da Omnos Academy. A Omnos juntou-se à Regenerus Labs em 2023. Autora na IHCAN Magazine (2022). Oradora no Longevity Med Summit (2024).",
+    "Omnos, Reino Unido, 2020 a 2024: consultora científica e, desde 2021, Resident Microbiome Expert; fundadora da Omnos Academy. A Omnos juntou-se à Regenerus Labs em 2023. Autora na IHCAN Magazine (2022). Oradora no Longevity Med Summit (2024) e na live "Como é que a saúde impacta as nossas conversas", gcrew.life (2024).",
   ],
   ["Ferramentas", "Leitura de análises com intervalos funcionais. Testes de microbioma (GI360), ácidos orgânicos e hormonas (DUTCH)."],
 ];
@@ -237,7 +237,8 @@ const Caminho = () => (
         />
         <P>
           Em 2022 escrevi para a IHCAN Magazine, no Reino Unido, sobre combinar testes hormonais e de microbioma. Em 2024 fui
-          oradora no Longevity Med Summit, sobre as condições relacionadas com os estrogénios e a microbiota intestinal.
+          oradora no Longevity Med Summit, sobre as condições relacionadas com os estrogénios e a microbiota intestinal, e
+          dei uma live para a comunidade gcrew.life sobre como a saúde impacta as nossas conversas.
         </P>
         <P>
           Por volta dos 40 anos comecei a ter sinais que me faziam sentir que não era eu. Achei que era passageiro. Não era.
