@@ -144,7 +144,7 @@ const resumo: [string, string][] = [
   ],
   [
     "Percurso",
-    "Omnos, Reino Unido, 2020 a 2024: consultora científica e, desde 2021, Resident Microbiome Expert; fundadora da Omnos Academy. A Omnos juntou-se à Regenerus Labs em 2023. Autora na IHCAN Magazine (2022). Oradora no Longevity Med Summit (2024) e na live "Como é que a saúde impacta as nossas conversas", gcrew.life (2024).",
+    "Omnos, Reino Unido, 2020 a 2024: consultora científica e, desde 2021, Resident Microbiome Expert; fundadora da Omnos Academy. A Omnos juntou-se à Regenerus Labs em 2023. Autora na IHCAN Magazine (2022). Oradora no Longevity Med Summit (2024) e na live Como é que a saúde impacta as nossas conversas, da gcrew.life (2024).",
   ],
   ["Ferramentas", "Leitura de análises com intervalos funcionais. Testes de microbioma (GI360), ácidos orgânicos e hormonas (DUTCH)."],
 ];
