@@ -23,7 +23,7 @@ const Hero = () => (
   <Section bg="paper" tight className="pt-40 md:pt-48 lg:pt-52 pb-24 md:pb-32">
     <Container size="default">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        <FadeUp className="lg:col-span-7">
+        <FadeUp className="lg:col-span-7" eager>
           <Eyebrow>Medicina funcional integrativa</Eyebrow>
           <h1 className="mt-8 font-serif text-display-1 text-v2-ink leading-[1.05] tracking-[-0.02em]">
             Medicina funcional
@@ -43,7 +43,7 @@ const Hero = () => (
           </div>
         </FadeUp>
 
-        <FadeUp className="lg:col-span-5 lg:col-start-8" delay={0.15}>
+        <FadeUp className="lg:col-span-5 lg:col-start-8" delay={0.15} eager>
           <div className="relative flex items-end justify-center">
             <div
               aria-hidden
