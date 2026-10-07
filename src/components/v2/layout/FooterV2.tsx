@@ -5,6 +5,9 @@ import { ButtonV2 } from "../ui/ButtonV2";
 
 const navItems = [
   { label: "Início", href: "/" },
+  { label: "Consulta inicial", href: "/consulta-inicial" },
+  { label: "Medicina funcional vs convencional", href: "/medicina-funcional-vs-convencional" },
+  { label: "Segunda opinião sobre análises", href: "/segunda-opiniao-analises-normais" },
   { label: "Interpretar análises", href: "/avaliacao" },
   { label: "Sobre", href: "/sobre" },
   { label: "Biblioteca", href: "/recursos" },

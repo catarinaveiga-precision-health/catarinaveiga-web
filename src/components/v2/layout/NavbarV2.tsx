@@ -8,6 +8,7 @@ import { acuityUrl } from "@/lib/acuity";
 
 const navLinks = [
   { label: "Biblioteca", href: "/recursos" },
+  { label: "Consulta", href: "/consulta-inicial" },
   { label: "Sobre", href: "/sobre" },
   { label: "Interpretar análises", href: "/avaliacao" },
   { label: "Blog", href: "/blog" },
