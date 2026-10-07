@@ -15,6 +15,8 @@ import fotoChina from "@/assets/sobre-estagio-china.jpg";
 import fotoExpert from "@/assets/sobre-omnos-expert.jpg";
 import fotoPainel from "@/assets/sobre-omnos-painel.jpg";
 import fotoLongevity from "@/assets/sobre-longevity.jpg";
+import fotoSerra from "@/assets/sobre-rio-eucalipto.jpg";
+import fotoGravida from "@/assets/sobre-gravida.jpg";
 
 /*
   Página Sobre (/sobre). Regra única, copiada da referência que a Catarina
@@ -561,6 +563,61 @@ const Perguntas = () => (
   </section>
 );
 
+/* Duas secções pessoais, pedidas pela Catarina (07/10): o Alberto com secção
+   própria e o ar livre com a fotografia na serra. Ficam depois das Perguntas
+   para não entrar no meio do percurso profissional. Palavras dela. */
+const ForaDoConsultorio = () => (
+  <section id="fora" className="bg-v2-paper-deep py-20 md:py-28">
+    <Container size="wide">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10 items-center">
+        <div className="md:col-span-5">
+          <div className={`mx-auto max-w-[440px] overflow-hidden rounded-[1.25rem] aspect-[4/5] ${sombra}`}>
+            <img src={fotoSerra} alt="Catarina Veiga na serra, sentada entre troncos de eucalipto, junto ao rio" loading="lazy" decoding="async" className="h-full w-full object-cover object-[50%_60%]" />
+          </div>
+        </div>
+        <div className="md:col-span-7 md:pl-8">
+          <FadeUp>
+            <Pill>Fora do consultório</Pill>
+            <h2 className="mt-6 font-serif text-[clamp(1.9rem,3.4vw,2.7rem)] leading-[1.15] text-v2-ink max-w-[22ch]">
+              Serra, rio e música.
+            </h2>
+          </FadeUp>
+          <div className="mt-7 space-y-5">
+            <FadeUp>
+              <P>Gosto de serra, de campo e de banhos de rio, de dançar e de viagens sem destino.</P>
+            </FadeUp>
+            <FadeUp delay={0.06}>
+              <P>Sou apaixonada por música e por fotografia, sobretudo pelos detalhes e pelos pormenores em que quase ninguém repara.</P>
+            </FadeUp>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+);
+
+const OAlberto = () => (
+  <section id="alberto" className="bg-v2-paper py-20 md:py-28">
+    <Container size="wide">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10 items-center">
+        <div className="md:col-span-7 md:order-1 md:pr-8">
+          <FadeUp>
+            <Pill>O Alberto</Pill>
+            <h2 className="mt-6 font-serif text-[clamp(1.9rem,3.4vw,2.7rem)] leading-[1.15] text-v2-ink max-w-[22ch]">
+              Sou mãe do Alberto, que tem dez anos.
+            </h2>
+          </FadeUp>
+        </div>
+        <div className="md:col-span-5 md:order-2">
+          <div className="mx-auto max-w-[300px]">
+            <CartaoFoto src={fotoGravida} alt="Catarina Veiga grávida, ao espelho, em março de 2016" legenda="À espera do Alberto, 2016" />
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+);
+
 const Convite = () => (
   <section className="bg-v2-moss py-24 md:py-32 text-center">
     <Container size="narrow">
@@ -643,6 +700,8 @@ const SobreV3 = () => (
         <Consultas />
         <SocialProof />
         <Perguntas />
+        <ForaDoConsultorio />
+        <OAlberto />
         <Convite />
       </main>
       <FooterV2 />
