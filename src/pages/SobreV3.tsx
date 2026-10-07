@@ -202,13 +202,19 @@ const Porque = () => (
       <div className="mt-8 space-y-5">
         <FadeUp>
           <P>
-            Há uns anos rompi um menisco e tive de ser operada. Nas análises da consulta de anestesiologia reparei que a minha
-            ferritina estava extremamente baixa, e fiz a pergunta. Disseram-me que não precisava de ferro, porque a hemoglobina
-            (11,5) estava boa. O pós-operatório que devia durar 15 dias durou sete meses, quase imobilizada, com uma
-            cicatrização lentíssima.
+            Há uns anos rompi um menisco e tive de ser operada. Nas análises da consulta de anestesiologia, a ferritina
+            estava a 8 ng/mL e a hemoglobina a 11,5 g/dL. Perguntei. A resposta foi: é normal, não tome ferro. O
+            pós-operatório que devia durar 15 dias durou sete meses, quase imobilizada, com uma cicatrização lentíssima.
           </P>
         </FadeUp>
-        <FadeUp delay={0.06}>
+        <FadeUp delay={0.04}>
+          <P>
+            Só mais tarde soube que não era normal. Pelos valores ótimos com que hoje trabalho, a ferritina de uma mulher
+            devia estar entre 70 e 120, e só acima de 13,5 de hemoglobina se pode dizer que não há anemia. Eu estava a tentar
+            cicatrizar sem ferro.
+          </P>
+        </FadeUp>
+        <FadeUp delay={0.08}>
           <P>
             Comecei a procurar respostas e encontrei a área pela qual me apaixonei: a bioquímica sanguínea, a linguagem das
             células. Aprender a ler e a cruzar biomarcadores, e não apenas a ver se estavam dentro do intervalo, foi o que me
