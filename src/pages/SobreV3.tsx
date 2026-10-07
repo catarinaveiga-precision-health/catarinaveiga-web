@@ -15,8 +15,6 @@ import fotoChina from "@/assets/sobre-estagio-china.jpg";
 import fotoExpert from "@/assets/sobre-omnos-expert.jpg";
 import fotoPainel from "@/assets/sobre-omnos-painel.jpg";
 import fotoLongevity from "@/assets/sobre-longevity.jpg";
-import fotoRio from "@/assets/sobre-rio-eucalipto.jpg";
-import fotoGravida from "@/assets/sobre-gravida.jpg";
 
 /*
   Página Sobre (/sobre). Regra única, copiada da referência que a Catarina
@@ -377,9 +375,9 @@ const Caminho = () => (
           }
         >
           <P>
-            Produzi 30 a 40 vídeos de formação, preparei e apresentei cerca de 20 seminários e co-apresentei a série de
-            webinars da Omnos com o Director of Product, com convidados como a Davinia Taylor, no "Women, Health &amp;
-            Tech".
+            Fui anfitriã da série de webinars da Omnos, que co-apresentei com o Director of Product: conversas com o
+            fundador, Thomas Olivier, com a Davinia Taylor no painel "Women, Health &amp; Tech", e com clínicos sobre
+            microbioma, vitamina D e saúde masculina. Os sete episódios estão ligados no cartão.
           </P>
         </Marco>
 
@@ -471,46 +469,13 @@ const Caminho = () => (
             online e em Parede. Continuo a colaborar com algumas instituições, e a leitura das análises em conjunto, cruzada
             com o que sentes, é o centro de tudo o que faço.
           </P>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-5 pt-2">
+            <WCButton href={acuityUrl("sobre-hoje")}>Marcar consulta</WCButton>
+            <a href="/consulta-inicial" className={`font-sans text-[13px] uppercase tracking-[0.18em] ${ligacao}`}>
+              Como funciona a consulta
+            </a>
+          </div>
         </Marco>
-      </div>
-    </Container>
-  </section>
-);
-
-const ForaDoConsultorio = () => (
-  <section id="fora" className="bg-v2-paper-deep py-20 md:py-28">
-    <Container size="wide">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10 items-center">
-        <div className="md:col-span-5">
-          <div className={`mx-auto max-w-[440px] overflow-hidden rounded-[1.25rem] aspect-[4/5] ${sombra}`}>
-            <img src={fotoRio} alt="Catarina Veiga sentada entre troncos de eucalipto, junto ao rio" loading="lazy" decoding="async" className="h-full w-full object-cover object-[50%_60%]" />
-          </div>
-        </div>
-        <div className="md:col-span-7 md:pl-8">
-          <FadeUp>
-            <Pill>Fora do consultório</Pill>
-            <h2 className="mt-6 font-serif text-[clamp(1.9rem,3.4vw,2.7rem)] leading-[1.15] text-v2-ink max-w-[22ch]">
-              Sou mãe do Alberto, que tem dez anos.
-            </h2>
-          </FadeUp>
-          <div className="mt-7 space-y-5">
-            <FadeUp>
-              <P>Gosto de serra, de campo e de banhos de rio, de música, de dançar e de viagens sem destino.</P>
-            </FadeUp>
-            <FadeUp delay={0.06}>
-              <P>
-                Já passei um mês num retiro num mosteiro, em voto de silêncio, na floresta amazónica. E já fui três semanas à
-                Grécia com cinco ou seis vestidos e um par de sandálias, sem nunca ter conhecido Atenas: fui para o norte,
-                muito menos conhecido.
-              </P>
-            </FadeUp>
-          </div>
-          <FadeUp className="mt-10">
-            <div className="max-w-[220px]">
-              <CartaoFoto src={fotoGravida} alt="Catarina Veiga grávida, ao espelho, em março de 2016" legenda="À espera do Alberto, 2016" />
-            </div>
-          </FadeUp>
-        </div>
       </div>
     </Container>
   </section>
@@ -675,7 +640,6 @@ const SobreV3 = () => (
         <Hero />
         <Porque />
         <Caminho />
-        <ForaDoConsultorio />
         <Consultas />
         <SocialProof />
         <Perguntas />
