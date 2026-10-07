@@ -3,7 +3,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Index from "./pages/Index";
 import IndexV2 from "./pages/IndexV2";
 import IndexV3 from "./pages/IndexV3";
 import ConsultaInicial from "./pages/ConsultaInicial";
@@ -15,7 +14,6 @@ import BlogPage from "./pages/BlogPage";
 import BlogArticle from "./pages/BlogArticle";
 import Candidatura from "./pages/Candidatura";
 import Metodo from "./pages/Metodo";
-import Sobre from "./pages/Sobre";
 import SobreNova from "./pages/SobreV3";
 import Avaliacao from "./pages/Avaliacao";
 import FerritinaBaixa from "./pages/FerritinaBaixa";
@@ -52,13 +50,11 @@ const App = () => (
           <SEOCanonical />
           <Routes>
             <Route path="/" element={<IndexV3 />} />
-            <Route path="/v1" element={<Index />} />
             <Route path="/v2" element={<IndexV2 />} />
             <Route path="/consulta-inicial" element={<ConsultaInicial />} />
             <Route path="/candidatura" element={<Candidatura />} />
             <Route path="/metodo" element={<Metodo />} />
             <Route path="/sobre" element={<SobreNova />} />
-            <Route path="/sobre-antiga" element={<Sobre />} />
             <Route path="/avaliacao" element={<Avaliacao />} />
             <Route path="/aviso-legal" element={<AvisoLegal />} />
             <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />

@@ -672,15 +672,6 @@ const pages = [
     `,
   },
   {
-    // Página Sobre anterior, mantida uns dias para comparação. noindex.
-    path: "/sobre-antiga",
-    title: "Sobre (versão anterior) · Catarina Veiga",
-    description: "Versão anterior da página Sobre.",
-    h1: "Sobre, versão anterior",
-    intro: "Esta página foi substituída por /sobre.",
-    noindex: true,
-  },
-  {
     // Pagina de links da bio do Instagram. noindex: e so para a bio.
     path: "/links",
     title: "Links · Catarina Veiga",
@@ -774,17 +765,6 @@ const pages = [
     h1: "Os teus exames estão normais. O teu corpo não.",
     intro:
       "Preview homepage v2 · acompanhamento clínico em saúde hormonal feminina.",
-    noindex: true,
-  },
-  // Homepage v1 (preview antiga) · não indexar para não competir com "/"
-  {
-    path: "/v1",
-    title: "Catarina Veiga | Saúde Feminina Integrada",
-    description:
-      "Preview homepage v1 · acompanhamento clínico em saúde hormonal feminina. Não indexar.",
-    h1: "Os teus exames estão normais. O teu corpo não.",
-    intro:
-      "Preview homepage v1 · acompanhamento clínico em saúde hormonal feminina.",
     noindex: true,
   },
   // Programa Aletheia · landing indexável (canonical próprio)
