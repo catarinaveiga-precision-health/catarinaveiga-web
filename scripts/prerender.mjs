@@ -1005,6 +1005,11 @@ function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, 
 // mudou de facto, e com a data em que mudou.
 const LASTMOD_BLOG_CODIGO = {
   "acordar-as-4-da-manha-perimenopausa": "2026-08-26", // titulo curto (f421e11)
+  "glicemia-normal-resistencia-insulina": "2026-10-14", // titulo e descricao
+  "nervo-vago-como-ativar-mulher": "2026-10-14",
+  "colesterol-alto-mulher-causas-hormonais": "2026-10-14",
+  "progesterona-baixa-sintomas-fase-lutea": "2026-10-14",
+  "biomarcadores-analises-normais-mulher": "2026-10-14",
 };
 const LASTMOD_ROTAS = {
   "/sobre": "2026-10-06",
@@ -1103,6 +1108,31 @@ async function main() {
     "cansaco-em-setembro": "Cansaço em setembro: porquê e o que fazer",
     "conversao-t4-t3-tsh-normal-cansada":
       "Conversão T4 em T3: porque estás cansada com TSH normal",
+    // 14/10/2026: refresh das paginas com impressoes e zero cliques (GSC 14/09
+    // a 12/10). Titulos alinhados com o que as pessoas pesquisam, sem travessoes.
+    "glicemia-normal-resistencia-insulina":
+      "Resistência à insulina com glicémia normal: que análise pedir",
+    "nervo-vago-como-ativar-mulher":
+      "Nervo vago na mulher: sinais de tónus baixo e porque não descansas",
+    "colesterol-alto-mulher-causas-hormonais":
+      "Colesterol alto numa mulher que come bem: causas hormonais",
+    "progesterona-baixa-sintomas-fase-lutea":
+      "Progesterona baixa: sinais na fase lútea e no sono",
+    "biomarcadores-analises-normais-mulher":
+      "5 biomarcadores nas tuas análises que ninguém interpretou",
+  };
+
+  // Meta description por slug quando o post nao tem excerto no Sanity. Cada
+  // frase resume o que ja esta no corpo do artigo; nada novo.
+  const BLOG_DESC = {
+    "glicemia-normal-resistencia-insulina":
+      "A glicémia normal pode esconder anos de insulina alta. Que análise pedir (insulina em jejum com a glicose), a janela de 2 a 5 µU/mL e o que fazer.",
+    "nervo-vago-como-ativar-mulher":
+      "O nervo vago é o eixo do sistema parassimpático. Sinais de tónus vagal baixo na mulher, o que o baixa na perimenopausa e porque a respiração sozinha não chega.",
+    "colesterol-alto-mulher-causas-hormonais":
+      "Em mulheres, o colesterol sobe muitas vezes por razões hormonais: estrogénio, tiroide e insulina. O que investigar quando a dieta não explica o LDL alto.",
+    "progesterona-baixa-sintomas-fase-lutea":
+      "Irritável, ansiosa e a acordar às 3h nos dias antes do período? Os sinais de progesterona baixa na fase lútea e porque acontecem.",
   };
 
   // FAQPage JSON-LD por slug. As respostas replicam frases visiveis no corpo
@@ -1237,6 +1267,7 @@ async function main() {
       bodyHtml += `<p style="margin-top:32px;padding:20px;border:1px solid #dfe5e2;border-radius:12px"><strong>Guia gratuito:</strong> tudo o que leste neste artigo, organizado num protocolo de reset circadiano de 4 semanas, com autoavaliacao e tracker. <a href="/guia-sono" style="color:#4A5957">Achas que tens insonia. Nao tens. · Receber o guia</a></p>`;
     }
     const description =
+      BLOG_DESC[slug] ||
       post.excerpt ||
       portableTextToPlain(post.body, 155) ||
       "Artigo de medicina funcional integrativa por Catarina Veiga.";
