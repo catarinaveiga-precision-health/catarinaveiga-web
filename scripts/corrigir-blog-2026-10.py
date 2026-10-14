@@ -21,6 +21,7 @@ import json
 import os
 import re
 import sys
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -28,7 +29,7 @@ PROJETO = "3zvde3ro"
 DATASET = "production"
 VERSAO = "v2024-01-01"
 APLICAR = "--aplicar" in sys.argv
-TOKEN = os.environ.get("SANITY_TOKEN", "").strip()
+TOKEN = "".join(os.environ.get("SANITY_TOKEN", "").split())
 
 ASSINATURA_FERRITINA = (
     "Catarina Veiga é Functional Medicine Practitioner (Regenerus Labs, Nordic Laboratories), "
@@ -89,8 +90,20 @@ def pedir(url, dados=None):
     if TOKEN:
         cab["Authorization"] = f"Bearer {TOKEN}"
     req = urllib.request.Request(url, data=json.dumps(dados).encode() if dados else None, headers=cab)
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.load(r)
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return json.load(r)
+    except urllib.error.HTTPError as e:
+        if e.code == 401:
+            sys.exit(
+                "\nO Sanity recusou o token (401). Causas habituais: o token não foi copiado inteiro, "
+                f"ou foi criado noutro projeto (tem de ser o {PROJETO}). Nada foi alterado."
+            )
+        if e.code == 403:
+            sys.exit("\nO token não tem permissão de escrita (403). Cria-o com a permissão Editor. Nada foi alterado.")
+        if e.code == 409:
+            sys.exit("\nUm artigo foi editado entretanto no Sanity (409). Corre outra vez. Nada foi alterado.")
+        raise
 
 
 def ler_posts():
