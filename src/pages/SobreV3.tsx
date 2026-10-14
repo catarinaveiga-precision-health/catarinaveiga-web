@@ -202,7 +202,7 @@ const Porque = () => (
       <div className="mt-8 space-y-5">
         <FadeUp>
           <P>
-            Há uns anos rompi um menisco e tive de ser operada. Nas análises da consulta de anestesiologia, a ferritina
+            Aos 36 anos rompi um menisco e tive de ser operada. Nas análises da consulta de anestesiologia, a ferritina
             estava a 8 ng/mL e a hemoglobina a 11,5 g/dL. Perguntei. A resposta foi: é normal, não tome ferro. O
             pós-operatório que devia durar 15 dias durou sete meses, quase imobilizada, com uma cicatrização lentíssima.
           </P>
