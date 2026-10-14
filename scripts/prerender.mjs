@@ -1023,6 +1023,13 @@ const LASTMOD_BLOG_CODIGO = {
   "colesterol-alto-mulher-causas-hormonais": "2026-10-14",
   "progesterona-baixa-sintomas-fase-lutea": "2026-10-14",
   "biomarcadores-analises-normais-mulher": "2026-10-14",
+  // 14/10: correcoes no Sanity (scripts/corrigir-blog-2026-10.py), 11 artigos
+  "ferritina-baixa": "2026-10-14",
+  "jejum-intermitente-perimenopausa": "2026-10-14",
+  "intestino-preso-nao-e-um-problema-de-fibra-e-um-problema-hormonal": "2026-10-14",
+  "acompanhamento-de-saude-funcional": "2026-10-14",
+  "laxante-natural-imediato": "2026-10-14",
+  "analises-normais-sintomas-persistentes": "2026-10-14",
 };
 const LASTMOD_ROTAS = {
   "/sobre": "2026-10-06",
@@ -1174,7 +1181,7 @@ async function main() {
     "ferritina-baixa": [
       {
         q: "A minha ferritina está em 25 ng/mL e o laboratório diz que é normal. E agora?",
-        a: "25 ng/mL está dentro do intervalo de referência mas abaixo do funcional (50-70 ng/mL). Se tens fadiga, queda de cabelo, brain fog ou intolerância ao frio, a ferritina merece atenção clínica. O contexto tem mais peso do que o número isolado.",
+        a: "25 ng/mL está dentro do intervalo de referência mas abaixo do funcional (70 a 120 ng/mL). Se tens fadiga, queda de cabelo, brain fog ou intolerância ao frio, a ferritina merece atenção clínica. O contexto tem mais peso do que o número isolado.",
       },
       {
         q: "Qual é o valor para parar a queda de cabelo?",
