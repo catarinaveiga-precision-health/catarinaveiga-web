@@ -1,0 +1,27 @@
+{
+  "_nota": "Título curto (<title>) e meta description por artigo do blog. Lido pelo scripts/prerender.mjs (HTML estático) e pelo src/pages/BlogArticle.tsx (Helmet, depois de o React arrancar): os dois têm de dizer o mesmo, senão o Google, que executa JavaScript, fica com o do Helmet.",
+  "titulos": {
+    "acordar-as-4-da-manha-perimenopausa": "Acordar às 4 da manhã na perimenopausa: porquê",
+    "cansaco-em-setembro": "Cansaço em setembro: porquê e o que fazer",
+    "conversao-t4-t3-tsh-normal-cansada": "Conversão T4 em T3: porque estás cansada com TSH normal",
+    "glicemia-normal-resistencia-insulina": "Resistência à insulina com glicémia normal: que análise pedir",
+    "nervo-vago-como-ativar-mulher": "Nervo vago na mulher: sinais de tónus baixo e porque não descansas",
+    "colesterol-alto-mulher-causas-hormonais": "Colesterol alto numa mulher que come bem: causas hormonais",
+    "progesterona-baixa-sintomas-fase-lutea": "Progesterona baixa: sinais na fase lútea e no sono",
+    "biomarcadores-analises-normais-mulher": "5 biomarcadores nas tuas análises que ninguém interpretou"
+  },
+  "descricoes": {
+    "glicemia-normal-resistencia-insulina": "A glicémia normal pode esconder anos de insulina alta. Que análise pedir (insulina em jejum com a glicose), a janela de 2 a 5 µU/mL e o que fazer.",
+    "nervo-vago-como-ativar-mulher": "O nervo vago é o eixo do sistema parassimpático. Sinais de tónus vagal baixo na mulher, o que o baixa na perimenopausa e porque a respiração sozinha não chega.",
+    "colesterol-alto-mulher-causas-hormonais": "Em mulheres, o colesterol sobe muitas vezes por razões hormonais: estrogénio, tiroide e insulina. O que investigar quando a dieta não explica o LDL alto.",
+    "progesterona-baixa-sintomas-fase-lutea": "Irritável, ansiosa e a acordar às 3h nos dias antes do período? Os sinais de progesterona baixa na fase lútea e porque acontecem.",
+    "acordar-as-4-da-manha-perimenopausa": "Acordas às 4h quase todas as noites e não voltas a adormecer? O que está por trás na perimenopausa, quando os exames estão normais e o que fazer primeiro.",
+    "jejum-intermitente-perimenopausa": "O jejum intermitente pode agravar os sintomas na perimenopausa: cortisol, sono e hormonas. Os sinais de que não está a ajudar e o que funciona melhor.",
+    "ferritina-baixa": "Ferritina de 18 ou 25 ng/mL aparece como normal e explica fadiga e queda de cabelo. O intervalo funcional de 70 a 120, a inflamação e como subir a ferritina.",
+    "intestino-preso-nao-e-um-problema-de-fibra-e-um-problema-hormonal": "Obstipação que piora em certas alturas do mês raramente é falta de fibra. O papel do estrogénio, do estroboloma e por onde começar.",
+    "laxante-natural-imediato": "O que funciona nas próximas horas (água morna, ameixas, azeite, magnésio citrato) e porque é que, na perimenopausa, o intestino lento é muitas vezes hormonal.",
+    "analises-normais-sintomas-persistentes": "Análises normais e sintomas que não passam? Porque normal não significa ótimo, porque as mulheres são mais afetadas e que sintomas merecem investigação.",
+    "acompanhamento-de-saude-funcional": "O que é um acompanhamento de saúde funcional, como se distingue de uma consulta de rotina, o que acontece ao longo dos meses e para quem faz sentido.",
+    "biomarcadores-analises-normais-mulher": "Ferritina, TSH, vitamina D, insulina em jejum e PCR-hs: cinco valores que as análises já trazem e que, lidos com intervalos funcionais, explicam sintomas."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "_nota": "Bloco 'Ler a seguir' no fim de cada artigo do blog (14/10/2026): a página do tema e a consulta inicial. Lido pelo BlogArticle.tsx e pelo scripts/prerender.mjs, para estar também no HTML estático.",
+  "consulta": { "href": "/consulta-inicial", "label": "Consulta inicial: 90 minutos, online, a tua história e as tuas análises lidas em conjunto" },
+  "padrao": [{ "href": "/exames-normais-mas-sintomas", "label": "Exames normais, mas sintomas: o que pode estar a acontecer" }],
+  "porArtigo": {
+    "acordar-as-4-da-manha-perimenopausa": [{ "href": "/perimenopausa-sintomas", "label": "Sintomas da perimenopausa: o que muda e porquê" }],
+    "ferritina-baixa": [{ "href": "/ferritina-baixa-sintomas", "label": "Ferritina baixa com hemoglobina normal: a tabela por valor" }],
+    "glicemia-normal-resistencia-insulina": [{ "href": "/insulina-jejum-o-que-significa", "label": "Insulina em jejum: o que significa o teu valor" }],
+    "jejum-intermitente-perimenopausa": [
+      { "href": "/perimenopausa-sintomas", "label": "Sintomas da perimenopausa: o que muda e porquê" },
+      { "href": "/pequenos-almocos-ricos-em-proteina", "label": "Pequeno-almoço proteico: porquê, quanto e o que comer" }
+    ],
+    "conversao-t4-t3-tsh-normal-cansada": [{ "href": "/tsh-normal-mas-com-sintomas", "label": "TSH normal mas com sintomas: o que pedir a seguir" }],
+    "analises-normais-sintomas-persistentes": [{ "href": "/segunda-opiniao-analises-normais", "label": "Segunda opinião sobre análises normais: quando faz sentido" }],
+    "biomarcadores-analises-normais-mulher": [{ "href": "/segunda-opiniao-analises-normais", "label": "Segunda opinião sobre análises normais: quando faz sentido" }],
+    "nervo-vago-como-ativar-mulher": [{ "href": "/fadiga-exames-normais", "label": "Fadiga com exames normais: por onde começar" }],
+    "colesterol-alto-mulher-causas-hormonais": [
+      { "href": "/insulina-jejum-o-que-significa", "label": "Insulina em jejum: o que significa o teu valor" },
+      { "href": "/tsh-normal-mas-com-sintomas", "label": "TSH normal mas com sintomas: o que pedir a seguir" }
+    ],
+    "progesterona-baixa-sintomas-fase-lutea": [{ "href": "/perimenopausa-sintomas", "label": "Sintomas da perimenopausa: o que muda e porquê" }],
+    "intestino-preso-nao-e-um-problema-de-fibra-e-um-problema-hormonal": [{ "href": "/perimenopausa-sintomas", "label": "Sintomas da perimenopausa: o que muda e porquê" }],
+    "laxante-natural-imediato": [{ "href": "/perimenopausa-sintomas", "label": "Sintomas da perimenopausa: o que muda e porquê" }],
+    "cansaco-em-setembro": [
+      { "href": "/fadiga-exames-normais", "label": "Fadiga com exames normais: por onde começar" },
+      { "href": "/ferritina-baixa-sintomas", "label": "Ferritina baixa com hemoglobina normal: a tabela por valor" }
+    ],
+    "acompanhamento-de-saude-funcional": [{ "href": "/medicina-funcional-vs-convencional", "label": "Medicina funcional e medicina convencional, lado a lado" }]
+  }
+}

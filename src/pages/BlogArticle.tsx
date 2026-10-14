@@ -3,6 +3,8 @@ import { ArrowLeft, Link2, Facebook, Linkedin } from "lucide-react";
 import { NavbarV2 } from "@/components/v2/layout/NavbarV2";
 import { ArticleLeadMagnetCTA } from "@/components/v2/leadmagnet/ArticleLeadMagnetCTA";
 import guiaSonoCapa from "@/assets/guia-sono-capa.jpg";
+import lerASeguir from "@/data/blog-ler-a-seguir.json";
+import blogSeo from "@/data/blog-seo.json";
 import LegalBand from "@/components/LegalBand";
 import { FooterV2 } from "@/components/v2/layout/FooterV2";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -163,29 +165,25 @@ const BlogArticle = () => {
 
   const relatedPosts = allPosts?.filter((p) => p.slug.current !== post.slug.current).slice(0, 3) ?? [];
 
-  // SEO overrides per slug — custom meta titles and descriptions for high-impression queries
-  const seoOverrides: Record<string, { title: string; description: string }> = {
-    "nervo-vago-como-ativar-mulher": {
-      title: "Nervo Vago: O Que Ninguém Te Explica Sobre os Teus Sintomas",
-      description: "O nervo vago regula digestão, sono e inflamação. Quando falha, os exames dão normais mas o corpo não pára de dar sinais. Descobre o que está por trás.",
-    },
-    "pequenos-almocos-proteicos": {
-      title: "Pequenos-Almoços Proteicos Que Cortam a Fome Até ao Almoço",
-      description: "Fome às 10h mesmo depois de comer? Falta proteína ao pequeno-almoço. Refeições com 25-30g de proteína que activam saciedade. Simples e sem meal prep.",
-    },
-    "pequeno-almoco-30g-proteina": {
-      title: "Pequeno-Almoço com 30g de Proteína — 5 Opções Rápidas",
-      description: "30g de proteína ao pequeno-almoço reduz cravings e estabiliza energia até ao almoço. Cinco opções com ingredientes de supermercado. Sem batidos.",
-    },
-    "pequeno-almoco-rico-proteina": {
-      title: "Pequeno-Almoço Rico em Proteína Para Quem Tem Fome a Sério",
-      description: "Não é mais uma lista de granola e iogurte. Refeições com proteína real que activam saciedade. Para mulheres que precisam de energia estável até ao almoço.",
-    },
+  // Título e descrição: o mesmo ficheiro que o prerender usa no HTML estático
+  // (src/data/blog-seo.json). Sem isto, o Helmet trocava o título curto pelo
+  // título longo do Sanity e deixava a descrição vazia nos artigos sem excerto.
+  const titulos = blogSeo.titulos as Record<string, string>;
+  const descricoes = blogSeo.descricoes as Record<string, string>;
+  type Bloco = { _type?: string; children?: { text?: string }[] };
+  const primeiroTexto = ((post.body ?? []) as Bloco[])
+    .filter((b) => b?._type === "block")
+    .map((b) => (b.children ?? []).map((c) => c.text ?? "").join(""))
+    .join(" ")
+    .replace(/\s+/g, " ")
+    .trim();
+  const seo = {
+    title: `${(slug && titulos[slug]) || title} | Catarina Veiga`,
+    description:
+      (slug && descricoes[slug]) ||
+      excerpt ||
+      (primeiroTexto.length > 155 ? `${primeiroTexto.slice(0, 152).replace(/\s+\S*$/, "")}...` : primeiroTexto),
   };
-
-  const seo = slug && seoOverrides[slug]
-    ? seoOverrides[slug]
-    : { title: `${title} | Catarina Veiga`, description: excerpt || "" };
 
   return (
     <div className="min-h-screen bg-v2-paper">
@@ -318,6 +316,29 @@ const BlogArticle = () => {
               </p>
             </div>
           </Link>
+        )}
+
+        {/* Ler a seguir · a página do tema e a consulta (2026-10-14). O mesmo
+            mapa (src/data/blog-ler-a-seguir.json) entra no HTML estático. */}
+        {lang === "pt" && (
+          <nav aria-label="Ler a seguir" className="mb-16 border-t border-v2-paper-line pt-8">
+            <p className="font-sans text-[12px] uppercase tracking-[0.18em] text-v2-ink-mute">Ler a seguir</p>
+            <ul className="mt-4 space-y-3">
+              {[
+                ...((lerASeguir.porArtigo as Record<string, { href: string; label: string }[]>)[slug || ""] ?? lerASeguir.padrao),
+                lerASeguir.consulta,
+              ].map((l) => (
+                <li key={l.href}>
+                  <Link
+                    to={l.href}
+                    className="font-serif text-xl md:text-[1.4rem] leading-[1.3] text-v2-ink underline decoration-v2-sage/40 underline-offset-4 hover:decoration-v2-sage transition-colors"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         )}
 
         {/* Newsletter CTA */}

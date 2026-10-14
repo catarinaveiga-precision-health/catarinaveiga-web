@@ -196,6 +196,14 @@ function portableTextToPlain(blocks, maxLength = 160) {
 }
 
 // ── SEO data for every pre-renderable static route ────────────────
+// Titulo curto e descricao por artigo (mesmo ficheiro que o BlogArticle.tsx).
+const BLOG_SEO = JSON.parse(
+  readFileSync(new URL("../src/data/blog-seo.json", import.meta.url), "utf-8")
+);
+// Ler a seguir no fim dos artigos do blog (mesmo ficheiro que o BlogArticle.tsx).
+const LER_A_SEGUIR = JSON.parse(
+  readFileSync(new URL("../src/data/blog-ler-a-seguir.json", import.meta.url), "utf-8")
+);
 // Testemunhos: o texto tem de estar no HTML estatico, e o que os crawlers de IA
 // citam. Fonte unica partilhada com a app (src/data/testemunhos.json).
 const testemunhosData = JSON.parse(
@@ -1121,39 +1129,11 @@ async function main() {
   // A palavra que a distingue de todos os concorrentes, perimenopausa, era
   // precisamente a que desaparecia. Linha de base a 26 ago 2026, 28 dias:
   // 1280 impressoes, 21 cliques, CTR 1,6%, posicao media 7,8. Medir a 30 dias.
-  const SEO_TITLE_CURTO = {
-    "acordar-as-4-da-manha-perimenopausa":
-      "Acordar às 4 da manhã na perimenopausa: porquê",
-    // publicado 2026-08-30 via API (newsletter #1); titulo editorial tem 78 chars
-    "cansaco-em-setembro": "Cansaço em setembro: porquê e o que fazer",
-    "conversao-t4-t3-tsh-normal-cansada":
-      "Conversão T4 em T3: porque estás cansada com TSH normal",
-    // 14/10/2026: refresh das paginas com impressoes e zero cliques (GSC 14/09
-    // a 12/10). Titulos alinhados com o que as pessoas pesquisam, sem travessoes.
-    "glicemia-normal-resistencia-insulina":
-      "Resistência à insulina com glicémia normal: que análise pedir",
-    "nervo-vago-como-ativar-mulher":
-      "Nervo vago na mulher: sinais de tónus baixo e porque não descansas",
-    "colesterol-alto-mulher-causas-hormonais":
-      "Colesterol alto numa mulher que come bem: causas hormonais",
-    "progesterona-baixa-sintomas-fase-lutea":
-      "Progesterona baixa: sinais na fase lútea e no sono",
-    "biomarcadores-analises-normais-mulher":
-      "5 biomarcadores nas tuas análises que ninguém interpretou",
-  };
+  const SEO_TITLE_CURTO = BLOG_SEO.titulos;
 
   // Meta description por slug quando o post nao tem excerto no Sanity. Cada
   // frase resume o que ja esta no corpo do artigo; nada novo.
-  const BLOG_DESC = {
-    "glicemia-normal-resistencia-insulina":
-      "A glicémia normal pode esconder anos de insulina alta. Que análise pedir (insulina em jejum com a glicose), a janela de 2 a 5 µU/mL e o que fazer.",
-    "nervo-vago-como-ativar-mulher":
-      "O nervo vago é o eixo do sistema parassimpático. Sinais de tónus vagal baixo na mulher, o que o baixa na perimenopausa e porque a respiração sozinha não chega.",
-    "colesterol-alto-mulher-causas-hormonais":
-      "Em mulheres, o colesterol sobe muitas vezes por razões hormonais: estrogénio, tiroide e insulina. O que investigar quando a dieta não explica o LDL alto.",
-    "progesterona-baixa-sintomas-fase-lutea":
-      "Irritável, ansiosa e a acordar às 3h nos dias antes do período? Os sinais de progesterona baixa na fase lútea e porque acontecem.",
-  };
+  const BLOG_DESC = BLOG_SEO.descricoes;
 
   // FAQPage JSON-LD por slug. As respostas replicam frases visiveis no corpo
   // do artigo (obrigatorio: o LD tem de refletir conteudo visivel na pagina).
@@ -1281,6 +1261,13 @@ async function main() {
     }
 
     let bodyHtml = portableTextToHtml(post.body);
+    // Ler a seguir (mesmo mapa que o BlogArticle.tsx), visivel sem JS.
+    {
+      const ligacoes = [...(LER_A_SEGUIR.porArtigo[slug] || LER_A_SEGUIR.padrao), LER_A_SEGUIR.consulta];
+      bodyHtml += `<nav aria-label="Ler a seguir" style="margin-top:32px"><p><strong>Ler a seguir</strong></p><ul>${ligacoes
+        .map((l) => `<li><a href="${l.href}" style="color:#4A5957">${escapeHtml(l.label)}</a></li>`)
+        .join("")}</ul></nav>`;
+    }
     // Guia do sono no fim do artigo das 4h, tambem no HTML estatico:
     // a mesma ligacao que o React faz, visivel para crawlers sem JS.
     if (slug === "acordar-as-4-da-manha-perimenopausa") {
