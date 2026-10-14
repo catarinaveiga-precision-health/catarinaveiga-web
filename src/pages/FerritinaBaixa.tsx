@@ -29,6 +29,17 @@ const patterns = [
   { title: "Ferritina baixa + vitamina D baixa", desc: "Padrão de deplecção múltipla em fadiga crónica" },
 ];
 
+// Tabela por valor (14/10/2026, aprovada pela Catarina). As leituras de 15 a
+// 120 repetem frases ja publicadas nesta pagina; o limiar de 15 e o de 70 com
+// inflamacao sao da OMS (eLENA, guideline de 2020).
+const ferritinaPorValor: [string, string, string][] = [
+  ["abaixo de 15", "Défice de ferro", "Reservas esgotadas (é também o limiar da OMS para adultos saudáveis)"],
+  ["15 a 30", "Normal", "Reservas insuficientes"],
+  ["30 a 50", "Normal", "Défice funcional comum"],
+  ["50 a 70", "Normal", "Muitas mulheres já têm sintomas"],
+  ["70 a 120", "Normal", "Intervalo funcional"],
+];
+
 const causes = [
   { title: "Perdas menstruais", desc: "Ciclos abundantes aumentam as necessidades de ferro" },
   { title: "Absorção reduzida", desc: "Permeabilidade intestinal, hipocloridria ou dieta pobre em ferro biodisponível" },
@@ -245,6 +256,45 @@ const FerritinaBaixa = () => {
           clínicas que trabalham com 50 a 100. O tecto de 120 que uso vem da
           minha prática clínica, não de um estudo. Onde há evidência, digo qual
           é. Onde é experiência, digo que é experiência.
+        </p>
+      </SEOContentSection>
+
+      <SEOContentSection
+        label="Por valor"
+        title="A minha ferritina está em 12, 25 ou 50: o que significa?"
+        bg="almond"
+      >
+        <p>
+          O laboratório marca como normal quase tudo o que está acima de 10 ou 15 ng/mL. Esta é a forma como leio cada
+          intervalo numa mulher.
+        </p>
+        <div className="overflow-x-auto -mx-2 px-2">
+          <table className="w-full border-collapse text-[14px] md:text-[15px] leading-[1.45]">
+            <thead>
+              <tr className="border-b border-foreground/20 text-left">
+                <th className="py-3 pr-4 font-medium">Ferritina (ng/mL)</th>
+                <th className="py-3 pr-4 font-medium">O laboratório diz</th>
+                <th className="py-3 font-medium">Como leio numa mulher</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ferritinaPorValor.map(([valor, lab, leitura]) => (
+                <tr key={valor} className="border-b border-foreground/10 align-top">
+                  <td className="py-3 pr-3 md:pr-4 tabular-nums font-medium text-foreground">{valor}</td>
+                  <td className="py-3 pr-4">{lab}</td>
+                  <td className="py-3">{leitura}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Com inflamação, a OMS sobe o limiar do défice para 70, porque a ferritina sobe com a inflamação e mascara a falta
+          de ferro.
+        </p>
+        <p className="text-[13px] text-foreground/60">
+          Fonte dos limiares de 15 e de 70 com inflamação: Organização Mundial da Saúde, WHO guideline on use of ferritin
+          concentrations to assess iron status in individuals and populations, 2020 (resumo eLENA).
         </p>
       </SEOContentSection>
 

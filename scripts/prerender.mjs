@@ -301,6 +301,19 @@ const pages = [
     intro:
       "Muitas mulheres têm ferritina dentro dos valores de referência e hemoglobina normal, e ainda assim apresentam fadiga persistente, queda de cabelo e dificuldade de recuperação. É défice de ferro sem anemia: a hemoglobina mede o ferro em circulação, a ferritina mede as reservas.",
     extraHtml: `
+      <h2>A minha ferritina está em 12, 25 ou 50: o que significa?</h2>
+      <p>O laboratório marca como normal quase tudo o que está acima de 10 ou 15 ng/mL. Esta é a forma como leio cada intervalo numa mulher.</p>
+      <table>
+        <thead><tr><th>Ferritina (ng/mL)</th><th>O laboratório diz</th><th>Como leio numa mulher</th></tr></thead>
+        <tbody>
+          <tr><td>abaixo de 15</td><td>Défice de ferro</td><td>Reservas esgotadas (é também o limiar da OMS para adultos saudáveis)</td></tr>
+          <tr><td>15 a 30</td><td>Normal</td><td>Reservas insuficientes</td></tr>
+          <tr><td>30 a 50</td><td>Normal</td><td>Défice funcional comum</td></tr>
+          <tr><td>50 a 70</td><td>Normal</td><td>Muitas mulheres já têm sintomas</td></tr>
+          <tr><td>70 a 120</td><td>Normal</td><td>Intervalo funcional</td></tr>
+        </tbody>
+      </table>
+      <p>Com inflamação, a OMS sobe o limiar do défice para 70, porque a ferritina sobe com a inflamação e mascara a falta de ferro. Fonte: Organização Mundial da Saúde, guideline sobre o uso da ferritina para avaliar o estado do ferro, 2020.</p>
       <h2>Porque é que a hemoglobina continua normal</h2>
       <p>O corpo não trata todos os tecidos por igual. Quando as reservas de ferro começam a descer, entra num modo de racionamento: retira ferro dos músculos, da tiroide, do folículo piloso e do cérebro para proteger uma única função, a produção de glóbulos vermelhos. É por isso que o hemograma continua a dar normal enquanto tudo o resto começa a falhar. A anemia é o último degrau, não o primeiro.</p>
       <h2>Intervalo laboratorial e intervalo funcional</h2>
@@ -1013,7 +1026,7 @@ const LASTMOD_BLOG_CODIGO = {
 };
 const LASTMOD_ROTAS = {
   "/sobre": "2026-10-06",
-  "/ferritina-baixa-sintomas": "2026-09-03",
+  "/ferritina-baixa-sintomas": "2026-10-14",
   "/insulina-jejum-o-que-significa": "2026-10-05",
   "/consulta-inicial": "2026-10-03",
 };
