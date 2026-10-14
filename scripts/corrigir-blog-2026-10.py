@@ -75,6 +75,15 @@ TROCAS = {
         ("A Dra. Lara Briden, ginecologista e autora de ", "Lara Briden, naturopata e autora de "),
         ("abaixo do funcional (50-70 ng/mL)", "abaixo do funcional (70 a 120 ng/mL)"),
     ],
+    "colesterol-alto-mulher-causas-hormonais": [
+        ("Lipoproteína(a): Lp(a)", "Lipoproteína(a), ou Lp(a)"),
+    ],
+    "nervo-vago-como-ativar-mulher": [
+        ("Sim: directamente.", "Sim, directamente."),
+    ],
+    "analises-normais-sintomas-persistentes": [
+        ("estão a dizer: com os intervalos certos.", "estão a dizer, com os intervalos certos."),
+    ],
     "jejum-intermitente-perimenopausa": [
         ("20 anos de prática clínica", "21 anos de prática clínica"),
         ("Em 20 anos de prática", "Em 21 anos de prática"),
