@@ -770,15 +770,6 @@ const pages = [
       "Esta autoavaliação é educativa. Ajuda-te a chegar à consulta — comigo ou com o teu médico — com perguntas estruturadas. Não substitui avaliação clínica.",
   },
   {
-    path: "/candidatura",
-    title: "Candidatura a Consulta | Catarina Veiga",
-    description:
-      "Candidata-te a uma consulta de medicina funcional integrativa com a Catarina Veiga. Consultas online para Portugal e Brasil.",
-    h1: "Candidatura a Consulta",
-    intro:
-      "Preenche o formulário para seres avaliada para uma consulta de medicina funcional integrativa.",
-  },
-  {
     path: "/v2",
     title: "Catarina Veiga | Saúde Feminina Integrada",
     description:

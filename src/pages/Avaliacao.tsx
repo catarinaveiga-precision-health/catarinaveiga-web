@@ -1396,7 +1396,7 @@ const Avaliacao = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
                 <Button variant="hero" size="lg" asChild>
-                  <a href="/candidatura">Quero investigar as causas</a>
+                  <a href="/consulta-inicial">Quero investigar as causas</a>
                 </Button>
                 <Button
                   variant="outline"

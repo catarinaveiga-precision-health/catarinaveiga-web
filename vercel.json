@@ -127,6 +127,11 @@
       "source": "/programa-fundacao",
       "destination": "/consulta-inicial",
       "permanent": true
+    },
+    {
+      "source": "/candidatura",
+      "destination": "/consulta-inicial",
+      "permanent": true
     }
   ],
   "headers": [

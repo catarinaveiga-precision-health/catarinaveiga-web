@@ -347,7 +347,7 @@ const FinalCTA = () => {
             className="border-ivory/30 text-v2-paper hover:bg-v2-paper hover:text-v2-ink transition-all duration-300 font-sans font-normal tracking-wide"
             asChild
           >
-            <a href="/candidatura">Fazer a triagem gratuita</a>
+            <a href="/consulta-inicial">Conhecer a consulta inicial</a>
           </Button>
         </div>
       </div>

@@ -28,7 +28,7 @@ const Symptoms = () => {
         </p>
         <div className="fade-up text-center">
           <Button variant="hero" size="lg" asChild>
-            <a href="/candidatura">Candidatar-me</a>
+            <a href="/consulta-inicial">Conhecer a consulta inicial</a>
           </Button>
         </div>
       </div>

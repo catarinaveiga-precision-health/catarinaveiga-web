@@ -12,7 +12,6 @@ import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import TermosUtilizacao from "./pages/TermosUtilizacao";
 import BlogPage from "./pages/BlogPage";
 import BlogArticle from "./pages/BlogArticle";
-import Candidatura from "./pages/Candidatura";
 import Metodo from "./pages/Metodo";
 import SobreNova from "./pages/SobreV3";
 import Avaliacao from "./pages/Avaliacao";
@@ -52,7 +51,6 @@ const App = () => (
             <Route path="/" element={<IndexV3 />} />
             <Route path="/v2" element={<IndexV2 />} />
             <Route path="/consulta-inicial" element={<ConsultaInicial />} />
-            <Route path="/candidatura" element={<Candidatura />} />
             <Route path="/metodo" element={<Metodo />} />
             <Route path="/sobre" element={<SobreNova />} />
             <Route path="/avaliacao" element={<Avaliacao />} />
