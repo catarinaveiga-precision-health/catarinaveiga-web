@@ -1392,7 +1392,7 @@ const Avaliacao = () => {
                 Os teus exames contam uma história.<br />Queres ouvi-la?
               </h2>
               <p className="text-v2-paper/70 font-sans text-sm max-w-md mx-auto leading-relaxed">
-                Se identificaste padrões nos teus biomarcadores, o próximo passo é uma avaliação funcional personalizada com a nossa equipa clínica.
+                Se identificaste padrões nos teus biomarcadores, o próximo passo é a consulta inicial: 90 minutos comigo, para os lermos em conjunto com a tua história.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
                 <Button variant="hero" size="lg" asChild>
