@@ -24,6 +24,21 @@
       "permanent": true
     },
     {
+      "source": "/pequenos-almocos-ricos-em-proteina-comeca-o-dia-com-energia-e-saude",
+      "destination": "/pequenos-almocos-ricos-em-proteina",
+      "permanent": true
+    },
+    {
+      "source": "/pequeno-almocos-ricos-em-proteina",
+      "destination": "/pequenos-almocos-ricos-em-proteina",
+      "permanent": true
+    },
+    {
+      "source": "/pequeno-almoco-proteico-por-qu-quanto-e-o-que-comer",
+      "destination": "/pequenos-almocos-ricos-em-proteina",
+      "permanent": true
+    },
+    {
       "source": "/equipa",
       "destination": "/sobre",
       "permanent": true

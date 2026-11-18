@@ -277,10 +277,6 @@ const pages = [
         q: "Que sintomas aparecem com mais frequência com exames normais?",
         a: "Os mais frequentes são fadiga que não melhora com descanso, sono fragmentado (sobretudo acordar entre as 3h e as 5h), ansiedade nova ou agravada, alterações do ciclo menstrual, queda de cabelo, nevoeiro mental, aumento de peso sem alteração de dieta e intolerância ao frio. Em perimenopausa, é comum vários destes surgirem em simultâneo.",
       },
-      {
-        q: "Isto substitui o acompanhamento médico?",
-        a: "Não. A medicina funcional integrativa é complementar e trabalha em articulação com a medicina convencional: o médico de família e os especialistas continuam a acompanhar, e a leitura funcional soma-se a esse acompanhamento.",
-      },
     ],
   },
   // Homepage (v2) · vende a Consulta Inicial (€120)
@@ -510,7 +506,7 @@ const pages = [
       },
       {
         q: "Quando devo falar com um médico em vez de esperar?",
-        a: "Sempre que houver sinais que exigem avaliação médica: sangramentos muito abundantes ou prolongados, sangramento depois de mais de um ano sem menstruação, dor incaracterística ou qualquer sintoma agudo que te preocupe. O trabalho de medicina funcional integrativa é complementar ao acompanhamento médico, não substituto: não inclui diagnóstico nem prescrição, e as situações que exigem médico são sinalizadas e encaminhadas com clareza.",
+        a: "Sempre que houver sinais que exigem avaliação médica: sangramentos muito abundantes ou prolongados, sangramento depois de mais de um ano sem menstruação, dor incaracterística ou qualquer sintoma agudo que te preocupe.",
       },
     ],
   },
@@ -764,10 +760,10 @@ const pages = [
     path: "/avaliacao",
     title: "Autoavaliação · Catarina Veiga",
     description:
-      "Esta autoavaliação é educativa. Ajuda-te a chegar à consulta — comigo ou com o teu médico — com perguntas estruturadas. Não substitui avaliação clínica.",
+      "Autoavaliação gratuita com mais de 15 biomarcadores lidos com intervalos funcionais. Ajuda-te a chegar à consulta — comigo ou com o teu médico — com perguntas estruturadas.",
     h1: "Os teus exames estão normais. O teu corpo não.",
     intro:
-      "Esta autoavaliação é educativa. Ajuda-te a chegar à consulta — comigo ou com o teu médico — com perguntas estruturadas. Não substitui avaliação clínica.",
+      "Autoavaliação gratuita com mais de 15 biomarcadores lidos com intervalos funcionais. Ajuda-te a chegar à consulta — comigo ou com o teu médico — com perguntas estruturadas.",
   },
   {
     path: "/v2",
@@ -818,6 +814,9 @@ const pages = [
     h1: "Aviso Legal",
     intro:
       "Identificação do responsável pelo website, âmbito dos serviços de Medicina Tradicional Chinesa e limitações de responsabilidade.",
+    // noindex (18/11): continua a responder 200 e acessivel pelo rodape, mas
+    // fora do Google e das respostas de IA, que citavam os avisos desta pagina.
+    noindex: true,
   },
   {
     path: "/politica-privacidade",
@@ -827,6 +826,7 @@ const pages = [
     h1: "Política de Privacidade",
     intro:
       "Como são recolhidos, tratados e protegidos os teus dados pessoais neste website, em conformidade com o Regulamento Geral de Protecção de Dados.",
+    noindex: true,
   },
   {
     path: "/guia-sono",
@@ -845,13 +845,39 @@ const pages = [
     h1: "Termos de Utilização",
     intro:
       "Condições de utilização do website e dos serviços de telemedicina associados.",
+    noindex: true,
   },
 ];
 
 // ── Helper: generate the HTML for one route ──────────────────────
 const OG_IMAGE_DEFAULT = "https://www.catarinaveiga.com/og-default.jpg";
 
+// ── Corpo completo das paginas React ─────────────────────────────
+// As paginas sao client-side: sem JavaScript (crawlers de IA como GPTBot,
+// ClaudeBot ou PerplexityBot) so se via titulo, intro e FAQ. Cada ficheiro
+// scripts/prerender-bodies/<rota>.html e o corpo da pagina em HTML semantico
+// (h2/h3/p/ul/table), SEM h1 e SEM FAQ (esses entram por generatePage).
+// Quando existe, substitui o extraHtml da rota se tiver mais texto.
+// Atualizar: editar o ficheiro quando o texto da pagina React mudar.
+const BODIES_DIR = join(__dirname, "prerender-bodies");
+const countWords = (html) =>
+  String(html || "").replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+
+function loadBody(path, intro) {
+  const slug = path.replace(/^\//, "");
+  if (!slug) return null;
+  const file = join(BODIES_DIR, `${slug}.html`);
+  if (!existsSync(file)) return null;
+  let html = readFileSync(file, "utf-8").trim();
+  // A intro ja entra em generatePage: tirar a copia do snapshot
+  if (intro) html = html.replace(`<p>${escapeHtml(intro)}</p>`, "");
+  return html;
+}
+
 function generatePage({ path, title, description, h1, intro, ogImage, bodyHtml, noindex, article, faq, extraHtml, jsonLd }) {
+  const snapshot = loadBody(path, intro);
+  if (snapshot && countWords(snapshot) > countWords(extraHtml)) extraHtml = snapshot;
+
   // Escapar aspas: title/description entram em atributos HTML
   title = String(title).replace(/"/g, "&quot;");
   description = String(description).replace(/"/g, "&quot;");
@@ -1035,6 +1061,22 @@ const LASTMOD_ROTAS = {
   "/ferritina-baixa-sintomas": "2026-10-14",
   "/insulina-jejum-o-que-significa": "2026-10-05",
   "/consulta-inicial": "2026-10-03",
+  // 18/11: o HTML estatico passou a incluir o corpo completo (prerender-bodies).
+  // Mudou o que os rastreadores veem, nao o texto da pagina.
+  "/pequenos-almocos-ricos-em-proteina": "2026-11-18",
+  "/vitamina-d-valores-funcionais": "2026-11-18",
+  "/fadiga-exames-normais": "2026-11-18",
+  "/exames-normais-mas-sintomas": "2026-11-18",
+  "/segunda-opiniao-analises-normais": "2026-11-18",
+  "/perimenopausa-sintomas": "2026-11-18",
+  "/tsh-normal-mas-com-sintomas": "2026-11-18",
+  "/medicina-funcional": "2026-11-18",
+  "/metodo": "2026-11-18",
+  "/recursos": "2026-11-18",
+  "/guia-saciedade": "2026-11-18",
+  "/guia-sono": "2026-11-18",
+  "/aletheia": "2026-11-18",
+  "/english-consultations": "2026-11-18",
 };
 const dataMaisRecente = (...ds) => ds.filter(Boolean).map((d) => String(d).split("T")[0]).sort().pop();
 

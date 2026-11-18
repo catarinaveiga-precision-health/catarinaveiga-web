@@ -80,7 +80,7 @@ const ContrastBlock = () => {
     <section ref={ref} className="bg-v2-paper-deep section-padding">
       <div className="max-w-4xl mx-auto">
         <h2 className="fade-up font-serif text-4xl md:text-5xl text-v2-ink text-center mb-14">
-          Não é o mesmo que ir ao médico. Mas não substitui.
+          Não é o mesmo que ir ao médico.
         </h2>
         <div className="grid md:grid-cols-2 gap-6 mb-10">
           <div className="fade-up bg-v2-paper rounded-[24px] p-8">
@@ -101,7 +101,7 @@ const ContrastBlock = () => {
           </div>
         </div>
         <p className="fade-up text-center text-v2-ink-mute text-[15px] italic">
-          Trabalho sempre em articulação com o teu médico, nunca em substituição.
+          Trabalho sempre em articulação com o teu médico.
         </p>
       </div>
     </section>
@@ -294,7 +294,7 @@ const faqItems = [
   },
   {
     q: "Trabalha em articulação com o meu médico?",
-    a: "Sim, sempre. Não substituo cuidados médicos. Acrescento investigação funcional que o sistema convencional não tem capacidade de fazer com o detalhe que o teu caso requer.",
+    a: "Sim, sempre. Acrescento investigação funcional que o sistema convencional não tem capacidade de fazer com o detalhe que o teu caso requer.",
   },
   {
     q: "O que são intervalos de referência funcionais?",

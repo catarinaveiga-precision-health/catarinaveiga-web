@@ -180,7 +180,8 @@ export const FooterV2 = () => {
           </ul>
         </div>
 
-        <p className="mt-12 text-center font-sans text-body-sm-v2 italic text-v2-ink-mute/80 max-w-[64ch] mx-auto leading-[1.55]">
+        {/* So para visitantes: desenhado no browser e data-nosnippet (ver LegalBand) */}
+        <p data-nosnippet="" className="mt-12 text-center font-sans text-body-sm-v2 italic text-v2-ink-mute/80 max-w-[64ch] mx-auto leading-[1.55]">
           Conteúdo deste website tem natureza educativa e informativa. Não
           substitui consulta médica, diagnóstico ou tratamento.
         </p>

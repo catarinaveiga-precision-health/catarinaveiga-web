@@ -144,9 +144,9 @@ const MedicinaFuncional = () => {
         bg="almond"
       />
 
-      <SEOContentSection label="Complementaridade" title="Diferença entre medicina funcional e medicina convencional" bg="light">
+      <SEOContentSection label="Diferenças" title="Diferença entre medicina funcional e medicina convencional" bg="light">
         <p>
-          A medicina funcional não substitui a medicina convencional. Complementa-a. Actua numa zona diferente: os sintomas que existem antes do diagnóstico estabelecido. O trabalho é sempre documentado e partilhável com o médico de família ou especialista.
+          A medicina funcional actua numa zona diferente da medicina convencional: os sintomas que existem antes do diagnóstico estabelecido. O trabalho é sempre documentado e partilhável com o médico de família ou especialista.
         </p>
         <p>
           <a href="/medicina-funcional-vs-convencional" className="underline underline-offset-4">

@@ -94,9 +94,6 @@ const SEOCalculator = ({ label, title, intro, fields, onCalculate, bg = "light" 
           )}
         </div>
 
-        <p className="font-sans text-[11px] text-foreground/25 mt-8">
-          Leitura educativa. Não constitui diagnóstico médico.
-        </p>
       </div>
     </section>
   );

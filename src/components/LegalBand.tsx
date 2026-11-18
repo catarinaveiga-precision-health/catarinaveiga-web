@@ -4,7 +4,10 @@ const LegalBand = () => {
   const { t } = useLanguage();
   return (
     <section className="bg-v2-moss py-6 px-6">
-      <p className="text-center text-v2-paper/60 text-xs max-w-4xl mx-auto leading-relaxed mb-4">
+      {/* Aviso so para visitantes: e desenhado pelo React no browser (nao entra
+          no HTML pre-renderizado nem no llms.txt, que e o que os bots de IA
+          leem) e data-nosnippet tira-o dos snippets e resumos de IA do Google. */}
+      <p data-nosnippet="" className="text-center text-v2-paper/60 text-xs max-w-4xl mx-auto leading-relaxed mb-4">
         {t("legal.text")}
       </p>
       <div className="flex justify-center">
