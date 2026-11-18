@@ -37,9 +37,6 @@ const SEOCTA = ({
         {note && (
           <p className="font-sans text-white/30 text-xs mt-6">{note}</p>
         )}
-        <p className="font-sans text-white/20 text-[11px] mt-10 max-w-xl mx-auto leading-relaxed">
-          Esta página tem fins educativos e não constitui diagnóstico médico.
-        </p>
       </div>
     </section>
   );

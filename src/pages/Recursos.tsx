@@ -454,9 +454,6 @@ const Recursos = () => {
             <p className="font-sans text-white/25 text-[11px] mt-6">
               Gratuita · 17 biomarcadores · leitura imediata
             </p>
-            <p className="font-sans text-white/15 text-[11px] mt-10 max-w-xl mx-auto leading-relaxed">
-              Esta página tem fins educativos e não constitui diagnóstico médico.
-            </p>
           </div>
         </section>
       </main>

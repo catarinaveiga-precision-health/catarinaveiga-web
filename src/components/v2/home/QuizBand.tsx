@@ -40,8 +40,7 @@ export const QuizBand = () => (
             </Link>
           </div>
           <p className="mt-5 font-sans text-body-sm-v2 text-v2-ink-mute/80">
-            Educativa, não substitui avaliação clínica. Podes levá-la à
-            consulta, comigo ou com o teu médico.
+            Podes levá-la à consulta, comigo ou com o teu médico.
           </p>
         </div>
       </FadeUp>

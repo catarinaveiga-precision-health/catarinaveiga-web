@@ -225,8 +225,7 @@ const GuiaSono = () => {
           <Container size="prose" className="text-center">
             <FadeUp>
               <p className="font-serif italic text-body-lg-v2 text-v2-ink-mute leading-[1.6] max-w-[56ch] mx-auto">
-                Este guia é educativo e não substitui avaliação clínica. Se ao
-                fim das 4 semanas os despertares continuarem, o problema
+                Se ao fim das 4 semanas os despertares continuarem, o problema
                 raramente é o sono: é o que está por trás dele. É aí que entra
                 a consulta.
               </p>

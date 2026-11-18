@@ -316,7 +316,7 @@ const ConsultaInicial = () => (
           Onde é que isto <em>encaixa</em>
         </h2>
         <p style={{ marginTop: 20, color: "var(--ink-soft)" }}>
-          Não substitui o seu médico. Faz outra coisa.
+          Faz uma coisa diferente de uma consulta de rotina.
         </p>
         <div className="matrix-wrap">
           <table>

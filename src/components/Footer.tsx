@@ -88,7 +88,8 @@ const Footer = () => {
             <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" rel="noopener noreferrer" className="hover:text-ivory/60 transition-colors">Livro de Reclamações</a>
           </div>
         </div>
-        <p className="text-center text-[11px] text-ivory/30 mt-4 max-w-2xl mx-auto leading-relaxed">
+        {/* So para visitantes: desenhado no browser e data-nosnippet (ver LegalBand) */}
+        <p data-nosnippet="" className="text-center text-[11px] text-ivory/30 mt-4 max-w-2xl mx-auto leading-relaxed">
           Esta prática não substitui acompanhamento médico convencional nem inclui atos médicos reservados. Informação de carácter educativo. Não substitui avaliação médica, diagnóstico ou tratamento. Consulte sempre um profissional de saúde qualificado.
         </p>
       </div>
