@@ -5,6 +5,7 @@ import { ArticleLeadMagnetCTA } from "@/components/v2/leadmagnet/ArticleLeadMagn
 import guiaSonoCapa from "@/assets/guia-sono-capa.jpg";
 import lerASeguir from "@/data/blog-ler-a-seguir.json";
 import blogSeo from "@/data/blog-seo.json";
+import blogVideos from "@/data/blog-videos.json";
 import LegalBand from "@/components/LegalBand";
 import { FooterV2 } from "@/components/v2/layout/FooterV2";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -281,6 +282,27 @@ const BlogArticle = () => {
             </a>
           </div>
         </div>
+
+        {/* Vídeo do artigo (2026-11-18): resumo animado, vertical e sem som.
+            Os ficheiros estão em public/videos/<slug>.mp4 e .jpg; o mapa em
+            src/data/blog-videos.json diz que artigos têm vídeo. */}
+        {slug && (blogVideos as Record<string, { duracao: string }>)[slug] && (
+          <figure className="mb-12 mx-auto max-w-[320px]">
+            <video
+              controls
+              playsInline
+              muted
+              preload="none"
+              poster={`/videos/${slug}.jpg`}
+              className="w-full aspect-[9/16] rounded-2xl bg-v2-paper-deep ring-1 ring-v2-paper-line"
+            >
+              <source src={`/videos/${slug}.mp4`} type="video/mp4" />
+            </video>
+            <figcaption className="mt-3 text-center font-sans text-[13px] text-v2-ink-mute">
+              O artigo em vídeo · {(blogVideos as Record<string, { duracao: string }>)[slug].duracao}, sem som
+            </figcaption>
+          </figure>
+        )}
 
         {/* Article body — Portable Text */}
         <div className="text-v2-ink-mute text-[16px] leading-relaxed mb-16">
