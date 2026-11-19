@@ -18,6 +18,17 @@ import { PortableText } from "@portabletext/react";
 import type { PortableTextComponents } from "@portabletext/react";
 import { Helmet } from "react-helmet-async";
 import { extractFaqFromBody, buildFaqJsonLd } from "@/lib/extractFaqFromBody";
+import avisosSoLeitores from "@/data/avisos-so-leitores.json";
+
+// Avisos que so os leitores veem: fora do HTML dos bots (scripts/prerender.mjs)
+// e com data-nosnippet aqui, para o Google nao os usar em snippets nem resumos.
+const AVISOS_LEITORES = avisosSoLeitores.regras.map((r) => new RegExp(r.p));
+const textoDoBloco = (value: { children?: unknown[] }) =>
+  (value.children || [])
+    .map((c) => (typeof (c as { text?: unknown }).text === "string" ? (c as { text: string }).text : ""))
+    .join("");
+const eAvisoLeitores = (value: { children?: unknown[] }) =>
+  AVISOS_LEITORES.some((re) => re.test(textoDoBloco(value)));
 
 const portableTextComponents: PortableTextComponents = {
   block: {
@@ -27,9 +38,12 @@ const portableTextComponents: PortableTextComponents = {
     h3: ({ children }) => (
       <h3 className="font-serif text-xl md:text-2xl text-v2-ink mt-8 mb-3">{children}</h3>
     ),
-    normal: ({ children }) => (
-      <p className="my-4 leading-relaxed">{children}</p>
-    ),
+    normal: ({ children, value }) =>
+      eAvisoLeitores(value) ? (
+        <p data-nosnippet="" className="my-4 leading-relaxed">{children}</p>
+      ) : (
+        <p className="my-4 leading-relaxed">{children}</p>
+      ),
     blockquote: ({ children }) => (
       <blockquote className="border-l-2 border-v2-golden pl-6 italic text-v2-ink/80 my-8 text-lg">
         {children}

@@ -1,0 +1,8 @@
+{
+  "_nota": "Avisos dos artigos do blog que so os leitores veem (decisao de 18/11/2026). O scripts/prerender.mjs tira estas frases do HTML estatico que os bots de IA leem; o BlogArticle.tsx mostra-as no browser com data-nosnippet. Cada regra: p = expressao regular (flag g), r = texto que fica no HTML dos bots.",
+  "regras": [
+    { "p": "Nota: este artigo tem fins informativos[^.]*\\.\\s*(Não constitui[^.]*\\.\\s*)?", "r": "" },
+    { "p": "Este (artigo|texto) (é educativo|tem carácter educativo|tem fins informativos|tem finalidade informativa|não substitui)[^.]*\\.\\s*", "r": "" },
+    { "p": "A interpretação funcional não substitui a avaliação clínica\\.\\s*Mas pode", "r": "A interpretação funcional pode" }
+  ]
+}
