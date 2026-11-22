@@ -91,6 +91,19 @@ async function fetchSanityPostsWithToken() {
   return data.result || [];
 }
 
+// ── Avisos so para leitores (src/data/avisos-so-leitores.json) ────
+// As frases saem do HTML estatico (bots de IA); o BlogArticle.tsx mostra-as
+// no browser com data-nosnippet. Devolve o texto limpo, ou null se nao mudou.
+const AVISOS_LEITORES = JSON.parse(
+  readFileSync(new URL("../src/data/avisos-so-leitores.json", import.meta.url), "utf-8")
+).regras.map((r) => ({ re: new RegExp(r.p, "g"), r: r.r }));
+
+function semAvisosLeitores(plain) {
+  let t = plain;
+  for (const { re, r } of AVISOS_LEITORES) t = t.replace(re, r);
+  return t === plain ? null : t.trim();
+}
+
 // ── Portable Text to HTML converter (simplified for crawlers) ─────
 function portableTextToHtml(blocks) {
   if (!blocks || !Array.isArray(blocks)) return "";
@@ -110,6 +123,14 @@ function portableTextToHtml(blocks) {
       (block.markDefs || []).forEach((d) => {
         defs[d._key] = d;
       });
+
+      // Aviso so para leitores: sai do HTML dos bots (bloco vazio sai inteiro)
+      const limpo = semAvisosLeitores((block.children || []).map((c) => c.text || "").join(""));
+      if (limpo !== null) {
+        closeList();
+        if (limpo) out.push(`<p>${escapeHtml(limpo)}</p>`);
+        continue;
+      }
 
       const text = (block.children || [])
         .map((child) => {
